@@ -38,12 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Oppdater visningen av navnefelt avhengig av antall spillere
     playerCountSelect.addEventListener('change', () => {
         const count = parseInt(playerCountSelect.value, 10);
-        Array.from(playerNamesDiv.querySelectorAll('input')).forEach((input, idx) => {
-            if (idx < count) {
-                input.parentElement.style.display = 'block';
-            } else {
-                input.parentElement.style.display = 'none';
-            }
+        Array.from(playerNamesDiv.querySelectorAll('.player-name-field')).forEach((div, idx) => {
+            div.style.display = idx < count ? 'block' : 'none';
         });
     });
 
@@ -81,13 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const guessVal = parseInt(guessField.value, 10);
         if (isNaN(guessVal)) {
             feedback.textContent = 'Skriv inn et gyldig tall.';
+            guessField.focus();
             return;
         }
         if (guessVal < 0 || guessVal > maxNumber) {
             feedback.textContent = `Tallet må være mellom 0 og ${maxNumber}.`;
+            guessField.focus();
             return;
         }
         handleGuess(guessVal);
+        guessField.focus();
     });
 
     // Neste runde
@@ -99,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             endGame();
         } else {
             startRound();
+            guessField.focus();
         }
     });
 
@@ -122,6 +122,13 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTurnInfo();
         guessField.value = '';
         guessField.focus();
+        // Sørg for at Enter i guessField også trykker på Gjett
+        guessField.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                guessButton.click();
+            }
+        });
     }
 
     // Oppdater informasjon om hvilken spiller som har tur
