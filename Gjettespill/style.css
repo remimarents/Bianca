@@ -37,6 +37,7 @@ body {
 body {
     position: relative;
     padding: 24px 16px 56px;
+    overflow-x: hidden;
 }
 
 .page-glow {
@@ -90,6 +91,19 @@ body {
     padding: 28px;
     align-items: center;
     overflow: hidden;
+    position: relative;
+}
+
+.hero-card::before {
+    content: "? 234 457";
+    position: absolute;
+    right: 28px;
+    bottom: -8px;
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
 }
 
 .hero-copy h1,
@@ -175,6 +189,8 @@ body {
 
 .panel {
     padding: 24px;
+    position: relative;
+    overflow: hidden;
 }
 
 .panel-heading p {
@@ -186,6 +202,12 @@ body {
     display: grid;
     gap: 18px;
     margin-top: 18px;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
 }
 
 .field-group,
@@ -312,6 +334,17 @@ button:disabled {
     pointer-events: none;
 }
 
+.score-panel::after,
+#highscoresSection::after {
+    content: "";
+    position: absolute;
+    inset: -40px auto auto -40px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(87, 214, 255, 0.14), transparent 68%);
+    pointer-events: none;
+}
+
 .guess-input {
     display: flex;
     flex-wrap: wrap;
@@ -336,6 +369,8 @@ button:disabled {
 .table-wrap {
     overflow-x: auto;
     margin-top: 18px;
+    position: relative;
+    z-index: 1;
 }
 
 table {
@@ -438,6 +473,10 @@ tbody tr.active-player {
         grid-template-columns: 1fr;
     }
 
+    .field-row {
+        grid-template-columns: 1fr;
+    }
+
     .game-topbar {
         align-items: flex-start;
         flex-direction: column;
@@ -462,6 +501,12 @@ tbody tr.active-player {
 
     .hero-copy h1 {
         font-size: 2.1rem;
+    }
+
+    .hero-card::before {
+        right: 12px;
+        bottom: 12px;
+        font-size: 3rem;
     }
 
     .guess-input {
