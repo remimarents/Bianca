@@ -35,6 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let confettiParticles = [];
     let confettiAnimationId = null;
 
+    guessField.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            guessButton.click();
+        }
+    });
+
     // Oppdater visningen av navnefelt avhengig av antall spillere
     playerCountSelect.addEventListener('change', () => {
         const count = parseInt(playerCountSelect.value, 10);
@@ -122,13 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTurnInfo();
         guessField.value = '';
         guessField.focus();
-        // Sørg for at Enter i guessField også trykker på Gjett
-        guessField.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                guessButton.click();
-            }
-        });
     }
 
     // Oppdater informasjon om hvilken spiller som har tur
@@ -140,9 +140,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Oppdater resultattabellen underveis
     function updateScoreTable() {
         scoreTableBody.innerHTML = '';
-        players.forEach(player => {
+        players.forEach((player, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `<td>${player.name}</td><td>${player.roundAttempts}</td><td>${player.totalAttempts}</td><td>${player.wins}</td>`;
+            if (index === currentPlayerIndex) {
+                row.classList.add('active-player');
+            }
             scoreTableBody.appendChild(row);
         });
     }
@@ -174,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function advanceTurn() {
         currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
         updateTurnInfo();
+        updateScoreTable();
     }
 
     // Avslutt spillet og vis resultater
@@ -223,6 +227,11 @@ document.addEventListener('DOMContentLoaded', () => {
             li.textContent = `${entry.name}: ${entry.wins} riktige, ${entry.attempts} forsøk`;
             highscoreList.appendChild(li);
         });
+        if (!stored.length) {
+            const li = document.createElement('li');
+            li.textContent = 'Ingen highscores ennå. Start første runde og sett standarden.';
+            highscoreList.appendChild(li);
+        }
     }
 
     // Confetti-funksjoner
