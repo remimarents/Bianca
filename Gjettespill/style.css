@@ -206,8 +206,9 @@ body {
 
 .field-row {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(180px, 220px));
     gap: 16px;
+    justify-content: start;
 }
 
 .field-group,
@@ -218,8 +219,9 @@ body {
 
 .player-name-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(220px, 360px));
     gap: 16px;
+    justify-content: start;
 }
 
 label {
