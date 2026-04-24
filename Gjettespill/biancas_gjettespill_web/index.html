@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biancas Gjettespill</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main id="setup" class="screen">
+        <h1>Biancas Gjettespill</h1>
+        <p class="subtitle">Velg spillere, øvre grense og antall runder</p>
+        <form id="setupForm">
+            <label for="playerCount">Antall spillere (1–4):</label>
+            <select id="playerCount" name="playerCount">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <div id="playerNames">
+                <div class="player-name-field"><label>Spiller 1:</label><input type="text" id="player1" value="Bianca" /></div>
+                <div class="player-name-field"><label>Spiller 2:</label><input type="text" id="player2" value="Spiller 2" /></div>
+                <div class="player-name-field"><label>Spiller 3:</label><input type="text" id="player3" value="Spiller 3" /></div>
+                <div class="player-name-field"><label>Spiller 4:</label><input type="text" id="player4" value="Spiller 4" /></div>
+            </div>
+            <label for="maxNumber">Øvre grense (5–999 999):</label>
+            <input type="number" id="maxNumber" min="5" max="999999" value="457" />
+            <label for="rounds">Antall runder (1–20):</label>
+            <input type="number" id="rounds" min="1" max="20" value="3" />
+            <button type="submit" class="primary">Start spillet</button>
+        </form>
+    </main>
+
+    <main id="game" class="screen" style="display:none;">
+        <h2 id="roundInfo"></h2>
+        <p id="turnInfo"></p>
+        <div class="guess-input">
+            <input type="number" id="guessField" placeholder="Skriv tallet ditt" />
+            <input type="number" id="guessField" placeholder="Skriv tallet ditt" maxlength="4" class="guess-input-field" />
+            <button id="guessButton">Gjett</button>
+        </div>
+        <p id="feedback"></p>
+        <table id="scoreTable">
+            <thead>
+                <tr>
+                    <th>Spiller</th>
+                    <th>Forsøk runden</th>
+                    <th>Totale forsøk</th>
+                    <th>Vinnende runder</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+
+    <div id="overlay" class="overlay" style="display:none;">
+        <div class="overlay-content">
+            <h2 id="overlayTitle">Riktig!</h2>
+            <p id="overlayMessage"></p>
+            <button id="nextRoundButton" class="primary">Neste runde</button>
+        </div>
+    </div>
+
+    <main id="gameOver" class="screen" style="display:none;">
+        <h2>Spillet er ferdig!</h2>
+        <p id="finalMessage"></p>
+        <table id="finalScoreTable">
+            <thead>
+                <tr>
+                    <th>Spiller</th>
+                    <th>Totale forsøk</th>
+                    <th>Vinnende runder</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <section id="highscoresSection">
+            <h3>Highscore</h3>
+            <ul id="highscoreList"></ul>
+        </section>
+        <button id="restartButton" class="primary">Ny runde</button>
+    </main>
+
+    <!-- Confetti canvas -->
+    <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;display:none;"></canvas>
+
+    <script src="game.js"></script>
+</body>
+</html>
