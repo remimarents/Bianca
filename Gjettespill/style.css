@@ -204,6 +204,64 @@ body {
     margin-top: 18px;
 }
 
+.share-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: 24px;
+    align-items: center;
+}
+
+.share-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.share-links a,
+.share-links span {
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.share-links a:hover {
+    border-color: rgba(87, 214, 255, 0.5);
+    color: var(--accent-cyan);
+}
+
+.qr-card {
+    display: grid;
+    gap: 12px;
+    justify-items: center;
+    padding: 18px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.qr-card p {
+    margin: 0;
+    color: var(--text-soft);
+    line-height: 1.5;
+}
+
+.qr-image {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 18px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
 .field-row {
     display: grid;
     grid-template-columns: repeat(3, minmax(180px, 220px));
@@ -470,6 +528,7 @@ tbody tr.active-player {
 
 @media (max-width: 860px) {
     .hero-card,
+    .share-panel,
     .game-grid,
     .results-grid {
         grid-template-columns: 1fr;
