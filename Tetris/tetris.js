@@ -17,10 +17,18 @@ for (const name of EFFECT_NAMES) {
   effectCache.set(name, audio);
 }
 
-const music = new Audio('assets/audio/music_loop.wav');
-music.loop = true;
-music.preload = 'auto';
-music.volume = 0.35;
+
+const musicLevel1 = new Audio('assets/audio/music_loop_level1.wav');
+musicLevel1.loop = true;
+musicLevel1.preload = 'auto';
+musicLevel1.volume = 0.35;
+
+const musicLevelHigh = new Audio('assets/audio/music_loop_level_high.wav');
+musicLevelHigh.loop = true;
+musicLevelHigh.preload = 'auto';
+musicLevelHigh.volume = 0.35;
+
+let currentMusic = null;
 
 let audioUnlocked = false;
 let soundEnabled = true;
@@ -72,22 +80,34 @@ function playEffect(name) {
   audio.play().catch(() => {});
 }
 
-function playMusic() {
+
+function getMusicForLevel(level) {
+  return level >= 10 ? musicLevelHigh : musicLevel1;
+}
+
+function playMusic(level = 1) {
   if (!audioUnlocked || !musicEnabled) {
     return;
   }
 
-  if (music.paused) {
-    music.play().catch(() => {});
+  const nextMusic = getMusicForLevel(level);
+  if (currentMusic && currentMusic !== nextMusic) {
+    currentMusic.pause();
+    currentMusic.currentTime = 0;
+  }
+  currentMusic = nextMusic;
+  if (currentMusic.paused) {
+    currentMusic.play().catch(() => {});
   }
 }
 
 function stopMusic() {
-  if (!music.paused) {
-    music.pause();
+  if (currentMusic && !currentMusic.paused) {
+    currentMusic.pause();
   }
-
-  music.currentTime = 0;
+  if (currentMusic) {
+    currentMusic.currentTime = 0;
+  }
 }
 
 soundButton.addEventListener('click', () => {
@@ -114,9 +134,10 @@ musicButton.addEventListener('click', () => {
 
 refreshButtons();
 
+
 const game = new TetrisGame({
   playEffect,
-  playMusic,
+  playMusic: (level) => playMusic(level ?? game.level),
   stopMusic,
 });
 
@@ -126,12 +147,19 @@ setupControls(game, {
 
 let lastTime = 0;
 
+
+let lastLevel = 1;
 function gameLoop(time) {
   const dt = Math.min((time - lastTime) / 1000, 0.05);
   lastTime = time;
 
   game.update(dt);
   game.draw(ctx);
+
+  if (game.level !== lastLevel) {
+    playMusic(game.level);
+    lastLevel = game.level;
+  }
 
   requestAnimationFrame(gameLoop);
 }
