@@ -1,0 +1,25 @@
+body {
+  background: #fff6fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+#tetris-logo {
+  max-width: 420px;
+  width: 60vw;
+  margin-bottom: 18px;
+  display: block;
+}
+#tetris {
+  box-shadow: 0 8px 32px rgba(87,73,104,0.18);
+  border-radius: 18px;
+  background: #fff;
+}
+@media (max-width: 900px) {
+  #tetris-logo {
+    display: none;
+  }
+}
