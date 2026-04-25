@@ -1,3 +1,24 @@
+  // Lydklasse for Tetris-lyder
+  class TetrisSound {
+    constructor() {
+      this.sounds = {
+        drop: new Audio('assets/drop.wav'),
+        move: new Audio('assets/move.wav'),
+        rotate: new Audio('assets/rotate.wav'),
+        clear: new Audio('assets/clear.wav'),
+        gameover: new Audio('assets/game_over.wav'),
+      };
+      for (const s of Object.values(this.sounds)) {
+        s.load();
+      }
+    }
+    play(name) {
+      if (this.sounds[name]) {
+        this.sounds[name].currentTime = 0;
+        this.sounds[name].play();
+      }
+    }
+  }
   // --- Avslutt-funksjonalitet ---
   showExit = false;
   showExitScreen() {
@@ -111,6 +132,7 @@ class Tetromino {
 
 export class TetrisGame {
   constructor() {
+    this.sound = new TetrisSound();
     this.reset();
     this.awaitingName = false;
     this.nameInput = '';
