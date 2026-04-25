@@ -132,25 +132,8 @@ export class TetrisGame {
   _triggerGameOver() {
     if (!this.gameOver) {
       this.gameOver = true;
-    export class TetrisGame {
-      constructor(audioCallbacks = {}) {
-        this.audioCallbacks = audioCallbacks;
-        this.reset();
-        this.awaitingName = false;
-        this.nameInput = '';
-        this.newHighscore = false;
-        this.savedScore = false;
-        this.scoreTable = getHighscores();
-        this.softDrop = false;
-        this.moveHold = { left: 0, right: 0 };
-        this.dropTimer = 0;
-        this.sparklePhase = 0;
-        if (this.audioCallbacks.playMusic) this.audioCallbacks.playMusic();
-      }
-    this.scoreTable = saveHighscore(this.nameInput, this.score);
-    this.awaitingName = false;
-    this.savedScore = true;
-  }
+      // ...eventuell game over-logikk her...
+    }
 
   moveLeft() {
     const trial = this.currentPiece.moved(-1, 0);
