@@ -44,35 +44,19 @@ function getMusicForLevel(level) {
 
 function unlockAudio() {
   if (audioUnlocked) return;
-
   audioUnlocked = true;
-
-  const warmup = effectCache.get('move');
-  if (warmup) {
-    warmup.volume = 0;
-    warmup.play()
-      .then(() => {
-        warmup.pause();
-        warmup.currentTime = 0;
-        warmup.volume = 0.8;
-      })
-      .catch(() => {
-        warmup.volume = 0.8;
-      });
-  }
-
   playMusic(requestedLevel);
 }
 
 function playEffect(name) {
   if (!audioUnlocked || !soundEnabled) return;
 
-  const source = effectCache.get(name);
-  if (!source) return;
+  const audio = effectCache.get(name);
+  if (!audio) return;
 
-  const audio = source.cloneNode(true);
-  audio.volume = source.volume;
+  audio.pause();
   audio.currentTime = 0;
+  audio.volume = 0.8;
   audio.play().catch(() => {});
 }
 
