@@ -47,20 +47,21 @@ function getMusicForLevel(level) {
 
 function unlockAudio() {
   if (audioUnlocked) return;
-
   audioUnlocked = true;
-
-  // spiller én stille lyd for å låse opp audio
-  const warm = effectCache.get('move');
-  if (warm) {
-    warm.volume = 0;
-    warm.play().then(() => {
-      warm.pause();
-      warm.currentTime = 0;
-      warm.volume = 0.8;
-    }).catch(()=>{});
+  // Dummy play/pause for å "unmute" effekter i nettleser
+  const warmup = effectCache.get('move');
+  if (warmup) {
+    warmup.volume = 0;
+    warmup.play()
+      .then(() => {
+        warmup.pause();
+        warmup.currentTime = 0;
+        warmup.volume = 0.8;
+      })
+      .catch(() => {
+        warmup.volume = 0.8;
+      });
   }
-
   playMusic(requestedLevel);
 }
 
