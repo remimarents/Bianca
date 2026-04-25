@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1a0b36" />
+    <title>Biancas Gjettespill</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="page-glow glow-left"></div>
+    <div class="page-glow glow-right"></div>
+
+    <main id="setup" class="screen app-screen">
+        <section class="hero-card">
+            <div class="hero-copy">
+                <span class="eyebrow">Biancas univers</span>
+                <h1>Biancas Gjettespill</h1>
+                <p class="subtitle">Gjett riktig tall, samle seire og se hvem som er kveldens mester.</p>
+                <div class="hero-badges">
+                    <span>1-4 spillere</span>
+                    <span>1-20 runder</span>
+                    <span>Lokal highscore</span>
+                </div>
+            </div>
+            <div class="hero-logo-wrap">
+                <img class="hero-logo" src="assets/logo.png" alt="Biancas Gjettespill-logo" />
+            </div>
+        </section>
+
+        <section class="panel share-panel">
+            <div class="share-copy">
+                <div class="panel-heading">
+                    <h2>Spill på mobil</h2>
+                    <p>Spillere kan scanne QR-koden eller taste inn lenken manuelt for å komme rett til gjettespillet.</p>
+                </div>
+                <div class="share-links">
+                    <a href="https://remimarents.github.io/Bianca/Gjettespill/" target="_blank" rel="noreferrer">remimarents.github.io/Bianca/Gjettespill/</a>
+                    <span>eller</span>
+                    <a href="https://bit.ly/3OnIqbF" target="_blank" rel="noreferrer">bit.ly/3OnIqbF</a>
+                </div>
+            </div>
+            <div class="qr-card">
+                <img src="assets/gjettespill-qr.png" alt="QR-kode til Biancas Gjettespill" class="qr-image" />
+                <p>Scan for å åpne spillet på mobilen.</p>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <h2>Sett opp spillet</h2>
+                <p>Velg spillere, antall runder og hvor høyt dere vil telle.</p>
+            </div>
+
+            <form id="setupForm" class="setup-grid">
+                <div class="field-row">
+                    <div class="field-group">
+                        <label for="playerCount">Antall spillere</label>
+                        <select id="playerCount" name="playerCount">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="maxNumber">Største tall</label>
+                        <input type="number" id="maxNumber" min="5" max="999999" value="457" />
+                    </div>
+
+                    <div class="field-group">
+                        <label for="rounds">Antall runder</label>
+                        <input type="number" id="rounds" min="1" max="20" value="3" />
+                    </div>
+                </div>
+
+                <div id="playerNames" class="player-name-grid">
+                    <div class="player-name-field">
+                        <label for="player1">Spiller 1</label>
+                        <input type="text" id="player1" value="Bianca" />
+                    </div>
+                    <div class="player-name-field">
+                        <label for="player2">Spiller 2</label>
+                        <input type="text" id="player2" value="Spiller 2" />
+                    </div>
+                    <div class="player-name-field">
+                        <label for="player3">Spiller 3</label>
+                        <input type="text" id="player3" value="Spiller 3" />
+                    </div>
+                    <div class="player-name-field">
+                        <label for="player4">Spiller 4</label>
+                        <input type="text" id="player4" value="Spiller 4" />
+                    </div>
+                </div>
+
+                <button type="submit" class="primary cta-button">Start spillet</button>
+            </form>
+        </section>
+    </main>
+
+    <main id="game" class="screen app-screen game-layout" style="display:none;">
+        <section class="panel game-topbar">
+            <div class="brand-mini">
+                <img src="assets/logo.png" alt="Biancas Gjettespill-logo" />
+                <div>
+                    <span class="eyebrow">Spillet er i gang</span>
+                    <h2 id="roundInfo"></h2>
+                </div>
+            </div>
+            <div class="turn-pill" id="turnInfo"></div>
+        </section>
+
+        <section class="game-grid">
+            <article class="panel action-panel">
+                <div class="panel-heading">
+                    <h3>Gi ditt beste gjett</h3>
+                    <p id="feedback"></p>
+                </div>
+
+                <div class="guess-input">
+                    <input type="number" id="guessField" placeholder="Skriv tallet ditt" class="guess-input-field" />
+                    <button id="guessButton" class="primary">Gjett</button>
+                </div>
+            </article>
+
+            <article class="panel score-panel">
+                <div class="panel-heading">
+                    <h3>Poengtavle</h3>
+                    <p>Følg forsøk og seire gjennom hele spillet.</p>
+                </div>
+
+                <div class="table-wrap">
+                    <table id="scoreTable">
+                        <thead>
+                            <tr>
+                                <th>Spiller</th>
+                                <th>Forsøk runden</th>
+                                <th>Totale forsøk</th>
+                                <th>Vinnende runder</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <div id="overlay" class="overlay" style="display:none;">
+        <div class="overlay-content">
+            <img class="overlay-logo" src="assets/logo.png" alt="Biancas Gjettespill-logo" />
+            <h2 id="overlayTitle">Riktig!</h2>
+            <p id="overlayMessage"></p>
+            <button id="nextRoundButton" class="primary">Neste runde</button>
+        </div>
+    </div>
+
+    <main id="gameOver" class="screen app-screen" style="display:none;">
+        <section class="hero-card result-hero">
+            <div class="hero-copy">
+                <span class="eyebrow">Spillet er ferdig</span>
+                <h2>Resultater</h2>
+                <p id="finalMessage"></p>
+            </div>
+            <div class="hero-logo-wrap">
+                <img class="hero-logo" src="assets/logo.png" alt="Biancas Gjettespill-logo" />
+            </div>
+        </section>
+
+        <section class="results-grid">
+            <article class="panel">
+                <div class="panel-heading">
+                    <h3>Sluttresultat</h3>
+                    <p>Se hvem som vant, og hvor mange forsøk det tok.</p>
+                </div>
+
+                <div class="table-wrap">
+                    <table id="finalScoreTable">
+                        <thead>
+                            <tr>
+                                <th>Spiller</th>
+                                <th>Totale forsøk</th>
+                                <th>Vinnende runder</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </article>
+
+            <section id="highscoresSection" class="panel">
+                <div class="panel-heading">
+                    <h3>Highscore</h3>
+                    <p>Beste vinnere blir liggende igjen til neste spillkveld.</p>
+                </div>
+                <ul id="highscoreList"></ul>
+            </section>
+        </section>
+
+        <button id="restartButton" class="primary cta-button">Spill igjen</button>
+    </main>
+
+    <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;display:none;"></canvas>
+
+    <script src="game.js"></script>
+</body>
+</html>
