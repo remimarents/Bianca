@@ -47,17 +47,18 @@ music.normal.volume = 0.4;
 let soundOn = true;
 let musicOn = false;
 
-/* Unlock audio on mobile */
+/* Unlock audio mobile */
 
 function unlockAudio() {
   Object.values(sounds).forEach(s => {
-    s.play().then(() => s.pause()).catch(()=>{});
+    s.play().then(()=>s.pause()).catch(()=>{});
   });
 }
 
 document.addEventListener("pointerdown", unlockAudio, { once: true });
 
 function playSound(name) {
+
   if (!soundOn) return;
 
   try {
@@ -65,6 +66,7 @@ function playSound(name) {
     s.currentTime = 0;
     s.play().catch(()=>{});
   } catch {}
+
 }
 
 /* ===============================
@@ -74,8 +76,6 @@ function playSound(name) {
 const COLS = 10;
 const ROWS = 20;
 const BLOCK = 30;
-
-/* Strong neon colors */
 
 const COLORS = {
   I: "#00f5ff",
@@ -98,7 +98,7 @@ const SHAPES = {
 };
 
 /* ===============================
-   GAME STATE
+   STATE
 =============================== */
 
 let board = createBoard();
@@ -122,12 +122,15 @@ let gameOver = false;
 =============================== */
 
 function createBoard() {
+
   return Array.from({length:ROWS},
     () => Array(COLS).fill(null)
   );
+
 }
 
 function randomPiece() {
+
   const keys = Object.keys(SHAPES);
   const type = keys[Math.floor(Math.random()*keys.length)];
 
@@ -137,6 +140,7 @@ function randomPiece() {
     x: Math.floor(COLS/2)-2,
     y: 0
   };
+
 }
 
 /* ===============================
@@ -161,31 +165,34 @@ function collides(p=piece) {
 
       if(by>=0 && board[by][bx])
         return true;
+
     }
   }
 
   return false;
+
 }
 
 /* ===============================
-   GHOST PIECE
+   GHOST
 =============================== */
 
 function getGhost() {
 
-  const ghost={
+  const g = {
     type:piece.type,
     shape:piece.shape,
     x:piece.x,
     y:piece.y
   };
 
-  while(!collides(ghost))
-    ghost.y++;
+  while(!collides(g))
+    g.y++;
 
-  ghost.y--;
+  g.y--;
 
-  return ghost;
+  return g;
+
 }
 
 /* ===============================
@@ -198,6 +205,7 @@ function rotate(matrix){
     .map((_,i)=>
       matrix.map(r=>r[i]).reverse()
     );
+
 }
 
 function rotatePiece(){
@@ -215,17 +223,21 @@ function rotatePiece(){
       playSound("rotate");
       return;
     }
+
   }
 
   piece.shape=oldShape;
   piece.x=oldX;
+
 }
 
 /* ===============================
-   MOVEMENT
+   MOVE
 =============================== */
 
 function move(dir){
+
+  if(gameOver) return;
 
   piece.x+=dir;
 
@@ -233,9 +245,12 @@ function move(dir){
     piece.x-=dir;
   else
     playSound("move");
+
 }
 
 function softDrop(){
+
+  if(gameOver) return;
 
   piece.y++;
 
@@ -248,12 +263,16 @@ function softDrop(){
     resetPiece();
 
     playSound("drop");
+
   }
 
   dropCounter=0;
+
 }
 
 function hardDrop(){
+
+  if(gameOver) return;
 
   while(!collides()){
     piece.y++;
@@ -269,6 +288,7 @@ function hardDrop(){
   playSound("drop");
 
   dropCounter=0;
+
 }
 
 /* ===============================
@@ -332,6 +352,7 @@ function updateParticles(){
     p.life--;
 
   }
+
 }
 
 /* ===============================
@@ -387,10 +408,11 @@ function clearLines(){
       );
 
   }
+
 }
 
 /* ===============================
-   RESET PIECE
+   RESET
 =============================== */
 
 function resetPiece(){
@@ -404,11 +426,7 @@ function resetPiece(){
 
     playSound("gameover");
 
-    saveHighscore(
-      "Bianca",
-      score
-    );
-
+    saveHighscore("Bianca", score);
     renderHighscores();
 
   }
@@ -416,7 +434,7 @@ function resetPiece(){
 }
 
 /* ===============================
-   DRAW BLOCK (GLOW)
+   DRAW BLOCK
 =============================== */
 
 function drawBlock(x,y,color,alpha=1,glow=true){
@@ -426,27 +444,14 @@ function drawBlock(x,y,color,alpha=1,glow=true){
   ctx.globalAlpha=alpha;
 
   if(glow){
-
     ctx.shadowColor=color;
     ctx.shadowBlur=18;
-
   }
 
   const px=x*BLOCK;
   const py=y*BLOCK;
 
-  const g=ctx.createLinearGradient(
-    px,
-    py,
-    px+BLOCK,
-    py+BLOCK
-  );
-
-  g.addColorStop(0,"#ffffff");
-  g.addColorStop(0.2,color);
-  g.addColorStop(1,"#120020");
-
-  ctx.fillStyle=g;
+  ctx.fillStyle=color;
 
   ctx.fillRect(
     px+1,
@@ -468,6 +473,7 @@ function drawBlock(x,y,color,alpha=1,glow=true){
   );
 
   ctx.restore();
+
 }
 
 /* ===============================
@@ -516,6 +522,44 @@ function draw(){
   });
 
   drawParticles();
+
+  /* GAME OVER SCREEN */
+
+  if(gameOver){
+
+    ctx.fillStyle="rgba(0,0,0,0.78)";
+    ctx.fillRect(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+    ctx.fillStyle="#fff200";
+    ctx.textAlign="center";
+
+    ctx.font="bold 34px system-ui";
+    ctx.fillText(
+      "GAME OVER",
+      canvas.width/2,
+      canvas.height/2-40
+    );
+
+    ctx.font="bold 22px system-ui";
+    ctx.fillText(
+      `Poeng: ${score}`,
+      canvas.width/2,
+      canvas.height/2+2
+    );
+
+    ctx.font="bold 16px system-ui";
+    ctx.fillText(
+      "Trykk Start på nytt",
+      canvas.width/2,
+      canvas.height/2+38
+    );
+
+  }
 
 }
 
@@ -688,29 +732,17 @@ function update(time=0){
 
 document.addEventListener("keydown",e=>{
 
-  if(e.key==="ArrowLeft")
-    move(-1);
-
-  if(e.key==="ArrowRight")
-    move(1);
-
-  if(e.key==="ArrowDown")
-    softDrop();
-
-  if(e.key==="ArrowUp")
-    rotatePiece();
-
-  if(e.key===" ")
-    hardDrop();
+  if(e.key==="ArrowLeft") move(-1);
+  if(e.key==="ArrowRight") move(1);
+  if(e.key==="ArrowDown") softDrop();
+  if(e.key==="ArrowUp") rotatePiece();
+  if(e.key===" ") hardDrop();
 
 });
-
-/* TOUCH */
 
 function bindHold(id,fn,repeat=false){
 
   const b=document.getElementById(id);
-
   let t=null;
 
   const start=e=>{
@@ -737,7 +769,7 @@ bindHold("rotateBtn",rotatePiece);
 bindHold("dropBtn",hardDrop);
 
 /* ===============================
-   SOUND BUTTONS
+   BUTTONS
 =============================== */
 
 soundBtn.onclick=()=>{
@@ -745,9 +777,7 @@ soundBtn.onclick=()=>{
   soundOn=!soundOn;
 
   soundBtn.textContent=
-    soundOn
-      ? "Lyd: på"
-      : "Lyd: av";
+    soundOn ? "Lyd: på" : "Lyd: av";
 
 };
 
@@ -759,19 +789,20 @@ musicBtn.onclick=()=>{
 
     music.normal.play();
 
-    musicBtn.textContent=
-      "Musikk: på";
+    musicBtn.textContent="Musikk: på";
 
   }else{
 
     music.normal.pause();
 
-    musicBtn.textContent=
-      "Musikk: av";
+    musicBtn.textContent="Musikk: av";
 
   }
 
 };
+
+document.getElementById("quitBtn").onclick =
+  ()=>location.reload();
 
 /* ===============================
    START
