@@ -8,6 +8,7 @@ const soundButton = document.getElementById('sound-btn');
 const musicButton = document.getElementById('music-btn');
 
 const EFFECT_NAMES = ['move', 'rotate', 'clear', 'harddrop', 'levelup', 'gameover'];
+
 const effectCache = new Map();
 
 for (const name of EFFECT_NAMES) {
@@ -28,9 +29,11 @@ musicLevelHigh.preload = 'auto';
 musicLevelHigh.volume = 0.35;
 
 let currentMusic = null;
+
 let audioUnlocked = false;
 let soundEnabled = true;
 let musicEnabled = true;
+
 let requestedLevel = 1;
 
 function refreshButtons() {
@@ -44,7 +47,20 @@ function getMusicForLevel(level) {
 
 function unlockAudio() {
   if (audioUnlocked) return;
+
   audioUnlocked = true;
+
+  // spiller én stille lyd for å låse opp audio
+  const warm = effectCache.get('move');
+  if (warm) {
+    warm.volume = 0;
+    warm.play().then(() => {
+      warm.pause();
+      warm.currentTime = 0;
+      warm.volume = 0.8;
+    }).catch(()=>{});
+  }
+
   playMusic(requestedLevel);
 }
 
@@ -56,11 +72,12 @@ function playEffect(name) {
 
   audio.pause();
   audio.currentTime = 0;
-  audio.volume = 0.8;
-  audio.play().catch(() => {});
+
+  audio.play().catch(()=>{});
 }
 
 function playMusic(level = 1) {
+
   requestedLevel = level;
 
   if (!audioUnlocked || !musicEnabled) return;
@@ -75,30 +92,39 @@ function playMusic(level = 1) {
   currentMusic = nextMusic;
 
   if (currentMusic.paused) {
-    currentMusic.play().catch(() => {});
+    currentMusic.play().catch(()=>{});
   }
 }
 
 function stopMusic() {
+
   if (currentMusic) {
     currentMusic.pause();
     currentMusic.currentTime = 0;
   }
+
 }
 
 soundButton.addEventListener('click', () => {
+
   unlockAudio();
+
   soundEnabled = !soundEnabled;
+
   refreshButtons();
 
   if (soundEnabled) {
     playEffect('levelup');
   }
+
 });
 
 musicButton.addEventListener('click', () => {
+
   unlockAudio();
+
   musicEnabled = !musicEnabled;
+
   refreshButtons();
 
   if (musicEnabled) {
@@ -106,6 +132,7 @@ musicButton.addEventListener('click', () => {
   } else {
     stopMusic();
   }
+
 });
 
 refreshButtons();
@@ -121,21 +148,27 @@ setupControls(game, {
 });
 
 let lastTime = 0;
-let lastLevel = game.level;
+let lastLevel = 1;
 
 function gameLoop(time) {
+
   const dt = Math.min((time - lastTime) / 1000, 0.05);
+
   lastTime = time;
 
   game.update(dt);
   game.draw(ctx);
 
   if (game.level !== lastLevel) {
+
     playMusic(game.level);
+
     lastLevel = game.level;
+
   }
 
   requestAnimationFrame(gameLoop);
+
 }
 
 requestAnimationFrame(gameLoop);
