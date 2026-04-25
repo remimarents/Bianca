@@ -1,64 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background: #fff6fa;
+  min-height: 100vh;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  padding: 12px;
-  box-sizing: border-box;
+  overflow: hidden;
   font-family: Arial, sans-serif;
+  color: #574968;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 196, 230, 0.65), transparent 28%),
+    radial-gradient(circle at 85% 15%, rgba(180, 220, 255, 0.70), transparent 30%),
+    radial-gradient(circle at 70% 90%, rgba(211, 178, 255, 0.45), transparent 32%),
+    linear-gradient(135deg, #fff6fa 0%, #f7edff 48%, #edf8ff 100%);
+}
+
+#page-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.35) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at center, black, transparent 76%);
 }
 
 #game-shell {
   position: relative;
-  width: min(1000px, 100%);
+  width: 1000px;
+  border-radius: 30px;
+  padding: 0;
+  box-shadow:
+    0 28px 80px rgba(87, 73, 104, 0.22),
+    inset 0 1px 0 rgba(255,255,255,0.9);
 }
 
 #top-controls {
   position: absolute;
   top: 18px;
-  right: 18px;
+  right: 20px;
   z-index: 10;
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 #top-controls button {
   font-size: 15px;
-  padding: 7px 13px;
-  border: 2px solid #ffadcc;
-  border-radius: 12px;
-  background: #fff0f7;
+  padding: 9px 15px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
   color: #574968;
   cursor: pointer;
-  box-shadow: 0 3px 10px rgba(87,73,104,0.12);
+  box-shadow:
+    0 8px 20px rgba(87,73,104,0.15),
+    inset 0 0 0 2px rgba(255, 173, 204, 0.75);
+  backdrop-filter: blur(10px);
 }
 
 #top-controls button:hover {
-  background: #ffe0ee;
+  transform: translateY(-1px);
+  background: #ffffff;
+  box-shadow:
+    0 12px 26px rgba(87,73,104,0.18),
+    inset 0 0 0 2px rgba(255, 133, 184, 0.9);
+}
+
+#top-controls button:active {
+  transform: translateY(1px);
 }
 
 #tetris {
-  box-shadow: 0 8px 32px rgba(87,73,104,0.18);
-  border-radius: 18px;
-  background: #fff;
+  width: 1000px;
+  height: 760px;
   display: block;
-  width: 100%;
-  height: auto;
-}
-
-@media (max-width: 620px) {
-  #top-controls {
-    top: 10px;
-    right: 10px;
-    left: 10px;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-  }
-
-  #top-controls button {
-    font-size: 13px;
-    padding: 6px 9px;
-  }
+  border-radius: 30px;
+  background: rgba(255,255,255,0.62);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    inset 0 -18px 50px rgba(198, 166, 220, 0.08);
 }
