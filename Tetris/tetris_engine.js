@@ -214,19 +214,6 @@ export class TetrisGame {
     return cleared;
   }
 
-  _isHighscore() {
-    if (this.score <= 0) {
-      return false;
-    }
-
-    if (!this.scoreTable || this.scoreTable.length < 5) {
-      return true;
-    }
-
-    const lowestTopScore = this.scoreTable[this.scoreTable.length - 1]?.score ?? 0;
-    return this.score > lowestTopScore;
-  }
-
   _triggerGameOver() {
     if (this.gameOver) {
       return;
@@ -237,11 +224,10 @@ export class TetrisGame {
     this.stopMusic();
     this.playEffect('gameover');
 
-    if (this._isHighscore()) {
-      this.awaitingName = true;
-      this.newHighscore = true;
-      this.nameInput = '';
-    }
+    // Be alltid om navn. Det gjør lagring tydelig og enklere å teste.
+    this.awaitingName = true;
+    this.newHighscore = true;
+    this.nameInput = '';
   }
 
   submitHighscoreName() {
@@ -250,7 +236,8 @@ export class TetrisGame {
     }
 
     const name = this.nameInput.trim() || 'Spiller';
-    this.scoreTable = saveHighscore(name, this.score, this.lines, this.level);
+
+    this.scoreTable = saveHighscore(name, this.score);
 
     this.awaitingName = false;
     this.savedScore = true;
@@ -496,8 +483,8 @@ export class TetrisGame {
 
     if (this.awaitingName) {
       ctx.fillStyle = '#574968';
-      ctx.fillText('Ny highscore! Skriv navn og trykk Enter.', 250, 360);
-      ctx.fillText('Backspace sletter. R starter ny runde senere.', 250, 390);
+      ctx.fillText('Skriv navn og trykk Enter for å lagre.', 260, 360);
+      ctx.fillText('Backspace sletter. Etter lagring: trykk R for ny runde.', 230, 390);
       ctx.strokeStyle = '#a3e5ff';
       ctx.strokeRect(320, 410, 280, 36);
       ctx.font = '22px Arial';
@@ -505,7 +492,7 @@ export class TetrisGame {
       ctx.fillText(this.nameInput || 'Skriv navn her', 330, 435);
     } else if (this.newHighscore) {
       ctx.fillStyle = '#574968';
-      ctx.fillText('Highscore lagret! Trykk R for en ny runde.', 250, 370);
+      ctx.fillText('Score lagret! Trykk R for en ny runde.', 270, 370);
     } else {
       ctx.fillStyle = '#574968';
       ctx.fillText('Trykk R for en ny runde.', 320, 370);

@@ -27,6 +27,7 @@ export function setupControls(game, options = {}) {
       if (e.key === 'Enter') {
         game.submitHighscoreName();
       } else if (e.key === 'Backspace') {
+        e.preventDefault();
         game.nameInput = game.nameInput.slice(0, -1);
       } else if (e.key.length === 1 && game.nameInput.length < 12) {
         game.nameInput += e.key;

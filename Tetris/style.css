@@ -3,11 +3,42 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
+  font-family: Arial, sans-serif;
 }
+
+#game-shell {
+  position: relative;
+}
+
+#top-controls {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+
+#top-controls button {
+  font-size: 16px;
+  padding: 8px 14px;
+  border: 2px solid #ffadcc;
+  border-radius: 12px;
+  background: #fff0f7;
+  color: #574968;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(87,73,104,0.12);
+}
+
+#top-controls button:hover {
+  background: #ffe0ee;
+}
+
 #tetris {
   box-shadow: 0 8px 32px rgba(87,73,104,0.18);
   border-radius: 18px;
   background: #fff;
+  display: block;
 }
