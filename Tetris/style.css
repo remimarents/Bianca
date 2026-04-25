@@ -6,14 +6,15 @@
 html,
 body {
   margin: 0;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background:
-    radial-gradient(circle at 20% 15%, #ff3ea5 0, transparent 28%),
-    radial-gradient(circle at 80% 10%, #00e5ff 0, transparent 26%),
-    radial-gradient(circle at 50% 90%, #ffe600 0, transparent 34%),
-    linear-gradient(160deg, #240046, #3c096c 45%, #10002b);
+    radial-gradient(circle at 20% 15%, #ff00cc 0, transparent 30%),
+    radial-gradient(circle at 80% 10%, #00f5ff 0, transparent 28%),
+    radial-gradient(circle at 50% 92%, #fff000 0, transparent 35%),
+    linear-gradient(160deg, #160020, #3c0078 48%, #060010);
   color: white;
 }
 
@@ -33,8 +34,8 @@ body {
   padding: 18px;
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.13);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
-  border: 2px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(16px);
 }
 
@@ -54,7 +55,7 @@ button {
   font-size: 18px;
   color: #21002f;
   background: linear-gradient(180deg, #fff200, #ff8c00);
-  box-shadow: 0 6px 0 #b34700, 0 12px 22px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 6px 0 #b34700, 0 12px 22px rgba(0, 0, 0, 0.32);
   touch-action: manipulation;
 }
 
@@ -74,17 +75,18 @@ button:active {
   width: 300px;
   height: 600px;
   border-radius: 12px;
-  background: #080013;
-  border: 4px solid #00e5ff;
+  background: #060010;
+  border: 4px solid #00f5ff;
   box-shadow:
-    0 0 0 4px #ff2bd6,
-    0 0 32px rgba(0, 229, 255, 0.85);
+    0 0 0 4px #ff00cc,
+    0 0 38px rgba(0, 245, 255, 0.95),
+    0 0 76px rgba(255, 0, 204, 0.45);
 }
 
 .side {
   min-width: 190px;
   font-size: 20px;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.45);
 }
 
 .side h1 {
@@ -94,12 +96,12 @@ button:active {
 }
 
 .side h2 {
-  color: #00e5ff;
+  color: #00f5ff;
   margin: 18px 0 8px;
 }
 
 #next {
-  background: rgba(0, 0, 0, 0.28);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 14px;
   border: 2px solid #fff200;
 }
@@ -119,14 +121,14 @@ button:active {
   min-height: 58px;
   border-radius: 22px;
   font-size: 28px;
-  background: linear-gradient(180deg, #00e5ff, #0077ff);
-  box-shadow: 0 6px 0 #003d99, 0 12px 22px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(180deg, #00f5ff, #006dff);
+  box-shadow: 0 6px 0 #003d99, 0 12px 22px rgba(0, 0, 0, 0.35);
   color: white;
 }
 
 #dropBtn {
-  background: linear-gradient(180deg, #ff2bd6, #8a00ff);
-  box-shadow: 0 6px 0 #4a0088, 0 12px 22px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(180deg, #ff00cc, #7b00ff);
+  box-shadow: 0 6px 0 #4a0088, 0 12px 22px rgba(0, 0, 0, 0.35);
 }
 
 @media (max-width: 700px) {
@@ -155,7 +157,6 @@ button:active {
 
   .game-layout {
     gap: 10px;
-    align-items: flex-start;
   }
 
   #game {
