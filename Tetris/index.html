@@ -1,29 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Biancas Tetris</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <div id="page-bg"></div>
+  <main class="app">
+    <section class="game-card">
+      <div class="topbar">
+        <button id="soundBtn">Lyd: på</button>
+        <button id="musicBtn">Musikk: på</button>
+        <button id="quitBtn">Avslutt</button>
+      </div>
 
-  <div id="game-shell">
-    <div id="top-controls">
-      <button id="sound-btn" type="button">Lyd: på</button>
-      <button id="music-btn" type="button">Musikk: på</button>
-      <button id="exit-btn" type="button">Avslutt</button>
-    </div>
+      <div class="game-layout">
+        <canvas id="game" width="300" height="600"></canvas>
 
-    <canvas id="tetris" width="1000" height="760"></canvas>
-  </div>
+        <aside class="side">
+          <h1>Biancas Tetris</h1>
+          <p>Poeng: <b id="score">0</b></p>
+          <p>Linjer: <b id="lines">0</b></p>
+          <p>Level: <b id="level">1</b></p>
 
-  <script type="module" src="tetris.js"></script>
-  <script>
-    document.getElementById('exit-btn').onclick = function() {
-      window.location.href = '../index.html';
-    };
-  </script>
+          <h2>Neste:</h2>
+          <canvas id="next" width="120" height="120"></canvas>
+
+          <h2>Topp 5:</h2>
+          <ol id="highscores"></ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="touch-controls">
+      <button id="leftBtn">◀</button>
+      <button id="rotateBtn">⟳</button>
+      <button id="rightBtn">▶</button>
+      <button id="downBtn">▼</button>
+      <button id="dropBtn">⤓</button>
+    </section>
+  </main>
+
+  <script type="module" src="./main.js"></script>
 </body>
 </html>
