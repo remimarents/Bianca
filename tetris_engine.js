@@ -372,8 +372,8 @@ export class TetrisGame {
     ctx.font = '20px Arial';
     if (this.awaitingName) {
       ctx.fillStyle = '#574968';
-      ctx.fillText('Ny highscore! Skriv navn og trykk Enter.', 250, 360);
-      ctx.fillText('Backspace sletter. R starter ny runde senere.', 250, 390);
+      ctx.fillText('Ny highscore! Skriv inn navn og trykk Enter.', 220, 360);
+      ctx.fillText('Backspace sletter. R starter ny runde senere.', 220, 390);
       ctx.strokeStyle = '#a3e5ff';
       ctx.strokeRect(320, 410, 280, 36);
       ctx.font = '22px Arial';
@@ -381,10 +381,10 @@ export class TetrisGame {
       ctx.fillText(this.nameInput || 'Skriv navn her', 330, 435);
     } else if (this.newHighscore) {
       ctx.fillStyle = '#574968';
-      ctx.fillText('Highscore lagret! Trykk R for en ny runde.', 250, 370);
+      ctx.fillText('Highscore lagret! Trykk R for ny runde.', 250, 370);
     } else {
       ctx.fillStyle = '#574968';
-      ctx.fillText('Trykk R for en ny runde.', 320, 370);
+      ctx.fillText('Trykk R for ny runde.', 320, 370);
     }
     ctx.restore();
   }
