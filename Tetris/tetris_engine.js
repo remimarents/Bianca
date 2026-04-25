@@ -130,10 +130,11 @@ export class TetrisGame {
     return cleared;
   }
   _triggerGameOver() {
-    if (!this.gameOver) {
-      this.gameOver = true;
-      // ...eventuell game over-logikk her...
-    }
+	if (!this.gameOver) {
+	  this.gameOver = true;
+	  // ...eventuell game over-logikk her...
+	}
+  }
 
   moveLeft() {
     const trial = this.currentPiece.moved(-1, 0);
