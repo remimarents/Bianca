@@ -132,19 +132,21 @@ export class TetrisGame {
   _triggerGameOver() {
     if (!this.gameOver) {
       this.gameOver = true;
-      if (!this.savedScore) {
-        this.newHighscore = this._qualifies(this.score);
-        this.awaitingName = this.newHighscore;
-        if (!this.newHighscore) this.savedScore = true;
+    export class TetrisGame {
+      constructor(audioCallbacks = {}) {
+        this.audioCallbacks = audioCallbacks;
+        this.reset();
+        this.awaitingName = false;
+        this.nameInput = '';
+        this.newHighscore = false;
+        this.savedScore = false;
+        this.scoreTable = getHighscores();
+        this.softDrop = false;
+        this.moveHold = { left: 0, right: 0 };
+        this.dropTimer = 0;
+        this.sparklePhase = 0;
+        if (this.audioCallbacks.playMusic) this.audioCallbacks.playMusic();
       }
-    }
-  }
-  _qualifies(score) {
-    const scores = getHighscores();
-    return scores.length < 5 || score > (scores[scores.length - 1]?.score || 0);
-  }
-  submitHighscoreName() {
-    if (!this.awaitingName || this.savedScore) return;
     this.scoreTable = saveHighscore(this.nameInput, this.score);
     this.awaitingName = false;
     this.savedScore = true;
@@ -322,11 +324,9 @@ export class TetrisGame {
     } else if (this.newHighscore) {
       ctx.fillStyle = '#574968';
       ctx.fillText('Highscore lagret! Trykk R for en ny runde.', 250, 370);
-      ctx.fillText('Bianca, du klarer neste rekord!', 250, 400);
     } else {
       ctx.fillStyle = '#574968';
       ctx.fillText('Trykk R for en ny runde.', 320, 370);
-      ctx.fillText('Bianca, du klarer neste rekord!', 320, 400);
     }
     ctx.restore();
   }
