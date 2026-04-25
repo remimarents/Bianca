@@ -1,5 +1,21 @@
 const STORAGE_KEY = 'bianca_highscores';
 
+function readStoredScores() {
+  try {
+    return localStorage.getItem(STORAGE_KEY);
+  } catch {
+    return null;
+  }
+}
+
+function writeStoredScores(scores) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(scores));
+  } catch {
+    // Highscore is nice to have; the game should still work if storage is blocked.
+  }
+}
+
 export function saveHighscore(name, score) {
   const scores = getHighscores();
 
@@ -12,13 +28,13 @@ export function saveHighscore(name, score) {
   scores.sort((a, b) => b.score - a.score);
 
   const top = scores.slice(0, 5);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(top));
+  writeStoredScores(top);
 
   return top;
 }
 
 export function getHighscores() {
-  const raw = localStorage.getItem(STORAGE_KEY);
+  const raw = readStoredScores();
 
   if (!raw) {
     return [];
