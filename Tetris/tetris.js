@@ -17,7 +17,6 @@ for (const name of EFFECT_NAMES) {
   effectCache.set(name, audio);
 }
 
-
 const musicLevel1 = new Audio('assets/audio/music_loop_level1.wav');
 musicLevel1.loop = true;
 musicLevel1.preload = 'auto';
@@ -29,24 +28,25 @@ musicLevelHigh.preload = 'auto';
 musicLevelHigh.volume = 0.35;
 
 let currentMusic = null;
-
 let audioUnlocked = false;
 let soundEnabled = true;
 let musicEnabled = true;
+let requestedLevel = 1;
 
 function refreshButtons() {
   soundButton.textContent = soundEnabled ? 'Lyd: på' : 'Lyd: av';
   musicButton.textContent = musicEnabled ? 'Musikk: på' : 'Musikk: av';
 }
 
+function getMusicForLevel(level) {
+  return level >= 10 ? musicLevelHigh : musicLevel1;
+}
+
 function unlockAudio() {
-  if (audioUnlocked) {
-    return;
-  }
+  if (audioUnlocked) return;
 
   audioUnlocked = true;
 
-  // Tom play/pause gjør at Chrome/Safari godtar senere lyd etter brukerhandling.
   const warmup = effectCache.get('move');
   if (warmup) {
     warmup.volume = 0;
@@ -61,18 +61,14 @@ function unlockAudio() {
       });
   }
 
-  playMusic();
+  playMusic(requestedLevel);
 }
 
 function playEffect(name) {
-  if (!audioUnlocked || !soundEnabled) {
-    return;
-  }
+  if (!audioUnlocked || !soundEnabled) return;
 
   const source = effectCache.get(name);
-  if (!source) {
-    return;
-  }
+  if (!source) return;
 
   const audio = source.cloneNode(true);
   audio.volume = source.volume;
@@ -80,32 +76,28 @@ function playEffect(name) {
   audio.play().catch(() => {});
 }
 
-
-function getMusicForLevel(level) {
-  return level >= 10 ? musicLevelHigh : musicLevel1;
-}
-
 function playMusic(level = 1) {
-  if (!audioUnlocked || !musicEnabled) {
-    return;
-  }
+  requestedLevel = level;
+
+  if (!audioUnlocked || !musicEnabled) return;
 
   const nextMusic = getMusicForLevel(level);
+
   if (currentMusic && currentMusic !== nextMusic) {
     currentMusic.pause();
     currentMusic.currentTime = 0;
   }
+
   currentMusic = nextMusic;
+
   if (currentMusic.paused) {
     currentMusic.play().catch(() => {});
   }
 }
 
 function stopMusic() {
-  if (currentMusic && !currentMusic.paused) {
-    currentMusic.pause();
-  }
   if (currentMusic) {
+    currentMusic.pause();
     currentMusic.currentTime = 0;
   }
 }
@@ -126,7 +118,7 @@ musicButton.addEventListener('click', () => {
   refreshButtons();
 
   if (musicEnabled) {
-    playMusic();
+    playMusic(requestedLevel);
   } else {
     stopMusic();
   }
@@ -134,10 +126,9 @@ musicButton.addEventListener('click', () => {
 
 refreshButtons();
 
-
 const game = new TetrisGame({
   playEffect,
-  playMusic: (level) => playMusic(level ?? game.level),
+  playMusic,
   stopMusic,
 });
 
@@ -146,9 +137,8 @@ setupControls(game, {
 });
 
 let lastTime = 0;
+let lastLevel = game.level;
 
-
-let lastLevel = 1;
 function gameLoop(time) {
   const dt = Math.min((time - lastTime) / 1000, 0.05);
   lastTime = time;
