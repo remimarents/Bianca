@@ -343,11 +343,11 @@ export class TetrisGame {
 
   draw(ctx) {
     ctx.fillStyle = '#fff6fa';
-    ctx.fillRect(0, 0, 920, 760);
+    ctx.fillRect(0, 0, 1000, 760);
 
-    ctx.font = '42px Comic Sans MS';
+    ctx.font = '38px Comic Sans MS';
     ctx.fillStyle = '#574968';
-    ctx.fillText('Biancas Tetris', 400, 60);
+    ctx.fillText('Biancas Tetris', 430, 78);
 
     ctx.save();
     ctx.translate(PLAY_X, PLAY_Y);
@@ -416,19 +416,19 @@ export class TetrisGame {
 
     ctx.font = '28px Arial';
     ctx.fillStyle = '#574968';
-    ctx.fillText('Poeng: ' + this.score, 420, 140);
-    ctx.fillText('Linjer: ' + this.lines, 420, 180);
-    ctx.fillText('Level: ' + this.level, 420, 220);
+    ctx.fillText('Poeng: ' + this.score, 455, 150);
+    ctx.fillText('Linjer: ' + this.lines, 455, 190);
+    ctx.fillText('Level: ' + this.level, 455, 230);
 
     ctx.font = '22px Arial';
-    ctx.fillText('Neste:', 420, 270);
+    ctx.fillText('Neste:', 455, 285);
 
     const matrix = this.nextPiece.matrix;
     for (let row = 0; row < matrix.length; row++) {
       for (let col = 0; col < matrix[row].length; col++) {
         if (matrix[row][col] === 'X') {
           ctx.save();
-          ctx.translate(420 + col * 28, 290 + row * 28);
+          ctx.translate(455 + col * 28, 305 + row * 28);
           ctx.fillStyle = COLORS[this.nextPiece.shape];
           ctx.fillRect(0, 0, 24, 24);
           ctx.strokeStyle = '#fff';
@@ -440,18 +440,19 @@ export class TetrisGame {
     }
 
     ctx.font = '22px Arial';
-    ctx.fillText('Topp 5:', 420, 370);
-    ctx.font = '18px Arial';
+    ctx.fillText('Topp 5:', 455, 385);
+    ctx.font = '16px Arial';
 
-    let y = 400;
+    let y = 415;
 
     if (!this.scoreTable || this.scoreTable.length === 0) {
-      ctx.fillText('Ingen score ennå', 420, y);
+      ctx.fillText('Ingen score ennå', 455, y);
     } else {
       for (let i = 0; i < this.scoreTable.length; i++) {
         const entry = this.scoreTable[i];
-        ctx.fillText(`${i + 1}. ${entry.name} - ${entry.score}`, 420, y);
-        ctx.fillText(entry.date || '', 540, y);
+        ctx.fillText(`${i + 1}. ${entry.name}`, 455, y);
+        ctx.fillText(String(entry.score), 650, y);
+        ctx.fillText(entry.date || '', 720, y);
         y += 24;
       }
     }
@@ -464,38 +465,38 @@ export class TetrisGame {
 
     ctx.globalAlpha = 0.88;
     ctx.fillStyle = '#fff0f7';
-    ctx.fillRect(100, 200, 720, 300);
+    ctx.fillRect(140, 200, 720, 300);
 
     ctx.globalAlpha = 1.0;
     ctx.strokeStyle = '#ffadcc';
     ctx.lineWidth = 5;
-    ctx.strokeRect(100, 200, 720, 300);
+    ctx.strokeRect(140, 200, 720, 300);
 
     ctx.font = '46px Arial';
     ctx.fillStyle = '#574968';
-    ctx.fillText('Runde ferdig!', 320, 270);
+    ctx.fillText('Runde ferdig!', 360, 270);
 
     ctx.font = '28px Arial';
     ctx.fillStyle = '#ffadcc';
-    ctx.fillText('Poeng: ' + this.score, 400, 320);
+    ctx.fillText('Poeng: ' + this.score, 440, 320);
 
     ctx.font = '20px Arial';
 
     if (this.awaitingName) {
       ctx.fillStyle = '#574968';
-      ctx.fillText('Skriv navn og trykk Enter for å lagre.', 260, 360);
-      ctx.fillText('Backspace sletter. Etter lagring: trykk R for ny runde.', 230, 390);
+      ctx.fillText('Skriv navn og trykk Enter for å lagre.', 300, 360);
+      ctx.fillText('Backspace sletter. Etter lagring: trykk R for ny runde.', 270, 390);
       ctx.strokeStyle = '#a3e5ff';
-      ctx.strokeRect(320, 410, 280, 36);
+      ctx.strokeRect(360, 410, 280, 36);
       ctx.font = '22px Arial';
       ctx.fillStyle = this.nameInput ? '#574968' : '#aa99bb';
-      ctx.fillText(this.nameInput || 'Skriv navn her', 330, 435);
+      ctx.fillText(this.nameInput || 'Skriv navn her', 370, 435);
     } else if (this.newHighscore) {
       ctx.fillStyle = '#574968';
-      ctx.fillText('Score lagret! Trykk R for en ny runde.', 270, 370);
+      ctx.fillText('Score lagret! Trykk R for en ny runde.', 310, 370);
     } else {
       ctx.fillStyle = '#574968';
-      ctx.fillText('Trykk R for en ny runde.', 320, 370);
+      ctx.fillText('Trykk R for en ny runde.', 360, 370);
     }
 
     ctx.restore();
