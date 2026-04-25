@@ -33,9 +33,7 @@ const PIECES = {
     ['...', 'XXX', 'X..'],
     ['XX.', '.X.', '.X.'],
   ],
-  O: [
-    ['XX', 'XX'],
-  ],
+  O: [['XX', 'XX']],
   S: [
     ['.XX', 'XX.', '...'],
     ['.X.', '.XX', '..X'],
@@ -62,10 +60,12 @@ const SCORES_BY_LINES = {
 
 function randomBag() {
   const bag = Object.keys(PIECES);
+
   for (let i = bag.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [bag[i], bag[j]] = [bag[j], bag[i]];
   }
+
   return bag;
 }
 
@@ -135,11 +135,10 @@ export class TetrisGame {
     this.nextPiece = this._nextPiece();
     this.dropTimer = 0;
     this.softDrop = false;
-    this.moveHold = { left: 0, right: 0 };
     this.sparklePhase = 0;
     this.scoreTable = getHighscores();
 
-    this.playMusic();
+    this.playMusic(this.level);
   }
 
   _fillBag() {
@@ -157,13 +156,8 @@ export class TetrisGame {
 
   _valid(piece) {
     for (const [x, y] of piece.cells()) {
-      if (x < 0 || x >= PLAYFIELD_WIDTH || y >= PLAYFIELD_HEIGHT) {
-        return false;
-      }
-
-      if (y >= 0 && this.board[y][x]) {
-        return false;
-      }
+      if (x < 0 || x >= PLAYFIELD_WIDTH || y >= PLAYFIELD_HEIGHT) return false;
+      if (y >= 0 && this.board[y][x]) return false;
     }
 
     return true;
@@ -192,6 +186,7 @@ export class TetrisGame {
 
     if (this.level > oldLevel) {
       this.playEffect('levelup');
+      this.playMusic(this.level);
     }
 
     this.currentPiece = this.nextPiece;
@@ -215,25 +210,21 @@ export class TetrisGame {
   }
 
   _triggerGameOver() {
-    if (this.gameOver) {
-      return;
-    }
+    if (this.gameOver) return;
 
     this.gameOver = true;
     this.softDrop = false;
+
     this.stopMusic();
     this.playEffect('gameover');
 
-    // Be alltid om navn. Det gjør lagring tydelig og enklere å teste.
     this.awaitingName = true;
     this.newHighscore = true;
     this.nameInput = '';
   }
 
   submitHighscoreName() {
-    if (!this.awaitingName || this.savedScore) {
-      return;
-    }
+    if (!this.awaitingName || this.savedScore) return;
 
     const name = this.nameInput.trim() || 'Spiller';
 
@@ -245,11 +236,10 @@ export class TetrisGame {
   }
 
   moveLeft() {
-    if (this.gameOver) {
-      return;
-    }
+    if (this.gameOver) return;
 
     const trial = this.currentPiece.moved(-1, 0);
+
     if (this._valid(trial)) {
       this.currentPiece = trial;
       this.playEffect('move');
@@ -257,11 +247,10 @@ export class TetrisGame {
   }
 
   moveRight() {
-    if (this.gameOver) {
-      return;
-    }
+    if (this.gameOver) return;
 
     const trial = this.currentPiece.moved(1, 0);
+
     if (this._valid(trial)) {
       this.currentPiece = trial;
       this.playEffect('move');
@@ -269,11 +258,10 @@ export class TetrisGame {
   }
 
   moveDown() {
-    if (this.gameOver) {
-      return false;
-    }
+    if (this.gameOver) return false;
 
     const trial = this.currentPiece.moved(0, 1);
+
     if (this._valid(trial)) {
       this.currentPiece = trial;
       return true;
@@ -284,9 +272,7 @@ export class TetrisGame {
   }
 
   hardDrop() {
-    if (this.gameOver) {
-      return;
-    }
+    if (this.gameOver) return;
 
     let dropped = 0;
 
@@ -304,14 +290,13 @@ export class TetrisGame {
   }
 
   rotate() {
-    if (this.gameOver) {
-      return;
-    }
+    if (this.gameOver) return;
 
     const rotated = this.currentPiece.rotated();
 
     for (const dx of [0, -1, 1, -2, 2]) {
       const trial = rotated.moved(dx, 0);
+
       if (this._valid(trial)) {
         this.currentPiece = trial;
         this.playEffect('rotate');
@@ -323,9 +308,7 @@ export class TetrisGame {
   update(dt) {
     this.sparklePhase += dt;
 
-    if (this.gameOver) {
-      return;
-    }
+    if (this.gameOver) return;
 
     let speed = Math.max(0.09, 0.8 - (this.level - 1) * 0.06);
 
@@ -371,16 +354,12 @@ export class TetrisGame {
 
     ctx.globalAlpha = 0.3;
     for (const [x, y] of ghost.cells()) {
-      if (y >= 0) {
-        this._drawBlock(ctx, x, y, '#bfaedb');
-      }
+      if (y >= 0) this._drawBlock(ctx, x, y, '#bfaedb');
     }
     ctx.globalAlpha = 1.0;
 
     for (const [x, y] of this.currentPiece.cells()) {
-      if (y >= 0) {
-        this._drawBlock(ctx, x, y, COLORS[this.currentPiece.shape]);
-      }
+      if (y >= 0) this._drawBlock(ctx, x, y, COLORS[this.currentPiece.shape]);
     }
 
     ctx.restore();
@@ -424,6 +403,7 @@ export class TetrisGame {
     ctx.fillText('Neste:', 455, 285);
 
     const matrix = this.nextPiece.matrix;
+
     for (let row = 0; row < matrix.length; row++) {
       for (let col = 0; col < matrix[row].length; col++) {
         if (matrix[row][col] === 'X') {
@@ -486,8 +466,10 @@ export class TetrisGame {
       ctx.fillStyle = '#574968';
       ctx.fillText('Skriv navn og trykk Enter for å lagre.', 300, 360);
       ctx.fillText('Backspace sletter. Etter lagring: trykk R for ny runde.', 270, 390);
+
       ctx.strokeStyle = '#a3e5ff';
       ctx.strokeRect(360, 410, 280, 36);
+
       ctx.font = '22px Arial';
       ctx.fillStyle = this.nameInput ? '#574968' : '#aa99bb';
       ctx.fillText(this.nameInput || 'Skriv navn her', 370, 435);
