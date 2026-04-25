@@ -3,68 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biancas Spill</title>
-  <style>
-    body {
-      background: #fff6fa;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
-    h1 {
-      color: #574968;
-      margin-bottom: 40px;
-      font-size: 2.5rem;
-    }
-    .menu {
-      display: flex;
-      gap: 48px;
-    }
-    .menu-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: #fff;
-      border: 2px solid #eedde8;
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(87,73,104,0.12);
-      padding: 32px 36px 20px 36px;
-      text-decoration: none;
-      color: #574968;
-      font-size: 1.2rem;
-      font-weight: 600;
-      transition: box-shadow 0.2s, border 0.2s;
-    }
-    .menu-btn:hover {
-      box-shadow: 0 12px 40px rgba(87,73,104,0.18);
-      border: 2px solid #bfaedb;
-      color: #0077cc;
-    }
-    .menu-btn img {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 18px;
-      border-radius: 12px;
-      background: #f7eaff;
-      object-fit: contain;
-    }
-  </style>
+  <title>Biancas Tetris</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Biancas Spill</h1>
-  <div class="menu">
-    <a class="menu-btn" href="Gjettespill/">
-      <img src="assets/bianca_icon.ico" alt="Gjettespill ikon">
-      Gjettespillet
-    </a>
-    <a class="menu-btn" href="Tetris/">
-      <img src="assets/bianca_icon.ico" alt="Tetris ikon">
-      Tetris
-    </a>
-  </div>
+  <canvas id="tetris" width="920" height="760"></canvas>
+  <script type="module" src="tetris.js"></script>
 </body>
 </html>
