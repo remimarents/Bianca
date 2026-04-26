@@ -1,0 +1,18 @@
+
+NOTE.txt
+
+Du trenger bare å endre disse linjene i din eksisterende main.js:
+
+1) renderHighscores() må bli async:
+
+async function renderHighscores(){
+  const list = await getHighscores();
+  ...
+}
+
+2) Når du lagrer score:
+
+await saveHighscore(name, score);
+await renderHighscores();
+
+Resten av main.js kan stå som den er.
