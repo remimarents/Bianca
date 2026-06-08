@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#64d2ff">
+  <title>Bilbingo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app" class="app" aria-live="polite">
+    <section id="setupScreen" class="screen is-active">
+      <header class="hero glass">
+        <p class="eyebrow">Barnas Magiske Rom</p>
+        <h1 id="titleHold">Bilbingo</h1>
+        <p class="lede">Trykk når dere ser biler i riktig farge på turen.</p>
+      </header>
+
+      <form id="setupForm" class="panel glass">
+        <label class="field">
+          <span>Antall spillere</span>
+          <select id="playerCount">
+            <option value="2">2 spillere</option>
+            <option value="3">3 spillere</option>
+            <option value="4">4 spillere</option>
+          </select>
+        </label>
+
+        <div id="nameFields" class="name-grid"></div>
+
+        <div class="two-cols">
+          <label class="field">
+            <span>Runder</span>
+            <select id="roundCount">
+              <option value="1">1</option>
+              <option value="3" selected>3</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Poengmål</span>
+            <select id="pointGoal">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="20">20</option>
+              <option value="0">Ingen</option>
+            </select>
+          </label>
+        </div>
+
+        <button class="primary" type="submit">Neste: Velg farger</button>
+      </form>
+    </section>
+
+    <section id="colorScreen" class="screen">
+      <header class="top glass">
+        <button class="ghost" type="button" data-back="setup">Tilbake</button>
+        <div>
+          <p class="eyebrow">Steg 2</p>
+          <h2>Velg bil og farge</h2>
+        </div>
+      </header>
+      <div class="wheel glass">
+        <img src="assets/color-wheel.png" alt="">
+        <p>Farger gir ulike poeng: vanlig 1, sjelden 2, rosa/lilla 3.</p>
+      </div>
+      <form id="colorForm" class="player-setup"></form>
+    </section>
+
+    <section id="gameScreen" class="screen">
+      <header class="game-head glass">
+        <div>
+          <p class="eyebrow" id="roundLabel">Runde 1 / 3</p>
+          <h2>Se etter biler</h2>
+        </div>
+        <strong id="lastFound" class="last-found">Klar til første funn.</strong>
+      </header>
+
+      <div id="playerCards" class="cards"></div>
+
+      <section id="adultPanel" class="adult glass" hidden>
+        <h3>Voksenmodus</h3>
+        <div id="adultControls" class="adult-controls"></div>
+        <button class="warn" id="resetRound" type="button">Nullstill runde</button>
+        <button class="danger" id="resetGame" type="button">Nullstill spill</button>
+      </section>
+
+      <footer class="action-bar glass">
+        <button id="undoBtn" type="button">Angre siste</button>
+        <button id="nextRoundBtn" class="primary" type="button">Neste runde</button>
+        <button id="finishBtn" type="button">Avslutt</button>
+      </footer>
+    </section>
+
+    <section id="winnerScreen" class="screen">
+      <div class="winner glass">
+        <p class="eyebrow">Mål</p>
+        <h2 id="winnerTitle">Vinner</h2>
+        <p id="winnerMeta"></p>
+        <ol id="scoreList" class="score-list"></ol>
+        <div class="highscore" id="highscoreBox"></div>
+        <button id="replayBtn" class="primary" type="button">Spill igjen med samme spillere</button>
+        <button id="newGameBtn" type="button">Nytt spill</button>
+        <a class="button-link" href="../">Tilbake til Barnas Magiske Rom</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
