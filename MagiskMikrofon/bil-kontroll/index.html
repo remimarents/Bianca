@@ -1314,6 +1314,15 @@
         sessionStorage.setItem("bianca-adult-mode", "1");
         closeAdultGate();
         setStatus("Voksenmodus klar");
+        postLive({
+          phase: roastPanel.classList.contains("hidden") ? "ready" : "roast-ready",
+          transcript: lastTranscriptText || inputEl.value || "",
+          answer: lastAnswerText,
+          roastName: roastNameEl.value || "",
+          roastImage: roastImageDataUrl,
+          roastMode: currentRoastMode(),
+          micActive: listening || sending
+        }, true);
         return true;
       }
       setStatus("Feil svar");
@@ -1392,6 +1401,15 @@
       roastImageDataUrl = dataUrl;
       roastPreview.src = dataUrl;
       roastPanel.classList.remove("hidden");
+      postLive({
+        phase: "roast-ready",
+        transcript: lastTranscriptText || inputEl.value || "",
+        answer: lastAnswerText,
+        roastName: roastNameEl.value || "",
+        roastImage: roastImageDataUrl,
+        roastMode: currentRoastMode(),
+        micActive: true
+      }, true);
       roastNameEl.focus({ preventScroll: true });
       roastPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
@@ -1406,7 +1424,7 @@
       document.body.classList.remove("unhinged");
       hiddenHardMode = false;
       setStatus("Roast-bilde slettet");
-      postLive({ phase: "ready", transcript: "", answer: "", roastImage: "", clearRoast: true, roastName: "", roastMode: "", micActive: false }, true);
+      postLive({ phase: "ready", transcript: "", answer: "", roastImage: "", clearRoast: true, roastName: "", roastMode: currentRoastMode(), micActive: false }, true);
     }
 
     async function sendRoast() {
@@ -1491,7 +1509,18 @@
     function notePersonalityTap(value) {
       if (value === "slem") {
         slemTapCount += 1;
-        if (adultMode && slemTapCount >= 5) hiddenHardMode = true;
+        if (adultMode && slemTapCount >= 5) {
+          hiddenHardMode = true;
+          postLive({
+            phase: roastPanel.classList.contains("hidden") ? "ready" : "roast-ready",
+            transcript: lastTranscriptText || inputEl.value || "",
+            answer: lastAnswerText,
+            roastName: roastNameEl.value || "",
+            roastImage: roastImageDataUrl,
+            roastMode: currentRoastMode(),
+            micActive: true
+          }, true);
+        }
         return;
       }
       slemTapCount = 0;
