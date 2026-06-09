@@ -199,15 +199,34 @@
       min-height: 84px;
       transform: translateY(-120%);
       background:
-        linear-gradient(180deg, #2a0000 0%, #7f0000 28%, #c40018 74%, #7c0014 100%);
+        linear-gradient(180deg, #2e0006 0%, #5f0010 18%, #7a0015 36%, #5c0010 62%, #2a0007 100%);
       box-shadow:
         0 14px 36px rgba(0,0,0,.42),
-        inset 0 -6px 18px rgba(0,0,0,.28);
+        inset 0 -8px 22px rgba(0,0,0,.36),
+        inset 0 10px 16px rgba(255,170,170,.08);
       overflow: hidden;
     }
 
     .brutalis-fx.play .brutalis-curtain {
       animation: brutalisCurtainDrop 980ms cubic-bezier(.2,.86,.18,1) forwards;
+    }
+
+    .brutalis-curtain::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% -18%, rgba(255,220,220,.26), transparent 38%),
+        repeating-linear-gradient(
+          90deg,
+          rgba(25,0,0,.22) 0 4.5%,
+          rgba(122,0,21,.94) 4.5% 10.5%,
+          rgba(255,185,185,.18) 10.5% 12.5%,
+          rgba(88,0,15,.98) 12.5% 18%
+        );
+      opacity: .98;
+      transform: scaleY(1.04);
+      transform-origin: top;
     }
 
     .brutalis-curtain::after {
@@ -216,16 +235,17 @@
       left: 0;
       right: 0;
       bottom: -10px;
-      height: 30px;
+      height: 38px;
       background:
-        radial-gradient(circle at 6% 0, #8c0018 0 11px, transparent 12px),
-        radial-gradient(circle at 18% 0, #cf1024 0 13px, transparent 14px),
-        radial-gradient(circle at 33% 0, #920016 0 9px, transparent 10px),
-        radial-gradient(circle at 48% 0, #d41127 0 15px, transparent 16px),
-        radial-gradient(circle at 63% 0, #8f0017 0 10px, transparent 11px),
-        radial-gradient(circle at 78% 0, #cc1024 0 14px, transparent 15px),
-        radial-gradient(circle at 91% 0, #930017 0 12px, transparent 13px);
-      opacity: .95;
+        radial-gradient(circle at 5% 0, #4f000c 0 14px, transparent 15px),
+        radial-gradient(circle at 14% 0, #7e0014 0 18px, transparent 19px),
+        radial-gradient(circle at 27% 0, #58000e 0 13px, transparent 14px),
+        radial-gradient(circle at 39% 0, #8a0017 0 20px, transparent 21px),
+        radial-gradient(circle at 53% 0, #52000d 0 14px, transparent 15px),
+        radial-gradient(circle at 66% 0, #810015 0 19px, transparent 20px),
+        radial-gradient(circle at 79% 0, #57000d 0 13px, transparent 14px),
+        radial-gradient(circle at 92% 0, #850016 0 18px, transparent 19px);
+      opacity: .98;
     }
 
     .brutalis-title {
@@ -237,18 +257,23 @@
       color: #ffe8e8;
       font-size: clamp(30px, 5vw, 54px);
       font-weight: 900;
-      letter-spacing: .1em;
+      letter-spacing: .14em;
       text-transform: uppercase;
       text-shadow:
         0 2px 0 #2b0000,
-        0 5px 18px rgba(0,0,0,.56),
-        0 0 24px rgba(255,40,40,.34);
+        0 4px 0 #410008,
+        0 8px 18px rgba(0,0,0,.56),
+        0 0 24px rgba(255,40,40,.28);
       opacity: 0;
     }
 
     .brutalis-title span {
       position: relative;
       display: inline-block;
+      padding: 4px 18px 10px;
+      border-top: 1px solid rgba(255,228,228,.18);
+      border-bottom: 1px solid rgba(0,0,0,.28);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.12));
     }
 
     .brutalis-title span::after {
@@ -259,6 +284,7 @@
       top: 100%;
       height: 20px;
       background:
+        linear-gradient(180deg, rgba(140,0,0,.98), rgba(60,0,0,.1)),
         radial-gradient(circle at 8% 0, rgba(120,0,0,.98) 0 4px, transparent 5px),
         radial-gradient(circle at 24% 0, rgba(160,0,0,.98) 0 5px, transparent 6px),
         radial-gradient(circle at 41% 0, rgba(140,0,0,.98) 0 6px, transparent 7px),
