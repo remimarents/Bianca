@@ -13,13 +13,15 @@
   <link rel="icon" type="image/png" sizes="192x192" href="BarnasMagiskeRom/icons/icon-192.png">
   <link rel="stylesheet" href="style.css">
   <style>
-    .share-panel {
-      margin-top: 16px;
+    .landing {
       display: grid;
-      grid-template-columns: minmax(130px, 190px) 1fr;
-      gap: 16px;
-      align-items: center;
-      padding: 16px;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .room-link {
+      display: block;
+      overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 24px;
       background: rgba(255,255,255,.84);
@@ -28,30 +30,37 @@
       text-decoration: none;
     }
 
-    .share-panel img {
+    .room-link img {
       width: 100%;
+      max-height: 74vh;
+      display: block;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .qr-panel {
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.84);
+      box-shadow: 0 14px 34px rgba(105, 63, 160, .14);
+      text-align: center;
+    }
+
+    .qr-panel img {
+      width: min(280px, 76vw);
+      aspect-ratio: 1;
       display: block;
       padding: 12px;
-      border-radius: 20px;
+      border-radius: 18px;
       background: #fff;
       box-shadow: inset 0 0 0 1px rgba(255,255,255,.85);
     }
 
-    .share-panel strong {
-      display: block;
-      font-size: 1.35rem;
-      line-height: 1.08;
-      margin-bottom: 8px;
-    }
-
-    .share-panel p {
-      font-size: 1rem;
-      line-height: 1.35;
-    }
-
     .share-url {
-      display: inline-block;
-      margin-top: 10px;
       padding: 6px 10px;
       border-radius: 999px;
       background: rgba(140, 87, 255, .10);
@@ -61,47 +70,25 @@
       word-break: break-all;
     }
 
-    @media (max-width: 620px) {
-      .share-panel {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
-      }
-
-      .share-panel img {
-        max-width: 220px;
+    @media (max-width: 540px) {
+      .room-link,
+      .qr-panel {
+        border-radius: 20px;
       }
     }
   </style>
 </head>
 <body>
   <main class="shell">
-    <header class="hero">
-      <p class="eyebrow">Bianca</p>
-      <h1>Barnas Magiske Rom</h1>
-      <p>Trykk på bildet for å åpne rommet.</p>
-    </header>
-
-    <section class="info-grid" aria-label="Start">
-      <a class="game-card wide" href="BarnasMagiskeRom/">
+    <section class="landing" aria-label="Barnas Magiske Rom">
+      <a class="room-link" href="BarnasMagiskeRom/" aria-label="Åpne Barnas Magiske Rom">
         <img src="assets/lekerom-jente.jpg" alt="Barnas Magiske Rom">
-        <span>
-          <strong>Barnas Magiske Rom</strong>
-          <small>Åpne startsiden for lekene og Magiske Mikrofonen</small>
-        </span>
       </a>
 
-      <a class="share-panel" href="BarnasMagiskeRom/" aria-label="Skann eller åpne Barnas Magiske Rom">
-        <img
-          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyODAiIGhlaWdodD0iMjgwIiB2aWV3Qm94PSIwIDAgMzcgMzciIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTAgMGgzN3YzN0gweiIvPjxwYXRoIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTIgMi41aDdtMSAwaDNtMSAwaDJtMyAwaDVtMSAwaDFtMiAwaDdNMiAzLjVoMW01IDBoMW0xIDBoMW0xIDBoMW0xIDBoMm0yIDBoM200IDBoMm0xIDBoMW01IDBoMU0yIDQuNWgxbTEgMGgzbTEgMGgxbTIgMGgzbTMgMGgxbTIgMGgxbTEgMGgxbTMgMGgxbTEgMGgxbTEgMGgzbTEgMGgxTTIgNS41aDFtMSAwaDNtMSAwaDFtMSAwaDFtMyAwaDFtMSAwaDFtMSAwaDNtMyAwaDNtMSAwaDFtMSAwaDNtMSAwaDFNMiA2LjVoMW0xIDBoM20xIDBoMW0yIDBoMm0yIDBoMm00IDBoMW00IDBoMW0xIDBoMW0xIDBoM20xIDBoMU0yIDcuNWgxbTUgMGgxbTIgMGgxbTIgMGgxbTEgMGgxbTQgMGgybTEgMGgxbTEgMGgxbTEgMGgxbTUgMGgxTTIgOC41aDdtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDdNMTAgOS41aDFtMyAwaDFtNCAwaDNtMiAwaDNNMiAxMC41aDFtMSAwaDJtMSAwaDNtMSAwaDJtMiAwaDJtMSAwaDNtMiAwaDFtMSAwaDFtMiAwaDFtMiAwaDFtMSAwaDJNMiAxMS41aDFtMSAwaDRtMSAwaDFtMyAwaDFtNCAwaDJtMSAwaDVtMiAwaDJtMSAwaDJtMSAwaDFNNSAxMi41aDFtMiAwaDJtMiAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDVtMSAwaDRtMSAwaDJNMiAxMy41aDJtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDJtMSAwaDFtMSAwaDFtMSAwaDFtNiAwaDFtMSAwaDFNMiAxNC41aDJtMiAwaDFtMSAwaDFtMiAwaDFtMSAwaDJtNSAwaDJtMiAwaDRtMSAwaDNNNSAxNS41aDNtMiAwaDNtNSAwaDJtMSAwaDFtMyAwaDNtMSAwaDFtMiAwaDJNOCAxNi41aDJtMSAwaDJtMiAwaDFtMSAwaDJtMSAwaDJtMSAwaDJtMSAwaDFtMSAwaDFtMyAwaDFNMyAxNy41aDVtMSAwaDFtMSAwaDFtMiAwaDFtMSAwaDFtMSAwaDFtMSAwaDJtMSAwaDFtMSAwaDVtMSAwaDJNMiAxOC41aDJtMiAwaDFtMSAwaDJtMSAwaDFtMSAwaDFtMiAwaDJtMiAwaDFtMSAwaDRtMSAwaDJtMSAwaDNNMyAxOS41aDNtMSAwaDFtMiAwaDFtMSAwaDFtMyAwaDJtMSAwaDFtMyAwaDRtMSAwaDFtMSAwaDJtMSAwaDJNMiAyMC41aDFtMSAwaDFtMiAwaDJtMSAwaDVtMSAwaDJtMSAwaDFtMiAwaDJtNSAwaDJtMSAwaDJNNCAyMS41aDFtMiAwaDFtMSAwaDFtMyAwaDFtMyAwaDJtMiAwaDJtMSAwaDNtMyAwaDFtMiAwaDJNNCAyMi41aDFtMSAwaDRtMSAwaDFtMSAwaDJtMiAwaDFtMiAwaDRtMSAwaDJtMyAwaDVNMiAyMy41aDVtMiAwaDJtMyAwaDFtMiAwaDFtMSAwaDJtMSAwaDRtMiAwaDFtMyAwaDFtMSAwaDFNNCAyNC41aDJtMiAwaDFtMSAwaDRtNCAwaDJtNCAwaDNtMSAwaDNtMSAwaDNNMyAyNS41aDFtMSAwaDFtNCAwaDJtMSAwaDJtMyAwaDFtMiAwaDJtNCAwaDNtMSAwaDFtMSAwaDJNMiAyNi41aDFtNCAwaDZtMyAwaDJtMSAwaDFtMiAwaDFtMSAwaDFtMSAwaDVtMiAwaDFNMTAgMjcuNWgzbTEgMGgxbTEgMGgybTEgMGgzbTMgMGgybTMgMGgyTTIgMjguNWg3bTEgMGgybTEgMGg0bTEgMGgxbTIgMGgxbTEgMGg0bTEgMGgxbTEgMGgxTTIgMjkuNWgxbTUgMGgxbTEgMGgybTEgMGgxbTEgMGgybTUgMGg1bTMgMGgzbTEgMGgxTTIgMzAuNWgxbTEgMGgzbTEgMGgxbTIgMGgxbTEgMGgxbTUgMGgxbTIgMGg5bTEgMGgxbTEgMGgxTTIgMzEuNWgxbTEgMGgzbTEgMGgxbTEgMGgybTMgMGgxbTQgMGgxbTEgMGg0bTMgMGgxbTQgMGgxTTIgMzIuNWgxbTEgMGgzbTEgMGgxbTEgMGg2bTYgMGgxbTEgMGgzbTEgMGgybTEgMGgyTTIgMzMuNWgxbTUgMGgxbTMgMGgzbTEgMGg3bTIgMGgzbTEgMGgzbTIgMGgxTTIgMzQuNWg3bTEgMGgzbTEgMGgybTEgMGg0bTEgMGgybTEgMGgxbTEgMGgybTEgMGgxbTEgMGgxIi8+PC9zdmc+Cg=="
-          alt="QR-kode til Barnas Magiske Rom"
-        >
-        <div>
-          <strong>Skann for å åpne Barnas Magiske Rom</strong>
-          <p>Skann koden med en mobil, eller trykk på kortet over for å åpne rommet direkte.</p>
-          <span class="share-url">https://remimarents.github.io/Bianca/BarnasMagiskeRom/</span>
-        </div>
-      </a>
+      <div class="qr-panel" aria-label="QR-kode til denne siden">
+        <img src="assets/barnas-magiske-rom-qr.svg" alt="QR-kode til https://remimarents.github.io/Bianca/index.html">
+        <span class="share-url">https://remimarents.github.io/Bianca/index.html</span>
+      </div>
     </section>
   </main>
 </body>
