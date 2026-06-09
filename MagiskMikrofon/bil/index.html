@@ -18,6 +18,38 @@
       padding: 12px;
     }
 
+    body.mode-adult::before,
+    body.mode-shadow::before,
+    body.mode-adult::after,
+    body.mode-shadow::after {
+      content: "";
+      position: fixed;
+      left: 0;
+      right: 0;
+      height: 14px;
+      z-index: 20;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          #111 0 18px,
+          #111 18px 24px,
+          #ffd400 24px 42px,
+          #ffd400 42px 48px
+        );
+      box-shadow: 0 0 0 1px rgba(0,0,0,.28);
+    }
+
+    body.mode-adult::before,
+    body.mode-shadow::before {
+      top: 0;
+    }
+
+    body.mode-adult::after,
+    body.mode-shadow::after {
+      bottom: 0;
+    }
+
     .app {
       min-height: calc(100vh - 24px);
       display: grid;
@@ -38,6 +70,48 @@
       gap: 12px;
       align-items: center;
       padding: 14px 16px;
+    }
+
+    .adult-banner {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 8px 16px;
+      border: 1px solid rgba(255,212,0,.38);
+      border-radius: 14px;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          rgba(17,17,17,.96) 0 18px,
+          rgba(17,17,17,.96) 18px 24px,
+          rgba(255,212,0,.98) 24px 42px,
+          rgba(255,212,0,.98) 42px 48px
+        );
+      color: #111;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-shadow: 0 1px 0 rgba(255,255,255,.2);
+      box-shadow: 0 10px 22px rgba(0,0,0,.28);
+    }
+
+    .adult-banner.show {
+      display: flex;
+    }
+
+    .adult-banner.shadow {
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          rgba(17,17,17,.98) 0 18px,
+          rgba(17,17,17,.98) 18px 24px,
+          rgba(255,72,72,.96) 24px 42px,
+          rgba(255,72,72,.96) 42px 48px
+        );
+      color: #fff7c2;
+      border-color: rgba(255,72,72,.42);
     }
 
     .title strong,
@@ -154,6 +228,8 @@
 </head>
 <body>
   <main class="app">
+    <div id="adultBanner" class="adult-banner" aria-live="polite">Voksenmodus</div>
+
     <header class="bar">
       <div class="title">
         <strong>Magiske Mikrofonen</strong>
@@ -208,6 +284,7 @@
       var qrImage = document.getElementById("qrImage");
       var sourceText = document.getElementById("sourceText");
       var updatedText = document.getElementById("updatedText");
+      var adultBanner = document.getElementById("adultBanner");
       var lastSerialized = "";
 
       qrImage.src = qrUrl;
@@ -236,6 +313,7 @@
         var answer = payload.answer || "";
         var image = payload.roastImageUrl || "";
         var source = payload.source || "bianca-state";
+        var roastMode = payload.roastMode || "";
 
         statusText.textContent = labelPhase(phase);
         phaseText.textContent = labelPhase(phase);
@@ -243,6 +321,18 @@
         answerText.textContent = answer || "Ingen svar enda";
         sourceText.textContent = source;
         updatedText.textContent = "Oppdatert " + new Date().toLocaleTimeString("no-NO", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+
+        document.body.classList.toggle("mode-adult", roastMode === "adult");
+        document.body.classList.toggle("mode-shadow", roastMode === "shadow");
+        if (roastMode === "adult") {
+          adultBanner.textContent = "Voksenmodus";
+          adultBanner.className = "adult-banner show";
+        } else if (roastMode === "shadow") {
+          adultBanner.textContent = "Brutalis";
+          adultBanner.className = "adult-banner show shadow";
+        } else {
+          adultBanner.className = "adult-banner";
+        }
 
         if (image) {
           roastImage.src = image;
