@@ -146,12 +146,12 @@
       border: 2px solid rgba(255,72,72,.92);
       border-radius: 14px;
       background:
-        linear-gradient(180deg, #2e0006 0%, #5f0010 18%, #7a0015 36%, #5c0010 62%, #2a0007 100%);
+        linear-gradient(rgba(18,0,2,.24), rgba(18,0,2,.24)),
+        url("/bianca/brutalis-curtain-closed.jpg") center top / cover no-repeat;
       color: #fff7c2;
       box-shadow:
         0 10px 22px rgba(0,0,0,.34),
         inset 0 -8px 22px rgba(0,0,0,.36),
-        inset 0 10px 16px rgba(255,170,170,.08),
         0 0 0 4px rgba(255,72,72,.22);
       overflow: hidden;
     }
@@ -165,17 +165,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 50% -18%, rgba(255,220,220,.26), transparent 38%),
-        repeating-linear-gradient(
-          90deg,
-          rgba(25,0,0,.22) 0 4.5%,
-          rgba(122,0,21,.94) 4.5% 10.5%,
-          rgba(255,185,185,.18) 10.5% 12.5%,
-          rgba(88,0,15,.98) 12.5% 18%
-        );
-      opacity: .98;
-      transform: scaleY(1.04);
-      transform-origin: top;
+        linear-gradient(180deg, rgba(255,255,255,.08), transparent 24%, rgba(0,0,0,.12) 100%);
+      opacity: 1;
       pointer-events: none;
     }
 
@@ -187,15 +178,8 @@
       bottom: -10px;
       height: 38px;
       background:
-        radial-gradient(circle at 5% 0, #4f000c 0 14px, transparent 15px),
-        radial-gradient(circle at 14% 0, #7e0014 0 18px, transparent 19px),
-        radial-gradient(circle at 27% 0, #58000e 0 13px, transparent 14px),
-        radial-gradient(circle at 39% 0, #8a0017 0 20px, transparent 21px),
-        radial-gradient(circle at 53% 0, #52000d 0 14px, transparent 15px),
-        radial-gradient(circle at 66% 0, #810015 0 19px, transparent 20px),
-        radial-gradient(circle at 79% 0, #57000d 0 13px, transparent 14px),
-        radial-gradient(circle at 92% 0, #850016 0 18px, transparent 19px);
-      opacity: .98;
+        linear-gradient(180deg, rgba(20,0,0,0), rgba(20,0,0,.46));
+      opacity: 1;
       pointer-events: none;
     }
 
@@ -264,12 +248,10 @@
       height: 15vh;
       min-height: 84px;
       transform: translateY(-120%);
-      background:
-        linear-gradient(180deg, #2e0006 0%, #5f0010 18%, #7a0015 36%, #5c0010 62%, #2a0007 100%);
+      background: #140002;
       box-shadow:
         0 14px 36px rgba(0,0,0,.42),
-        inset 0 -8px 22px rgba(0,0,0,.36),
-        inset 0 10px 16px rgba(255,170,170,.08);
+        inset 0 -8px 22px rgba(0,0,0,.36);
       overflow: hidden;
     }
 
@@ -277,41 +259,32 @@
       animation: brutalisCurtainDrop 980ms cubic-bezier(.2,.86,.18,1) forwards;
     }
 
-    .brutalis-curtain::before {
-      content: "";
+    .brutalis-layer {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 50% -18%, rgba(255,220,220,.26), transparent 38%),
-        repeating-linear-gradient(
-          90deg,
-          rgba(25,0,0,.22) 0 4.5%,
-          rgba(122,0,21,.94) 4.5% 10.5%,
-          rgba(255,185,185,.18) 10.5% 12.5%,
-          rgba(88,0,15,.98) 12.5% 18%
-        );
-      opacity: .98;
-      transform: scaleY(1.04);
-      transform-origin: top;
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transform-origin: top center;
     }
 
-    .brutalis-curtain::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -10px;
-      height: 38px;
-      background:
-        radial-gradient(circle at 5% 0, #4f000c 0 14px, transparent 15px),
-        radial-gradient(circle at 14% 0, #7e0014 0 18px, transparent 19px),
-        radial-gradient(circle at 27% 0, #58000e 0 13px, transparent 14px),
-        radial-gradient(circle at 39% 0, #8a0017 0 20px, transparent 21px),
-        radial-gradient(circle at 53% 0, #52000d 0 14px, transparent 15px),
-        radial-gradient(circle at 66% 0, #810015 0 19px, transparent 20px),
-        radial-gradient(circle at 79% 0, #57000d 0 13px, transparent 14px),
-        radial-gradient(circle at 92% 0, #850016 0 18px, transparent 19px);
-      opacity: .98;
+    .brutalis-layer.closed {
+      background-image: url("/bianca/brutalis-curtain-closed.jpg");
+      opacity: 1;
+    }
+
+    .brutalis-layer.open {
+      background-image: url("/bianca/brutalis-curtain-open.jpg");
+      opacity: 0;
+      transform: scale(1.02);
+    }
+
+    .brutalis-fx.play .brutalis-layer.closed {
+      animation: brutalisClosedFade 760ms ease-out forwards;
+    }
+
+    .brutalis-fx.play .brutalis-layer.open {
+      animation: brutalisOpenFade 760ms ease-out 160ms forwards;
     }
 
     .brutalis-title {
@@ -376,6 +349,16 @@
       0% { transform: translateY(-120%); }
       58% { transform: translateY(0); }
       100% { transform: translateY(0); }
+    }
+
+    @keyframes brutalisClosedFade {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes brutalisOpenFade {
+      0% { opacity: 0; transform: scale(1.02); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
     @keyframes brutalisTitleIn {
@@ -506,6 +489,8 @@
     <div id="brutalisFx" class="brutalis-fx" aria-hidden="true">
       <div class="brutalis-blackout"></div>
       <div class="brutalis-curtain">
+        <div class="brutalis-layer closed"></div>
+        <div class="brutalis-layer open"></div>
         <div class="brutalis-title"><span>Brutalis Mode</span></div>
       </div>
     </div>
