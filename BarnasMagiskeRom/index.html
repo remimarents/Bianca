@@ -18,67 +18,6 @@
       z-index: 0;
     }
 
-    .share-panel {
-      margin-top: 16px;
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: minmax(130px, 168px) 1fr;
-      gap: 16px;
-      align-items: center;
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: rgba(255,255,255,.84);
-      box-shadow: 0 14px 34px rgba(105, 63, 160, .14);
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .share-panel img {
-      width: 100%;
-      max-width: 168px;
-      display: block;
-      padding: 12px;
-      border-radius: 20px;
-      background: #fff;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.85);
-    }
-
-    .share-panel strong {
-      display: block;
-      font-size: 1.35rem;
-      line-height: 1.08;
-      margin-bottom: 8px;
-    }
-
-    .share-panel p {
-      font-size: 1rem;
-      line-height: 1.35;
-    }
-
-    .share-url {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(140, 87, 255, .10);
-      color: #5a2ca0;
-      font-size: .92rem;
-      font-weight: 800;
-      word-break: break-all;
-    }
-
-    @media (max-width: 620px) {
-      .share-panel {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
-      }
-
-      .share-panel img {
-        max-width: 190px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -112,18 +51,6 @@
           <strong>Spørsmåls Lab</strong>
           <small>Still spørsmål med tekst, bilde og tale</small>
         </span>
-      </a>
-
-      <a class="share-panel" href="https://marentscloud.duckdns.org:10443/bianca" target="_blank" rel="noopener noreferrer" aria-label="Skann eller åpne Magiske Mikrofonen">
-        <img
-          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDAiIGhlaWdodD0iMjQwIiB2aWV3Qm94PSIwIDAgMzcgMzciIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTAgMGgzN3YzN0gweiIvPjxwYXRoIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTIgMi41aDdtMyAwaDFtNSAwaDFtMSAwaDZtMiAwaDdNMiAzLjVoMW01IDBoMW0yIDBoMm0xIDBoMW0yIDBoMW0yIDBoMW0yIDBoMW0yIDBoMW0xIDBoMW01IDBoMU0yIDQuNWgxbTEgMGgzbTEgMGgxbTEgMGgxbTIgMGgybTEgMGgxbTEgMGgxbTIgMGg1bTIgMGgxbTEgMGgzbTEgMGgxTTIgNS41aDFtMSAwaDNtMSAwaDFtMSAwaDFtMiAwaDFtNiAwaDJtMSAwaDFtMSAwaDJtMSAwaDFtMSAwaDNtMSAwaDFNMiA2LjVoMW0xIDBoM20xIDBoMW0xIDBoMW0xIDBoMm0xIDBoNG0zIDBoMm0xIDBoMW0yIDBoMW0xIDBoM20xIDBoMU0yIDcuNWgxbTUgMGgxbTEgMGg3bTQgMGgxbTEgMGgybTMgMGgxbTUgMGgxTTIgOC41aDdtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDdNMTAgOS41aDFtMyAwaDFtMSAwaDFtMSAwaDFtMSAwaDRtMSAwaDJNMiAxMC41aDFtMSAwaDVtNCAwaDFtMSAwaDJtMiAwaDFtMSAwaDFtMiAwaDFtMSAwaDFtMSAwaDVNNCAxMS41aDJtNSAwaDFtMiAwaDNtMiAwaDFtMSAwaDFtMiAwaDJtMiAwaDJtMSAwaDRNMiAxMi41aDFtMSAwaDFtMiAwaDNtNCAwaDZtNCAwaDFtMiAwaDJtMSAwaDFtMSAwaDFNMiAxMy41aDNtMSAwaDJtMiAwaDRtMSAwaDFtMyAwaDJtMSAwaDFtNCAwaDJtMSAwaDNtMSAwaDFNMiAxNC41aDdtNCAwaDJtMSAwaDNtMyAwaDNtMSAwaDJtMSAwaDNtMiAwaDFNMyAxNS41aDFtMSAwaDNtMSAwaDJtMSAwaDJtMyAwaDFtMiAwaDFtMiAwaDFtMSAwaDFtMiAwaDJtMiAwaDNNMiAxNi41aDFtMyAwaDFtMSAwaDFtMyAwaDFtMiAwaDFtMSAwaDJtMyAwaDFtMyAwaDNtMSAwaDRNMiAxNy41aDFtMiAwaDJtMiAwaDJtMiAwaDVtNSAwaDNtMSAwaDNtMiAwaDFNMyAxOC41aDNtMiAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMiAwaDNtNCAwaDRtMSAwaDNtMiAwaDFNMyAxOS41aDJtMSAwaDFtMiAwaDFtMyAwaDNtMiAwaDFtMSAwaDRtMSAwaDFtMiAwaDJtMSAwaDRNMyAyMC41aDFtMiAwaDFtMSAwaDFtNCAwaDVtMiAwaDFtMSAwaDJtMiAwaDFtMiAwaDJtMSAwaDFNMiAyMS41aDJtMSAwaDFtMSAwaDFtMiAwaDFtMSAwaDFtNSAwaDFtMyAwaDVtMSAwaDdNMiAyMi41aDFtMyAwaDFtMSAwaDJtMyAwaDFtNiAwaDFtMiAwaDFtMiAwaDJtMiAwaDJtMSAwaDFNMiAyMy41aDJtMiAwaDFtMyAwaDFtMiAwaDZtMyAwaDRtMiAwaDJtMiAwaDFtMSAwaDFNMiAyNC41aDFtMyAwaDNtMiAwaDFtMSAwaDFtMSAwaDJtMiAwaDNtNSAwaDNtMiAwaDJNMiAyNS41aDFtMyAwaDFtNSAwaDJtMSAwaDFtMiAwaDFtMiAwaDRtMSAwaDJtNCAwaDJNMiAyNi41aDFtMyAwaDNtMiAwaDJtNiAwaDFtMSAwaDJtMSAwaDFtMSAwaDZtMSAwaDJNMTAgMjcuNWgxbTMgMGgxbTMgMGg1bTIgMGgybTMgMGgxbTEgMGgxbTEgMGgxTTIgMjguNWg3bTMgMGgxbTEgMGgybTEgMGgxbTEgMGgxbTIgMGgxbTEgMGgzbTEgMGgxbTEgMGgxbTEgMGgyTTIgMjkuNWgxbTUgMGgxbTEgMGgybTMgMGg4bTIgMGgybTMgMGgzbTEgMGgxTTIgMzAuNWgxbTEgMGgzbTEgMGgxbTEgMGgxbTEgMGg3bTIgMGg0bTEgMGg2TTIgMzEuNWgxbTEgMGgzbTEgMGgxbTEgMGgxbTEgMGgybTMgMGgxbTEgMGgybTQgMGgzbTIgMGgzbTEgMGgxTTIgMzIuNWgxbTEgMGgzbTEgMGgxbTEgMGgxbTEgMGgybTEgMGgxbTEgMGg0bTEgMGgzbTEgMGgxbTEgMGgybTIgMGgxTTIgMzMuNWgxbTUgMGgxbTQgMGgzbTEgMGgxbTUgMGgxbTQgMGgxbTEgMGgxbTEgMGgxTTIgMzQuNWg3bTEgMGgzbTEgMGgxbTEgMGgybTEgMGgxbTQgMGg0bTEgMGgxbTEgMGgxbTEgMGgxIi8+PC9zdmc+Cg=="
-          alt="QR-kode til Magiske Mikrofonen"
-        >
-        <div>
-          <strong>Skann for å åpne Magiske Mikrofonen</strong>
-          <p>Her går barna rett inn i Magiske Mikrofonen uten å gå via resten av rommet.</p>
-          <span class="share-url">https://marentscloud.duckdns.org:10443/bianca</span>
-        </div>
       </a>
 
       <a class="game-card" href="../Gjettespill/index.html" aria-label="Åpne Gjettespillet">
