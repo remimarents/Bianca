@@ -1123,6 +1123,7 @@
     let imageTarget = null;
     let roastImageDataUrl = localStorage.getItem("bianca-roast-photo") || "";
     let liveTimer = null;
+    let liveHeartbeat = null;
     let lastLivePayload = "";
     let lastAnswerText = "";
     let lastTranscriptText = "";
@@ -1188,6 +1189,29 @@
         liveTimer = null;
         send();
       }, 450);
+    }
+
+    function syncLivePresence(immediate = false) {
+      postLive({
+        phase: roastPanel.classList.contains("hidden") ? "ready" : "roast-ready",
+        transcript: lastTranscriptText || inputEl.value || "",
+        answer: lastAnswerText,
+        roastName: roastNameEl.value || "",
+        roastImage: roastImageDataUrl,
+        roastMode: currentRoastMode(),
+        micActive: listening || sending
+      }, immediate);
+    }
+
+    function clearLivePresence() {
+      postLive({
+        phase: "ready",
+        transcript: "",
+        answer: "",
+        roastName: "",
+        roastMode: "",
+        micActive: false
+      }, true);
     }
 
     function readyForNextTurn(status = "Klar") {
@@ -1914,6 +1938,13 @@
       void handlePickedImage(file);
     });
 
+    window.addEventListener("pagehide", clearLivePresence);
+    window.addEventListener("beforeunload", clearLivePresence);
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) clearLivePresence();
+      else syncLivePresence(true);
+    });
+
     sendBtn.addEventListener("click", () => {
       void unlockSpeech();
       sendText(inputEl.value);
@@ -1929,6 +1960,10 @@
     setPersonality(personality);
     setupRecognition();
     setStatus(SpeechRecognition ? "Klar" : "Ingen STT");
+    syncLivePresence(true);
+    liveHeartbeat = setInterval(() => {
+      if (!document.hidden) syncLivePresence(true);
+    }, 2500);
     addMessage("assistant", "Bil-kontroll klar. Trykk START for å snakke, og trykk STOPP når jeg skal svare.");
   </script>
 </body>
