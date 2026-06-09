@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff3b0">
+  <title>Magiske Mikrofonen Mobil</title>
+  <style>
+    :root {
+      --bg1: #fff9de;
+      --bg2: #ffe3f0;
+      --bg3: #dff7ff;
+      --ink: #1d2040;
+      --muted: #5d6488;
+      --card: rgba(255,255,255,.92);
+      --line: rgba(29,32,64,.10);
+      --secondary: #48b8ff;
+      --roast1: #ffca52;
+      --roast2: #f39a22;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font: 400 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255,255,255,.9) 0 36px, transparent 38px),
+        radial-gradient(circle at 85% 18%, rgba(255,255,255,.7) 0 28px, transparent 30px),
+        linear-gradient(135deg, var(--bg1), var(--bg2) 54%, var(--bg3));
+    }
+
+    main {
+      width: min(430px, 100%);
+      margin: 0 auto;
+      padding: 10px;
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+    }
+
+    .image-stage {
+      position: relative;
+      width: min(100%, calc((100svh - 78px) * 640 / 1354));
+      max-width: 430px;
+      aspect-ratio: 640 / 1354;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 18px 36px rgba(107,33,168,.22);
+      background: #f6e7ff;
+    }
+
+    @supports not (height: 100svh) {
+      .image-stage {
+        width: min(100%, calc((100vh - 78px) * 640 / 1354));
+      }
+    }
+
+    .mic-concept-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .image-hot {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      min-height: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 18px;
+      background: transparent;
+      box-shadow: none;
+      color: #fff;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      appearance: none;
+    }
+
+    .ptt-hot {
+      left: 32.1%;
+      top: 67.9%;
+      width: 36.8%;
+      height: 16.3%;
+      border-radius: 999px;
+    }
+
+    .ptt-hot .big,
+    .ptt-hot .small {
+      display: none;
+    }
+
+    .ptt-hot.recording {
+      background: rgba(225,29,72,.72);
+      box-shadow: 0 0 0 5px rgba(255,255,255,.52), 0 0 24px rgba(225,29,72,.58);
+    }
+
+    .ptt-hot.recording .big,
+    .ptt-hot.recording .small {
+      display: block;
+      line-height: 1;
+      text-align: center;
+      text-shadow: 0 2px 0 rgba(64,20,119,.35);
+    }
+
+    .ptt-hot.recording .big {
+      font-size: clamp(28px, 8vw, 44px);
+      font-weight: 950;
+    }
+
+    .ptt-hot.recording .small {
+      margin-top: 5px;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .roast-hot {
+      left: 77.0%;
+      top: 59.6%;
+      width: 19.7%;
+      height: 10.8%;
+    }
+
+    .knob-hot {
+      left: 66.0%;
+      top: 83.2%;
+      width: 25.0%;
+      height: 10.8%;
+      border-radius: 999px;
+    }
+
+    .personality-hot {
+      width: 13%;
+      height: 4.5%;
+      border-radius: 999px;
+    }
+
+    .personality-snill {
+      left: 76.0%;
+      top: 80.3%;
+    }
+
+    .personality-slem {
+      left: 64.0%;
+      top: 84.3%;
+    }
+
+    .personality-glad {
+      left: 67.0%;
+      top: 92.1%;
+    }
+
+    .personality-trott {
+      left: 86.0%;
+      top: 85.1%;
+    }
+
+    .personality-frekk {
+      left: 86.0%;
+      top: 91.9%;
+    }
+
+    .personality-hot.active {
+      outline: 4px solid rgba(255,78,203,.78);
+      outline-offset: -4px;
+      background: rgba(255,255,255,.18);
+    }
+
+    .stage-status {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 3;
+      width: 76%;
+      max-width: 320px;
+      padding: 16px 18px;
+      border: 2px solid rgba(255,255,255,.76);
+      border-radius: 28px;
+      background: rgba(255,255,255,.70);
+      backdrop-filter: blur(14px) saturate(1.25);
+      -webkit-backdrop-filter: blur(14px) saturate(1.25);
+      color: #5b257a;
+      font-size: clamp(18px, 5vw, 24px);
+      font-weight: 950;
+      text-align: center;
+      line-height: 1.08;
+      opacity: 0;
+      transform: translate(-50%, -44%) scale(.96);
+      pointer-events: none;
+      text-shadow: 0 1px 0 rgba(255,255,255,.9);
+      box-shadow: 0 18px 38px rgba(107,33,168,.22);
+      transition: opacity .18s ease, transform .18s ease;
+    }
+
+    .stage-status.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .stage-status.busy {
+      background: rgba(255,255,255,.78);
+      animation: statusFloat 1.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes statusFloat {
+      from {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      to {
+        transform: translate(-50%, -53%) scale(1.025);
+      }
+    }
+
+    .panel {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--card);
+      box-shadow: 0 14px 28px rgba(29,32,64,.10);
+    }
+
+    .chat {
+      min-height: 180px;
+      max-height: 42vh;
+      overflow: auto;
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .msg {
+      max-width: 90%;
+      padding: 10px 12px;
+      border-radius: 16px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-weight: 600;
+    }
+
+    .msg.user {
+      justify-self: end;
+      background: #ffe4f0;
+    }
+
+    .msg.assistant {
+      justify-self: start;
+      background: #e4f6ff;
+    }
+
+    .composer,
+    .roast-panel {
+      padding: 16px;
+    }
+
+    .composer {
+      display: grid;
+      gap: 10px;
+    }
+
+    textarea,
+    input,
+    button {
+      font: inherit;
+    }
+
+    textarea,
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .actions,
+    .roast-actions,
+    .roast-head {
+      display: grid;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .actions {
+      grid-template-columns: 1fr 110px;
+    }
+
+    .hint {
+      font-size: .92rem;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .roast-actions {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .send,
+    .secondary,
+    .roast-close {
+      min-height: 48px;
+      border: 0;
+      border-radius: 14px;
+      font-weight: 800;
+    }
+
+    .send {
+      background: linear-gradient(180deg, var(--secondary), #178fda);
+      color: #fff;
+    }
+
+    .secondary {
+      background: linear-gradient(180deg, #eef3f8, #dbe5ef);
+      color: var(--ink);
+    }
+
+    button:disabled {
+      opacity: .55;
+    }
+
+    .roast-panel[hidden] {
+      display: none;
+    }
+
+    .roast-head {
+      grid-template-columns: 74px 1fr 44px;
+    }
+
+    .roast-preview {
+      width: 74px;
+      height: 74px;
+      border-radius: 18px;
+      object-fit: cover;
+      background: #fff6dc;
+      border: 1px solid var(--line);
+      display: block;
+    }
+
+    .roast-title strong,
+    .roast-title span,
+    .roast-grid label {
+      display: block;
+    }
+
+    .roast-title strong {
+      font-size: 1.1rem;
+    }
+
+    .roast-close {
+      min-height: 44px;
+      padding: 0;
+      background: #eef3f8;
+      color: var(--ink);
+      font-size: 22px;
+    }
+
+    .roast-sub {
+      color: var(--muted);
+    }
+
+    .roast-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .roast-grid label {
+      font-size: .92rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .roast-grid input,
+    .roast-grid textarea {
+      margin-top: 6px;
+    }
+
+    .hidden-file {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="image-stage" aria-label="Magiske Mikrofonen">
+      <img class="mic-concept-image" src="/bianca/microphone-concept-mobile.jpg" alt="Magiske Mikrofonen">
+      <button id="listenBtn" class="image-hot ptt-hot" type="button" title="Trykk for å begynne å snakke, trykk igjen for å stoppe">
+        <span class="big">START</span>
+        <span class="small">Trykk for å snakke</span>
+      </button>
+      <button id="roastButton" class="image-hot roast-hot" type="button" title="Velg bilde til roast"></button>
+      <button class="image-hot personality-hot personality-snill" type="button" data-personality="snill" title="Snill"></button>
+      <button class="image-hot personality-hot personality-slem" type="button" data-personality="slem" title="Slem"></button>
+      <button class="image-hot personality-hot personality-glad" type="button" data-personality="glad" title="Glad"></button>
+      <button class="image-hot personality-hot personality-trott" type="button" data-personality="trøtt" title="Trøtt"></button>
+      <button class="image-hot personality-hot personality-frekk" type="button" data-personality="frekk" title="Frekk"></button>
+      <button id="personalityKnob" class="image-hot knob-hot" type="button" aria-label="Bytt personlighet" title="Bytt personlighet"></button>
+      <div id="status" class="stage-status">Starter...</div>
+    </section>
+    <input id="imagePicker" class="hidden-file" type="file" accept="image/*">
+
+    <section id="roastPanel" class="panel roast-panel" hidden>
+      <div class="roast-head">
+        <img id="roastPreview" class="roast-preview" alt="Roast-bilde">
+        <div class="roast-title">
+          <strong>Roast</strong>
+          <span class="roast-sub">Velg bilde, skriv navn og start.</span>
+        </div>
+        <button id="roastCloseBtn" class="roast-close" type="button" aria-label="Slett roast" title="Slett roast">×</button>
+      </div>
+      <div class="roast-grid">
+        <label>
+          Navn
+          <input id="roastName" autocomplete="off" placeholder="Hvem skal grilles?">
+        </label>
+        <label>
+          Ekstra beskjed
+          <textarea id="roastInstruction" placeholder="Hva skal jeg fokusere på?"></textarea>
+        </label>
+      </div>
+      <div class="roast-actions">
+        <button id="roastNewPhotoBtn" class="secondary" type="button">Nytt bilde</button>
+        <button id="roastStartBtn" class="send" type="button">Start roast</button>
+      </div>
+    </section>
+
+    <section id="chat" class="panel chat" aria-live="polite"></section>
+
+    <section class="panel composer">
+      <textarea id="textInput" placeholder="Skriv her..."></textarea>
+      <div class="actions">
+        <p class="hint">Trykk flammen på mikrofonen for roast, eller skriv og send.</p>
+        <button id="sendBtn" class="send" type="button">Send</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const params = new URLSearchParams(location.search);
+    const accessKey = params.get("k") || localStorage.getItem("bianca-access-key") || "";
+    const chatEndpoint = "/bianca/chat";
+    const roastEndpoint = "/bianca/roast";
+    const sttEndpoint = "/bianca/stt";
+    const ttsEndpoint = "/bianca/tts";
+    const listenBtn = document.getElementById("listenBtn");
+    const sendBtn = document.getElementById("sendBtn");
+    const roastButton = document.getElementById("roastButton");
+    const imagePicker = document.getElementById("imagePicker");
+    const roastPanel = document.getElementById("roastPanel");
+    const roastPreview = document.getElementById("roastPreview");
+    const roastNameEl = document.getElementById("roastName");
+    const roastInstructionEl = document.getElementById("roastInstruction");
+    const roastStartBtn = document.getElementById("roastStartBtn");
+    const roastCloseBtn = document.getElementById("roastCloseBtn");
+    const roastNewPhotoBtn = document.getElementById("roastNewPhotoBtn");
+    const inputEl = document.getElementById("textInput");
+    const chatEl = document.getElementById("chat");
+    const statusEl = document.getElementById("status");
+    const personalityKnob = document.getElementById("personalityKnob");
+    const personalityButtons = Array.from(document.querySelectorAll("[data-personality]"));
+
+    let recognition = null;
+    let listening = false;
+    let sending = false;
+    let speechUnlocked = false;
+    let currentAudioUrl = null;
+    let pendingTranscript = "";
+    let transcriptSent = false;
+    let abortingForSend = false;
+    let mediaStream = null;
+    let mediaRecorder = null;
+    let recordedChunks = [];
+    let recordingMode = "";
+    let listenWatchdog = null;
+    let stopWatchdog = null;
+    let replyWatchdog = null;
+    let statusTimer = null;
+    let history = [];
+    let roastImageDataUrl = localStorage.getItem("bianca-roast-photo") || "";
+    let personality = localStorage.getItem("bianca-personality") || "snill";
+    const personalityOrder = ["snill", "slem", "trøtt", "glad", "frekk"];
+    const replyAudio = new Audio();
+    const silentWav = "data:audio/wav;base64,UklGRkgAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YSQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+
+    if (accessKey) localStorage.setItem("bianca-access-key", accessKey);
+    replyAudio.preload = "auto";
+    replyAudio.playsInline = true;
+
+    function setStatus(text) {
+      const busy = /tar opp|sender|transkriberer|lager lyd|snakker|roaster|tenker|lytter|avslutter/i.test(text);
+      const funStatus = {
+        "Tar opp...": "Jeg lytter med superører...",
+        "Sender lyd...": "Sender stemmen din gjennom glitterrøret...",
+        "Transkriberer...": "Oversetter snakk til tekst...",
+        "Tenker...": "Hmm, jeg tenker så det knaker...",
+        "Roaster...": "Finner fram flammetriksene...",
+        "Lager lyd...": "Gjør svaret klart med magisk stemme...",
+        "Snakker...": "Nå snakker jeg!",
+        "Lytter...": "Jeg lytter...",
+        "Avslutter...": "Pakker sammen mikrofonmagien...",
+        "Bilde klart": "Bilde klart!",
+        "Roast klar": "Roast klar!",
+        "Klar": "Klar!"
+      };
+      statusEl.textContent = funStatus[text] || text;
+      statusEl.classList.toggle("busy", busy);
+      statusEl.classList.add("show");
+      if (statusTimer) clearTimeout(statusTimer);
+      if (!busy) {
+        statusTimer = setTimeout(() => {
+          statusEl.classList.remove("show", "busy");
+        }, text === "Klar" ? 900 : 2200);
+      }
+    }
+
+    function setPttLabel(big, small) {
+      listenBtn.querySelector(".big").textContent = big;
+      listenBtn.querySelector(".small").textContent = small;
+    }
+
+    function addMessage(role, content) {
+      const div = document.createElement("div");
+      div.className = "msg " + role;
+      div.textContent = content;
+      chatEl.appendChild(div);
+      chatEl.scrollTop = chatEl.scrollHeight;
+    }
+
+    function setPersonality(value) {
+      personality = value;
+      localStorage.setItem("bianca-personality", value);
+      personalityButtons.forEach((item) => {
+        item.classList.toggle("active", item.dataset.personality === value);
+      });
+      setStatus("Personlighet: " + value);
+    }
+
+    function cyclePersonality() {
+      const index = personalityOrder.indexOf(personality);
+      const next = personalityOrder[(index + 1 + personalityOrder.length) % personalityOrder.length];
+      setPersonality(next);
+    }
+
+    function clearAudioUrl() {
+      if (currentAudioUrl) {
+        URL.revokeObjectURL(currentAudioUrl);
+        currentAudioUrl = null;
+      }
+      replyAudio.removeAttribute("src");
+      try { replyAudio.load(); } catch {}
+    }
+
+    function resizeImage(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onerror = () => reject(new Error("Kunne ikke lese bildet."));
+        reader.onload = () => {
+          const img = new Image();
+          img.onerror = () => reject(new Error("Kunne ikke åpne bildet."));
+          img.onload = () => {
+            const size = 720;
+            const canvas = document.createElement("canvas");
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext("2d");
+            const scale = Math.max(size / img.width, size / img.height);
+            const width = img.width * scale;
+            const height = img.height * scale;
+            ctx.drawImage(img, (size - width) / 2, (size - height) / 2, width, height);
+            resolve(canvas.toDataURL("image/jpeg", 0.82));
+          };
+          img.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function openRoastPanel(dataUrl) {
+      if (dataUrl) {
+        roastImageDataUrl = dataUrl;
+        roastPreview.src = dataUrl;
+      }
+      roastPanel.hidden = false;
+      requestAnimationFrame(() => {
+        roastPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+        setTimeout(() => roastNameEl.focus({ preventScroll: true }), 250);
+      });
+    }
+
+    function clearRoastImage() {
+      localStorage.removeItem("bianca-roast-photo");
+      roastImageDataUrl = "";
+      roastPreview.removeAttribute("src");
+      roastNameEl.value = "";
+      roastInstructionEl.value = "";
+      roastPanel.hidden = true;
+      setStatus("Roast fjernet");
+    }
+
+    async function handlePickedImage(file) {
+      if (!file) return;
+      try {
+        const dataUrl = await resizeImage(file);
+        localStorage.setItem("bianca-roast-photo", dataUrl);
+        roastImageDataUrl = dataUrl;
+        openRoastPanel(dataUrl);
+        setStatus("Bilde klart");
+      } catch (error) {
+        addMessage("assistant", "Bilde-feil: " + error.message);
+        setStatus("Bilde-feil");
+      }
+    }
+
+    async function unlockSpeech() {
+      if (speechUnlocked) return true;
+      try {
+        replyAudio.src = silentWav;
+        replyAudio.volume = 0.01;
+        await replyAudio.play();
+        replyAudio.pause();
+        replyAudio.currentTime = 0;
+        replyAudio.volume = 1;
+        speechUnlocked = true;
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    function readyForNextTurn(status) {
+      if (listenWatchdog) {
+        clearTimeout(listenWatchdog);
+        listenWatchdog = null;
+      }
+      if (stopWatchdog) {
+        clearTimeout(stopWatchdog);
+        stopWatchdog = null;
+      }
+      if (replyWatchdog) {
+        clearTimeout(replyWatchdog);
+        replyWatchdog = null;
+      }
+      listening = false;
+      sending = false;
+      abortingForSend = false;
+      listenBtn.disabled = false;
+      sendBtn.disabled = false;
+      roastStartBtn.disabled = false;
+      roastNewPhotoBtn.disabled = false;
+      roastButton.disabled = false;
+      listenBtn.classList.remove("recording");
+      setPttLabel("START", "Trykk for å snakke");
+      setStatus(status || "Klar");
+    }
+
+    function mediaRecorderType() {
+      const options = [
+        "audio/webm;codecs=opus",
+        "audio/webm",
+        "audio/mp4",
+        "audio/ogg;codecs=opus"
+      ];
+      if (!window.MediaRecorder) return "";
+      return options.find((type) => MediaRecorder.isTypeSupported(type)) || "";
+    }
+
+    function clearListenWatchdogs() {
+      if (listenWatchdog) {
+        clearTimeout(listenWatchdog);
+        listenWatchdog = null;
+      }
+      if (stopWatchdog) {
+        clearTimeout(stopWatchdog);
+        stopWatchdog = null;
+      }
+    }
+
+    async function ensureMediaStream() {
+      if (mediaStream && mediaStream.active) return mediaStream;
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) {
+        throw new Error("Mikrofonopptak krever HTTPS på mobilen.");
+      }
+      mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      return mediaStream;
+    }
+
+    async function startRecordingFallback() {
+      void unlockSpeech();
+      if (listening || sending) return;
+      try {
+        const stream = await ensureMediaStream();
+        const mimeType = mediaRecorderType();
+        recordedChunks = [];
+        mediaRecorder = new MediaRecorder(stream, mimeType ? { mimeType } : undefined);
+        recordingMode = "media";
+        mediaRecorder.ondataavailable = (event) => {
+          if (event.data && event.data.size) recordedChunks.push(event.data);
+        };
+        mediaRecorder.onstop = () => {
+          void finishRecordingFallback();
+        };
+        listening = true;
+        transcriptSent = false;
+        listenBtn.classList.add("recording");
+        setPttLabel("STOPP", "Sender til Sandra");
+        setStatus("Tar opp...");
+        mediaRecorder.start();
+        listenWatchdog = setTimeout(stopRecordingFallback, 10000);
+      } catch (error) {
+        readyForNextTurn(error.message || "Mikrofon-feil");
+      }
+    }
+
+    function stopRecordingFallback() {
+      if (!mediaRecorder || mediaRecorder.state === "inactive") return;
+      setStatus("Sender lyd...");
+      clearListenWatchdogs();
+      try { mediaRecorder.stop(); } catch {}
+    }
+
+    async function finishRecordingFallback() {
+      if (transcriptSent) return;
+      transcriptSent = true;
+      listening = false;
+      sending = true;
+      listenBtn.disabled = true;
+      sendBtn.disabled = true;
+      roastButton.disabled = true;
+      listenBtn.classList.remove("recording");
+      setPttLabel("VENT", "STT");
+      setStatus("Transkriberer...");
+
+      try {
+        const type = mediaRecorder?.mimeType || "audio/webm";
+        const blob = new Blob(recordedChunks, { type });
+        recordedChunks = [];
+        if (!blob.size) throw new Error("Tomt lydklipp");
+        const res = await fetch(sttEndpoint, {
+          method: "POST",
+          headers: { "content-type": type, "x-bianca-key": accessKey },
+          body: blob
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || ("HTTP " + res.status));
+        const transcript = String(data.transcript || "").trim();
+        if (!transcript) throw new Error("Ingen tekst fra lydklippet");
+        inputEl.value = transcript;
+        sending = false;
+        listenBtn.disabled = false;
+        sendBtn.disabled = false;
+        roastButton.disabled = false;
+        sendText(transcript);
+      } catch (error) {
+        recordedChunks = [];
+        readyForNextTurn(error.message || "STT-feil");
+      }
+    }
+
+    async function speak(text) {
+      clearAudioUrl();
+      setStatus("Lager lyd...");
+      try {
+        const res = await fetch(ttsEndpoint, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ text, mode: "bianca", personality })
+        });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const blob = await res.blob();
+        currentAudioUrl = URL.createObjectURL(blob);
+        replyAudio.src = currentAudioUrl;
+        replyAudio.onplay = () => setStatus("Snakker...");
+        replyAudio.onended = () => readyForNextTurn("Klar");
+        replyAudio.onerror = () => readyForNextTurn("Kunne ikke spille lyd");
+        replyWatchdog = setTimeout(() => readyForNextTurn("Klar"), 45000);
+        await replyAudio.play();
+      } catch {
+        readyForNextTurn("Kunne ikke spille lyd");
+      }
+    }
+
+    async function sendRoast() {
+      const name = roastNameEl.value.trim();
+      const instruction = roastInstructionEl.value.trim();
+      if (!roastImageDataUrl) {
+        imagePicker.value = "";
+        imagePicker.click();
+        return;
+      }
+      if (!name || sending) {
+        if (!name) {
+          setStatus("Skriv navn");
+          roastNameEl.focus();
+        }
+        return;
+      }
+
+      sending = true;
+      listenBtn.disabled = true;
+      sendBtn.disabled = true;
+      roastButton.disabled = true;
+      roastStartBtn.disabled = true;
+      roastNewPhotoBtn.disabled = true;
+      addMessage("user", "Roast " + name + (instruction ? ": " + instruction : ""));
+      setStatus("Roaster...");
+      setPttLabel("VENT", "Roast");
+
+      try {
+        const res = await fetch(roastEndpoint, {
+          method: "POST",
+          headers: { "content-type": "application/json", "x-bianca-key": accessKey },
+          body: JSON.stringify({
+            name,
+            instruction,
+            image: roastImageDataUrl,
+            personality,
+            roastMode: "",
+            adult: false,
+            k: accessKey
+          })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || ("HTTP " + res.status));
+        addMessage("assistant", data.answer);
+        history.push({ role: "user", content: "Roast " + name + (instruction ? ": " + instruction : "") });
+        history.push({ role: "assistant", content: data.answer });
+        roastInstructionEl.value = "";
+        await unlockSpeech();
+        void speak(data.answer);
+      } catch (error) {
+        addMessage("assistant", "Roast-feil: " + error.message);
+        readyForNextTurn("Roast-feil");
+      }
+    }
+
+    async function sendText(text) {
+      const input = text.trim();
+      if (!input || sending) return;
+      sending = true;
+      addMessage("user", input);
+      history.push({ role: "user", content: input });
+      inputEl.value = "";
+      listenBtn.disabled = true;
+      sendBtn.disabled = true;
+      roastButton.disabled = true;
+      setPttLabel("VENT", "Svar kommer");
+      setStatus("Tenker...");
+
+      try {
+        const res = await fetch(chatEndpoint, {
+          method: "POST",
+          headers: { "content-type": "application/json", "x-bianca-key": accessKey },
+          body: JSON.stringify({ input, history: history.slice(-10), personality, k: accessKey })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || ("HTTP " + res.status));
+        addMessage("assistant", data.answer);
+        history.push({ role: "assistant", content: data.answer });
+        await unlockSpeech();
+        void speak(data.answer);
+      } catch (error) {
+        addMessage("assistant", "Feil: " + error.message);
+        readyForNextTurn("Feil");
+      }
+    }
+
+    function setupRecognition() {
+      if (!SpeechRecognition) {
+        recognition = null;
+        setPttLabel("START", "Ta opp lyd");
+        setStatus(window.MediaRecorder ? "Klar" : "Mikrofon krever HTTPS");
+        return;
+      }
+
+      if (recognition) {
+        recognition.onstart = null;
+        recognition.onend = null;
+        recognition.onerror = null;
+        recognition.onresult = null;
+        try { recognition.abort(); } catch {}
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.lang = "nb-NO";
+      recognition.continuous = false;
+      recognition.interimResults = true;
+
+      recognition.onstart = () => {
+        listening = true;
+        pendingTranscript = "";
+        transcriptSent = false;
+        setPttLabel("STOPP", "Trykk igjen");
+        listenBtn.classList.add("recording");
+        setStatus("Lytter...");
+        listenWatchdog = setTimeout(forceSendListening, 8000);
+      };
+
+      recognition.onresult = (event) => {
+        let finalText = "";
+        let interimText = "";
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) finalText += transcript;
+          else interimText += transcript;
+        }
+        pendingTranscript = (finalText || interimText || pendingTranscript).trim();
+        inputEl.value = pendingTranscript;
+        if (finalText.trim() && !transcriptSent) {
+          transcriptSent = true;
+          try { recognition.stop(); } catch {}
+          sendText(finalText);
+        }
+      };
+
+      recognition.onend = () => {
+        listening = false;
+        listenBtn.classList.remove("recording");
+        if (listenWatchdog) {
+          clearTimeout(listenWatchdog);
+          listenWatchdog = null;
+        }
+        const transcript = (pendingTranscript || inputEl.value || "").trim();
+        if (transcript && !transcriptSent) {
+          transcriptSent = true;
+          sendText(transcript);
+          return;
+        }
+        if (!sending) readyForNextTurn("Klar");
+      };
+
+      recognition.onerror = (event) => {
+        listening = false;
+        listenBtn.classList.remove("recording");
+        if (listenWatchdog) {
+          clearTimeout(listenWatchdog);
+          listenWatchdog = null;
+        }
+        if (event.error === "aborted" && abortingForSend) {
+          abortingForSend = false;
+          const transcript = (pendingTranscript || inputEl.value || "").trim();
+          if (transcript && !transcriptSent) {
+            transcriptSent = true;
+            sendText(transcript);
+            return;
+          }
+        }
+        readyForNextTurn(event.error || "Tale-feil");
+      };
+    }
+
+    function forceSendListening() {
+      if (!listening) return;
+      if (recordingMode === "media") {
+        stopRecordingFallback();
+        return;
+      }
+      abortingForSend = true;
+      try { recognition.abort(); } catch {}
+    }
+
+    function startListening() {
+      void unlockSpeech();
+      if (listening || sending) return;
+      setupRecognition();
+      if (!recognition) {
+        void startRecordingFallback();
+        return;
+      }
+      recordingMode = "speech";
+      pendingTranscript = "";
+      transcriptSent = false;
+      try { recognition.start(); } catch {}
+    }
+
+    function stopListening() {
+      void unlockSpeech();
+      if (recordingMode === "media") {
+        stopRecordingFallback();
+        return;
+      }
+      if (!recognition || !listening) return;
+      setStatus("Avslutter...");
+      if (listenWatchdog) {
+        clearTimeout(listenWatchdog);
+        listenWatchdog = null;
+      }
+      try { recognition.stop(); } catch {}
+      stopWatchdog = setTimeout(forceSendListening, 1200);
+    }
+
+    listenBtn.addEventListener("click", () => {
+      void unlockSpeech();
+      if (listening) stopListening();
+      else startListening();
+    });
+
+    sendBtn.addEventListener("click", () => {
+      void unlockSpeech();
+      sendText(inputEl.value);
+    });
+
+    inputEl.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && (event.metaKey || event.ctrlKey)) {
+        void unlockSpeech();
+        sendText(inputEl.value);
+      }
+    });
+
+    roastButton.addEventListener("click", () => {
+      if (roastImageDataUrl) {
+        openRoastPanel(roastImageDataUrl);
+        setStatus("Roast klar");
+      } else {
+        imagePicker.value = "";
+        imagePicker.click();
+      }
+    });
+
+    roastCloseBtn.addEventListener("click", clearRoastImage);
+
+    roastNewPhotoBtn.addEventListener("click", () => {
+      imagePicker.value = "";
+      imagePicker.click();
+    });
+
+    roastStartBtn.addEventListener("click", () => {
+      void unlockSpeech();
+      void sendRoast();
+    });
+
+    imagePicker.addEventListener("change", () => {
+      const file = imagePicker.files && imagePicker.files[0];
+      void handlePickedImage(file);
+    });
+
+    personalityKnob.addEventListener("click", cyclePersonality);
+    personalityButtons.forEach((button) => {
+      button.addEventListener("click", () => setPersonality(button.dataset.personality));
+    });
+
+    addMessage("assistant", "Hei. Trykk START for å snakke, eller trykk flammen for roast.");
+    setupRecognition();
+    if (roastImageDataUrl) roastPreview.src = roastImageDataUrl;
+    setPersonality(personality);
+    setStatus(SpeechRecognition ? "Klar" : "Ingen talegjenkjenning");
+  </script>
+</body>
+</html>

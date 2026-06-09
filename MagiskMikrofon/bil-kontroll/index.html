@@ -565,11 +565,19 @@
     .image-stage {
       position: relative;
       z-index: 1;
-      width: 100%;
+      width: min(100%, calc((100svh - 78px) * 640 / 1354));
+      max-width: 430px;
+      aspect-ratio: 640 / 1354;
       border-radius: 28px;
       overflow: hidden;
       box-shadow: 0 18px 36px rgba(107,33,168,.22);
       background: #f6e7ff;
+    }
+
+    @supports not (height: 100svh) {
+      .image-stage {
+        width: min(100%, calc((100vh - 78px) * 640 / 1354));
+      }
     }
 
     body.unhinged .image-stage {
@@ -585,7 +593,8 @@
     .mic-concept-image {
       display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: contain;
     }
 
     .image-hot {
@@ -601,6 +610,7 @@
       color: #fff;
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
+      appearance: none;
     }
 
     .photo-hot {
@@ -685,16 +695,15 @@
     }
 
     .roast-hot { left: 77.0%; top: 59.6%; width: 19.7%; height: 10.8%; }
-    .knob-hot { left: 66.0%; top: 83.2%; width: 25.0%; height: 10.8%; border-radius: 999px; }
-    .personality-hot { width: 13%; height: 4.5%; border-radius: 999px; }
+    .knob-hot { left: 66.0%; top: 83.2%; width: 25.0%; height: 10.8%; border-radius: 999px; z-index: 4; pointer-events: none; }
+    .personality-hot { width: 13%; height: 4.5%; border-radius: 999px; z-index: 5; }
     .personality-snill { left: 76.0%; top: 80.3%; }
     .personality-slem { left: 64.0%; top: 84.3%; }
     .personality-trott { left: 86.0%; top: 85.1%; }
     .personality-glad { left: 67.0%; top: 92.1%; }
     .personality-frekk { left: 86.0%; top: 91.9%; }
 
-    .personality-hot.active,
-    .knob-hot.active {
+    .personality-hot.active {
       outline: 4px solid rgba(255,78,203,.78);
       outline-offset: -4px;
       background: rgba(255,255,255,.18);
@@ -702,23 +711,47 @@
 
     .stage-status {
       position: absolute;
-      left: 4%;
-      right: 4%;
-      bottom: 1.4%;
+      left: 50%;
+      top: 50%;
       z-index: 3;
-      display: none;
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.88);
+      width: 76%;
+      max-width: 320px;
+      padding: 16px 18px;
+      border: 2px solid rgba(255,255,255,.76);
+      border-radius: 28px;
+      background: rgba(255,255,255,.70);
+      backdrop-filter: blur(14px) saturate(1.25);
+      -webkit-backdrop-filter: blur(14px) saturate(1.25);
       color: #5b257a;
-      font-size: 13px;
+      font-size: clamp(18px, 5vw, 24px);
       font-weight: 950;
       text-align: center;
-      box-shadow: 0 8px 18px rgba(107,33,168,.18);
+      line-height: 1.08;
+      opacity: 0;
+      transform: translate(-50%, -44%) scale(.96);
+      pointer-events: none;
+      text-shadow: 0 1px 0 rgba(255,255,255,.9);
+      box-shadow: 0 18px 38px rgba(107,33,168,.22);
+      transition: opacity .18s ease, transform .18s ease;
     }
 
     .stage-status.show {
-      display: block;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .stage-status.busy {
+      background: rgba(255,255,255,.78);
+      animation: statusFloat 1.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes statusFloat {
+      from {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      to {
+        transform: translate(-50%, -53%) scale(1.025);
+      }
     }
 
     .concept-preview {
@@ -941,7 +974,12 @@
         border-radius: 0;
         border-left: 0;
         border-right: 0;
-        padding: 17px 14px 14px;
+        padding: 10px 8px 14px;
+      }
+
+      .image-stage {
+        width: 100%;
+        max-width: none;
       }
 
       h1 { font-size: 32px; }
@@ -1079,6 +1117,7 @@
     const chatEndpoint = location.pathname.startsWith("/bianca") ? "/bianca/chat" : "/chat";
     const roastEndpoint = "/bianca/roast";
     const liveEndpoint = "/bianca/live";
+    const carStatusEndpoint = "/bianca/car-status";
     const accessKey = new URLSearchParams(location.search).get("k") || localStorage.getItem("bianca-access-key") || "";
     const chatEl = document.getElementById("chat");
     const statusEl = document.getElementById("status");
@@ -1121,16 +1160,20 @@
     let lastToggleAt = 0;
     let abortingForSend = false;
     let imageTarget = null;
-    let roastImageDataUrl = localStorage.getItem("bianca-roast-photo") || "";
+    let roastImageDataUrl = "";
     let liveTimer = null;
     let liveHeartbeat = null;
     let lastLivePayload = "";
     let lastAnswerText = "";
     let lastTranscriptText = "";
+    let lastCarStatusCheck = 0;
+    let lastCarActive = false;
     let personality = localStorage.getItem("bianca-personality") || "frekk";
     let slemTapCount = 0;
-    let adultMode = sessionStorage.getItem("bianca-adult-mode") === "1";
+    sessionStorage.removeItem("bianca-adult-mode");
+    let adultMode = false;
     let hiddenHardMode = false;
+    let hiddenHardPrimed = false;
     let roastPressTimer = null;
     let roastLongPress = false;
     const personalityOrder = ["snill", "slem", "trøtt", "glad", "frekk"];
@@ -1140,6 +1183,7 @@
     replyAudio.preload = "auto";
     replyAudio.playsInline = true;
     if (accessKey) localStorage.setItem("bianca-access-key", accessKey);
+    localStorage.removeItem("bianca-roast-photo");
 
     function setStatus(text) {
       statusEl.textContent = text;
@@ -1152,6 +1196,31 @@
     function setPttLabel(big, small) {
       listenBtn.querySelector(".big").textContent = big;
       listenBtn.querySelector(".small").textContent = small;
+    }
+
+    function carControlHeaders(extra = {}) {
+      return { ...extra, "x-bianca-key": accessKey, "x-bianca-control": "car" };
+    }
+
+    async function ensureCarActive() {
+      const now = Date.now();
+      if (lastCarActive && now - lastCarStatusCheck < 2500) return true;
+      lastCarStatusCheck = now;
+      try {
+        const res = await fetch(carStatusEndpoint, {
+          headers: { accept: "application/json", "x-bianca-key": accessKey },
+          cache: "no-store",
+        });
+        const data = await res.json();
+        lastCarActive = Boolean(res.ok && data.active);
+      } catch {
+        lastCarActive = false;
+      }
+      if (!lastCarActive) {
+        setStatus("Åpne bilsiden først");
+        addMessage("assistant", "Bil-kontroll er låst fordi MM Bil ikke er aktiv på bilskjermen.");
+      }
+      return lastCarActive;
     }
 
     function postLive(payload, immediate = false) {
@@ -1171,7 +1240,7 @@
         lastLivePayload = serialized;
         fetch(liveEndpoint, {
           method: "POST",
-          headers: { "content-type": "application/json", "x-bianca-key": accessKey },
+          headers: carControlHeaders({ "content-type": "application/json" }),
           body: serialized,
           keepalive: serialized.length < 60000,
         }).catch(() => {});
@@ -1192,14 +1261,19 @@
     }
 
     function syncLivePresence(immediate = false) {
+      const phase = playingReply
+        ? "speaking"
+        : sending
+          ? "thinking"
+          : roastPanel.classList.contains("hidden") ? "ready" : "roast-ready";
       postLive({
-        phase: roastPanel.classList.contains("hidden") ? "ready" : "roast-ready",
+        phase,
         transcript: lastTranscriptText || inputEl.value || "",
         answer: lastAnswerText,
         roastName: roastNameEl.value || "",
         roastImage: roastImageDataUrl,
         roastMode: currentRoastMode(),
-        micActive: listening || sending
+        micActive: listening || sending || playingReply
       }, immediate);
     }
 
@@ -1335,7 +1409,6 @@
       const normalized = normalizeGateAnswer(adultGateInput.value);
       if (normalized === "6" || normalized === "seks") {
         adultMode = true;
-        sessionStorage.setItem("bianca-adult-mode", "1");
         closeAdultGate();
         setStatus("Voksenmodus klar");
         postLive({
@@ -1398,7 +1471,6 @@
         }
 
         if (imageTarget.type === "roast") {
-          localStorage.setItem("bianca-roast-photo", dataUrl);
           roastImageDataUrl = dataUrl;
           openRoastPanel(dataUrl);
           setStatus("Roast klar");
@@ -1439,7 +1511,6 @@
     }
 
     function clearRoastImage() {
-      localStorage.removeItem("bianca-roast-photo");
       roastImageDataUrl = "";
       roastPreview.removeAttribute("src");
       roastPanel.classList.add("hidden");
@@ -1447,6 +1518,8 @@
       roastInstructionEl.value = "";
       document.body.classList.remove("unhinged");
       hiddenHardMode = false;
+      hiddenHardPrimed = false;
+      slemTapCount = 0;
       setStatus("Roast-bilde slettet");
       postLive({ phase: "ready", transcript: "", answer: "", roastImage: "", clearRoast: true, roastName: "", roastMode: currentRoastMode(), micActive: false }, true);
     }
@@ -1454,6 +1527,7 @@
     async function sendRoast() {
       const name = roastNameEl.value.trim();
       const instruction = roastInstructionEl.value.trim();
+      if (!(await ensureCarActive())) return;
       if (!roastImageDataUrl) {
         pickImage({ type: "roast" });
         return;
@@ -1464,6 +1538,7 @@
         return;
       }
       if (sending) return;
+      await unlockSpeech();
       sending = true;
       sendBtn.disabled = true;
       listenBtn.disabled = true;
@@ -1482,8 +1557,8 @@
       try {
         const res = await fetch(roastEndpoint, {
           method: "POST",
-          headers: { "content-type": "application/json", "x-bianca-key": accessKey },
-          body: JSON.stringify({ name, instruction, image: roastImageDataUrl, personality, roastMode: currentRoastMode(), adult: adultMode, k: accessKey }),
+          headers: carControlHeaders({ "content-type": "application/json" }),
+          body: JSON.stringify({ name, instruction, image: roastImageDataUrl, personality, roastMode: currentRoastMode(), adult: adultMode, k: accessKey, carControl: true }),
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
@@ -1497,26 +1572,18 @@
             data.visionUsed === false ? "Bildet ble ikke analysert denne gangen" : "",
           ],
         });
-        postLive({
-          phase: "done",
-          transcript: lastTranscriptText,
-          answer: lastAnswerText,
-          roastName: name,
-          roastMode: currentRoastMode(),
-          micActive: true,
-        }, true);
         history.push({ role: "user", content: `Roast ${name}: ${instruction}` });
         history.push({ role: "assistant", content: data.answer });
         roastInstructionEl.value = "";
         roastInstructionEl.placeholder = "Skriv instruks for neste runde...";
-        readyForNextTurn("Klar");
-        void speak(data.answer, lastTranscriptText);
+        await unlockSpeech();
+        await speak(data.answer, lastTranscriptText);
       } catch (error) {
         addMessage("assistant", `Roast-feil: ${error.message}`);
         readyForNextTurn("Roast-feil");
       } finally {
         roastStartBtn.disabled = false;
-        if (sending) readyForNextTurn(statusEl.textContent || "Klar");
+        if (sending && !playingReply) readyForNextTurn(statusEl.textContent || "Klar");
       }
     }
 
@@ -1526,15 +1593,14 @@
       personalityButtons.forEach((button) => {
         button.classList.toggle("active", button.dataset.personality === personality);
       });
-      personalityKnob.classList.add("active");
-      setTimeout(() => personalityKnob.classList.remove("active"), 900);
     }
 
     function notePersonalityTap(value) {
       if (value === "slem") {
         slemTapCount += 1;
-        if (adultMode && slemTapCount >= 5) {
-          hiddenHardMode = true;
+        if (slemTapCount >= 5) {
+          hiddenHardPrimed = true;
+          setStatus("Brutalis primet");
           postLive({
             phase: roastPanel.classList.contains("hidden") ? "ready" : "roast-ready",
             transcript: lastTranscriptText || inputEl.value || "",
@@ -1548,6 +1614,7 @@
         return;
       }
       slemTapCount = 0;
+      hiddenHardPrimed = false;
     }
 
     function cyclePersonality() {
@@ -1587,12 +1654,11 @@
       replyAudio.pause();
       clearAudioUrl();
       setStatus("Lager lyd...");
-      postLive({ phase: "speaking", transcript, answer: text, roastMode: currentRoastMode(), micActive: false });
       try {
-        const res = await fetch("/tts", {
+        const res = await fetch("/bianca/tts", {
           method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({ text, mode: "bianca" }),
+          headers: carControlHeaders({ "content-type": "application/json" }),
+          body: JSON.stringify({ text, mode: "bianca", k: accessKey, carControl: true }),
         });
         if (!res.ok) {
           const data = await res.json().catch(() => ({}));
@@ -1603,21 +1669,18 @@
         currentAudioUrl = url;
         replyAudio.src = url;
         replyAudio.onplay = () => setStatus("Snakker...");
-        const finishReply = (status) => {
-          clearAudioUrl();
-          playingReply = false;
-          if (!listening && !sending) readyForNextTurn(status);
-        };
-        replyAudio.onended = () => finishReply("Klar");
-        replyAudio.onerror = () => finishReply("Lyd-feil");
+        replyAudio.onended = () => readyForNextTurn("Klar");
+        replyAudio.onerror = () => readyForNextTurn("Lyd-feil");
         replyAudio.onpause = () => {
-          if (replyAudio.ended) finishReply("Klar");
+          if (replyAudio.ended) readyForNextTurn("Klar");
         };
-        replyWatchdog = setTimeout(() => finishReply("Klar"), 45000);
+        replyWatchdog = setTimeout(() => readyForNextTurn("Klar"), 45000);
+        postLive({ phase: "speaking", transcript, answer: text, roastMode: currentRoastMode(), micActive: false }, true);
         await replyAudio.play();
       } catch (error) {
         playingReply = false;
-        if (!listening && !sending) readyForNextTurn("Lyd blokkert");
+        const detail = error && (error.message || error.name) ? (error.message || error.name) : "ukjent";
+        if (!listening) readyForNextTurn("Lyd blokkert: " + detail);
       }
     }
 
@@ -1625,6 +1688,8 @@
       const input = text.trim();
       if (!input) return;
       if (sending) return;
+      if (!(await ensureCarActive())) return;
+      await unlockSpeech();
       sending = true;
       addMessage("user", input);
       history.push({ role: "user", content: input });
@@ -1639,8 +1704,8 @@
       try {
         const res = await fetch(chatEndpoint, {
           method: "POST",
-          headers: { "content-type": "application/json", "x-bianca-key": accessKey },
-          body: JSON.stringify({ input, history: history.slice(-12), personality, k: accessKey }),
+          headers: carControlHeaders({ "content-type": "application/json" }),
+          body: JSON.stringify({ input, history: history.slice(-12), personality, k: accessKey, carControl: true }),
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
@@ -1649,15 +1714,14 @@
         });
         lastTranscriptText = input;
         lastAnswerText = data.answer;
-        postLive({ phase: "done", transcript: lastTranscriptText, answer: lastAnswerText, roastMode: currentRoastMode(), micActive: true }, true);
         history.push({ role: "assistant", content: data.answer });
-        readyForNextTurn("Klar");
-        void speak(data.answer, lastTranscriptText);
+        await unlockSpeech();
+        await speak(data.answer, lastTranscriptText);
       } catch (error) {
         addMessage("assistant", `Feil: ${error.message}`);
         readyForNextTurn("Feil");
       } finally {
-        if (sending) readyForNextTurn(statusEl.textContent || "Klar");
+        if (sending && !playingReply) readyForNextTurn(statusEl.textContent || "Klar");
       }
     }
 
@@ -1787,10 +1851,13 @@
     }
 
     armAudioUnlock(sendBtn);
+    armAudioUnlock(roastButton);
+    armAudioUnlock(roastStartBtn);
 
-    function startListening() {
+    async function startListening() {
       void unlockSpeech();
       if (listening || sending) return;
+      if (!(await ensureCarActive())) return;
       if (playingReply) {
         replyAudio.pause();
         clearAudioUrl();
@@ -1856,7 +1923,7 @@
       lastToggleAt = now;
       void unlockSpeech();
       if (listening) stopListening();
-      else startListening();
+      else void startListening();
     }
 
     listenBtn.addEventListener("click", toggleListening);
@@ -1895,17 +1962,32 @@
       });
     });
 
-    roastButton.addEventListener("click", (event) => {
+    roastButton.addEventListener("click", async (event) => {
       if (roastLongPress) {
         event.preventDefault();
         roastLongPress = false;
         return;
       }
+      if (!(await ensureCarActive())) return;
+      if (hiddenHardPrimed) {
+        hiddenHardMode = true;
+        hiddenHardPrimed = false;
+        setStatus("Brutalis");
+        postLive({
+          phase: roastPanel.classList.contains("hidden") ? "ready" : "roast-ready",
+          transcript: lastTranscriptText || inputEl.value || "",
+          answer: lastAnswerText,
+          roastName: roastNameEl.value || "",
+          roastImage: roastImageDataUrl,
+          roastMode: currentRoastMode(),
+          micActive: true
+        }, true);
+      }
       openRoastPanel();
     });
-    roastStartBtn.addEventListener("click", () => {
-      void unlockSpeech();
-      void sendRoast();
+    roastStartBtn.addEventListener("click", async () => {
+      await unlockSpeech();
+      await sendRoast();
     });
     roastCloseBtn.addEventListener("click", clearRoastImage);
     roastNewPhotoBtn.addEventListener("click", () => pickImage({ type: "roast" }));
@@ -1930,8 +2012,6 @@
         setPersonality(button.dataset.personality);
       });
     });
-
-    personalityKnob.addEventListener("click", cyclePersonality);
 
     imagePicker.addEventListener("change", () => {
       const file = imagePicker.files && imagePicker.files[0];

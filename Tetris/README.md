@@ -1,6 +1,6 @@
-# Gjettespill
+# Tetris
 
-Webversjon av Biancas gjettespill.
+Webversjon av Biancas Tetris.
 
 ## Kjoring
 
@@ -10,7 +10,9 @@ Apne `index.html` i nettleser, eller publiser mappen via GitHub Pages.
 
 - `index.html`
 - `style.css`
-- `game.js`
+- `main.js`
+- `highscore.js`
+- `firebase.js`
 - `assets/`
 
 ## Status

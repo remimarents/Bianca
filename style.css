@@ -84,6 +84,22 @@ p {
   margin-top: 18px;
 }
 
+.info-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.section-head {
+  margin-top: 30px;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: .95;
+}
+
 .game-card {
   min-height: 270px;
   display: grid;
