@@ -1,0 +1,1906 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magiske Mikrofonen Bil-kontroll</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #201433;
+      --violet: #8b2cf5;
+      --pink: #ff4ecb;
+      --hot: #ff2f87;
+      --aqua: #19c8ff;
+      --mint: #42f4bf;
+      --gold: #ffd84d;
+      --pearl: #fff8ff;
+      --panel: rgba(255, 255, 255, .84);
+      --line: rgba(68, 34, 96, .18);
+    }
+
+    body.unhinged {
+      --ink: #f8fafc;
+      --violet: #111827;
+      --pink: #27272a;
+      --hot: #dc2626;
+      --aqua: #52525b;
+      --mint: #3f3f46;
+      --gold: #ffe45c;
+      background:
+        radial-gradient(circle at 18% 10%, rgba(220,38,38,.72) 0 54px, transparent 56px),
+        radial-gradient(circle at 84% 12%, rgba(82,82,91,.78) 0 44px, transparent 46px),
+        radial-gradient(circle at 70% 84%, rgba(24,24,27,.92) 0 62px, transparent 64px),
+        linear-gradient(135deg, #050505 0%, #18181b 42%, #3f0b12 72%, #09090b 100%);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 16% 10%, rgba(255,216,77,.95) 0 42px, transparent 44px),
+        radial-gradient(circle at 84% 12%, rgba(25,200,255,.9) 0 38px, transparent 40px),
+        radial-gradient(circle at 74% 82%, rgba(66,244,191,.75) 0 54px, transparent 56px),
+        linear-gradient(135deg, #ffdbf4 0%, #f3dcff 38%, #d9f8ff 70%, #fff1bc 100%);
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 10px;
+      overflow-x: hidden;
+    }
+
+    main {
+      position: relative;
+      width: min(430px, 100%);
+      min-height: calc(100vh - 20px);
+      display: grid;
+      grid-template-rows: auto auto minmax(280px, auto) minmax(112px, 1fr) auto;
+      gap: 12px;
+      padding: 15px;
+      border: 4px solid rgba(255,255,255,.8);
+      border-radius: 38px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.46) 46%, rgba(255,255,255,.86)),
+        repeating-linear-gradient(45deg, rgba(255,78,203,.12) 0 14px, rgba(25,200,255,.10) 14px 28px, rgba(255,216,77,.12) 28px 42px);
+      box-shadow:
+        inset 0 0 0 2px rgba(255,255,255,.7),
+        0 22px 46px rgba(107, 33, 168, .26);
+      overflow: hidden;
+    }
+
+    body.unhinged main {
+      border-color: rgba(220,38,38,.98);
+      background:
+        linear-gradient(135deg, rgba(9,9,11,.98), rgba(39,39,42,.82) 46%, rgba(20,4,8,.94)),
+        repeating-linear-gradient(45deg, rgba(220,38,38,.20) 0 14px, rgba(63,63,70,.28) 14px 28px, rgba(0,0,0,.22) 28px 42px);
+      box-shadow:
+        inset 0 0 0 2px rgba(255,255,255,.12),
+        0 22px 54px rgba(0,0,0,.62);
+      filter: saturate(.9) contrast(1.14);
+    }
+
+    main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.95) 0 2px, transparent 3px),
+        radial-gradient(circle, rgba(255,78,203,.72) 0 2px, transparent 3px),
+        radial-gradient(circle, rgba(255,216,77,.88) 0 2px, transparent 3px),
+        radial-gradient(circle, rgba(25,200,255,.70) 0 2px, transparent 3px);
+      background-size: 46px 46px, 58px 58px, 71px 71px, 83px 83px;
+      background-position: 4px 7px, 20px 18px, 9px 31px, 34px 4px;
+      opacity: .8;
+    }
+
+    .glitter {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      transform: rotate(45deg);
+      border-radius: 2px;
+      background: linear-gradient(135deg, #fff, var(--gold));
+      box-shadow: 0 0 14px rgba(255,216,77,.82);
+      opacity: .9;
+    }
+
+    .sparkle:nth-child(1) { left: 8%; top: 8%; }
+    .sparkle:nth-child(2) { left: 83%; top: 9%; background: linear-gradient(135deg, #fff, var(--aqua)); }
+    .sparkle:nth-child(3) { left: 76%; top: 31%; }
+    .sparkle:nth-child(4) { left: 12%; top: 39%; background: linear-gradient(135deg, #fff, var(--pink)); }
+    .sparkle:nth-child(5) { left: 88%; top: 64%; background: linear-gradient(135deg, #fff, var(--mint)); }
+    .sparkle:nth-child(6) { left: 13%; top: 78%; }
+
+    header {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      line-height: .94;
+      letter-spacing: 0;
+      color: #2a1544;
+      text-shadow: 0 3px 0 rgba(255,255,255,.95), 0 0 18px rgba(255,78,203,.34);
+    }
+
+    .sub {
+      margin-top: 5px;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #0f7b93;
+    }
+
+    .status {
+      min-width: 88px;
+      padding: 9px 10px;
+      border: 2px solid rgba(255,255,255,.92);
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--mint), #eafffb);
+      color: #073b35;
+      font-size: 13px;
+      text-align: center;
+      font-weight: 950;
+      box-shadow: 0 8px 18px rgba(25,200,255,.22);
+    }
+
+    .stickers {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+      min-height: 40px;
+    }
+
+    .sticker {
+      display: inline-grid;
+      place-items: center;
+      min-height: 32px;
+      padding: 6px 12px;
+      border: 2px solid rgba(255,255,255,.88);
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 950;
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      box-shadow: 0 7px 14px rgba(139,44,245,.24);
+      transform: rotate(-2deg);
+    }
+
+    .sticker:nth-child(2) {
+      background: linear-gradient(135deg, var(--gold), #ff9b2f);
+      color: #5f2c00;
+      transform: rotate(3deg);
+    }
+
+    .sticker:nth-child(3) {
+      background: linear-gradient(135deg, var(--aqua), var(--mint));
+      color: #04344a;
+      transform: rotate(-1deg);
+    }
+
+    .karaoke-mic {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      justify-items: center;
+      align-content: start;
+      min-height: 300px;
+    }
+
+    .mic-crown {
+      width: min(330px, 92%);
+      aspect-ratio: 1 / .78;
+      padding: 12px;
+      border-radius: 45% 45% 36% 36%;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,255,255,.38)),
+        linear-gradient(135deg, var(--pink), var(--violet) 55%, #4212b9);
+      box-shadow:
+        inset 0 12px 22px rgba(255,255,255,.46),
+        inset 0 -24px 38px rgba(55, 18, 112, .36),
+        0 18px 34px rgba(139,44,245,.28);
+      border: 5px solid rgba(255,255,255,.78);
+    }
+
+    .grill {
+      width: 100%;
+      height: 100%;
+      border-radius: 44% 44% 34% 34%;
+      background:
+        repeating-linear-gradient(90deg, transparent 0 12px, rgba(255,255,255,.35) 12px 15px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.36) 0 8px, transparent 8px 19px),
+        radial-gradient(circle at 34% 25%, rgba(255,255,255,.85), transparent 21%),
+        linear-gradient(135deg, #ff8fe1, #7b21e8 64%, #351099);
+      border: 3px solid rgba(255,255,255,.62);
+      box-shadow: inset 0 0 0 6px rgba(255,255,255,.12);
+    }
+
+    .ptt-button {
+      position: relative;
+      z-index: 2;
+      width: min(250px, 72vw);
+      aspect-ratio: 1;
+      margin-top: -68px;
+      border: 0;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 33% 25%, rgba(255,255,255,.95), rgba(255,255,255,.18) 21%, transparent 32%),
+        linear-gradient(135deg, #ff6bd6, #9128f6 54%, #4e12d8);
+      color: #fff;
+      box-shadow:
+        0 10px 0 #44129a,
+        0 22px 36px rgba(86, 31, 150, .34),
+        inset 0 10px 22px rgba(255,255,255,.34),
+        0 0 0 10px rgba(255,255,255,.52),
+        0 0 0 16px rgba(255,216,77,.36);
+      font-weight: 950;
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: pointer;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .ptt-button::before,
+    .ptt-button::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      border-radius: 999px;
+    }
+
+    .ptt-button::before {
+      inset: 14px;
+      border: 3px dashed rgba(255,255,255,.7);
+    }
+
+    .ptt-button::after {
+      width: 68px;
+      height: 68px;
+      right: 28px;
+      top: 28px;
+      background: radial-gradient(circle, rgba(255,255,255,.86), transparent 62%);
+      opacity: .72;
+    }
+
+    .ptt-button .big {
+      position: relative;
+      z-index: 1;
+      display: block;
+      font-size: clamp(38px, 12vw, 58px);
+      line-height: .9;
+      letter-spacing: 0;
+      text-shadow: 0 4px 0 rgba(64,20,119,.32);
+    }
+
+    .ptt-button .small {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 950;
+      color: #fff4fb;
+      text-shadow: 0 2px 0 rgba(64,20,119,.28);
+    }
+
+    .ptt-button.recording {
+      transform: translateY(8px) scale(.985);
+      background:
+        radial-gradient(circle at 33% 25%, rgba(255,255,255,.92), rgba(255,255,255,.14) 20%, transparent 32%),
+        linear-gradient(135deg, #ff2f87, #e11d48 55%, #8b1238);
+      box-shadow:
+        0 3px 0 #6f1432,
+        0 16px 32px rgba(225,29,72,.28),
+        inset 0 10px 22px rgba(255,255,255,.28),
+        0 0 0 10px rgba(255,255,255,.50),
+        0 0 0 17px rgba(255,216,77,.45);
+    }
+
+    .photo-slots {
+      position: relative;
+      z-index: 3;
+      width: min(204px, 54vw);
+      display: grid;
+      gap: 7px;
+      margin-top: -12px;
+      margin-bottom: 10px;
+      padding: 9px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(255,255,255,.68), rgba(255,220,247,.46));
+      border: 3px solid rgba(255,255,255,.78);
+      box-shadow: 0 12px 22px rgba(107,33,168,.16);
+    }
+
+    .photo-slot {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 58px;
+      border: 2px solid rgba(255,255,255,.9);
+      border-radius: 16px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 28%, rgba(255,255,255,.86), transparent 34%),
+        linear-gradient(135deg, #fff7ff, #eadfff);
+      color: #6a5a7c;
+      font-size: 12px;
+      font-weight: 950;
+      text-align: center;
+      box-shadow: inset 0 0 0 2px rgba(255,78,203,.08);
+    }
+
+    .photo-hot img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-hot span {
+      position: relative;
+      z-index: 1;
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.78);
+    }
+
+    .mic-handle {
+      width: min(168px, 44vw);
+      height: 118px;
+      margin-top: -10px;
+      border-radius: 0 0 42px 42px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.5), transparent 20% 72%, rgba(75,18,146,.28)),
+        repeating-linear-gradient(0deg, #ff4ecb 0 16px, #ffd84d 16px 24px, #19c8ff 24px 40px, #8b2cf5 40px 56px);
+      border: 4px solid rgba(255,255,255,.74);
+      box-shadow: 0 18px 28px rgba(107,33,168,.22);
+    }
+
+    .roast-button {
+      position: absolute;
+      right: 13px;
+      bottom: 118px;
+      z-index: 4;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      width: 76px;
+      height: 76px;
+      padding: 7px;
+      border-radius: 24px;
+      border: 3px solid rgba(255,255,255,.88);
+      background: linear-gradient(135deg, #fff5d8, #ff74b7 54%, #8b2cf5);
+      color: #5b1636;
+      box-shadow: 0 12px 22px rgba(225,29,72,.20);
+      font-size: 26px;
+      touch-action: manipulation;
+    }
+
+    .roast-button span {
+      display: block;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .hidden-file {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .charms {
+      position: absolute;
+      right: 11px;
+      top: 111px;
+      display: grid;
+      gap: 8px;
+      z-index: 3;
+    }
+
+    .charm {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      border: 2px solid rgba(255,255,255,.82);
+      background: linear-gradient(135deg, #fff, #ffd6f4);
+      color: #8b2cf5;
+      font-size: 21px;
+      font-weight: 950;
+      box-shadow: 0 8px 16px rgba(139,44,245,.18);
+      transform: rotate(8deg);
+    }
+
+    .charm:nth-child(2) {
+      color: #0f7b93;
+      background: linear-gradient(135deg, #e6fbff, #fff4ba);
+      transform: rotate(-7deg);
+    }
+
+    .chat {
+      position: relative;
+      z-index: 1;
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      overflow: auto;
+      padding: 10px;
+      border: 3px solid rgba(255,255,255,.76);
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.72)),
+        repeating-linear-gradient(90deg, rgba(255,78,203,.10) 0 16px, rgba(25,200,255,.10) 16px 32px);
+      box-shadow: inset 0 0 0 2px rgba(255,78,203,.08), 0 12px 22px rgba(107,33,168,.12);
+    }
+
+    .msg {
+      max-width: 92%;
+      padding: 9px 11px;
+      border-radius: 16px;
+      line-height: 1.35;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-size: 14px;
+      font-weight: 850;
+      box-shadow: 0 5px 11px rgba(107,33,168,.10);
+    }
+
+    .user {
+      align-self: flex-end;
+      color: #3b0764;
+      background: linear-gradient(135deg, #ffe0f5, #f7d7ff);
+      border: 1px solid rgba(255,78,203,.22);
+    }
+
+    .assistant {
+      align-self: flex-start;
+      color: #073b35;
+      background: linear-gradient(135deg, #dcfff5, #e6fbff);
+      border: 1px solid rgba(25,200,255,.24);
+    }
+
+    .msg.has-replay {
+      position: relative;
+      padding-right: 52px;
+    }
+
+    .replay-btn {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      width: 34px;
+      min-height: 34px;
+      padding: 0;
+      border-radius: 999px;
+      color: #3b0764;
+      background: linear-gradient(135deg, #fff, #ffe0f5);
+      font-size: 18px;
+      line-height: 1;
+      box-shadow: 0 5px 10px rgba(107,33,168,.14);
+    }
+
+    .vision-note {
+      display: block;
+      margin-top: 7px;
+      color: #7a2455;
+      font-size: 11px;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .composer {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    textarea {
+      min-height: 50px;
+      resize: vertical;
+      padding: 11px 12px;
+      border: 2px solid rgba(255,255,255,.88);
+      border-radius: 18px;
+      font: inherit;
+      color: var(--ink);
+      background: rgba(255,255,255,.78);
+      box-shadow: inset 0 2px 8px rgba(107,33,168,.08);
+    }
+
+    button {
+      min-height: 46px;
+      border: 2px solid rgba(255,255,255,.86);
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--gold), #ff9b2f);
+      color: #4b2500;
+      font: inherit;
+      font-size: 14px;
+      padding: 0 16px;
+      cursor: pointer;
+      font-weight: 950;
+      box-shadow: 0 8px 15px rgba(255,155,47,.20);
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: .58;
+    }
+
+    .image-stage {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 18px 36px rgba(107,33,168,.22);
+      background: #f6e7ff;
+    }
+
+    body.unhinged .image-stage {
+      background: #111;
+      box-shadow: 0 22px 44px rgba(0,0,0,.58);
+      filter: grayscale(1) contrast(1.18);
+    }
+
+    body.unhinged .mic-concept-image {
+      filter: grayscale(1) contrast(1.22) brightness(.72);
+    }
+
+    .mic-concept-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .image-hot {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      min-height: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 18px;
+      background: transparent;
+      box-shadow: none;
+      color: #fff;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .photo-hot {
+      overflow: hidden;
+      border-radius: 18px;
+      background-color: transparent;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .photo-hot.has-image {
+      border: 3px solid rgba(255,255,255,.9);
+      box-shadow: inset 0 0 0 2px rgba(255,78,203,.28), 0 5px 12px rgba(107,33,168,.20);
+    }
+
+    .photo-hot span {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .photo-0 { left: 36.4%; top: 34.0%; width: 27.8%; height: 8.2%; }
+    .photo-1 { left: 36.4%; top: 43.8%; width: 27.8%; height: 8.3%; }
+    .photo-2 { left: 36.4%; top: 53.7%; width: 27.8%; height: 8.4%; }
+
+    .photo-clear {
+      z-index: 6;
+      width: 30px;
+      height: 30px;
+      min-height: 30px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #fff, #ffe0f5);
+      color: #7a164b;
+      font-size: 19px;
+      font-weight: 1000;
+      box-shadow: 0 5px 12px rgba(107,33,168,.24), inset 0 -2px 0 rgba(107,33,168,.12);
+      opacity: .94;
+    }
+
+    .photo-clear[hidden] {
+      display: none;
+    }
+
+    .clear-0 { left: 61.8%; top: 32.8%; }
+    .clear-1 { left: 61.8%; top: 42.6%; }
+    .clear-2 { left: 61.8%; top: 52.6%; }
+
+    .ptt-hot {
+      left: 32.1%;
+      top: 67.9%;
+      width: 36.8%;
+      height: 16.3%;
+      border-radius: 999px;
+    }
+
+    .ptt-hot .big,
+    .ptt-hot .small {
+      display: none;
+    }
+
+    .ptt-hot.recording {
+      background: rgba(225,29,72,.72);
+      box-shadow: 0 0 0 5px rgba(255,255,255,.52), 0 0 24px rgba(225,29,72,.58);
+    }
+
+    .ptt-hot.recording .big,
+    .ptt-hot.recording .small {
+      display: block;
+      line-height: 1;
+      text-align: center;
+      text-shadow: 0 2px 0 rgba(64,20,119,.35);
+    }
+
+    .ptt-hot.recording .big {
+      font-size: clamp(28px, 8vw, 44px);
+      font-weight: 950;
+    }
+
+    .ptt-hot.recording .small {
+      margin-top: 5px;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .roast-hot { left: 77.0%; top: 59.6%; width: 19.7%; height: 10.8%; }
+    .knob-hot { left: 66.0%; top: 83.2%; width: 25.0%; height: 10.8%; border-radius: 999px; }
+    .personality-hot { width: 13%; height: 4.5%; border-radius: 999px; }
+    .personality-snill { left: 76.0%; top: 80.3%; }
+    .personality-slem { left: 64.0%; top: 84.3%; }
+    .personality-trott { left: 86.0%; top: 85.1%; }
+    .personality-glad { left: 67.0%; top: 92.1%; }
+    .personality-frekk { left: 86.0%; top: 91.9%; }
+
+    .personality-hot.active,
+    .knob-hot.active {
+      outline: 4px solid rgba(255,78,203,.78);
+      outline-offset: -4px;
+      background: rgba(255,255,255,.18);
+    }
+
+    .stage-status {
+      position: absolute;
+      left: 4%;
+      right: 4%;
+      bottom: 1.4%;
+      z-index: 3;
+      display: none;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.88);
+      color: #5b257a;
+      font-size: 13px;
+      font-weight: 950;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(107,33,168,.18);
+    }
+
+    .stage-status.show {
+      display: block;
+    }
+
+    .concept-preview {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+      border: 3px solid rgba(255,255,255,.82);
+      border-radius: 24px;
+      background: rgba(255,255,255,.74);
+      box-shadow: 0 12px 24px rgba(107,33,168,.14);
+    }
+
+    .concept-preview h2 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.05;
+      color: #2a1544;
+    }
+
+    .concept-preview img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      border: 2px solid rgba(255,255,255,.9);
+      box-shadow: 0 8px 18px rgba(107,33,168,.16);
+    }
+
+    .roast-panel {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+      border: 3px solid rgba(255,255,255,.86);
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(255,245,216,.94), rgba(255,216,244,.86)),
+        repeating-linear-gradient(-12deg, rgba(255,78,203,.14) 0 12px, rgba(255,216,77,.16) 12px 24px);
+      box-shadow: 0 14px 28px rgba(225,29,72,.18);
+    }
+
+    body.unhinged .roast-panel {
+      border-color: rgba(255,228,92,.92);
+      background:
+        linear-gradient(135deg, rgba(9,9,11,.98), rgba(63,63,70,.92)),
+        repeating-linear-gradient(-12deg, rgba(220,38,38,.22) 0 12px, rgba(0,0,0,.28) 12px 24px);
+      box-shadow: 0 18px 38px rgba(127,29,29,.42);
+    }
+
+    body.unhinged .roast-title strong,
+    body.unhinged .roast-panel label {
+      color: #fff7ed;
+    }
+
+    body.unhinged .roast-title span {
+      color: #ffe45c;
+    }
+
+    .roast-panel.hidden {
+      display: none;
+    }
+
+    .roast-head {
+      display: grid;
+      grid-template-columns: 72px 1fr auto auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .roast-preview {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,.9);
+      background: #fff;
+      box-shadow: 0 8px 16px rgba(107,33,168,.16);
+    }
+
+    .roast-title strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1;
+      color: #2a1544;
+    }
+
+    .roast-title span {
+      display: block;
+      margin-top: 3px;
+      color: #7a2455;
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .roast-close {
+      width: 44px;
+      min-height: 44px;
+      padding: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #fff, #ffe0f5);
+      color: #6b123f;
+      font-size: 22px;
+    }
+
+    .adult-info {
+      width: 48px;
+      min-height: 44px;
+      padding: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #201433, #8b2cf5);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 1000;
+      letter-spacing: .02em;
+      box-shadow: 0 7px 16px rgba(107,33,168,.22);
+    }
+
+    .roast-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 9px;
+    }
+
+    .roast-panel label {
+      display: grid;
+      gap: 5px;
+      color: #5b257a;
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    input {
+      min-height: 46px;
+      padding: 10px 12px;
+      border: 2px solid rgba(255,255,255,.9);
+      border-radius: 18px;
+      font: inherit;
+      color: var(--ink);
+      background: rgba(255,255,255,.82);
+      box-shadow: inset 0 2px 8px rgba(107,33,168,.08);
+    }
+
+    .roast-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 9px;
+    }
+
+    .roast-start {
+      background: linear-gradient(135deg, #ff2f87, #ff9b2f);
+      color: #fff;
+      text-shadow: 0 2px 0 rgba(91,22,54,.22);
+    }
+
+    body.unhinged .roast-start {
+      background: linear-gradient(135deg, #7f1d1d, #ff0033 48%, #facc15);
+      color: #fff;
+      box-shadow: 0 0 0 3px rgba(250,204,21,.24), 0 10px 22px rgba(255,0,51,.34);
+    }
+
+    .adult-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(32, 20, 51, .54);
+      backdrop-filter: blur(6px);
+    }
+
+    .adult-gate.hidden {
+      display: none;
+    }
+
+    .adult-gate-card {
+      width: min(360px, 100%);
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border: 3px solid rgba(255,255,255,.92);
+      border-radius: 24px;
+      background: linear-gradient(135deg, #fff8ff, #ffe6f7);
+      box-shadow: 0 24px 52px rgba(32,20,51,.28);
+    }
+
+    .adult-gate-card strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .adult-gate-card p {
+      margin: 0;
+      color: #5b257a;
+      font-size: 15px;
+      font-weight: 780;
+      line-height: 1.25;
+    }
+
+    .adult-gate-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 9px;
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 0; }
+
+      main {
+        width: 100%;
+        min-height: 100vh;
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+        padding: 17px 14px 14px;
+      }
+
+      h1 { font-size: 32px; }
+
+      .mic-crown { width: min(320px, 90vw); }
+
+      .ptt-button { width: min(238px, 70vw); }
+
+      .mic-handle {
+        width: min(154px, 43vw);
+        height: 102px;
+      }
+
+      .photo-slots {
+        width: min(194px, 57vw);
+      }
+
+      .photo-slot {
+        min-height: 54px;
+      }
+
+      .roast-button {
+        right: 9px;
+        bottom: 102px;
+        width: 68px;
+        height: 68px;
+        border-radius: 22px;
+      }
+
+      .charms {
+        right: 7px;
+        top: 106px;
+      }
+
+      .charm {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      .composer {
+        grid-template-columns: 1fr 78px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="glitter" aria-hidden="true">
+      <span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span>
+      <span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span>
+    </div>
+
+    <section class="image-stage" aria-label="Bianca karaoke mikrofon">
+      <img class="mic-concept-image" src="/bianca/microphone-concept.png" alt="Bianca karaoke mikrofon">
+
+      <button class="image-hot photo-hot photo-0" type="button" data-photo-slot="0" title="Velg bilde 1"><span>Bilde 1</span></button>
+      <button class="image-hot photo-hot photo-1" type="button" data-photo-slot="1" title="Velg bilde 2"><span>Bilde 2</span></button>
+      <button class="image-hot photo-hot photo-2" type="button" data-photo-slot="2" title="Velg bilde 3"><span>Bilde 3</span></button>
+      <button class="image-hot photo-clear clear-0" type="button" data-clear-slot="0" title="Slett bilde 1" aria-label="Slett bilde 1" hidden>×</button>
+      <button class="image-hot photo-clear clear-1" type="button" data-clear-slot="1" title="Slett bilde 2" aria-label="Slett bilde 2" hidden>×</button>
+      <button class="image-hot photo-clear clear-2" type="button" data-clear-slot="2" title="Slett bilde 3" aria-label="Slett bilde 3" hidden>×</button>
+
+      <button id="listenBtn" class="image-hot ptt-hot" type="button" title="Trykk for å begynne å snakke, trykk igjen for å stoppe">
+        <span class="big">START</span>
+        <span class="small">Trykk for å snakke</span>
+      </button>
+
+      <button id="roastButton" class="image-hot roast-hot" type="button" title="Velg bilde til fremtidig roast"></button>
+
+      <button class="image-hot personality-hot personality-snill" type="button" data-personality="snill" title="Snill"></button>
+      <button class="image-hot personality-hot personality-slem" type="button" data-personality="slem" title="Slem"></button>
+      <button class="image-hot personality-hot personality-trott" type="button" data-personality="trøtt" title="Trøtt"></button>
+      <button class="image-hot personality-hot personality-glad" type="button" data-personality="glad" title="Glad"></button>
+      <button class="image-hot personality-hot personality-frekk" type="button" data-personality="frekk" title="Frekk"></button>
+      <button id="personalityKnob" class="image-hot knob-hot" type="button" title="Bytt personlighet"></button>
+
+      <div class="stage-status" id="status">Starter...</div>
+    </section>
+
+    <input id="imagePicker" class="hidden-file" type="file" accept="image/*">
+
+    <section id="roastPanel" class="roast-panel hidden" aria-label="Roast kontroll">
+      <div class="roast-head">
+        <img id="roastPreview" class="roast-preview" alt="Roast-bilde">
+        <div class="roast-title">
+          <strong>Roast</strong>
+          <span>Bilde, navn, hard runde</span>
+        </div>
+        <button id="adultInfoBtn" class="adult-info" type="button" aria-label="Informasjon om voksenmodus">+18</button>
+        <button id="roastCloseBtn" class="roast-close" type="button" aria-label="Slett roast-bilde">×</button>
+      </div>
+      <div class="roast-grid">
+        <label>
+          Navn
+          <input id="roastName" autocomplete="off" placeholder="Hvem skal grilles?">
+        </label>
+        <label>
+          Neste instruks
+          <textarea id="roastInstruction" placeholder="Ekstra beskjed for neste runde..."></textarea>
+        </label>
+      </div>
+      <div class="roast-actions">
+        <button id="roastStartBtn" class="roast-start" type="button">Start roast</button>
+        <button id="roastNewPhotoBtn" type="button">Nytt bilde</button>
+      </div>
+    </section>
+
+    <section id="adultGate" class="adult-gate hidden" aria-label="Voksenlås" aria-modal="true">
+      <div class="adult-gate-card">
+        <strong>Voksenlås</strong>
+        <p>Hardere Roast er kun for voksne. Skriv svaret på oppgaven:</p>
+        <label>
+          Hva er kvadratroten av tre dusin?
+          <input id="adultGateInput" inputmode="text" autocomplete="off" placeholder="Svar">
+        </label>
+        <div class="adult-gate-actions">
+          <button id="adultGateSubmit" class="roast-start" type="button">Lås opp</button>
+          <button id="adultGateCancel" type="button">Avbryt</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="chat" class="chat" aria-live="polite"></section>
+
+    <section class="composer">
+      <textarea id="textInput" placeholder="Skriv her..."></textarea>
+      <button id="sendBtn" class="primary" type="button">Send</button>
+    </section>
+
+  </main>
+
+  <script>
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const chatEndpoint = location.pathname.startsWith("/bianca") ? "/bianca/chat" : "/chat";
+    const roastEndpoint = "/bianca/roast";
+    const liveEndpoint = "/bianca/live";
+    const accessKey = new URLSearchParams(location.search).get("k") || localStorage.getItem("bianca-access-key") || "";
+    const chatEl = document.getElementById("chat");
+    const statusEl = document.getElementById("status");
+    const listenBtn = document.getElementById("listenBtn");
+    const sendBtn = document.getElementById("sendBtn");
+    const inputEl = document.getElementById("textInput");
+    const imagePicker = document.getElementById("imagePicker");
+    const roastButton = document.getElementById("roastButton");
+    const roastPanel = document.getElementById("roastPanel");
+    const roastPreview = document.getElementById("roastPreview");
+    const roastNameEl = document.getElementById("roastName");
+    const roastInstructionEl = document.getElementById("roastInstruction");
+    const roastStartBtn = document.getElementById("roastStartBtn");
+    const roastCloseBtn = document.getElementById("roastCloseBtn");
+    const roastNewPhotoBtn = document.getElementById("roastNewPhotoBtn");
+    const adultInfoBtn = document.getElementById("adultInfoBtn");
+    const adultGate = document.getElementById("adultGate");
+    const adultGateInput = document.getElementById("adultGateInput");
+    const adultGateSubmit = document.getElementById("adultGateSubmit");
+    const adultGateCancel = document.getElementById("adultGateCancel");
+    const personalityKnob = document.getElementById("personalityKnob");
+    const personalityButtons = Array.from(document.querySelectorAll("[data-personality]"));
+    const photoSlots = Array.from(document.querySelectorAll("[data-photo-slot]"));
+    const photoClearButtons = Array.from(document.querySelectorAll("[data-clear-slot]"));
+
+    let history = [];
+    let recognition = null;
+    let listening = false;
+    let sending = false;
+    let playingReply = false;
+    let speechUnlocked = false;
+    let currentAudioUrl = null;
+    let pendingTranscript = "";
+    let transcriptSent = false;
+    let ignoreNextClick = false;
+    let resetTimer = null;
+    let replyWatchdog = null;
+    let listenWatchdog = null;
+    let stopWatchdog = null;
+    let lastToggleAt = 0;
+    let abortingForSend = false;
+    let imageTarget = null;
+    let roastImageDataUrl = localStorage.getItem("bianca-roast-photo") || "";
+    let liveTimer = null;
+    let lastLivePayload = "";
+    let lastAnswerText = "";
+    let lastTranscriptText = "";
+    let personality = localStorage.getItem("bianca-personality") || "frekk";
+    let slemTapCount = 0;
+    let adultMode = sessionStorage.getItem("bianca-adult-mode") === "1";
+    let hiddenHardMode = false;
+    let roastPressTimer = null;
+    let roastLongPress = false;
+    const personalityOrder = ["snill", "slem", "trøtt", "glad", "frekk"];
+    const replyAudio = new Audio();
+    const silentWav = "data:audio/wav;base64,UklGRkgAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YSQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+
+    replyAudio.preload = "auto";
+    replyAudio.playsInline = true;
+    if (accessKey) localStorage.setItem("bianca-access-key", accessKey);
+
+    function setStatus(text) {
+      statusEl.textContent = text;
+      statusEl.classList.add("show");
+      if (text === "Klar") {
+        setTimeout(() => statusEl.classList.remove("show"), 1800);
+      }
+    }
+
+    function setPttLabel(big, small) {
+      listenBtn.querySelector(".big").textContent = big;
+      listenBtn.querySelector(".small").textContent = small;
+    }
+
+    function postLive(payload, immediate = false) {
+      const body = {
+        phase: payload.phase || "ready",
+        transcript: payload.transcript ?? inputEl.value ?? "",
+        answer: payload.answer ?? "",
+        micActive: payload.micActive ?? true,
+        roastName: payload.roastName ?? roastNameEl?.value ?? "",
+        roastImage: payload.roastImage || "",
+        clearRoast: Boolean(payload.clearRoast),
+        roastMode: payload.roastMode ?? currentRoastMode(),
+      };
+      const serialized = JSON.stringify(body);
+      if (!immediate && serialized === lastLivePayload) return;
+      const send = () => {
+        lastLivePayload = serialized;
+        fetch(liveEndpoint, {
+          method: "POST",
+          headers: { "content-type": "application/json", "x-bianca-key": accessKey },
+          body: serialized,
+          keepalive: serialized.length < 60000,
+        }).catch(() => {});
+      };
+      if (immediate) {
+        if (liveTimer) {
+          clearTimeout(liveTimer);
+          liveTimer = null;
+        }
+        send();
+        return;
+      }
+      if (liveTimer) return;
+      liveTimer = setTimeout(() => {
+        liveTimer = null;
+        send();
+      }, 450);
+    }
+
+    function readyForNextTurn(status = "Klar") {
+      if (replyWatchdog) {
+        clearTimeout(replyWatchdog);
+        replyWatchdog = null;
+      }
+      if (listenWatchdog) {
+        clearTimeout(listenWatchdog);
+        listenWatchdog = null;
+      }
+      if (stopWatchdog) {
+        clearTimeout(stopWatchdog);
+        stopWatchdog = null;
+      }
+      sending = false;
+      playingReply = false;
+      listening = false;
+      abortingForSend = false;
+      listenBtn.disabled = false;
+      sendBtn.disabled = false;
+      listenBtn.classList.remove("recording");
+      setPttLabel("START", "Trykk for å snakke");
+      setStatus(status);
+      postLive({ phase: "ready", transcript: lastTranscriptText || inputEl.value, answer: lastAnswerText, roastMode: currentRoastMode(), micActive: false });
+    }
+
+    function addMessage(role, content, options = {}) {
+      const div = document.createElement("div");
+      div.className = `msg ${role}`;
+      const text = document.createElement("span");
+      text.textContent = content;
+      div.appendChild(text);
+      const notes = Array.isArray(options.notes)
+        ? options.notes.filter(Boolean)
+        : [options.note].filter(Boolean);
+      for (const noteText of notes) {
+        const note = document.createElement("small");
+        note.className = "vision-note";
+        note.textContent = noteText;
+        div.appendChild(note);
+      }
+      if (options.replay) {
+        div.classList.add("has-replay");
+        const button = document.createElement("button");
+        button.className = "replay-btn";
+        button.type = "button";
+        button.title = "Spill av igjen";
+        button.setAttribute("aria-label", "Spill av igjen");
+        button.textContent = "↻";
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          void unlockSpeech();
+          void speak(content, options.transcript || lastTranscriptText || inputEl.value);
+        });
+        div.appendChild(button);
+      }
+      chatEl.appendChild(div);
+      chatEl.scrollTop = chatEl.scrollHeight;
+    }
+
+    function setSlotImage(slot, dataUrl) {
+      slot.innerHTML = "";
+      slot.classList.add("has-image");
+      const img = document.createElement("img");
+      img.alt = "Valgt bilde";
+      img.src = dataUrl;
+      slot.appendChild(img);
+      const clearButton = document.querySelector(`[data-clear-slot="${slot.dataset.photoSlot}"]`);
+      if (clearButton) clearButton.hidden = false;
+    }
+
+    function clearSlotImage(index) {
+      const slot = photoSlots[index];
+      if (!slot) return;
+      localStorage.removeItem(`bianca-photo-${index}`);
+      slot.innerHTML = "<span>Bilde " + (index + 1) + "</span>";
+      slot.classList.remove("has-image");
+      const clearButton = document.querySelector(`[data-clear-slot="${index}"]`);
+      if (clearButton) clearButton.hidden = true;
+      setStatus("Bilde slettet");
+    }
+
+    function restoreImages() {
+      photoSlots.forEach((slot) => {
+        const dataUrl = localStorage.getItem(`bianca-photo-${slot.dataset.photoSlot}`);
+        if (dataUrl) setSlotImage(slot, dataUrl);
+        else {
+          const clearButton = document.querySelector(`[data-clear-slot="${slot.dataset.photoSlot}"]`);
+          if (clearButton) clearButton.hidden = true;
+        }
+      });
+    }
+
+    function pickImage(target) {
+      imageTarget = target;
+      imagePicker.value = "";
+      imagePicker.click();
+    }
+
+    function normalizeGateAnswer(value) {
+      return String(value || "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "");
+    }
+
+    function openAdultGate() {
+      adultGate.classList.remove("hidden");
+      adultGateInput.value = "";
+      setTimeout(() => adultGateInput.focus({ preventScroll: true }), 30);
+    }
+
+    function closeAdultGate() {
+      adultGate.classList.add("hidden");
+      adultGateInput.value = "";
+    }
+
+    function submitAdultGate() {
+      const normalized = normalizeGateAnswer(adultGateInput.value);
+      if (normalized === "6" || normalized === "seks") {
+        adultMode = true;
+        sessionStorage.setItem("bianca-adult-mode", "1");
+        closeAdultGate();
+        setStatus("Voksenmodus klar");
+        return true;
+      }
+      setStatus("Feil svar");
+      adultGateInput.select();
+      return false;
+    }
+
+    function currentRoastMode() {
+      if (hiddenHardMode) return "shadow";
+      if (adultMode) return "adult";
+      return "";
+    }
+
+    function resizeImage(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onerror = () => reject(new Error("Kunne ikke lese bildet."));
+        reader.onload = () => {
+          const img = new Image();
+          img.onerror = () => reject(new Error("Kunne ikke åpne bildet."));
+          img.onload = () => {
+            const size = 720;
+            const canvas = document.createElement("canvas");
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext("2d");
+            const scale = Math.max(size / img.width, size / img.height);
+            const width = img.width * scale;
+            const height = img.height * scale;
+            ctx.drawImage(img, (size - width) / 2, (size - height) / 2, width, height);
+            resolve(canvas.toDataURL("image/jpeg", 0.82));
+          };
+          img.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function handlePickedImage(file) {
+      if (!file || !imageTarget) return;
+      try {
+        const dataUrl = await resizeImage(file);
+        if (imageTarget.type === "slot") {
+          const slot = photoSlots[imageTarget.index];
+          localStorage.setItem(`bianca-photo-${imageTarget.index}`, dataUrl);
+          setSlotImage(slot, dataUrl);
+          setStatus("Bilde lagt inn");
+          return;
+        }
+
+        if (imageTarget.type === "roast") {
+          localStorage.setItem("bianca-roast-photo", dataUrl);
+          roastImageDataUrl = dataUrl;
+          openRoastPanel(dataUrl);
+          setStatus("Roast klar");
+          postLive({ phase: "roast-ready", transcript: "Roast-bilde valgt", roastImage: dataUrl, roastMode: currentRoastMode(), micActive: true }, true);
+        }
+      } catch (error) {
+        setStatus("Bilde-feil");
+        addMessage("assistant", `Bilde-feil: ${error.message}`);
+      }
+    }
+
+    function openRoastPanel(dataUrl = roastImageDataUrl) {
+      if (!dataUrl) {
+        pickImage({ type: "roast" });
+        return;
+      }
+      if (hiddenHardMode) {
+        document.body.classList.add("unhinged");
+        roastInstructionEl.placeholder = "Ekstra beskjed for neste runde...";
+      } else {
+        document.body.classList.remove("unhinged");
+        roastInstructionEl.placeholder = "Ekstra beskjed for neste runde...";
+      }
+      roastImageDataUrl = dataUrl;
+      roastPreview.src = dataUrl;
+      roastPanel.classList.remove("hidden");
+      roastNameEl.focus({ preventScroll: true });
+      roastPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function clearRoastImage() {
+      localStorage.removeItem("bianca-roast-photo");
+      roastImageDataUrl = "";
+      roastPreview.removeAttribute("src");
+      roastPanel.classList.add("hidden");
+      roastNameEl.value = "";
+      roastInstructionEl.value = "";
+      document.body.classList.remove("unhinged");
+      hiddenHardMode = false;
+      setStatus("Roast-bilde slettet");
+      postLive({ phase: "ready", transcript: "", answer: "", roastImage: "", clearRoast: true, roastName: "", roastMode: "", micActive: false }, true);
+    }
+
+    async function sendRoast() {
+      const name = roastNameEl.value.trim();
+      const instruction = roastInstructionEl.value.trim();
+      if (!roastImageDataUrl) {
+        pickImage({ type: "roast" });
+        return;
+      }
+      if (!name) {
+        setStatus("Skriv navn");
+        roastNameEl.focus();
+        return;
+      }
+      if (sending) return;
+      sending = true;
+      sendBtn.disabled = true;
+      listenBtn.disabled = true;
+      roastStartBtn.disabled = true;
+      addMessage("user", `Roast ${name}${instruction ? `: ${instruction}` : ""}`);
+      setStatus("Roaster...");
+      setPttLabel("VENT", "Roast");
+      postLive({
+        phase: "thinking",
+        transcript: `Roast: ${name}${instruction ? ` - ${instruction}` : ""}`,
+        roastName: name,
+        roastImage: roastImageDataUrl,
+        roastMode: currentRoastMode(),
+        micActive: true,
+      }, true);
+      try {
+        const res = await fetch(roastEndpoint, {
+          method: "POST",
+          headers: { "content-type": "application/json", "x-bianca-key": accessKey },
+          body: JSON.stringify({ name, instruction, image: roastImageDataUrl, personality, roastMode: currentRoastMode(), adult: adultMode, k: accessKey }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+        lastTranscriptText = `Roast: ${name}${instruction ? ` - ${instruction}` : ""}`;
+        lastAnswerText = data.answer;
+        addMessage("assistant", data.answer, {
+          replay: true,
+          transcript: lastTranscriptText,
+          notes: [
+            data.routeLabel ? `Rute: ${data.routeLabel}` : "",
+            data.visionUsed === false ? "Bildet ble ikke analysert denne gangen" : "",
+          ],
+        });
+        postLive({
+          phase: "done",
+          transcript: lastTranscriptText,
+          answer: lastAnswerText,
+          roastName: name,
+          roastMode: currentRoastMode(),
+          micActive: true,
+        }, true);
+        history.push({ role: "user", content: `Roast ${name}: ${instruction}` });
+        history.push({ role: "assistant", content: data.answer });
+        roastInstructionEl.value = "";
+        roastInstructionEl.placeholder = "Skriv instruks for neste runde...";
+        readyForNextTurn("Klar");
+        void speak(data.answer, lastTranscriptText);
+      } catch (error) {
+        addMessage("assistant", `Roast-feil: ${error.message}`);
+        readyForNextTurn("Roast-feil");
+      } finally {
+        roastStartBtn.disabled = false;
+        if (sending) readyForNextTurn(statusEl.textContent || "Klar");
+      }
+    }
+
+    function setPersonality(value) {
+      personality = value;
+      localStorage.setItem("bianca-personality", personality);
+      personalityButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.personality === personality);
+      });
+      personalityKnob.classList.add("active");
+      setTimeout(() => personalityKnob.classList.remove("active"), 900);
+    }
+
+    function notePersonalityTap(value) {
+      if (value === "slem") {
+        slemTapCount += 1;
+        if (adultMode && slemTapCount >= 5) hiddenHardMode = true;
+        return;
+      }
+      slemTapCount = 0;
+    }
+
+    function cyclePersonality() {
+      const index = personalityOrder.indexOf(personality);
+      const next = personalityOrder[(index + 1 + personalityOrder.length) % personalityOrder.length];
+      setPersonality(next);
+    }
+
+    function clearAudioUrl() {
+      if (currentAudioUrl) {
+        URL.revokeObjectURL(currentAudioUrl);
+        currentAudioUrl = null;
+      }
+      replyAudio.removeAttribute("src");
+      try { replyAudio.load(); } catch {}
+    }
+
+    async function unlockSpeech() {
+      if (speechUnlocked) return true;
+      try {
+        replyAudio.src = silentWav;
+        replyAudio.volume = 0.01;
+        await replyAudio.play();
+        replyAudio.pause();
+        replyAudio.currentTime = 0;
+        replyAudio.volume = 1;
+        speechUnlocked = true;
+        if (statusEl.textContent === "Klar") setStatus("Lyd klar");
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    async function speak(text, transcript = lastTranscriptText || inputEl.value) {
+      playingReply = true;
+      replyAudio.pause();
+      clearAudioUrl();
+      setStatus("Lager lyd...");
+      postLive({ phase: "speaking", transcript, answer: text, roastMode: currentRoastMode(), micActive: false });
+      try {
+        const res = await fetch("/tts", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ text, mode: "bianca" }),
+        });
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data.error || `HTTP ${res.status}`);
+        }
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        currentAudioUrl = url;
+        replyAudio.src = url;
+        replyAudio.onplay = () => setStatus("Snakker...");
+        const finishReply = (status) => {
+          clearAudioUrl();
+          playingReply = false;
+          if (!listening && !sending) readyForNextTurn(status);
+        };
+        replyAudio.onended = () => finishReply("Klar");
+        replyAudio.onerror = () => finishReply("Lyd-feil");
+        replyAudio.onpause = () => {
+          if (replyAudio.ended) finishReply("Klar");
+        };
+        replyWatchdog = setTimeout(() => finishReply("Klar"), 45000);
+        await replyAudio.play();
+      } catch (error) {
+        playingReply = false;
+        if (!listening && !sending) readyForNextTurn("Lyd blokkert");
+      }
+    }
+
+    async function sendText(text) {
+      const input = text.trim();
+      if (!input) return;
+      if (sending) return;
+      sending = true;
+      addMessage("user", input);
+      history.push({ role: "user", content: input });
+      inputEl.value = "";
+      setStatus("Tenker...");
+      postLive({ phase: "thinking", transcript: input, answer: "", roastMode: currentRoastMode(), micActive: true }, true);
+      sendBtn.disabled = true;
+      listenBtn.disabled = true;
+      listenBtn.classList.remove("recording");
+      setPttLabel("VENT", "Sandra");
+
+      try {
+        const res = await fetch(chatEndpoint, {
+          method: "POST",
+          headers: { "content-type": "application/json", "x-bianca-key": accessKey },
+          body: JSON.stringify({ input, history: history.slice(-12), personality, k: accessKey }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+        addMessage("assistant", data.answer, {
+          notes: [data.routeLabel ? `Rute: ${data.routeLabel}` : ""],
+        });
+        lastTranscriptText = input;
+        lastAnswerText = data.answer;
+        postLive({ phase: "done", transcript: lastTranscriptText, answer: lastAnswerText, roastMode: currentRoastMode(), micActive: true }, true);
+        history.push({ role: "assistant", content: data.answer });
+        readyForNextTurn("Klar");
+        void speak(data.answer, lastTranscriptText);
+      } catch (error) {
+        addMessage("assistant", `Feil: ${error.message}`);
+        readyForNextTurn("Feil");
+      } finally {
+        if (sending) readyForNextTurn(statusEl.textContent || "Klar");
+      }
+    }
+
+    function resetRecognitionSoon() {
+      if (resetTimer) clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        resetTimer = null;
+        setupRecognition();
+      }, 120);
+    }
+
+    function setupRecognition() {
+      if (!SpeechRecognition) {
+        listenBtn.disabled = true;
+        setPttLabel("INGEN", "STT");
+        setStatus("Ingen STT");
+        return;
+      }
+
+      if (recognition) {
+        recognition.onstart = null;
+        recognition.onend = null;
+        recognition.onerror = null;
+        recognition.onresult = null;
+        try { recognition.abort(); } catch {}
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.lang = "nb-NO";
+      recognition.continuous = false;
+      recognition.interimResults = true;
+
+      recognition.onstart = () => {
+        listening = true;
+        abortingForSend = false;
+        pendingTranscript = "";
+        transcriptSent = false;
+        if (listenWatchdog) clearTimeout(listenWatchdog);
+        listenWatchdog = setTimeout(forceSendListening, 8000);
+        setPttLabel("STOPP", "Trykk igjen");
+        listenBtn.classList.add("recording");
+        setStatus("Lytter...");
+        postLive({ phase: "receiving", transcript: "", answer: "", roastMode: currentRoastMode(), micActive: true }, true);
+      };
+
+      recognition.onend = () => {
+        if (stopWatchdog) {
+          clearTimeout(stopWatchdog);
+          stopWatchdog = null;
+        }
+        if (listenWatchdog) {
+          clearTimeout(listenWatchdog);
+          listenWatchdog = null;
+        }
+        listening = false;
+        setPttLabel("START", "Trykk for å snakke");
+        listenBtn.classList.remove("recording");
+        abortingForSend = false;
+        const transcript = (pendingTranscript || inputEl.value || "").trim();
+        if (transcript && !transcriptSent) {
+          transcriptSent = true;
+          sendText(transcript);
+          resetRecognitionSoon();
+          return;
+        }
+        if (statusEl.textContent === "Lytter..." || statusEl.textContent === "Avslutter...") setStatus("Klar");
+        resetRecognitionSoon();
+      };
+
+      recognition.onerror = (event) => {
+        const wasAbortingForSend = abortingForSend;
+        abortingForSend = false;
+        if (stopWatchdog) {
+          clearTimeout(stopWatchdog);
+          stopWatchdog = null;
+        }
+        if (listenWatchdog) {
+          clearTimeout(listenWatchdog);
+          listenWatchdog = null;
+        }
+        listening = false;
+        listenBtn.classList.remove("recording");
+        setPttLabel("START", "Trykk for å snakke");
+        const transcript = (pendingTranscript || inputEl.value || "").trim();
+        if (event.error === "aborted") {
+          if (transcript && !transcriptSent) {
+            transcriptSent = true;
+            sendText(transcript);
+            resetRecognitionSoon();
+            return;
+          }
+          if (!sending) {
+            listenBtn.disabled = false;
+            sendBtn.disabled = false;
+            setStatus(wasAbortingForSend ? "Klar" : "Prøv igjen");
+          }
+          resetRecognitionSoon();
+          return;
+        }
+        setStatus(event.error || "Tale-feil");
+        resetRecognitionSoon();
+      };
+
+      recognition.onresult = (event) => {
+        let finalText = "";
+        let interimText = "";
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) finalText += transcript;
+          else interimText += transcript;
+        }
+        pendingTranscript = (finalText || interimText || pendingTranscript).trim();
+        inputEl.value = pendingTranscript;
+        postLive({ phase: "receiving", transcript: pendingTranscript, answer: "", roastMode: currentRoastMode(), micActive: true });
+        if (finalText.trim() && !transcriptSent) {
+          transcriptSent = true;
+          try { recognition.stop(); } catch {}
+          sendText(finalText);
+          resetRecognitionSoon();
+        }
+      };
+    }
+
+    function armAudioUnlock(element) {
+      element.addEventListener("pointerdown", () => { void unlockSpeech(); }, { passive: true });
+      element.addEventListener("touchstart", () => { void unlockSpeech(); }, { passive: true });
+    }
+
+    armAudioUnlock(sendBtn);
+
+    function startListening() {
+      void unlockSpeech();
+      if (listening || sending) return;
+      if (playingReply) {
+        replyAudio.pause();
+        clearAudioUrl();
+        playingReply = false;
+      }
+      setupRecognition();
+      if (!recognition) return;
+      pendingTranscript = "";
+      transcriptSent = false;
+      try {
+        recognition.start();
+      } catch (error) {
+        if (!String(error.message || "").includes("already started")) {
+          setStatus("Prøv igjen");
+          resetRecognitionSoon();
+        }
+      }
+    }
+
+    function forceSendListening() {
+      if (stopWatchdog) {
+        clearTimeout(stopWatchdog);
+        stopWatchdog = null;
+      }
+      if (listenWatchdog) {
+        clearTimeout(listenWatchdog);
+        listenWatchdog = null;
+      }
+      if (!listening) return;
+      abortingForSend = true;
+      try { recognition?.abort(); } catch {}
+      listening = false;
+      listenBtn.classList.remove("recording");
+      setPttLabel("START", "Trykk for å snakke");
+      const transcript = (pendingTranscript || inputEl.value || "").trim();
+      if (transcript && !transcriptSent) {
+        transcriptSent = true;
+        sendText(transcript);
+        resetRecognitionSoon();
+        return;
+      }
+      setStatus("Hørte ikke");
+      resetRecognitionSoon();
+    }
+
+    function stopListening() {
+      if (!recognition || !listening) return;
+      setStatus("Avslutter...");
+      postLive({ phase: "transcribing", transcript: pendingTranscript || inputEl.value || "", roastMode: currentRoastMode(), micActive: true }, true);
+      if (listenWatchdog) {
+        clearTimeout(listenWatchdog);
+        listenWatchdog = null;
+      }
+      try { recognition.stop(); } catch {}
+      if (stopWatchdog) clearTimeout(stopWatchdog);
+      stopWatchdog = setTimeout(forceSendListening, 1200);
+    }
+
+    function toggleListening(event) {
+      if (event) event.preventDefault();
+      const now = Date.now();
+      if (now - lastToggleAt < 350) return;
+      lastToggleAt = now;
+      void unlockSpeech();
+      if (listening) stopListening();
+      else startListening();
+    }
+
+    listenBtn.addEventListener("click", toggleListening);
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stopListening();
+    });
+
+    photoSlots.forEach((slot, index) => {
+      slot.addEventListener("click", () => pickImage({ type: "slot", index }));
+    });
+
+    photoClearButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        clearSlotImage(Number(button.dataset.clearSlot));
+      });
+    });
+
+    roastButton.addEventListener("pointerdown", () => {
+      roastLongPress = false;
+      if (roastPressTimer) clearTimeout(roastPressTimer);
+      roastPressTimer = setTimeout(() => {
+        roastLongPress = true;
+        roastPressTimer = null;
+        openAdultGate();
+      }, 2000);
+    });
+
+    ["pointerup", "pointercancel", "pointerleave"].forEach((eventName) => {
+      roastButton.addEventListener(eventName, () => {
+        if (roastPressTimer) {
+          clearTimeout(roastPressTimer);
+          roastPressTimer = null;
+        }
+      });
+    });
+
+    roastButton.addEventListener("click", (event) => {
+      if (roastLongPress) {
+        event.preventDefault();
+        roastLongPress = false;
+        return;
+      }
+      openRoastPanel();
+    });
+    roastStartBtn.addEventListener("click", () => {
+      void unlockSpeech();
+      void sendRoast();
+    });
+    roastCloseBtn.addEventListener("click", clearRoastImage);
+    roastNewPhotoBtn.addEventListener("click", () => pickImage({ type: "roast" }));
+    adultInfoBtn.addEventListener("click", () => {
+      window.alert("Hardere Roast er kun for voksne. For tilgang: langtrykk på flammen og skriv inn svaret på denne oppgaven: Hva er kvadratroten av tre dusin?");
+    });
+    adultGateSubmit.addEventListener("click", submitAdultGate);
+    adultGateCancel.addEventListener("click", closeAdultGate);
+    adultGate.addEventListener("click", (event) => {
+      if (event.target === adultGate) closeAdultGate();
+    });
+    adultGateInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+      }
+      if (event.key === "Escape") closeAdultGate();
+    });
+
+    personalityButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        notePersonalityTap(button.dataset.personality);
+        setPersonality(button.dataset.personality);
+      });
+    });
+
+    personalityKnob.addEventListener("click", cyclePersonality);
+
+    imagePicker.addEventListener("change", () => {
+      const file = imagePicker.files && imagePicker.files[0];
+      void handlePickedImage(file);
+    });
+
+    sendBtn.addEventListener("click", () => {
+      void unlockSpeech();
+      sendText(inputEl.value);
+    });
+    inputEl.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && (event.metaKey || event.ctrlKey)) {
+        void unlockSpeech();
+        sendText(inputEl.value);
+      }
+    });
+
+    restoreImages();
+    setPersonality(personality);
+    setupRecognition();
+    setStatus(SpeechRecognition ? "Klar" : "Ingen STT");
+    addMessage("assistant", "Bil-kontroll klar. Trykk START for å snakke, og trykk STOPP når jeg skal svare.");
+  </script>
+</body>
+</html>
