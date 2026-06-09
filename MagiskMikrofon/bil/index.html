@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0f14">
+  <title>MM Bil</title>
+  <style>
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #0b0f14;
+      color: #eef4fb;
+      font: 400 16px/1.35 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      padding: 12px;
+    }
+
+    .app {
+      min-height: calc(100vh - 24px);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 12px;
+    }
+
+    .bar,
+    .panel {
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+      background: #121821;
+    }
+
+    .bar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 16px;
+    }
+
+    .title strong,
+    .title span {
+      display: block;
+    }
+
+    .title strong {
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .title span,
+    .muted,
+    .empty {
+      color: #9fb1c4;
+    }
+
+    .qr {
+      width: 96px;
+      height: 96px;
+      display: block;
+      border-radius: 10px;
+      background: #fff;
+      flex: none;
+    }
+
+    .stage {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 30%;
+      gap: 12px;
+    }
+
+    .image-panel,
+    .text-panel {
+      min-height: 0;
+      padding: 12px;
+    }
+
+    .image-wrap {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #090d12;
+    }
+
+    .image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #090d12;
+    }
+
+    .empty {
+      padding: 24px;
+      text-align: center;
+      font-size: 34px;
+      line-height: 1.15;
+    }
+
+    .text-panel {
+      display: grid;
+      grid-template-rows: auto 1fr 1fr;
+      gap: 12px;
+    }
+
+    .card {
+      padding: 14px;
+      border-radius: 12px;
+      background: #0d131a;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      color: #7fd2ff;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .status-line {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .copy {
+      margin: 0;
+      font-size: 28px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 4px;
+      font-size: 13px;
+      color: #7f8d9b;
+    }
+
+    @media (max-width: 900px) {
+      .stage {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="bar">
+      <div class="title">
+        <strong>Magiske Mikrofonen</strong>
+        <span id="statusText" class="muted">Kobler til...</span>
+      </div>
+      <img id="qrImage" class="qr" alt="QR-kode til mobil">
+    </header>
+
+    <section class="stage">
+      <section class="panel image-panel" aria-label="Bilde">
+        <div class="image-wrap">
+          <img id="roastImage" alt="Roast-bilde" hidden>
+          <div id="emptyState" class="empty">Scan QR-koden for å åpne mobilen.</div>
+        </div>
+      </section>
+
+      <aside class="panel text-panel">
+        <section class="card">
+          <h2>Status</h2>
+          <div id="phaseText" class="status-line">Venter</div>
+        </section>
+        <section class="card">
+          <h2>Fra Mobilen</h2>
+          <p id="transcriptText" class="copy">Ingen tekst enda</p>
+        </section>
+        <section class="card">
+          <h2>Svar</h2>
+          <p id="answerText" class="copy">Ingen svar enda</p>
+        </section>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <span id="sourceText">-</span>
+      <span id="updatedText">Ikke oppdatert</span>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var accessKey = params.get("k") || "";
+      var stateEndpoint = params.get("state") || "/bianca/state";
+      var mobileUrl = params.get("mobile") || (location.origin + "/bianca");
+      var qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=192x192&data=" + encodeURIComponent(mobileUrl + (accessKey ? "?k=" + encodeURIComponent(accessKey) : ""));
+      var statusText = document.getElementById("statusText");
+      var phaseText = document.getElementById("phaseText");
+      var transcriptText = document.getElementById("transcriptText");
+      var answerText = document.getElementById("answerText");
+      var roastImage = document.getElementById("roastImage");
+      var emptyState = document.getElementById("emptyState");
+      var qrImage = document.getElementById("qrImage");
+      var sourceText = document.getElementById("sourceText");
+      var updatedText = document.getElementById("updatedText");
+      var lastSerialized = "";
+
+      qrImage.src = qrUrl;
+
+      function labelPhase(phase) {
+        var labels = {
+          ready: "Klar",
+          recording: "Lytter",
+          transcribing: "Transkriberer",
+          thinking: "Tenker",
+          speaking: "Snakker",
+          done: "Ferdig",
+          error: "Feil"
+        };
+        return labels[phase] || phase || "Ukjent";
+      }
+
+      function updateView(payload) {
+        if (!payload || typeof payload !== "object") return;
+        var serialized = JSON.stringify(payload);
+        if (serialized === lastSerialized) return;
+        lastSerialized = serialized;
+
+        var phase = payload.phase || "ready";
+        var transcript = payload.transcript || "";
+        var answer = payload.answer || "";
+        var image = payload.roastImageUrl || "";
+        var source = payload.source || "bianca-state";
+
+        statusText.textContent = labelPhase(phase);
+        phaseText.textContent = labelPhase(phase);
+        transcriptText.textContent = transcript || "Ingen tekst enda";
+        answerText.textContent = answer || "Ingen svar enda";
+        sourceText.textContent = source;
+        updatedText.textContent = "Oppdatert " + new Date().toLocaleTimeString("no-NO", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+
+        if (image) {
+          roastImage.src = image;
+          roastImage.hidden = false;
+          emptyState.hidden = true;
+        } else {
+          roastImage.hidden = true;
+          roastImage.removeAttribute("src");
+          emptyState.hidden = false;
+          emptyState.textContent = transcript ? "Venter på roast-bilde." : "Scan QR-koden for å åpne mobilen.";
+        }
+      }
+
+      function poll() {
+        fetch(stateEndpoint, {
+          headers: {
+            "accept": "application/json",
+            "x-bianca-key": accessKey
+          },
+          cache: "no-store"
+        })
+          .then(function (res) {
+            if (!res.ok) throw new Error("HTTP " + res.status);
+            return res.json();
+          })
+          .then(updateView)
+          .catch(function (error) {
+            statusText.textContent = "Offline";
+            phaseText.textContent = "Fant ikke live-data";
+            sourceText.textContent = error.message;
+          });
+      }
+
+      poll();
+      setInterval(poll, 1200);
+    }());
+  </script>
+</body>
+</html>
