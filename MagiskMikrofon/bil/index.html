@@ -18,44 +18,20 @@
       padding: 12px;
     }
 
-    body.mode-adult::before,
-    body.mode-shadow::before,
-    body.mode-adult::after,
-    body.mode-shadow::after {
-      content: "";
-      position: fixed;
-      z-index: 40;
-      pointer-events: none;
-      background:
-        repeating-linear-gradient(
-          -45deg,
-          #111 0 18px,
-          #111 18px 24px,
-          #ffd400 24px 42px,
-          #ffd400 42px 48px
-        );
-      box-shadow: 0 0 0 2px rgba(0,0,0,.4);
-    }
-
-    body.mode-adult::before,
-    body.mode-shadow::before {
-      left: 0;
-      right: 0;
-      top: 0;
-      height: 18px;
-    }
-
-    body.mode-adult::after,
-    body.mode-shadow::after {
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 18px;
-    }
-
     body.mode-adult .app,
     body.mode-shadow .app {
       position: relative;
+      box-shadow:
+        0 0 0 6px rgba(255,196,0,.95),
+        0 0 0 18px rgba(255,196,0,.20),
+        0 0 48px rgba(255,196,0,.38);
+    }
+
+    body.mode-shadow .app {
+      box-shadow:
+        0 0 0 6px rgba(255,72,72,.96),
+        0 0 0 18px rgba(255,72,72,.22),
+        0 0 56px rgba(255,72,72,.42);
     }
 
     body.mode-adult .app::before,
@@ -66,18 +42,11 @@
       position: fixed;
       top: 0;
       bottom: 0;
-      width: 18px;
-      z-index: 40;
+      width: 22px;
+      z-index: 50;
       pointer-events: none;
-      background:
-        repeating-linear-gradient(
-          -45deg,
-          #111 0 18px,
-          #111 18px 24px,
-          #ffd400 24px 42px,
-          #ffd400 42px 48px
-        );
-      box-shadow: 0 0 0 2px rgba(0,0,0,.4);
+      background: rgba(255,196,0,.96);
+      box-shadow: inset 0 0 0 3px rgba(0,0,0,.28);
     }
 
     body.mode-adult .app::before,
@@ -88,6 +57,23 @@
     body.mode-adult .app::after,
     body.mode-shadow .app::after {
       right: 0;
+    }
+
+    body.mode-shadow .app::before,
+    body.mode-shadow .app::after {
+      background: rgba(255,72,72,.96);
+    }
+
+    body.mode-adult .panel,
+    body.mode-adult .bar {
+      border-color: rgba(255,196,0,.62);
+      box-shadow: 0 0 0 2px rgba(255,196,0,.16) inset;
+    }
+
+    body.mode-shadow .panel,
+    body.mode-shadow .bar {
+      border-color: rgba(255,72,72,.62);
+      box-shadow: 0 0 0 2px rgba(255,72,72,.16) inset;
     }
 
     .app {
@@ -116,25 +102,21 @@
       display: none;
       align-items: center;
       justify-content: center;
-      min-height: 52px;
-      padding: 8px 16px;
-      border: 1px solid rgba(255,212,0,.38);
+      min-height: 62px;
+      padding: 10px 16px;
+      border: 2px solid rgba(255,196,0,.82);
       border-radius: 14px;
-      background:
-        repeating-linear-gradient(
-          -45deg,
-          rgba(17,17,17,.96) 0 18px,
-          rgba(17,17,17,.96) 18px 24px,
-          rgba(255,212,0,.98) 24px 42px,
-          rgba(255,212,0,.98) 42px 48px
-        );
+      background: linear-gradient(180deg, #ffd84d, #ffbf00);
       color: #0a0a0a;
-      font-size: 28px;
+      font-size: 30px;
       font-weight: 900;
-      letter-spacing: .08em;
+      letter-spacing: .12em;
       text-transform: uppercase;
       text-shadow: 0 1px 0 rgba(255,255,255,.55);
-      box-shadow: 0 10px 22px rgba(0,0,0,.28), inset 0 0 0 2px rgba(0,0,0,.18);
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.28),
+        inset 0 -3px 0 rgba(120,84,0,.24),
+        0 0 0 4px rgba(255,196,0,.20);
     }
 
     .adult-banner.show {
@@ -142,29 +124,43 @@
     }
 
     .adult-banner.shadow {
-      background:
-        repeating-linear-gradient(
-          -45deg,
-          rgba(17,17,17,.98) 0 18px,
-          rgba(17,17,17,.98) 18px 24px,
-          rgba(255,72,72,.96) 24px 42px,
-          rgba(255,72,72,.96) 42px 48px
-        );
+      background: linear-gradient(180deg, #ff6b6b, #e11d48);
       color: #fff7c2;
-      border-color: rgba(255,72,72,.42);
+      border-color: rgba(255,72,72,.82);
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.34),
+        inset 0 -3px 0 rgba(90,8,26,.30),
+        0 0 0 4px rgba(255,72,72,.22);
     }
 
     .adult-banner span {
       display: inline-block;
-      padding: 4px 18px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.82);
-      box-shadow: 0 2px 10px rgba(0,0,0,.18);
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
     .adult-banner.shadow span {
-      background: rgba(0,0,0,.58);
-      color: #fff7c2;
+      background: transparent;
+      color: inherit;
+    }
+
+    .mode-wash {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+      display: none;
+      background: rgba(255,196,0,.10);
+    }
+
+    .mode-wash.show {
+      display: block;
+    }
+
+    .mode-wash.shadow {
+      background: rgba(255,72,72,.12);
     }
 
     .title strong,
@@ -281,6 +277,7 @@
 </head>
 <body>
   <main class="app">
+    <div id="modeWash" class="mode-wash"></div>
     <div id="adultBanner" class="adult-banner" aria-live="polite"><span>Voksenmodus</span></div>
 
     <header class="bar">
@@ -338,6 +335,7 @@
       var sourceText = document.getElementById("sourceText");
       var updatedText = document.getElementById("updatedText");
       var adultBanner = document.getElementById("adultBanner");
+      var modeWash = document.getElementById("modeWash");
       var lastSerialized = "";
 
       qrImage.src = qrUrl;
@@ -380,11 +378,14 @@
         if (roastMode === "adult") {
           adultBanner.innerHTML = "<span>Voksenmodus</span>";
           adultBanner.className = "adult-banner show";
+          modeWash.className = "mode-wash show";
         } else if (roastMode === "shadow") {
           adultBanner.innerHTML = "<span>Brutalis</span>";
           adultBanner.className = "adult-banner show shadow";
+          modeWash.className = "mode-wash show shadow";
         } else {
           adultBanner.className = "adult-banner";
+          modeWash.className = "mode-wash";
         }
 
         if (image) {
