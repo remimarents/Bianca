@@ -7,6 +7,11 @@
   <title>Barnas Magiske Rom</title>
   <link rel="stylesheet" href="../style.css">
   <style>
+    .game-grid > a {
+      position: relative;
+      z-index: 0;
+    }
+
     .share-panel {
       margin-top: 16px;
       grid-column: 1 / -1;
@@ -79,15 +84,7 @@
     </header>
 
     <section class="game-grid" aria-label="Aktiviteter">
-      <a class="game-card wide" href="../Bilbingo/">
-        <img src="assets/lekerom-jente.jpg" alt="Barnas Magiske Rom">
-        <span>
-          <strong>Bilbingo</strong>
-          <small>Se etter biler og få poeng</small>
-        </span>
-      </a>
-
-      <a class="game-card" href="../mikrofon/">
+      <a class="game-card wide" href="https://marentscloud.duckdns.org:10443/bianca" aria-label="Åpne Magiske Mikrofonen">
         <img src="../assets/magisk-mikrofon.png" alt="Magiske Mikrofonen">
         <span>
           <strong>Magiske Mikrofonen</strong>
@@ -95,19 +92,27 @@
         </span>
       </a>
 
-      <a class="share-panel" href="https://remimarents.github.io/Bianca/rom/" target="_blank" rel="noopener noreferrer" aria-label="Skann eller åpne Barnas Magiske Rom">
+      <a class="game-card" href="../Bilbingo/index.html" aria-label="Åpne Bilbingo">
+        <img src="assets/lekerom-jente.jpg" alt="Barnas Magiske Rom">
+        <span>
+          <strong>Bilbingo</strong>
+          <small>Se etter biler og få poeng</small>
+        </span>
+      </a>
+
+      <a class="share-panel" href="https://marentscloud.duckdns.org:10443/bianca" target="_blank" rel="noopener noreferrer" aria-label="Skann eller åpne Magiske Mikrofonen">
         <img
-          src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=10&data=https%3A%2F%2Fremimarents.github.io%2FBianca%2From%2F"
-          alt="QR-kode til Barnas Magiske Rom"
+          src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=10&data=https%3A%2F%2Fmarentscloud.duckdns.org%3A10443%2Fbianca"
+          alt="QR-kode til Magiske Mikrofonen"
         >
         <div>
-          <strong>Skann for å åpne på egen telefon</strong>
-          <p>Dette er den korte adressen til Barnas Magiske Rom. Skann koden, så får barna opp siden på sin egen mobil.</p>
-          <span class="share-url">https://remimarents.github.io/Bianca/rom/</span>
+          <strong>Skann for å åpne Magiske Mikrofonen</strong>
+          <p>Her går barna rett inn i Magiske Mikrofonen uten å gå via resten av rommet.</p>
+          <span class="share-url">https://marentscloud.duckdns.org:10443/bianca</span>
         </div>
       </a>
 
-      <a class="game-card" href="../Gjettespill/">
+      <a class="game-card" href="../Gjettespill/index.html" aria-label="Åpne Gjettespillet">
         <img src="../assets/gjettespill_icon.ico" alt="Gjettespillet">
         <span>
           <strong>Gjettespillet</strong>
@@ -115,7 +120,7 @@
         </span>
       </a>
 
-      <a class="game-card" href="../Tetris/">
+      <a class="game-card" href="../Tetris/index.html" aria-label="Åpne Tetris">
         <img src="../assets/bianca_icon.ico" alt="Tetris">
         <span>
           <strong>Tetris</strong>
@@ -123,7 +128,7 @@
         </span>
       </a>
 
-      <a class="game-card" href="../index.html">
+      <a class="game-card" href="../index.html" aria-label="Åpne hele katalogen">
         <img src="../assets/lekerom-jente.jpg" alt="Katalog">
         <span>
           <strong>Se alt</strong>
