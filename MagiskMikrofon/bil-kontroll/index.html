@@ -1561,7 +1561,7 @@
           body: JSON.stringify({ name, instruction, image: roastImageDataUrl, personality, roastMode: currentRoastMode(), adult: adultMode, k: accessKey, carControl: true }),
         });
         const data = await res.json();
-        if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+        if (!res.ok) throw new Error(data.text || data.error || `HTTP ${res.status}`);
         lastTranscriptText = `Roast: ${name}${instruction ? ` - ${instruction}` : ""}`;
         lastAnswerText = data.answer;
         addMessage("assistant", data.answer, {
@@ -1708,7 +1708,7 @@
           body: JSON.stringify({ input, history: history.slice(-12), personality, k: accessKey, carControl: true }),
         });
         const data = await res.json();
-        if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+        if (!res.ok) throw new Error(data.text || data.error || `HTTP ${res.status}`);
         addMessage("assistant", data.answer, {
           notes: [data.routeLabel ? `Rute: ${data.routeLabel}` : ""],
         });

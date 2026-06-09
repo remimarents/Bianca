@@ -758,7 +758,7 @@
           body: blob
         });
         const data = await res.json();
-        if (!res.ok) throw new Error(data.error || ("HTTP " + res.status));
+        if (!res.ok) throw new Error(data.text || data.error || ("HTTP " + res.status));
         const transcript = String(data.transcript || "").trim();
         if (!transcript) throw new Error("Ingen tekst fra lydklippet");
         inputEl.value = transcript;
@@ -837,7 +837,7 @@
           })
         });
         const data = await res.json();
-        if (!res.ok) throw new Error(data.error || ("HTTP " + res.status));
+        if (!res.ok) throw new Error(data.text || data.error || ("HTTP " + res.status));
         addMessage("assistant", data.answer);
         history.push({ role: "user", content: "Roast " + name + (instruction ? ": " + instruction : "") });
         history.push({ role: "assistant", content: data.answer });

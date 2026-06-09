@@ -39,5 +39,6 @@ Repoet er lagt opp for GitHub Pages fra rotmappen.
 - `MagiskMikrofon/mobil/index.html` er enkel og barnevennlig mobilversjon.
 - `MagiskMikrofon/bil-kontroll/index.html` er mobilkontrollen for biloppsettet.
 - `MagiskMikrofon/bil/index.html` er en lett bilvisning som bare leser live-state.
+- `bil/` og `bil-kontroll/` er midlertidig låst og redirecter ikke lenger til live backend.
 - Voksenmodus og brutalis hører bare hjemme i `MagiskMikrofon/bil-kontroll/`.
 - Bilvisningen forventer at backend eksponerer siste live-payload som JSON via `GET` til samme state-endepunkt som brukes for live-data.
