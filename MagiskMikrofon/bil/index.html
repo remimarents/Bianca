@@ -197,7 +197,7 @@
       var params = new URLSearchParams(location.search);
       var accessKey = params.get("k") || "";
       var stateEndpoint = params.get("state") || "/bianca/state";
-      var mobileUrl = params.get("mobile") || (location.origin + "/bianca");
+      var mobileUrl = params.get("mobile") || (location.origin + "/bianca/bil-kontroll");
       var qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=192x192&data=" + encodeURIComponent(mobileUrl + (accessKey ? "?k=" + encodeURIComponent(accessKey) : ""));
       var statusText = document.getElementById("statusText");
       var phaseText = document.getElementById("phaseText");
