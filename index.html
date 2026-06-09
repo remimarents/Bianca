@@ -4,64 +4,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f7b7ff">
-  <title>Biancas Spill</title>
+  <title>Barnas Magiske Rom</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .share-panel {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: minmax(130px, 190px) 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.84);
+      box-shadow: 0 14px 34px rgba(105, 63, 160, .14);
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .share-panel img {
+      width: 100%;
+      display: block;
+      padding: 12px;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.85);
+    }
+
+    .share-panel strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1.08;
+      margin-bottom: 8px;
+    }
+
+    .share-panel p {
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .share-url {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(140, 87, 255, .10);
+      color: #5a2ca0;
+      font-size: .92rem;
+      font-weight: 800;
+      word-break: break-all;
+    }
+
+    @media (max-width: 620px) {
+      .share-panel {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .share-panel img {
+        max-width: 220px;
+      }
+    }
+  </style>
 </head>
 <body>
   <main class="shell">
     <header class="hero">
-      <p class="eyebrow">Barnas Magiske Rom</p>
-      <h1>Biancas Spill</h1>
-      <p>Alle spill og barneflater samlet på ett sted.</p>
+      <p class="eyebrow">Bianca</p>
+      <h1>Barnas Magiske Rom</h1>
+      <p>Trykk på bildet for å åpne rommet.</p>
     </header>
 
-    <section class="game-grid" aria-label="Spill">
+    <section class="info-grid" aria-label="Start">
       <a class="game-card wide" href="BarnasMagiskeRom/">
         <img src="assets/lekerom-jente.jpg" alt="Barnas Magiske Rom">
         <span>
           <strong>Barnas Magiske Rom</strong>
-          <small>Startrommet med alle aktivitetene</small>
+          <small>Åpne startsiden for lekene og Magiske Mikrofonen</small>
         </span>
       </a>
 
-      <a class="game-card" href="https://tinyurl.com/2aksas8b">
-        <img src="assets/magisk-mikrofon.png" alt="Magisk Mikrofon">
-        <span>
-          <strong>Magisk Mikrofon</strong>
-          <small>Karaoke-PTT, bilder og roast</small>
-        </span>
-      </a>
-
-      <a class="game-card" href="SporsmalsLab/">
-        <img src="assets/sporsmals-lab.jpg" alt="Spørsmåls Lab">
-        <span>
-          <strong>Spørsmåls Lab</strong>
-          <small>Spør Sandra med tekst, bilde og tale</small>
-        </span>
-      </a>
-
-      <a class="game-card" href="Bilbingo/">
-        <img src="assets/bilbingo-background.png" alt="Bilbingo">
-        <span>
-          <strong>Bilbingo</strong>
-          <small>Familiespill for bilreise</small>
-        </span>
-      </a>
-
-      <a class="game-card" href="Gjettespill/">
-        <img src="assets/gjettespill_icon.ico" alt="Gjettespillet">
-        <span>
-          <strong>Gjettespillet</strong>
-          <small>Fargerikt tallmysterium</small>
-        </span>
-      </a>
-
-      <a class="game-card" href="Tetris/">
-        <img src="assets/bianca_icon.ico" alt="Tetris">
-        <span>
-          <strong>Tetris</strong>
-          <small>Klassisk blokkspill</small>
-        </span>
+      <a class="share-panel" href="BarnasMagiskeRom/" aria-label="Skann eller åpne Barnas Magiske Rom">
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&margin=10&data=https%3A%2F%2Fremimarents.github.io%2FBianca%2FBarnasMagiskeRom%2F"
+          alt="QR-kode til Barnas Magiske Rom"
+        >
+        <div>
+          <strong>Skann for å åpne Barnas Magiske Rom</strong>
+          <p>Skann koden med en mobil, eller trykk på kortet over for å åpne rommet direkte.</p>
+          <span class="share-url">https://remimarents.github.io/Bianca/BarnasMagiskeRom/</span>
+        </div>
       </a>
     </section>
   </main>
