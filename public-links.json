@@ -1,0 +1,32 @@
+{
+  "host": "marentscloud.duckdns.org",
+  "links": [
+    {
+      "name": "Magiske Mikrofonen",
+      "url": "https://marentscloud.duckdns.org:10443/bianca"
+    },
+    {
+      "name": "MM Bil",
+      "url": "https://marentscloud.duckdns.org:10443/bianca/bil"
+    },
+    {
+      "name": "MM Bilkontroll",
+      "url": "https://marentscloud.duckdns.org:10443/bianca/bil-kontroll"
+    },
+    {
+      "name": "Sporsmals Lab",
+      "url": "https://marentscloud.duckdns.org:10443/lab"
+    },
+    {
+      "name": "Bildashboard",
+      "url": "https://marentscloud.duckdns.org:10443/dashboard"
+    }
+  ],
+  "forbiddenPatterns": [
+    "85.165.236.123",
+    "optiplex7070.tail2bf5bd.ts.net",
+    "api.qrserver.com",
+    "marentscloud.duckdns.org:3361",
+    "marentscloud.duckdns.org:8444"
+  ]
+}

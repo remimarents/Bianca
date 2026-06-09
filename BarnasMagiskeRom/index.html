@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f7b7ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Magiske Rom">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Barnas Magiske Rom</title>
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
   <link rel="stylesheet" href="../style.css">
   <style>
     .game-grid > a {
@@ -100,9 +106,17 @@
         </span>
       </a>
 
+      <a class="game-card" href="https://marentscloud.duckdns.org:10443/lab" aria-label="Åpne Spørsmåls Lab">
+        <img src="../assets/sporsmals-lab.jpg" alt="Spørsmåls Lab">
+        <span>
+          <strong>Spørsmåls Lab</strong>
+          <small>Still spørsmål med tekst, bilde og tale</small>
+        </span>
+      </a>
+
       <a class="share-panel" href="https://marentscloud.duckdns.org:10443/bianca" target="_blank" rel="noopener noreferrer" aria-label="Skann eller åpne Magiske Mikrofonen">
         <img
-          src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=10&data=https%3A%2F%2Fmarentscloud.duckdns.org%3A10443%2Fbianca"
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDAiIGhlaWdodD0iMjQwIiB2aWV3Qm94PSIwIDAgMzcgMzciIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTAgMGgzN3YzN0gweiIvPjxwYXRoIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTIgMi41aDdtMyAwaDFtNSAwaDFtMSAwaDZtMiAwaDdNMiAzLjVoMW01IDBoMW0yIDBoMm0xIDBoMW0yIDBoMW0yIDBoMW0yIDBoMW0yIDBoMW0xIDBoMW01IDBoMU0yIDQuNWgxbTEgMGgzbTEgMGgxbTEgMGgxbTIgMGgybTEgMGgxbTEgMGgxbTIgMGg1bTIgMGgxbTEgMGgzbTEgMGgxTTIgNS41aDFtMSAwaDNtMSAwaDFtMSAwaDFtMiAwaDFtNiAwaDJtMSAwaDFtMSAwaDJtMSAwaDFtMSAwaDNtMSAwaDFNMiA2LjVoMW0xIDBoM20xIDBoMW0xIDBoMW0xIDBoMm0xIDBoNG0zIDBoMm0xIDBoMW0yIDBoMW0xIDBoM20xIDBoMU0yIDcuNWgxbTUgMGgxbTEgMGg3bTQgMGgxbTEgMGgybTMgMGgxbTUgMGgxTTIgOC41aDdtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDdNMTAgOS41aDFtMyAwaDFtMSAwaDFtMSAwaDFtMSAwaDRtMSAwaDJNMiAxMC41aDFtMSAwaDVtNCAwaDFtMSAwaDJtMiAwaDFtMSAwaDFtMiAwaDFtMSAwaDFtMSAwaDVNNCAxMS41aDJtNSAwaDFtMiAwaDNtMiAwaDFtMSAwaDFtMiAwaDJtMiAwaDJtMSAwaDRNMiAxMi41aDFtMSAwaDFtMiAwaDNtNCAwaDZtNCAwaDFtMiAwaDJtMSAwaDFtMSAwaDFNMiAxMy41aDNtMSAwaDJtMiAwaDRtMSAwaDFtMyAwaDJtMSAwaDFtNCAwaDJtMSAwaDNtMSAwaDFNMiAxNC41aDdtNCAwaDJtMSAwaDNtMyAwaDNtMSAwaDJtMSAwaDNtMiAwaDFNMyAxNS41aDFtMSAwaDNtMSAwaDJtMSAwaDJtMyAwaDFtMiAwaDFtMiAwaDFtMSAwaDFtMiAwaDJtMiAwaDNNMiAxNi41aDFtMyAwaDFtMSAwaDFtMyAwaDFtMiAwaDFtMSAwaDJtMyAwaDFtMyAwaDNtMSAwaDRNMiAxNy41aDFtMiAwaDJtMiAwaDJtMiAwaDVtNSAwaDNtMSAwaDNtMiAwaDFNMyAxOC41aDNtMiAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMiAwaDNtNCAwaDRtMSAwaDNtMiAwaDFNMyAxOS41aDJtMSAwaDFtMiAwaDFtMyAwaDNtMiAwaDFtMSAwaDRtMSAwaDFtMiAwaDJtMSAwaDRNMyAyMC41aDFtMiAwaDFtMSAwaDFtNCAwaDVtMiAwaDFtMSAwaDJtMiAwaDFtMiAwaDJtMSAwaDFNMiAyMS41aDJtMSAwaDFtMSAwaDFtMiAwaDFtMSAwaDFtNSAwaDFtMyAwaDVtMSAwaDdNMiAyMi41aDFtMyAwaDFtMSAwaDJtMyAwaDFtNiAwaDFtMiAwaDFtMiAwaDJtMiAwaDJtMSAwaDFNMiAyMy41aDJtMiAwaDFtMyAwaDFtMiAwaDZtMyAwaDRtMiAwaDJtMiAwaDFtMSAwaDFNMiAyNC41aDFtMyAwaDNtMiAwaDFtMSAwaDFtMSAwaDJtMiAwaDNtNSAwaDNtMiAwaDJNMiAyNS41aDFtMyAwaDFtNSAwaDJtMSAwaDFtMiAwaDFtMiAwaDRtMSAwaDJtNCAwaDJNMiAyNi41aDFtMyAwaDNtMiAwaDJtNiAwaDFtMSAwaDJtMSAwaDFtMSAwaDZtMSAwaDJNMTAgMjcuNWgxbTMgMGgxbTMgMGg1bTIgMGgybTMgMGgxbTEgMGgxbTEgMGgxTTIgMjguNWg3bTMgMGgxbTEgMGgybTEgMGgxbTEgMGgxbTIgMGgxbTEgMGgzbTEgMGgxbTEgMGgxbTEgMGgyTTIgMjkuNWgxbTUgMGgxbTEgMGgybTMgMGg4bTIgMGgybTMgMGgzbTEgMGgxTTIgMzAuNWgxbTEgMGgzbTEgMGgxbTEgMGgxbTEgMGg3bTIgMGg0bTEgMGg2TTIgMzEuNWgxbTEgMGgzbTEgMGgxbTEgMGgxbTEgMGgybTMgMGgxbTEgMGgybTQgMGgzbTIgMGgzbTEgMGgxTTIgMzIuNWgxbTEgMGgzbTEgMGgxbTEgMGgxbTEgMGgybTEgMGgxbTEgMGg0bTEgMGgzbTEgMGgxbTEgMGgybTIgMGgxTTIgMzMuNWgxbTUgMGgxbTQgMGgzbTEgMGgxbTUgMGgxbTQgMGgxbTEgMGgxbTEgMGgxTTIgMzQuNWg3bTEgMGgzbTEgMGgxbTEgMGgybTEgMGgxbTQgMGg0bTEgMGgxbTEgMGgxbTEgMGgxIi8+PC9zdmc+Cg=="
           alt="QR-kode til Magiske Mikrofonen"
         >
         <div>

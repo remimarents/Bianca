@@ -303,7 +303,7 @@
     }
 
     .roast-actions {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .send,
@@ -323,6 +323,16 @@
     .secondary {
       background: linear-gradient(180deg, #eef3f8, #dbe5ef);
       color: var(--ink);
+    }
+
+    .roast-action {
+      background: linear-gradient(180deg, #ff625c, #cc241d);
+      color: #fff;
+    }
+
+    .smisk-action {
+      background: linear-gradient(180deg, #42c96f, #16833d);
+      color: #fff;
     }
 
     button:disabled {
@@ -386,6 +396,30 @@
       margin-top: 6px;
     }
 
+    .qr-panel {
+      display: grid;
+      justify-items: center;
+      gap: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .qr-panel img {
+      width: min(180px, 55vw);
+      aspect-ratio: 1;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .qr-panel a {
+      color: var(--secondary);
+      font-size: .9rem;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+      text-decoration: none;
+    }
+
     .hidden-file {
       position: fixed;
       width: 1px;
@@ -435,7 +469,8 @@
       </div>
       <div class="roast-actions">
         <button id="roastNewPhotoBtn" class="secondary" type="button">Nytt bilde</button>
-        <button id="roastStartBtn" class="send" type="button">Start roast</button>
+        <button id="roastStartBtn" class="send roast-action" type="button">Roast</button>
+        <button id="smiskStartBtn" class="send smisk-action" type="button">Smisk</button>
       </div>
     </section>
 
@@ -447,6 +482,11 @@
         <p class="hint">Trykk flammen på mikrofonen for roast, eller skriv og send.</p>
         <button id="sendBtn" class="send" type="button">Send</button>
       </div>
+    </section>
+
+    <section class="panel qr-panel" aria-label="QR-kode til Bianca">
+      <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNDEgNDEiIHNoYXBlLXJlbmRlcmluZz0iY3Jpc3BFZGdlcyI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTAgMGg0MXY0MUgweiIvPjxwYXRoIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTQgNC41aDdtMyAwaDFtNSAwaDFtMSAwaDZtMiAwaDdNNCA1LjVoMW01IDBoMW0yIDBoMm0xIDBoMW0yIDBoMW0yIDBoMW0yIDBoMW0yIDBoMW0xIDBoMW01IDBoMU00IDYuNWgxbTEgMGgzbTEgMGgxbTEgMGgxbTIgMGgybTEgMGgxbTEgMGgxbTIgMGg1bTIgMGgxbTEgMGgzbTEgMGgxTTQgNy41aDFtMSAwaDNtMSAwaDFtMSAwaDFtMiAwaDFtNiAwaDJtMSAwaDFtMSAwaDJtMSAwaDFtMSAwaDNtMSAwaDFNNCA4LjVoMW0xIDBoM20xIDBoMW0xIDBoMW0xIDBoMm0xIDBoNG0zIDBoMm0xIDBoMW0yIDBoMW0xIDBoM20xIDBoMU00IDkuNWgxbTUgMGgxbTEgMGg3bTQgMGgxbTEgMGgybTMgMGgxbTUgMGgxTTQgMTAuNWg3bTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGg3TTEyIDExLjVoMW0zIDBoMW0xIDBoMW0xIDBoMW0xIDBoNG0xIDBoMk00IDEyLjVoMW0xIDBoNW00IDBoMW0xIDBoMm0yIDBoMW0xIDBoMW0yIDBoMW0xIDBoMW0xIDBoNU02IDEzLjVoMm01IDBoMW0yIDBoM20yIDBoMW0xIDBoMW0yIDBoMm0yIDBoMm0xIDBoNE00IDE0LjVoMW0xIDBoMW0yIDBoM200IDBoNm00IDBoMW0yIDBoMm0xIDBoMW0xIDBoMU00IDE1LjVoM20xIDBoMm0yIDBoNG0xIDBoMW0zIDBoMm0xIDBoMW00IDBoMm0xIDBoM20xIDBoMU00IDE2LjVoN200IDBoMm0xIDBoM20zIDBoM20xIDBoMm0xIDBoM20yIDBoMU01IDE3LjVoMW0xIDBoM20xIDBoMm0xIDBoMm0zIDBoMW0yIDBoMW0yIDBoMW0xIDBoMW0yIDBoMm0yIDBoM000IDE4LjVoMW0zIDBoMW0xIDBoMW0zIDBoMW0yIDBoMW0xIDBoMm0zIDBoMW0zIDBoM20xIDBoNE00IDE5LjVoMW0yIDBoMm0yIDBoMm0yIDBoNW01IDBoM20xIDBoM20yIDBoMU01IDIwLjVoM20yIDBoMW0xIDBoMW0xIDBoMW0xIDBoMW0yIDBoM200IDBoNG0xIDBoM20yIDBoMU01IDIxLjVoMm0xIDBoMW0yIDBoMW0zIDBoM20yIDBoMW0xIDBoNG0xIDBoMW0yIDBoMm0xIDBoNE01IDIyLjVoMW0yIDBoMW0xIDBoMW00IDBoNW0yIDBoMW0xIDBoMm0yIDBoMW0yIDBoMm0xIDBoMU00IDIzLjVoMm0xIDBoMW0xIDBoMW0yIDBoMW0xIDBoMW01IDBoMW0zIDBoNW0xIDBoN000IDI0LjVoMW0zIDBoMW0xIDBoMm0zIDBoMW02IDBoMW0yIDBoMW0yIDBoMm0yIDBoMm0xIDBoMU00IDI1LjVoMm0yIDBoMW0zIDBoMW0yIDBoNm0zIDBoNG0yIDBoMm0yIDBoMW0xIDBoMU00IDI2LjVoMW0zIDBoM20yIDBoMW0xIDBoMW0xIDBoMm0yIDBoM201IDBoM20yIDBoMk00IDI3LjVoMW0zIDBoMW01IDBoMm0xIDBoMW0yIDBoMW0yIDBoNG0xIDBoMm00IDBoMk00IDI4LjVoMW0zIDBoM20yIDBoMm02IDBoMW0xIDBoMm0xIDBoMW0xIDBoNm0xIDBoMk0xMiAyOS41aDFtMyAwaDFtMyAwaDVtMiAwaDJtMyAwaDFtMSAwaDFtMSAwaDFNNCAzMC41aDdtMyAwaDFtMSAwaDJtMSAwaDFtMSAwaDFtMiAwaDFtMSAwaDNtMSAwaDFtMSAwaDFtMSAwaDJNNCAzMS41aDFtNSAwaDFtMSAwaDJtMyAwaDhtMiAwaDJtMyAwaDNtMSAwaDFNNCAzMi41aDFtMSAwaDNtMSAwaDFtMSAwaDFtMSAwaDdtMiAwaDRtMSAwaDZNNCAzMy41aDFtMSAwaDNtMSAwaDFtMSAwaDFtMSAwaDJtMyAwaDFtMSAwaDJtNCAwaDNtMiAwaDNtMSAwaDFNNCAzNC41aDFtMSAwaDNtMSAwaDFtMSAwaDFtMSAwaDJtMSAwaDFtMSAwaDRtMSAwaDNtMSAwaDFtMSAwaDJtMiAwaDFNNCAzNS41aDFtNSAwaDFtNCAwaDNtMSAwaDFtNSAwaDFtNCAwaDFtMSAwaDFtMSAwaDFNNCAzNi41aDdtMSAwaDNtMSAwaDFtMSAwaDJtMSAwaDFtNCAwaDRtMSAwaDFtMSAwaDFtMSAwaDEiLz48L3N2Zz4K" alt="QR-kode til https://marentscloud.duckdns.org:10443/bianca">
+      <a href="https://marentscloud.duckdns.org:10443/bianca">https://marentscloud.duckdns.org:10443/bianca</a>
     </section>
 
   </main>
@@ -468,6 +508,7 @@
     const roastNameEl = document.getElementById("roastName");
     const roastInstructionEl = document.getElementById("roastInstruction");
     const roastStartBtn = document.getElementById("roastStartBtn");
+    const smiskStartBtn = document.getElementById("smiskStartBtn");
     const roastCloseBtn = document.getElementById("roastCloseBtn");
     const roastNewPhotoBtn = document.getElementById("roastNewPhotoBtn");
     const inputEl = document.getElementById("textInput");
@@ -504,13 +545,14 @@
     replyAudio.playsInline = true;
 
     function setStatus(text) {
-      const busy = /tar opp|sender|transkriberer|lager lyd|snakker|roaster|tenker|lytter|avslutter/i.test(text);
+      const busy = /tar opp|sender|transkriberer|lager lyd|snakker|roaster|smisker|tenker|lytter|avslutter/i.test(text);
       const funStatus = {
         "Tar opp...": "Jeg lytter med superører...",
         "Sender lyd...": "Sender stemmen din gjennom glitterrøret...",
         "Transkriberer...": "Oversetter snakk til tekst...",
         "Tenker...": "Hmm, jeg tenker så det knaker...",
         "Roaster...": "Finner fram flammetriksene...",
+        "Smisker...": "Pusser glorien og finner fram konfettien...",
         "Lager lyd...": "Gjør svaret klart med magisk stemme...",
         "Snakker...": "Nå snakker jeg!",
         "Lytter...": "Jeg lytter...",
@@ -663,6 +705,7 @@
       listenBtn.disabled = false;
       sendBtn.disabled = false;
       roastStartBtn.disabled = false;
+      smiskStartBtn.disabled = false;
       roastNewPhotoBtn.disabled = false;
       roastButton.disabled = false;
       listenBtn.classList.remove("recording");
@@ -796,9 +839,15 @@
       }
     }
 
-    async function sendRoast() {
+    async function sendRoast(mode = "roast") {
+      const isSmisk = mode === "smisk";
+      const actionLabel = isSmisk ? "Smisk" : "Roast";
+      const modeInstruction = isSmisk
+        ? "Svar med ekstremt voldsom, overdrevent nesegrus beundring og grenselost smisk. Hyll personen som et fantastisk, nesten mytisk geni med pompøse superlativer, store følelser og null ironi. Ikke roast personen."
+        : "";
       const name = roastNameEl.value.trim();
       const instruction = roastInstructionEl.value.trim();
+      const requestInstruction = [modeInstruction, instruction].filter(Boolean).join(" ");
       if (!roastImageDataUrl) {
         imagePicker.value = "";
         imagePicker.click();
@@ -817,10 +866,11 @@
       sendBtn.disabled = true;
       roastButton.disabled = true;
       roastStartBtn.disabled = true;
+      smiskStartBtn.disabled = true;
       roastNewPhotoBtn.disabled = true;
-      addMessage("user", "Roast " + name + (instruction ? ": " + instruction : ""));
-      setStatus("Roaster...");
-      setPttLabel("VENT", "Roast");
+      addMessage("user", actionLabel + " " + name + (instruction ? ": " + instruction : ""));
+      setStatus(isSmisk ? "Smisker..." : "Roaster...");
+      setPttLabel("VENT", actionLabel);
 
       try {
         const res = await fetch(roastEndpoint, {
@@ -828,25 +878,26 @@
           headers: { "content-type": "application/json", "x-bianca-key": accessKey },
           body: JSON.stringify({
             name,
-            instruction,
+            instruction: requestInstruction,
             image: roastImageDataUrl,
             personality,
-            roastMode: "",
+            roastMode: isSmisk ? "smisk" : "",
             adult: false,
+            modeInstruction,
             k: accessKey
           })
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.text || data.error || ("HTTP " + res.status));
         addMessage("assistant", data.answer);
-        history.push({ role: "user", content: "Roast " + name + (instruction ? ": " + instruction : "") });
+        history.push({ role: "user", content: actionLabel + " " + name + (instruction ? ": " + instruction : "") });
         history.push({ role: "assistant", content: data.answer });
         roastInstructionEl.value = "";
         await unlockSpeech();
         void speak(data.answer);
       } catch (error) {
-        addMessage("assistant", "Roast-feil: " + error.message);
-        readyForNextTurn("Roast-feil");
+        addMessage("assistant", actionLabel + "-feil: " + error.message);
+        readyForNextTurn(actionLabel + "-feil");
       }
     }
 
@@ -1042,7 +1093,12 @@
 
     roastStartBtn.addEventListener("click", () => {
       void unlockSpeech();
-      void sendRoast();
+      void sendRoast("roast");
+    });
+
+    smiskStartBtn.addEventListener("click", () => {
+      void unlockSpeech();
+      void sendRoast("smisk");
     });
 
     imagePicker.addEventListener("change", () => {

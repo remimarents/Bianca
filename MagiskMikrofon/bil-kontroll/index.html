@@ -903,7 +903,7 @@
 
     .roast-actions {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr 1fr auto;
       gap: 9px;
     }
 
@@ -917,6 +917,20 @@
       background: linear-gradient(135deg, #7f1d1d, #ff0033 48%, #facc15);
       color: #fff;
       box-shadow: 0 0 0 3px rgba(250,204,21,.24), 0 10px 22px rgba(255,0,51,.34);
+    }
+
+    .roast-action,
+    body.unhinged .roast-action {
+      background: linear-gradient(135deg, #ff625c, #b91c1c);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(185,28,28,.24);
+    }
+
+    .smisk-action,
+    body.unhinged .smisk-action {
+      background: linear-gradient(135deg, #4ade80, #15803d);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(21,128,61,.22);
     }
 
     .adult-gate {
@@ -1083,7 +1097,8 @@
         </label>
       </div>
       <div class="roast-actions">
-        <button id="roastStartBtn" class="roast-start" type="button">Start roast</button>
+        <button id="roastStartBtn" class="roast-start roast-action" type="button">Roast</button>
+        <button id="smiskStartBtn" class="roast-start smisk-action" type="button">Smisk</button>
         <button id="roastNewPhotoBtn" type="button">Nytt bilde</button>
       </div>
     </section>
@@ -1131,6 +1146,7 @@
     const roastNameEl = document.getElementById("roastName");
     const roastInstructionEl = document.getElementById("roastInstruction");
     const roastStartBtn = document.getElementById("roastStartBtn");
+    const smiskStartBtn = document.getElementById("smiskStartBtn");
     const roastCloseBtn = document.getElementById("roastCloseBtn");
     const roastNewPhotoBtn = document.getElementById("roastNewPhotoBtn");
     const adultInfoBtn = document.getElementById("adultInfoBtn");
@@ -1307,6 +1323,8 @@
       abortingForSend = false;
       listenBtn.disabled = false;
       sendBtn.disabled = false;
+      roastStartBtn.disabled = false;
+      smiskStartBtn.disabled = false;
       listenBtn.classList.remove("recording");
       setPttLabel("START", "Trykk for å snakke");
       setStatus(status);
@@ -1524,9 +1542,15 @@
       postLive({ phase: "ready", transcript: "", answer: "", roastImage: "", clearRoast: true, roastName: "", roastMode: currentRoastMode(), micActive: false }, true);
     }
 
-    async function sendRoast() {
+    async function sendRoast(mode = "roast") {
+      const isSmisk = mode === "smisk";
+      const actionLabel = isSmisk ? "Smisk" : "Roast";
+      const modeInstruction = isSmisk
+        ? "Svar med ekstremt voldsom, overdrevent nesegrus beundring og grenselost smisk. Hyll personen som et fantastisk, nesten mytisk geni med pompøse superlativer, store følelser og null ironi. Ikke roast personen."
+        : "";
       const name = roastNameEl.value.trim();
       const instruction = roastInstructionEl.value.trim();
+      const requestInstruction = [modeInstruction, instruction].filter(Boolean).join(" ");
       if (!(await ensureCarActive())) return;
       if (!roastImageDataUrl) {
         pickImage({ type: "roast" });
@@ -1543,26 +1567,27 @@
       sendBtn.disabled = true;
       listenBtn.disabled = true;
       roastStartBtn.disabled = true;
-      addMessage("user", `Roast ${name}${instruction ? `: ${instruction}` : ""}`);
-      setStatus("Roaster...");
-      setPttLabel("VENT", "Roast");
+      smiskStartBtn.disabled = true;
+      addMessage("user", `${actionLabel} ${name}${instruction ? `: ${instruction}` : ""}`);
+      setStatus(isSmisk ? "Smisker..." : "Roaster...");
+      setPttLabel("VENT", actionLabel);
       postLive({
         phase: "thinking",
-        transcript: `Roast: ${name}${instruction ? ` - ${instruction}` : ""}`,
+        transcript: `${actionLabel}: ${name}${instruction ? ` - ${instruction}` : ""}`,
         roastName: name,
         roastImage: roastImageDataUrl,
-        roastMode: currentRoastMode(),
+        roastMode: isSmisk ? "smisk" : currentRoastMode(),
         micActive: true,
       }, true);
       try {
         const res = await fetch(roastEndpoint, {
           method: "POST",
           headers: carControlHeaders({ "content-type": "application/json" }),
-          body: JSON.stringify({ name, instruction, image: roastImageDataUrl, personality, roastMode: currentRoastMode(), adult: adultMode, k: accessKey, carControl: true }),
+          body: JSON.stringify({ name, instruction: requestInstruction, image: roastImageDataUrl, personality, roastMode: isSmisk ? "smisk" : currentRoastMode(), adult: adultMode && !isSmisk, modeInstruction, k: accessKey, carControl: true }),
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.text || data.error || `HTTP ${res.status}`);
-        lastTranscriptText = `Roast: ${name}${instruction ? ` - ${instruction}` : ""}`;
+        lastTranscriptText = `${actionLabel}: ${name}${instruction ? ` - ${instruction}` : ""}`;
         lastAnswerText = data.answer;
         addMessage("assistant", data.answer, {
           replay: true,
@@ -1572,17 +1597,18 @@
             data.visionUsed === false ? "Bildet ble ikke analysert denne gangen" : "",
           ],
         });
-        history.push({ role: "user", content: `Roast ${name}: ${instruction}` });
+        history.push({ role: "user", content: `${actionLabel} ${name}: ${instruction}` });
         history.push({ role: "assistant", content: data.answer });
         roastInstructionEl.value = "";
         roastInstructionEl.placeholder = "Skriv instruks for neste runde...";
         await unlockSpeech();
         await speak(data.answer, lastTranscriptText);
       } catch (error) {
-        addMessage("assistant", `Roast-feil: ${error.message}`);
-        readyForNextTurn("Roast-feil");
+        addMessage("assistant", `${actionLabel}-feil: ${error.message}`);
+        readyForNextTurn(`${actionLabel}-feil`);
       } finally {
         roastStartBtn.disabled = false;
+        smiskStartBtn.disabled = false;
         if (sending && !playingReply) readyForNextTurn(statusEl.textContent || "Klar");
       }
     }
@@ -1853,6 +1879,7 @@
     armAudioUnlock(sendBtn);
     armAudioUnlock(roastButton);
     armAudioUnlock(roastStartBtn);
+    armAudioUnlock(smiskStartBtn);
 
     async function startListening() {
       void unlockSpeech();
@@ -1987,7 +2014,11 @@
     });
     roastStartBtn.addEventListener("click", async () => {
       await unlockSpeech();
-      await sendRoast();
+      await sendRoast("roast");
+    });
+    smiskStartBtn.addEventListener("click", async () => {
+      await unlockSpeech();
+      await sendRoast("smisk");
     });
     roastCloseBtn.addEventListener("click", clearRoastImage);
     roastNewPhotoBtn.addEventListener("click", () => pickImage({ type: "roast" }));

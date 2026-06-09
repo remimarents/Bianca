@@ -171,6 +171,12 @@
       font-size: 13px;
     }
 
+    .footer a {
+      color: #7fd2ff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
     .curtain-intro {
       position: fixed;
       inset: 0;
@@ -274,6 +280,7 @@
     <footer class="footer">
       <span id="sourceText">-</span>
       <span id="updatedText">Ikke oppdatert</span>
+      <span><a href="https://marentscloud.duckdns.org:10443/dashboard">Bildashboard</a></span>
     </footer>
   </main>
 
@@ -283,8 +290,9 @@
       var accessKey = params.get("k") || "";
       var stateEndpoint = params.get("state") || "/bianca/state";
       var carHeartbeatEndpoint = params.get("carHeartbeat") || "/bianca/car-heartbeat";
-      var mobileUrl = params.get("mobile") || (location.origin + "/bianca/bil-kontroll");
-      var qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=192x192&data=" + encodeURIComponent(mobileUrl + (accessKey ? "?k=" + encodeURIComponent(accessKey) : ""));
+      var mobileUrl = params.get("mobile") || "https://marentscloud.duckdns.org:10443/bianca/bil-kontroll";
+      var qrTarget = mobileUrl + (accessKey ? "?k=" + encodeURIComponent(accessKey) : "");
+      var qrUrl = "/bianca/qr.svg?size=192&data=" + encodeURIComponent(qrTarget);
       var statusText = document.getElementById("statusText");
       var phaseText = document.getElementById("phaseText");
       var transcriptText = document.getElementById("transcriptText");
