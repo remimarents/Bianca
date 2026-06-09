@@ -76,6 +76,10 @@
       box-shadow: 0 0 0 2px rgba(255,72,72,.16) inset;
     }
 
+    body.mode-shadow .app {
+      animation: brutalisPageReveal 680ms ease-out both;
+    }
+
     .app {
       min-height: calc(100vh - 24px);
       display: grid;
@@ -161,6 +165,135 @@
 
     .mode-wash.shadow {
       background: rgba(255,72,72,.12);
+    }
+
+    .brutalis-fx {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      pointer-events: none;
+      display: none;
+    }
+
+    .brutalis-fx.play {
+      display: block;
+    }
+
+    .brutalis-blackout {
+      position: absolute;
+      inset: 0;
+      background: #000;
+      opacity: 0;
+    }
+
+    .brutalis-fx.play .brutalis-blackout {
+      animation: brutalisBlackout 1200ms ease-out forwards;
+    }
+
+    .brutalis-curtain {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 15vh;
+      min-height: 84px;
+      transform: translateY(-120%);
+      background:
+        linear-gradient(180deg, #2a0000 0%, #7f0000 28%, #c40018 74%, #7c0014 100%);
+      box-shadow:
+        0 14px 36px rgba(0,0,0,.42),
+        inset 0 -6px 18px rgba(0,0,0,.28);
+      overflow: hidden;
+    }
+
+    .brutalis-fx.play .brutalis-curtain {
+      animation: brutalisCurtainDrop 980ms cubic-bezier(.2,.86,.18,1) forwards;
+    }
+
+    .brutalis-curtain::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -10px;
+      height: 30px;
+      background:
+        radial-gradient(circle at 6% 0, #8c0018 0 11px, transparent 12px),
+        radial-gradient(circle at 18% 0, #cf1024 0 13px, transparent 14px),
+        radial-gradient(circle at 33% 0, #920016 0 9px, transparent 10px),
+        radial-gradient(circle at 48% 0, #d41127 0 15px, transparent 16px),
+        radial-gradient(circle at 63% 0, #8f0017 0 10px, transparent 11px),
+        radial-gradient(circle at 78% 0, #cc1024 0 14px, transparent 15px),
+        radial-gradient(circle at 91% 0, #930017 0 12px, transparent 13px);
+      opacity: .95;
+    }
+
+    .brutalis-title {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding-top: 4px;
+      color: #ffe8e8;
+      font-size: clamp(30px, 5vw, 54px);
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-shadow:
+        0 2px 0 #2b0000,
+        0 5px 18px rgba(0,0,0,.56),
+        0 0 24px rgba(255,40,40,.34);
+      opacity: 0;
+    }
+
+    .brutalis-title span {
+      position: relative;
+      display: inline-block;
+    }
+
+    .brutalis-title span::after {
+      content: "";
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      top: 100%;
+      height: 20px;
+      background:
+        radial-gradient(circle at 8% 0, rgba(120,0,0,.98) 0 4px, transparent 5px),
+        radial-gradient(circle at 24% 0, rgba(160,0,0,.98) 0 5px, transparent 6px),
+        radial-gradient(circle at 41% 0, rgba(140,0,0,.98) 0 6px, transparent 7px),
+        radial-gradient(circle at 59% 0, rgba(170,0,0,.98) 0 5px, transparent 6px),
+        radial-gradient(circle at 78% 0, rgba(130,0,0,.98) 0 6px, transparent 7px),
+        radial-gradient(circle at 93% 0, rgba(170,0,0,.98) 0 4px, transparent 5px);
+      opacity: .92;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,.24));
+    }
+
+    .brutalis-fx.play .brutalis-title {
+      animation: brutalisTitleIn 620ms ease-out 340ms forwards;
+    }
+
+    @keyframes brutalisBlackout {
+      0% { opacity: 0; }
+      14% { opacity: .96; }
+      58% { opacity: .82; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes brutalisCurtainDrop {
+      0% { transform: translateY(-120%); }
+      58% { transform: translateY(0); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes brutalisTitleIn {
+      0% { opacity: 0; transform: translateY(-10px) scale(.94); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes brutalisPageReveal {
+      0% { opacity: .04; filter: saturate(.7) brightness(.55); }
+      100% { opacity: 1; filter: none; }
     }
 
     .title strong,
@@ -278,6 +411,12 @@
 <body>
   <main class="app">
     <div id="modeWash" class="mode-wash"></div>
+    <div id="brutalisFx" class="brutalis-fx" aria-hidden="true">
+      <div class="brutalis-blackout"></div>
+      <div class="brutalis-curtain">
+        <div class="brutalis-title"><span>Brutalis Mode</span></div>
+      </div>
+    </div>
     <div id="adultBanner" class="adult-banner" aria-live="polite"><span>Voksenmodus</span></div>
 
     <header class="bar">
@@ -336,7 +475,9 @@
       var updatedText = document.getElementById("updatedText");
       var adultBanner = document.getElementById("adultBanner");
       var modeWash = document.getElementById("modeWash");
+      var brutalisFx = document.getElementById("brutalisFx");
       var lastSerialized = "";
+      var lastRoastMode = "";
 
       qrImage.src = qrUrl;
 
@@ -365,6 +506,8 @@
         var image = payload.roastImageUrl || "";
         var source = payload.source || "bianca-state";
         var roastMode = payload.roastMode || "";
+        var enteredShadow = roastMode === "shadow" && lastRoastMode !== "shadow";
+        lastRoastMode = roastMode;
 
         statusText.textContent = labelPhase(phase);
         phaseText.textContent = labelPhase(phase);
@@ -386,6 +529,15 @@
         } else {
           adultBanner.className = "adult-banner";
           modeWash.className = "mode-wash";
+        }
+
+        if (enteredShadow) {
+          brutalisFx.className = "brutalis-fx";
+          void brutalisFx.offsetWidth;
+          brutalisFx.className = "brutalis-fx play";
+          setTimeout(function () {
+            brutalisFx.className = "brutalis-fx";
+          }, 1400);
         }
 
         if (image) {
