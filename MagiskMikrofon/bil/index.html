@@ -127,13 +127,24 @@
       display: flex;
     }
 
-    .adult-banner.shadow {
+    .adult-banner span {
+      display: inline-block;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .brutalis-banner {
+      display: none;
       position: relative;
+      align-items: center;
+      justify-content: center;
       min-height: 15vh;
       height: 15vh;
       max-height: 160px;
-      align-items: center;
-      border-color: rgba(255,72,72,.92);
+      border: 2px solid rgba(255,72,72,.92);
+      border-radius: 14px;
       background:
         linear-gradient(180deg, #2e0006 0%, #5f0010 18%, #7a0015 36%, #5c0010 62%, #2a0007 100%);
       color: #fff7c2;
@@ -145,30 +156,11 @@
       overflow: hidden;
     }
 
-    .adult-banner span {
-      display: inline-block;
-      padding: 0;
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
+    .brutalis-banner.show {
+      display: flex;
     }
 
-    .adult-banner.shadow span {
-      position: relative;
-      z-index: 2;
-      padding: 8px 22px 14px;
-      border-top: 1px solid rgba(255,228,228,.18);
-      border-bottom: 1px solid rgba(0,0,0,.28);
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.12));
-      color: inherit;
-      text-shadow:
-        0 2px 0 #2b0000,
-        0 4px 0 #410008,
-        0 8px 18px rgba(0,0,0,.56),
-        0 0 24px rgba(255,40,40,.28);
-    }
-
-    .adult-banner.shadow::before {
+    .brutalis-banner::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -187,7 +179,7 @@
       pointer-events: none;
     }
 
-    .adult-banner.shadow::after {
+    .brutalis-banner::after {
       content: "";
       position: absolute;
       left: 0;
@@ -205,6 +197,23 @@
         radial-gradient(circle at 92% 0, #850016 0 18px, transparent 19px);
       opacity: .98;
       pointer-events: none;
+    }
+
+    .brutalis-banner span {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      padding: 8px 22px 14px;
+      border-top: 1px solid rgba(255,228,228,.18);
+      border-bottom: 1px solid rgba(0,0,0,.28);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.12));
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-shadow:
+        0 2px 0 #2b0000,
+        0 4px 0 #410008,
+        0 8px 18px rgba(0,0,0,.56),
+        0 0 24px rgba(255,40,40,.28);
     }
 
     .mode-wash {
@@ -501,6 +510,7 @@
       </div>
     </div>
     <div id="adultBanner" class="adult-banner" aria-live="polite"><span>Voksenmodus</span></div>
+    <div id="brutalisBanner" class="brutalis-banner" aria-live="polite"><span>Brutalis Mode</span></div>
 
     <header class="bar">
       <div class="title">
@@ -558,6 +568,7 @@
       var sourceText = document.getElementById("sourceText");
       var updatedText = document.getElementById("updatedText");
       var adultBanner = document.getElementById("adultBanner");
+      var brutalisBanner = document.getElementById("brutalisBanner");
       var modeWash = document.getElementById("modeWash");
       var brutalisFx = document.getElementById("brutalisFx");
       var lastSerialized = "";
@@ -605,13 +616,15 @@
         if (roastMode === "adult") {
           adultBanner.innerHTML = "<span>Voksenmodus</span>";
           adultBanner.className = "adult-banner show";
+          brutalisBanner.className = "brutalis-banner";
           modeWash.className = "mode-wash show";
         } else if (roastMode === "shadow") {
-          adultBanner.innerHTML = "<span>Brutalis</span>";
-          adultBanner.className = "adult-banner show shadow";
+          adultBanner.className = "adult-banner";
+          brutalisBanner.className = "brutalis-banner show";
           modeWash.className = "mode-wash show shadow";
         } else {
           adultBanner.className = "adult-banner";
+          brutalisBanner.className = "brutalis-banner";
           modeWash.className = "mode-wash";
         }
 
