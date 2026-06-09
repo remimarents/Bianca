@@ -461,6 +461,7 @@
     (function () {
       var params = new URLSearchParams(location.search);
       var accessKey = params.get("k") || "";
+      var demoMode = params.get("demo") || "";
       var stateEndpoint = params.get("state") || "/bianca/state";
       var mobileUrl = params.get("mobile") || (location.origin + "/bianca/bil-kontroll");
       var qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=192x192&data=" + encodeURIComponent(mobileUrl + (accessKey ? "?k=" + encodeURIComponent(accessKey) : ""));
@@ -505,7 +506,7 @@
         var answer = payload.answer || "";
         var image = payload.roastImageUrl || "";
         var source = payload.source || "bianca-state";
-        var roastMode = payload.roastMode || "";
+        var roastMode = demoMode || payload.roastMode || "";
         var enteredShadow = roastMode === "shadow" && lastRoastMode !== "shadow";
         lastRoastMode = roastMode;
 
@@ -553,6 +554,16 @@
       }
 
       function poll() {
+        if (demoMode) {
+          updateView({
+            phase: "ready",
+            transcript: "",
+            answer: "",
+            source: "demo",
+            roastMode: demoMode
+          });
+          return;
+        }
         fetch(stateEndpoint, {
           headers: {
             "accept": "application/json",
