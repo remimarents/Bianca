@@ -124,6 +124,11 @@
       background: #090d12;
     }
 
+    .image-wrap img.profile-image {
+      object-fit: cover;
+      object-position: center 24%;
+    }
+
     .empty {
       padding: 24px;
       text-align: center;
@@ -133,7 +138,7 @@
 
     .text-panel {
       display: grid;
-      grid-template-rows: auto 1fr 1fr;
+      grid-template-rows: auto auto 1fr 1fr;
       gap: 12px;
     }
 
@@ -149,6 +154,40 @@
       font-size: 13px;
       letter-spacing: .08em;
       text-transform: uppercase;
+    }
+
+    .profile-card {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .profile-card img {
+      width: 96px;
+      height: 96px;
+      display: block;
+      border-radius: 10px;
+      object-fit: cover;
+      object-position: center 24%;
+      background: #090d12;
+    }
+
+    .profile-card strong,
+    .profile-card span {
+      display: block;
+    }
+
+    .profile-card strong {
+      font-size: 24px;
+      line-height: 1.05;
+    }
+
+    .profile-card span {
+      margin-top: 4px;
+      color: #9fb1c4;
+      font-size: 15px;
+      font-weight: 700;
     }
 
     .status-line {
@@ -257,11 +296,20 @@
       <section class="panel image-panel" aria-label="Bilde">
         <div class="image-wrap">
           <img id="roastImage" alt="Roast-bilde" hidden>
+          <img id="profileImage" class="profile-image" src="/bianca/sandra-profile.png?v=20260612-124318" alt="Sandra profilbilde">
           <div id="emptyState" class="empty">Scan QR-koden for å åpne mobilen.</div>
         </div>
       </section>
 
       <aside class="panel text-panel">
+        <section class="card profile-card">
+          <img src="/bianca/sandra-profile.png?v=20260612-124318" alt="Sandra profilbilde">
+          <div>
+            <h2>Sandra Chat</h2>
+            <strong>Sandra</strong>
+            <span>Profilbilde i listen</span>
+          </div>
+        </section>
         <section class="card">
           <h2>Status</h2>
           <div id="phaseText" class="status-line">Venter</div>
@@ -298,6 +346,7 @@
       var transcriptText = document.getElementById("transcriptText");
       var answerText = document.getElementById("answerText");
       var roastImage = document.getElementById("roastImage");
+      var profileImage = document.getElementById("profileImage");
       var emptyState = document.getElementById("emptyState");
       var qrImage = document.getElementById("qrImage");
       var sourceText = document.getElementById("sourceText");
@@ -419,12 +468,13 @@
         if (image) {
           roastImage.src = image;
           roastImage.hidden = false;
+          profileImage.hidden = true;
           emptyState.hidden = true;
         } else {
           roastImage.hidden = true;
           roastImage.removeAttribute("src");
-          emptyState.hidden = false;
-          emptyState.textContent = transcript ? "Venter på roast-bilde." : "Scan QR-koden for å åpne mobilen.";
+          profileImage.hidden = false;
+          emptyState.hidden = true;
         }
       }
 

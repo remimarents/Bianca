@@ -432,7 +432,7 @@
 <body>
   <main>
     <section class="image-stage" aria-label="Magiske Mikrofonen">
-      <img class="mic-concept-image" src="/bianca/microphone-concept-mobile.jpg" alt="Magiske Mikrofonen">
+      <img class="mic-concept-image" src="/bianca/magisk-mikrofon.png" alt="Magiske Mikrofonen">
       <button id="listenBtn" class="image-hot ptt-hot" type="button" title="Trykk for å begynne å snakke, trykk igjen for å stoppe">
         <span class="big">START</span>
         <span class="small">Trykk for å snakke</span>
@@ -534,13 +534,14 @@
     let replyWatchdog = null;
     let statusTimer = null;
     let history = [];
-    let roastImageDataUrl = localStorage.getItem("bianca-roast-photo") || "";
+    let roastImageDataUrl = sessionStorage.getItem("bianca-roast-photo") || "";
     let personality = localStorage.getItem("bianca-personality") || "snill";
     const personalityOrder = ["snill", "slem", "trøtt", "glad", "frekk"];
     const replyAudio = new Audio();
     const silentWav = "data:audio/wav;base64,UklGRkgAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YSQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 
     if (accessKey) localStorage.setItem("bianca-access-key", accessKey);
+    localStorage.removeItem("bianca-roast-photo");
     replyAudio.preload = "auto";
     replyAudio.playsInline = true;
 
@@ -647,7 +648,7 @@
     }
 
     function clearRoastImage() {
-      localStorage.removeItem("bianca-roast-photo");
+      sessionStorage.removeItem("bianca-roast-photo");
       roastImageDataUrl = "";
       roastPreview.removeAttribute("src");
       roastNameEl.value = "";
@@ -660,7 +661,7 @@
       if (!file) return;
       try {
         const dataUrl = await resizeImage(file);
-        localStorage.setItem("bianca-roast-photo", dataUrl);
+        sessionStorage.setItem("bianca-roast-photo", dataUrl);
         roastImageDataUrl = dataUrl;
         openRoastPanel(dataUrl);
         setStatus("Bilde klart");

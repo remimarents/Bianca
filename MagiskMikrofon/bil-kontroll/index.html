@@ -1200,6 +1200,9 @@
     replyAudio.playsInline = true;
     if (accessKey) localStorage.setItem("bianca-access-key", accessKey);
     localStorage.removeItem("bianca-roast-photo");
+    photoSlots.forEach((slot) => {
+      localStorage.removeItem(`bianca-photo-${slot.dataset.photoSlot}`);
+    });
 
     function setStatus(text) {
       statusEl.textContent = text;
@@ -1380,7 +1383,7 @@
     function clearSlotImage(index) {
       const slot = photoSlots[index];
       if (!slot) return;
-      localStorage.removeItem(`bianca-photo-${index}`);
+      sessionStorage.removeItem(`bianca-photo-${index}`);
       slot.innerHTML = "<span>Bilde " + (index + 1) + "</span>";
       slot.classList.remove("has-image");
       const clearButton = document.querySelector(`[data-clear-slot="${index}"]`);
@@ -1390,7 +1393,7 @@
 
     function restoreImages() {
       photoSlots.forEach((slot) => {
-        const dataUrl = localStorage.getItem(`bianca-photo-${slot.dataset.photoSlot}`);
+        const dataUrl = sessionStorage.getItem(`bianca-photo-${slot.dataset.photoSlot}`);
         if (dataUrl) setSlotImage(slot, dataUrl);
         else {
           const clearButton = document.querySelector(`[data-clear-slot="${slot.dataset.photoSlot}"]`);
@@ -1482,7 +1485,7 @@
         const dataUrl = await resizeImage(file);
         if (imageTarget.type === "slot") {
           const slot = photoSlots[imageTarget.index];
-          localStorage.setItem(`bianca-photo-${imageTarget.index}`, dataUrl);
+          sessionStorage.setItem(`bianca-photo-${imageTarget.index}`, dataUrl);
           setSlotImage(slot, dataUrl);
           setStatus("Bilde lagt inn");
           return;
