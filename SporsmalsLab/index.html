@@ -63,8 +63,11 @@
     .app{display:block;min-height:100vh;padding:0 0 14px;background:#071019}
     .radio-wrap{padding:0;min-height:0;display:grid;place-items:center;background:#071019}
     .radio-shell{width:min(100vw,430px);aspect-ratio:9/16;display:block;position:relative;background:url("assets/sporsmals-lab.jpg") center/contain no-repeat}
-    .image-text{position:absolute;z-index:2;left:31.8%;width:38.6%;margin:0;pointer-events:auto;overflow-y:scroll;overscroll-behavior:contain;touch-action:pan-y;display:block;min-height:0;padding:0 2px;line-height:1.16;font-size:clamp(13px,3.45vw,18px);font-weight:900;letter-spacing:0;white-space:pre-wrap;overflow-wrap:anywhere;text-shadow:0 1px 0 rgba(255,255,255,.35);scrollbar-width:none;-webkit-overflow-scrolling:touch;-webkit-user-select:text;user-select:text}
-    .image-text::-webkit-scrollbar{display:none}
+    .image-text{position:absolute;z-index:2;left:31.8%;width:38.6%;margin:0;pointer-events:auto;overflow-y:scroll;overscroll-behavior:contain;touch-action:none;display:block;min-height:0;padding:0 3px;line-height:1.16;font-size:clamp(13px,3.45vw,18px);font-weight:900;letter-spacing:0;white-space:pre-wrap;overflow-wrap:anywhere;text-shadow:0 1px 0 rgba(255,255,255,.35);scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.54) transparent;-webkit-overflow-scrolling:touch;-webkit-user-select:text;user-select:text;transform:translateZ(0)}
+    .image-text::-webkit-scrollbar{width:4px}
+    .image-text::-webkit-scrollbar-track{background:transparent}
+    .image-text::-webkit-scrollbar-thumb{background:rgba(255,255,255,.5);border-radius:999px}
+    .image-text.scrollable{box-shadow:inset 0 -9px 8px -10px rgba(0,0,0,.75)}
     .image-text.user{top:32.5%;height:8.7%;color:#7251da}
     .image-text.answer{top:45.3%;height:7.6%;color:#168f96}
     .image-text.empty{opacity:.42}
@@ -202,11 +205,35 @@
     function setPttLabel(big, small) {
       ptt.innerHTML = big === 'TRYKK' && small === 'SNAKK' ? 'TRYKK<br>OG SNAKK' : big + '<br>' + small;
     }
+    function refreshScrollHint(el) {
+      window.requestAnimationFrame(function () {
+        var canScroll = el.scrollHeight > el.clientHeight + 2;
+        el.className = el.className.replace(/\s?scrollable/g, '') + (canScroll ? ' scrollable' : '');
+      });
+    }
     function setImageText(el, value, fallback) {
       var text = String(value || '').trim() || fallback;
       el.textContent = text;
-      el.className = el.className.replace(/\s?empty/g, '') + (text === fallback ? ' empty' : '');
+      el.className = el.className.replace(/\s?empty/g, '').replace(/\s?scrollable/g, '') + (text === fallback ? ' empty' : '');
       el.scrollTop = 0;
+      refreshScrollHint(el);
+    }
+    function bindDragScroll(el) {
+      var drag = null;
+      el.addEventListener('touchstart', function (event) {
+        if (el.scrollHeight <= el.clientHeight + 2 || !event.touches.length) return;
+        drag = { y: event.touches[0].clientY, top: el.scrollTop };
+      }, { passive: true });
+      el.addEventListener('touchmove', function (event) {
+        if (!drag || !event.touches.length) return;
+        var max = el.scrollHeight - el.clientHeight;
+        if (max <= 0) return;
+        var delta = drag.y - event.touches[0].clientY;
+        if (Math.abs(delta) > 1) event.preventDefault();
+        el.scrollTop = Math.max(0, Math.min(max, drag.top + delta));
+      }, { passive: false });
+      el.addEventListener('touchend', function () { drag = null; }, { passive: true });
+      el.addEventListener('touchcancel', function () { drag = null; }, { passive: true });
     }
     function setFollowupVisible(show) {
       var visible = !!show && !!lastAnswer && !sending && !listening && !playingReply;
@@ -636,6 +663,8 @@
       if (listening) stopListening(event);
       else startListening(event);
     });
+    bindDragScroll(screenTranscriptEl);
+    bindDragScroll(screenAnswerEl);
     setTranscriptText('');
     setAnswerText('');
     setupRecognition();
