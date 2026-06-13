@@ -190,7 +190,7 @@
     var imageStatus = document.getElementById('imageStatus');
     var followupPanel = document.getElementById('followupPanel');
     var recognition = null, mediaRecorder = null, mediaStream = null, listening = false, sending = false, playingReply = false, speechUnlocked = false;
-    var pendingTranscript = '', transcriptSent = false, ignoreNextClick = false, resetTimer = null, currentAudioUrl = null, recordedChunks = [], recordingMode = '', recordingStopRequested = false, recordTimer = null, recordingStartedAt = 0;
+    var pendingTranscript = '', transcriptSent = false, ignoreNextClick = false, resetTimer = null, currentAudioUrl = null, autoScrollFrame = null, recordedChunks = [], recordingMode = '', recordingStopRequested = false, recordTimer = null, recordingStartedAt = 0;
     var imageDataUrl = '', activeQuestion = '', lastQuestion = '', lastAnswer = '';
     var MIN_RECORDING_MS = 1000;
     var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -235,6 +235,33 @@
       el.addEventListener('touchend', function () { drag = null; }, { passive: true });
       el.addEventListener('touchcancel', function () { drag = null; }, { passive: true });
     }
+    function stopAnswerAutoScroll() {
+      if (autoScrollFrame) {
+        cancelAnimationFrame(autoScrollFrame);
+        autoScrollFrame = null;
+      }
+    }
+    function startAnswerAutoScroll() {
+      stopAnswerAutoScroll();
+      var el = screenAnswerEl;
+      var maxScroll = el.scrollHeight - el.clientHeight;
+      if (maxScroll <= 2) return;
+      el.scrollTop = 0;
+      var audioMs = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration * 1000 : 0;
+      var estimatedMs = Math.max(3500, Math.min(22000, String(lastAnswer || el.textContent || '').length * 55));
+      var duration = Math.max(2200, (audioMs || estimatedMs) - 700);
+      var delay = 450;
+      var startedAt = performance.now();
+      function step(now) {
+        if (!playingReply) { stopAnswerAutoScroll(); return; }
+        var elapsed = now - startedAt - delay;
+        var progress = Math.max(0, Math.min(1, elapsed / duration));
+        el.scrollTop = maxScroll * progress;
+        if (progress < 1) autoScrollFrame = requestAnimationFrame(step);
+        else autoScrollFrame = null;
+      }
+      autoScrollFrame = requestAnimationFrame(step);
+    }
     function setFollowupVisible(show) {
       var visible = !!show && !!lastAnswer && !sending && !listening && !playingReply;
       followupPanel.hidden = !visible;
@@ -252,6 +279,7 @@
     }
     function readyForNextTurn(status) {
       clearRecordTimer();
+      stopAnswerAutoScroll();
       sending = false;
       playingReply = false;
       listening = false;
@@ -317,6 +345,7 @@
       });
     }
     function clearAudioUrl() {
+      stopAnswerAutoScroll();
       if (currentAudioUrl) URL.revokeObjectURL(currentAudioUrl);
       currentAudioUrl = null;
       audio.removeAttribute('src');
@@ -341,10 +370,11 @@
       setPhase('Laster lyd', 'sending');
       setPttLabel('VENT', 'LYD');
       audio.src = url;
-      audio.onplay = function () { setPhase('Snakker'); };
-      audio.onended = function () { clearAudioUrl(); readyForNextTurn('Klar'); };
-      audio.onerror = function () { clearAudioUrl(); readyForNextTurn('Lyd-feil'); };
+      audio.onplay = function () { setPhase('Snakker'); startAnswerAutoScroll(); };
+      audio.onended = function () { stopAnswerAutoScroll(); clearAudioUrl(); readyForNextTurn('Klar'); };
+      audio.onerror = function () { stopAnswerAutoScroll(); clearAudioUrl(); readyForNextTurn('Lyd-feil'); };
       audio.play().catch(function () {
+        stopAnswerAutoScroll();
         play.className = 'play show';
         readyForNextTurn('Trykk spill');
       });
