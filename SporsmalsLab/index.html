@@ -1,26 +1,365 @@
 <!doctype html>
-<html lang="no">
+<html lang="nb">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spørsmåls Lab</title>
-  <link rel="stylesheet" href="../style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bianca PTT</title>
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#fdf7ff;color:#101827;font-family:Arial,Helvetica,sans-serif}
+    body{display:grid;place-items:stretch;overflow-x:hidden;background:
+      radial-gradient(circle at 12% 8%,rgba(255,213,79,.52) 0 2px,transparent 3px),
+      radial-gradient(circle at 82% 14%,rgba(185,117,255,.42) 0 2px,transparent 3px),
+      radial-gradient(circle at 72% 88%,rgba(24,168,216,.34) 0 2px,transparent 3px),
+      linear-gradient(135deg,#fff7fd 0%,#f7ecff 42%,#eefbff 100%)}
+    body:before,body:after{content:"";position:fixed;inset:auto;pointer-events:none;z-index:0;border-radius:999px;filter:blur(.1px)}
+    body:before{width:180px;height:180px;right:-54px;top:92px;background:radial-gradient(circle,rgba(195,122,255,.32),transparent 70%)}
+    body:after{width:220px;height:220px;left:-76px;bottom:34px;background:radial-gradient(circle,rgba(255,205,236,.55),transparent 70%)}
+    .app{position:relative;z-index:1;min-height:100vh;display:grid;grid-template-rows:auto auto 1fr auto;padding:18px;gap:16px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand small{display:block;color:#0f7b93;font-weight:900;text-transform:uppercase;font-size:12px}.brand h1{font-size:34px;line-height:1;margin:4px 0 0}.pill{border-radius:999px;background:#eaf6ff;color:#184465;padding:8px 12px;font-weight:900}
+    .magic{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:center;background:linear-gradient(135deg,#fff 0%,#fbf2ff 60%,#ecfbff 100%);border:1px solid #ead7ff;border-radius:24px;padding:12px;box-shadow:0 12px 28px rgba(127,67,191,.12)}
+    .unicorn{width:92px;height:92px;border-radius:22px;background:#fff;box-shadow:inset 0 0 0 1px #ead7ff}.stickers{display:flex;gap:8px;flex-wrap:wrap}.sticker{display:inline-block;transform:rotate(-2deg);border:2px solid #fff;border-radius:999px;background:#8b5cf6;color:#fff;padding:8px 11px;font-weight:900;box-shadow:0 8px 14px rgba(127,67,191,.18)}.sticker.gold{background:#ffd166;color:#4a2b00;transform:rotate(3deg)}.sticker.blue{background:#18a8d8;color:#fff;transform:rotate(1deg)}
+    .magic p{margin:10px 0 0;color:#5e4a77;font-size:15px;font-weight:800}.sparkle-line{height:7px;margin-top:10px;border-radius:999px;background:linear-gradient(90deg,#8b5cf6,#ff8bd2,#ffd166,#18a8d8,#8b5cf6);background-size:220% 100%;animation:shine 3.8s linear infinite}@keyframes shine{to{background-position:220% 0}}
+    .panel{position:relative;background:rgba(255,255,255,.92);border:1px solid #f0ddeb;border-radius:22px;padding:16px;box-shadow:0 10px 24px rgba(72,22,57,.08);backdrop-filter:blur(6px)}
+    .panel:before{content:"";position:absolute;right:14px;top:12px;width:8px;height:8px;border-radius:50%;background:#ffd166;box-shadow:-22px 12px 0 #c084fc,-44px -2px 0 #ff8bd2,-68px 18px 0 #18a8d8;opacity:.8}
+    .talk{display:grid;place-items:center;text-align:center}.button-wrap{position:relative;width:min(72vw,310px);height:min(72vw,310px);border-radius:50%}.button{width:100%;height:100%;border:0;border-radius:50%;background:#18a8d8;color:#fff;font-size:34px;font-weight:900;box-shadow:0 18px 36px rgba(24,168,216,.25);touch-action:none;user-select:none;-webkit-user-select:none}
+    .button{background:radial-gradient(circle at 35% 28%,#ffb6e6 0 12%,#a855f7 38%,#6d28d9 72%,#4c1d95 100%);box-shadow:0 18px 36px rgba(109,40,217,.28),0 0 0 10px rgba(255,255,255,.72),0 0 0 16px rgba(255,209,102,.28)}
+    .button.recording{background:#ef476f}.button.sending{background:#f59e0b}.button:disabled{opacity:.65}.hint{margin:16px 0 0;color:#53677f;font-size:18px;font-weight:800}
+    .log{display:grid;gap:10px}.bubble{border-radius:16px;padding:12px 14px;background:#f7fbff;border:1px solid #d8e7f1}.bubble b{display:block;margin-bottom:5px;color:#7c3aed;text-transform:uppercase;font-size:12px}.bubble p{margin:0;font-size:17px;line-height:1.35}
+    .fallback{display:grid;grid-template-columns:1fr auto;gap:8px}.fallback input{border:1px solid #d8e7f1;border-radius:14px;padding:13px;font-size:16px}.fallback button{border:0;border-radius:14px;background:#101827;color:#fff;padding:0 16px;font-weight:900}.play{display:none;width:100%;margin-top:10px;border:0;border-radius:14px;background:#18a8d8;color:white;padding:14px;font-size:17px;font-weight:900}.play.show{display:block}
+    footer{color:#53677f;font-size:13px;text-align:center;font-weight:800}
+    @media(max-width:420px){.app{padding:14px}.magic{grid-template-columns:74px 1fr}.unicorn{width:74px;height:74px}.brand h1{font-size:30px}.sticker{font-size:12px;padding:7px 9px}}
+  </style>
 </head>
 <body>
-  <main class="shell">
-    <header class="hero">
-      <p class="eyebrow">Bianca</p>
-      <h1>Spørsmåls Lab</h1>
-      <p>Åpner live-laben for spørsmål med tekst, bilde og tale.</p>
+  <main class="app">
+    <header>
+      <div class="brand"><small>Biancas hjørne</small><h1>Walkie Talkie</h1></div>
+      <span id="phase" class="pill">Klar</span>
     </header>
-    <section class="game-grid">
-      <a class="game-card wide" href="https://marentscloud.duckdns.org:10443/lab">
-        <img src="assets/sporsmals-lab.jpg" alt="Spørsmåls Lab">
-        <span>
-          <strong>Åpne Spørsmåls Lab</strong>
-        </span>
-      </a>
+    <section class="magic">
+      <svg class="unicorn" viewBox="0 0 120 120" role="img" aria-label="Fiolett enhjørning">
+        <defs>
+          <linearGradient id="mane" x1="0" x2="1"><stop stop-color="#8b5cf6"/><stop offset=".55" stop-color="#ff8bd2"/><stop offset="1" stop-color="#18a8d8"/></linearGradient>
+          <linearGradient id="horn" x1="0" x2="1"><stop stop-color="#ffd166"/><stop offset="1" stop-color="#ff8bd2"/></linearGradient>
+        </defs>
+        <rect width="120" height="120" rx="24" fill="#fff"/>
+        <path d="M58 25 L73 4 L78 34 Z" fill="url(#horn)" stroke="#6d28d9" stroke-width="3"/>
+        <path d="M36 44 C24 43 16 52 16 64 C16 83 35 96 59 96 C84 96 105 78 105 57 C105 39 91 29 74 34 C65 22 46 27 36 44 Z" fill="#f7e8ff" stroke="#6d28d9" stroke-width="4"/>
+        <path d="M38 43 C55 36 71 44 80 58 C70 53 57 57 48 69 C42 62 37 54 38 43 Z" fill="url(#mane)"/>
+        <circle cx="80" cy="57" r="5" fill="#101827"/>
+        <path d="M90 72 C82 78 70 79 61 74" fill="none" stroke="#101827" stroke-width="4" stroke-linecap="round"/>
+        <path d="M30 52 L16 39 M91 43 L107 32" stroke="#ff8bd2" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="28" cy="25" r="4" fill="#ffd166"/><circle cx="98" cy="88" r="4" fill="#18a8d8"/><circle cx="20" cy="91" r="3" fill="#8b5cf6"/>
+      </svg>
+      <div>
+        <div class="stickers">
+          <span class="sticker">Beautiful Girl</span>
+          <span class="sticker gold">Glitter Mode</span>
+          <span class="sticker blue">Team Bianca</span>
+        </div>
+        <p>Fiolett enhjørning-radio for korte beskjeder til Sandra.</p>
+        <div class="sparkle-line"></div>
+      </div>
     </section>
+    <section class="panel talk">
+      <div id="buttonWrap" class="button-wrap">
+        <button id="ptt" class="button" type="button">HOLD<br>PTT</button>
+      </div>
+      <p id="hint" class="hint">Hold inne, snakk, slipp.</p>
+      <button id="play" class="play" type="button">Spill svar</button>
+    </section>
+    <section class="panel log">
+      <div class="bubble"><b>Du sa</b><p id="transcript">Venter på beskjed.</p></div>
+      <div class="bubble"><b>Sandra</b><p id="answer">Klar.</p></div>
+      <form id="textForm" class="fallback">
+        <input id="textInput" autocomplete="off" placeholder="Skriv hvis tale feiler">
+        <button>Send</button>
+      </form>
+    </section>
+    <footer>Lyden går via denne telefonen. Koble telefonen til bilen med Bluetooth hvis svaret skal ut i høyttalerne.</footer>
   </main>
+  <audio id="audio" preload="auto"></audio>
+  <script>
+    var BASE = 'https://marentscloud.duckdns.org:10443/lab';
+    var ptt = document.getElementById('ptt');
+    var phase = document.getElementById('phase');
+    var hint = document.getElementById('hint');
+    var transcriptEl = document.getElementById('transcript');
+    var answerEl = document.getElementById('answer');
+    var audio = document.getElementById('audio');
+    var play = document.getElementById('play');
+    var textForm = document.getElementById('textForm');
+    var textInput = document.getElementById('textInput');
+    var recognition = null, mediaRecorder = null, mediaStream = null, listening = false, sending = false, playingReply = false, speechUnlocked = false;
+    var pendingTranscript = '', transcriptSent = false, ignoreNextClick = false, resetTimer = null, currentAudioUrl = null, recordedChunks = [], recordingMode = '';
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    var silentWav = 'data:audio/wav;base64,UklGRkgAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YSQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
+    audio.preload = 'auto';
+    audio.playsInline = true;
+
+    function setPhase(text, cls) {
+      phase.textContent = text;
+      ptt.className = 'button' + (cls ? ' ' + cls : '');
+    }
+    function setPttLabel(big, small) {
+      ptt.innerHTML = big + '<br>' + small;
+    }
+    function readyForNextTurn(status) {
+      sending = false;
+      playingReply = false;
+      listening = false;
+      ptt.disabled = false;
+      textInput.disabled = false;
+      setPhase(status || 'Klar');
+      setPttLabel('HOLD', 'PTT');
+      hint.textContent = 'Hold inne, snakk, slipp.';
+    }
+    function clearAudioUrl() {
+      if (currentAudioUrl) URL.revokeObjectURL(currentAudioUrl);
+      currentAudioUrl = null;
+      audio.removeAttribute('src');
+      try { audio.load(); } catch (_) {}
+    }
+    function unlockSpeech() {
+      if (speechUnlocked) return Promise.resolve(true);
+      audio.src = silentWav;
+      audio.volume = 0.01;
+      return audio.play().then(function () {
+        audio.pause();
+        audio.currentTime = 0;
+        audio.volume = 1;
+        speechUnlocked = true;
+        return true;
+      }).catch(function () { return false; });
+    }
+    function speakFromUrl(url) {
+      if (!url) { readyForNextTurn('Klar'); return; }
+      playingReply = true;
+      clearAudioUrl();
+      audio.src = url;
+      audio.onplay = function () { setPhase('Snakker'); };
+      audio.onended = function () { clearAudioUrl(); readyForNextTurn('Klar'); };
+      audio.onerror = function () { clearAudioUrl(); readyForNextTurn('Lyd-feil'); };
+      audio.play().catch(function () {
+        play.className = 'play show';
+        readyForNextTurn('Trykk spill');
+      });
+    }
+    function setupRecognition() {
+      if (!SpeechRecognition) {
+        recognition = null;
+        setPttLabel('HOLD', 'REC');
+        hint.textContent = window.MediaRecorder ? 'Hold inne, snakk, slipp.' : 'Denne nettleseren støtter ikke tale.';
+        setPhase(window.MediaRecorder ? 'Klar' : 'Ingen tale');
+        return;
+      }
+      if (recognition) {
+        recognition.onstart = null;
+        recognition.onend = null;
+        recognition.onerror = null;
+        recognition.onresult = null;
+        try { recognition.abort(); } catch (_) {}
+      }
+      recognition = new SpeechRecognition();
+      recognition.lang = 'nb-NO';
+      recognition.continuous = false;
+      recognition.interimResults = true;
+      recognition.onstart = function () {
+        listening = true;
+        pendingTranscript = '';
+        transcriptSent = false;
+        setPhase('Lytter', 'recording');
+        setPttLabel('LYTTER', 'SLIPP');
+        hint.textContent = 'Snakk nå.';
+      };
+      recognition.onend = function () {
+        listening = false;
+        setPttLabel('HOLD', 'PTT');
+        ptt.classList.remove('recording');
+        var transcript = pendingTranscript.trim();
+        if (transcript && !transcriptSent) {
+          transcriptSent = true;
+          sendText(transcript);
+          resetRecognitionSoon();
+          return;
+        }
+        if (phase.textContent === 'Lytter' || phase.textContent === 'Avslutter') setPhase('Klar');
+        resetRecognitionSoon();
+      };
+      recognition.onerror = function (event) {
+        listening = false;
+        ptt.classList.remove('recording');
+        setPhase(event.error || 'Tale-feil');
+        hint.textContent = event.error || 'Talegjenkjenning feilet.';
+        resetRecognitionSoon();
+      };
+      recognition.onresult = function (event) {
+        var finalText = '';
+        var interimText = '';
+        for (var i = event.resultIndex; i < event.results.length; i++) {
+          var text = event.results[i][0].transcript;
+          if (event.results[i].isFinal) finalText += text;
+          else interimText += text;
+        }
+        pendingTranscript = (finalText || interimText || pendingTranscript).trim();
+        if (pendingTranscript) {
+          transcriptEl.textContent = pendingTranscript;
+          textInput.value = pendingTranscript;
+        }
+        if (finalText.trim() && !transcriptSent) {
+          transcriptSent = true;
+          try { recognition.stop(); } catch (_) {}
+          sendText(finalText);
+          resetRecognitionSoon();
+        }
+      };
+    }
+    function resetRecognitionSoon() {
+      if (resetTimer) clearTimeout(resetTimer);
+      resetTimer = setTimeout(function () {
+        resetTimer = null;
+        setupRecognition();
+      }, 120);
+    }
+    function mediaRecorderType() {
+      var options = ['audio/webm;codecs=opus', 'audio/mp4', 'audio/webm', 'audio/ogg;codecs=opus'];
+      if (!window.MediaRecorder) return '';
+      for (var i = 0; i < options.length; i++) {
+        if (MediaRecorder.isTypeSupported(options[i])) return options[i];
+      }
+      return '';
+    }
+    function ensureMediaStream() {
+      if (mediaStream && mediaStream.active) return Promise.resolve(mediaStream);
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) {
+        return Promise.reject(new Error('Mikrofon krever HTTPS'));
+      }
+      return navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+        mediaStream = stream;
+        return stream;
+      });
+    }
+    function startRecordingFallback(e) {
+      if (e) e.preventDefault();
+      unlockSpeech();
+      if (listening || sending || playingReply) return;
+      ensureMediaStream().then(function (stream) {
+        var type = mediaRecorderType();
+        recordedChunks = [];
+        mediaRecorder = new MediaRecorder(stream, type ? { mimeType: type } : undefined);
+        recordingMode = 'media';
+        mediaRecorder.ondataavailable = function (event) {
+          if (event.data && event.data.size) recordedChunks.push(event.data);
+        };
+        mediaRecorder.onstop = finishRecordingFallback;
+        listening = true;
+        transcriptSent = false;
+        setPhase('Tar opp', 'recording');
+        setPttLabel('TAR OPP', 'SLIPP');
+        hint.textContent = 'Snakk nå.';
+        mediaRecorder.start();
+      }).catch(function (error) {
+        readyForNextTurn(error.message || 'Mikrofon-feil');
+      });
+    }
+    function stopRecordingFallback(e) {
+      if (e) e.preventDefault();
+      if (!mediaRecorder || mediaRecorder.state === 'inactive') return;
+      setPhase('Sender lyd', 'sending');
+      setPttLabel('VENT', 'STT');
+      try { mediaRecorder.stop(); } catch (_) {}
+    }
+    function finishRecordingFallback() {
+      if (transcriptSent) return;
+      transcriptSent = true;
+      listening = false;
+      sending = true;
+      ptt.disabled = true;
+      textInput.disabled = true;
+      var type = mediaRecorder && mediaRecorder.mimeType ? mediaRecorder.mimeType : 'audio/webm';
+      var blob = new Blob(recordedChunks, { type: type });
+      recordedChunks = [];
+      if (!blob.size) return failed(new Error('Tomt lydklipp'));
+      fetch(BASE + '/api/ptt', {
+        method: 'POST',
+        headers: { 'content-type': type },
+        body: blob
+      })
+        .then(function (r) { return r.json(); })
+        .then(done)
+        .catch(failed);
+    }
+    function startListening(e) {
+      if (e) e.preventDefault();
+      unlockSpeech();
+      if (!recognition) return startRecordingFallback(e);
+      if (listening || sending || playingReply) return;
+      pendingTranscript = '';
+      transcriptSent = false;
+      recordingMode = 'speech';
+      try {
+        recognition.start();
+      } catch (error) {
+        if (!String(error.message || '').includes('already started')) startRecordingFallback(e);
+      }
+    }
+    function stopListening(e) {
+      if (e) e.preventDefault();
+      if (recordingMode === 'media') return stopRecordingFallback(e);
+      if (!recognition || !listening) return;
+      setPhase('Avslutter');
+      try { recognition.stop(); } catch (_) {}
+    }
+    function sendText(text) {
+      var input = String(text || '').trim();
+      if (!input || sending) return;
+      sending = true;
+      ptt.disabled = true;
+      textInput.disabled = true;
+      transcriptEl.textContent = input;
+      setPhase('Tenker', 'sending');
+      setPttLabel('VENT', 'SANDRA');
+      hint.textContent = 'Sandra svarer.';
+      fetch(BASE + '/api/text', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ text: input }) })
+        .then(function (r) { return r.json(); })
+        .then(done)
+        .catch(failed);
+    }
+    function done(data) {
+      if (!data.ok) return failed(new Error(data.error || 'Feil'));
+      transcriptEl.textContent = data.transcript || 'Ingen tekst.';
+      answerEl.textContent = data.answer || 'Ingen svartekst.';
+      textInput.value = '';
+      if (data.audioUrl) {
+        speakFromUrl(data.publicAudioUrl || data.audioUrl);
+      } else {
+        readyForNextTurn('Klar');
+      }
+    }
+    function failed(err) {
+      readyForNextTurn('Feilet');
+      hint.textContent = err && err.message ? err.message : 'Noe feilet.';
+    }
+    textForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      unlockSpeech();
+      sendText(textInput.value);
+    });
+    play.addEventListener('click', function () { audio.play(); play.className = 'play'; });
+    ptt.addEventListener('pointerdown', function (event) { event.preventDefault(); ignoreNextClick = true; startListening(event); });
+    ptt.addEventListener('pointerup', function (event) { event.preventDefault(); stopListening(event); });
+    ptt.addEventListener('pointercancel', stopListening);
+    ptt.addEventListener('pointerleave', function (event) { if (event.pointerType !== 'mouse') stopListening(event); });
+    ptt.addEventListener('touchstart', function (event) { event.preventDefault(); ignoreNextClick = true; startListening(event); }, { passive: false });
+    ptt.addEventListener('touchend', function (event) { event.preventDefault(); stopListening(event); }, { passive: false });
+    ptt.addEventListener('touchcancel', function (event) { event.preventDefault(); stopListening(event); }, { passive: false });
+    ptt.addEventListener('click', function (event) {
+      if (ignoreNextClick) { ignoreNextClick = false; return; }
+      if (listening) stopListening(event);
+      else startListening(event);
+    });
+    setupRecognition();
+    readyForNextTurn(SpeechRecognition || window.MediaRecorder ? 'Klar' : 'Ingen tale');
+  </script>
 </body>
 </html>
