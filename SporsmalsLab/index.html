@@ -411,7 +411,6 @@
       if (e) e.preventDefault();
       unlockSpeech();
       if (listening || sending || playingReply) return;
-      if (window.MediaRecorder && navigator.mediaDevices && navigator.mediaDevices.getUserMedia) return startRecordingFallback(e);
       if (!recognition) return startRecordingFallback(e);
       pendingTranscript = '';
       transcriptSent = false;
