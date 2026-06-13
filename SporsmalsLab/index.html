@@ -62,6 +62,10 @@
     .app{display:block;min-height:100vh;padding:0 0 14px;background:#071019}
     .radio-wrap{padding:0;min-height:0;display:grid;place-items:center;background:#071019}
     .radio-shell{width:min(100vw,430px);aspect-ratio:9/16;display:block;position:relative;background:url("assets/sporsmals-lab.jpg") center/contain no-repeat}
+    .image-text{position:absolute;z-index:2;left:31.8%;width:38.6%;margin:0;pointer-events:none;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-height:1.16;font-size:clamp(13px,3.45vw,18px);font-weight:900;letter-spacing:0;overflow-wrap:anywhere;text-shadow:0 1px 0 rgba(255,255,255,.35)}
+    .image-text.user{top:32.5%;height:8.7%;color:#7251da}
+    .image-text.answer{top:45.3%;height:7.6%;color:#168f96}
+    .image-text.empty{opacity:.42}
     .toolbar{display:none}
     .radio{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;aspect-ratio:auto;border:0;border-radius:0;background:transparent;box-shadow:none}
     .radio:before,.radio:after,.topbar,.screen,.speaker,.sidekeys{display:none}
@@ -85,6 +89,8 @@
     </header>
     <section class="radio-wrap" aria-label="Sci-fi walkie talkie">
       <div class="radio-shell">
+        <p id="screenTranscript" class="image-text user empty">Venter på beskjed.</p>
+        <p id="screenAnswer" class="image-text answer empty">Klar.</p>
         <nav class="toolbar" aria-hidden="true">
           <span class="toolicon">🎙</span>
           <span class="divider"></span>
@@ -136,6 +142,8 @@
     var hint = document.getElementById('hint');
     var transcriptEl = document.getElementById('transcript');
     var answerEl = document.getElementById('answer');
+    var screenTranscriptEl = document.getElementById('screenTranscript');
+    var screenAnswerEl = document.getElementById('screenAnswer');
     var audio = document.getElementById('audio');
     var play = document.getElementById('play');
     var textForm = document.getElementById('textForm');
@@ -153,6 +161,21 @@
     }
     function setPttLabel(big, small) {
       ptt.innerHTML = big === 'TRYKK' && small === 'SNAKK' ? 'TRYKK<br>OG SNAKK' : big + '<br>' + small;
+    }
+    function setImageText(el, value, fallback) {
+      var text = String(value || '').trim() || fallback;
+      el.textContent = text;
+      el.className = el.className.replace(/\s?empty/g, '') + (text === fallback ? ' empty' : '');
+    }
+    function setTranscriptText(value) {
+      var text = String(value || '').trim();
+      transcriptEl.textContent = text || 'Venter på beskjed.';
+      setImageText(screenTranscriptEl, text, 'Venter på beskjed.');
+    }
+    function setAnswerText(value) {
+      var text = String(value || '').trim();
+      answerEl.textContent = text || 'Klar.';
+      setImageText(screenAnswerEl, text, 'Klar.');
     }
     function readyForNextTurn(status) {
       sending = false;
@@ -253,7 +276,7 @@
         }
         pendingTranscript = (finalText || interimText || pendingTranscript).trim();
         if (pendingTranscript) {
-          transcriptEl.textContent = pendingTranscript;
+          setTranscriptText(pendingTranscript);
           textInput.value = pendingTranscript;
         }
         if (finalText.trim() && !transcriptSent) {
@@ -366,7 +389,7 @@
       sending = true;
       ptt.disabled = true;
       textInput.disabled = true;
-      transcriptEl.textContent = input;
+      setTranscriptText(input);
       setPhase('Tenker', 'sending');
       setPttLabel('VENT', 'SANDRA');
       hint.textContent = 'Sandra svarer.';
@@ -377,8 +400,8 @@
     }
     function done(data) {
       if (!data.ok) return failed(new Error(data.error || 'Feil'));
-      transcriptEl.textContent = data.transcript || 'Ingen tekst.';
-      answerEl.textContent = data.answer || 'Ingen svartekst.';
+      setTranscriptText(data.transcript || 'Ingen tekst.');
+      setAnswerText(data.answer || 'Ingen svartekst.');
       textInput.value = '';
       if (data.audioUrl) {
         speakFromUrl(data.publicAudioUrl || data.audioUrl);
@@ -389,6 +412,7 @@
     function failed(err) {
       readyForNextTurn('Feilet');
       hint.textContent = err && err.message ? err.message : 'Noe feilet.';
+      setAnswerText(hint.textContent);
     }
     textForm.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -408,6 +432,8 @@
       if (listening) stopListening(event);
       else startListening(event);
     });
+    setTranscriptText('');
+    setAnswerText('');
     setupRecognition();
     readyForNextTurn(SpeechRecognition || window.MediaRecorder ? 'Klar' : 'Ingen tale');
   </script>
