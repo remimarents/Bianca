@@ -4,74 +4,82 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="Cache-Control" content="no-store">
-  <title>Bianca PTT</title>
+  <title>Spørsmåls Lab</title>
   <style>
-    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#fdf7ff;color:#101827;font-family:Arial,Helvetica,sans-serif}
-    body{display:grid;place-items:stretch;overflow-x:hidden;background:
-      radial-gradient(circle at 12% 8%,rgba(255,213,79,.52) 0 2px,transparent 3px),
-      radial-gradient(circle at 82% 14%,rgba(185,117,255,.42) 0 2px,transparent 3px),
-      radial-gradient(circle at 72% 88%,rgba(24,168,216,.34) 0 2px,transparent 3px),
-      linear-gradient(135deg,#fff7fd 0%,#f7ecff 42%,#eefbff 100%)}
-    body:before,body:after{content:"";position:fixed;inset:auto;pointer-events:none;z-index:0;border-radius:999px;filter:blur(.1px)}
-    body:before{width:180px;height:180px;right:-54px;top:92px;background:radial-gradient(circle,rgba(195,122,255,.32),transparent 70%)}
-    body:after{width:220px;height:220px;left:-76px;bottom:34px;background:radial-gradient(circle,rgba(255,205,236,.55),transparent 70%)}
-    .app{position:relative;z-index:1;min-height:100vh;display:grid;grid-template-rows:auto auto 1fr auto;padding:18px;gap:16px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand small{display:block;color:#0f7b93;font-weight:900;text-transform:uppercase;font-size:12px}.brand h1{font-size:34px;line-height:1;margin:4px 0 0}.pill{border-radius:999px;background:#eaf6ff;color:#184465;padding:8px 12px;font-weight:900}
-    .magic{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:center;background:linear-gradient(135deg,#fff 0%,#fbf2ff 60%,#ecfbff 100%);border:1px solid #ead7ff;border-radius:24px;padding:12px;box-shadow:0 12px 28px rgba(127,67,191,.12)}
-    .unicorn{width:92px;height:92px;border-radius:22px;background:#fff;box-shadow:inset 0 0 0 1px #ead7ff}.stickers{display:flex;gap:8px;flex-wrap:wrap}.sticker{display:inline-block;transform:rotate(-2deg);border:2px solid #fff;border-radius:999px;background:#8b5cf6;color:#fff;padding:8px 11px;font-weight:900;box-shadow:0 8px 14px rgba(127,67,191,.18)}.sticker.gold{background:#ffd166;color:#4a2b00;transform:rotate(3deg)}.sticker.blue{background:#18a8d8;color:#fff;transform:rotate(1deg)}
-    .magic p{margin:10px 0 0;color:#5e4a77;font-size:15px;font-weight:800}.sparkle-line{height:7px;margin-top:10px;border-radius:999px;background:linear-gradient(90deg,#8b5cf6,#ff8bd2,#ffd166,#18a8d8,#8b5cf6);background-size:220% 100%;animation:shine 3.8s linear infinite}@keyframes shine{to{background-position:220% 0}}
-    .panel{position:relative;background:rgba(255,255,255,.92);border:1px solid #f0ddeb;border-radius:22px;padding:16px;box-shadow:0 10px 24px rgba(72,22,57,.08);backdrop-filter:blur(6px)}
-    .panel:before{content:"";position:absolute;right:14px;top:12px;width:8px;height:8px;border-radius:50%;background:#ffd166;box-shadow:-22px 12px 0 #c084fc,-44px -2px 0 #ff8bd2,-68px 18px 0 #18a8d8;opacity:.8}
-    .talk{display:grid;place-items:center;text-align:center}.button-wrap{position:relative;width:min(72vw,310px);height:min(72vw,310px);border-radius:50%}.button{width:100%;height:100%;border:0;border-radius:50%;background:#18a8d8;color:#fff;font-size:34px;font-weight:900;box-shadow:0 18px 36px rgba(24,168,216,.25);touch-action:none;user-select:none;-webkit-user-select:none}
-    .button{background:radial-gradient(circle at 35% 28%,#ffb6e6 0 12%,#a855f7 38%,#6d28d9 72%,#4c1d95 100%);box-shadow:0 18px 36px rgba(109,40,217,.28),0 0 0 10px rgba(255,255,255,.72),0 0 0 16px rgba(255,209,102,.28)}
-    .button.recording{background:#ef476f}.button.sending{background:#f59e0b}.button:disabled{opacity:.65}.hint{margin:16px 0 0;color:#53677f;font-size:18px;font-weight:800}
-    .log{display:grid;gap:10px}.bubble{border-radius:16px;padding:12px 14px;background:#f7fbff;border:1px solid #d8e7f1}.bubble b{display:block;margin-bottom:5px;color:#7c3aed;text-transform:uppercase;font-size:12px}.bubble p{margin:0;font-size:17px;line-height:1.35}
-    .fallback{display:grid;grid-template-columns:1fr auto;gap:8px}.fallback input{border:1px solid #d8e7f1;border-radius:14px;padding:13px;font-size:16px}.fallback button{border:0;border-radius:14px;background:#101827;color:#fff;padding:0 16px;font-weight:900}.play{display:none;width:100%;margin-top:10px;border:0;border-radius:14px;background:#18a8d8;color:white;padding:14px;font-size:17px;font-weight:900}.play.show{display:block}
-    footer{color:#53677f;font-size:13px;text-align:center;font-weight:800}
-    @media(max-width:420px){.app{padding:14px}.magic{grid-template-columns:74px 1fr}.unicorn{width:74px;height:74px}.brand h1{font-size:30px}.sticker{font-size:12px;padding:7px 9px}}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:#070a0f;color:#f3f7fb;font-family:Arial,Helvetica,sans-serif}
+    body{overflow-x:hidden;background:
+      linear-gradient(180deg,#080b12 0%,#101722 48%,#06080d 100%)}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;background:
+      linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+      linear-gradient(180deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:34px 34px,34px 34px;mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,.18));}
+    .app{position:relative;z-index:1;min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;padding:18px;gap:16px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:560px;width:100%;margin:0 auto}
+    .brand small{display:block;color:#55e6d9;font-size:12px;font-weight:900;letter-spacing:0;text-transform:uppercase}
+    .brand h1{margin:4px 0 0;font-size:clamp(30px,8vw,48px);line-height:.94;letter-spacing:0}
+    .phase{border:1px solid rgba(85,230,217,.42);background:#10212a;color:#8ffbf1;border-radius:8px;padding:9px 12px;font-size:13px;font-weight:900;text-transform:uppercase;min-width:72px;text-align:center}
+    .radio-wrap{display:grid;place-items:center;align-content:center;min-height:0}
+    .radio{position:relative;width:min(92vw,420px);aspect-ratio:7/11;margin-top:6px;border-radius:30px;background:
+      linear-gradient(145deg,#252d35 0%,#10161d 48%,#070a0f 100%);
+      border:2px solid #3d4a55;box-shadow:0 28px 80px rgba(0,0,0,.52),inset 0 2px 0 rgba(255,255,255,.14),inset 0 -8px 18px rgba(0,0,0,.42);padding:20px}
+    .radio:before{content:"";position:absolute;left:18%;top:-72px;width:14px;height:86px;border-radius:12px 12px 4px 4px;background:linear-gradient(90deg,#151b22,#5b6975,#151b22);box-shadow:0 0 0 2px #05070a}
+    .radio:after{content:"";position:absolute;right:20px;top:54px;width:7px;height:70%;border-radius:8px;background:linear-gradient(180deg,#52616c,#121820);opacity:.7}
+    .topbar{height:34px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .leds{display:flex;gap:8px}.led{width:12px;height:12px;border-radius:50%;background:#f04444;box-shadow:0 0 16px #f04444}.led.green{background:#42f07d;box-shadow:0 0 16px #42f07d}.led.blue{background:#4fc3ff;box-shadow:0 0 16px #4fc3ff}
+    .knobs{display:flex;gap:10px}.knob{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7e8b96,#202832 60%,#07090c);border:2px solid #59656e;box-shadow:inset -4px -5px 8px rgba(0,0,0,.45)}
+    .screen{margin:16px 0 14px;border-radius:12px;border:2px solid #263d3d;background:#0b1818;color:#9fffe9;box-shadow:inset 0 0 22px rgba(82,255,222,.13);padding:12px;min-height:88px;display:grid;align-content:center;gap:6px;text-transform:uppercase}
+    .screen b{font-size:22px;line-height:1;letter-spacing:0}.screen span{font-size:12px;color:#55e6d9;font-weight:900}
+    .speaker{height:112px;border-radius:18px;background:#111820;border:1px solid #38444d;padding:17px;display:grid;gap:8px;box-shadow:inset 0 0 18px rgba(0,0,0,.42)}
+    .slot{border-radius:999px;background:#040609;height:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+    .controls{display:grid;grid-template-columns:1fr 112px;gap:14px;align-items:stretch;margin-top:14px}
+    .button{width:100%;height:112px;border:0;border-radius:18px;background:linear-gradient(180deg,#ffcf44,#d97913);color:#140d04;font-size:24px;line-height:1.02;font-weight:900;box-shadow:0 10px 0 #7d3905,0 18px 28px rgba(0,0,0,.34),inset 0 2px 0 rgba(255,255,255,.52);touch-action:none;user-select:none;-webkit-user-select:none;text-transform:uppercase}
+    .button.recording{transform:translateY(5px);box-shadow:0 5px 0 #68050b,0 12px 22px rgba(0,0,0,.35);background:linear-gradient(180deg,#ff5160,#b80d1f);color:#fff}
+    .button.sending{transform:translateY(3px);box-shadow:0 7px 0 #064b55,0 12px 22px rgba(0,0,0,.35);background:linear-gradient(180deg,#52f4ff,#078092);color:#031014}
+    .button:disabled{opacity:.74}
+    .sidekeys{display:grid;gap:8px}.sidekey{border-radius:12px;background:#1d2630;border:1px solid #4a5964;box-shadow:inset 0 2px 0 rgba(255,255,255,.08)}
+    .status-panel{max-width:560px;width:100%;margin:0 auto;display:grid;gap:10px;background:#0f141c;border:1px solid #303a44;border-radius:14px;padding:12px;box-shadow:0 16px 36px rgba(0,0,0,.32)}
+    .hint{margin:0;color:#d7e2ea;font-size:16px;font-weight:900;text-align:center}
+    .log{display:grid;grid-template-columns:1fr 1fr;gap:10px}.bubble{border-radius:10px;background:#151d26;border:1px solid #303d48;padding:10px;min-width:0}
+    .bubble b{display:block;margin-bottom:5px;color:#55e6d9;font-size:11px;text-transform:uppercase}.bubble p{margin:0;color:#f6f8fb;font-size:15px;line-height:1.35;overflow-wrap:anywhere}
+    .fallback{display:grid;grid-template-columns:1fr auto;gap:8px}.fallback input{width:100%;border:1px solid #3b4854;background:#080c12;color:#fff;border-radius:10px;padding:12px;font-size:16px}.fallback input::placeholder{color:#7e8d98}.fallback button,.play{border:0;border-radius:10px;background:#55e6d9;color:#061114;padding:0 16px;font-weight:900}
+    .play{display:none;width:100%;padding:13px;font-size:16px}.play.show{display:block}
+    footer{max-width:560px;width:100%;margin:0 auto;color:#94a4b0;font-size:12px;text-align:center;font-weight:800}
+    @media(max-width:430px){.app{padding:14px}.radio{border-radius:24px;padding:16px}.screen{min-height:78px}.speaker{height:94px}.controls{grid-template-columns:1fr 92px}.button{height:100px;font-size:21px}.log{grid-template-columns:1fr}.sidekey{min-height:26px}}
   </style>
 </head>
 <body>
   <main class="app">
     <header>
-      <div class="brand"><small>Biancas hjørne</small><h1>Walkie Talkie</h1></div>
-      <span id="phase" class="pill">Klar</span>
+      <div class="brand"><small>Biancas kontrollradio</small><h1>Spørsmåls Lab</h1></div>
+      <span id="phase" class="phase">Klar</span>
     </header>
-    <section class="magic">
-      <svg class="unicorn" viewBox="0 0 120 120" role="img" aria-label="Fiolett enhjørning">
-        <defs>
-          <linearGradient id="mane" x1="0" x2="1"><stop stop-color="#8b5cf6"/><stop offset=".55" stop-color="#ff8bd2"/><stop offset="1" stop-color="#18a8d8"/></linearGradient>
-          <linearGradient id="horn" x1="0" x2="1"><stop stop-color="#ffd166"/><stop offset="1" stop-color="#ff8bd2"/></linearGradient>
-        </defs>
-        <rect width="120" height="120" rx="24" fill="#fff"/>
-        <path d="M58 25 L73 4 L78 34 Z" fill="url(#horn)" stroke="#6d28d9" stroke-width="3"/>
-        <path d="M36 44 C24 43 16 52 16 64 C16 83 35 96 59 96 C84 96 105 78 105 57 C105 39 91 29 74 34 C65 22 46 27 36 44 Z" fill="#f7e8ff" stroke="#6d28d9" stroke-width="4"/>
-        <path d="M38 43 C55 36 71 44 80 58 C70 53 57 57 48 69 C42 62 37 54 38 43 Z" fill="url(#mane)"/>
-        <circle cx="80" cy="57" r="5" fill="#101827"/>
-        <path d="M90 72 C82 78 70 79 61 74" fill="none" stroke="#101827" stroke-width="4" stroke-linecap="round"/>
-        <path d="M30 52 L16 39 M91 43 L107 32" stroke="#ff8bd2" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="28" cy="25" r="4" fill="#ffd166"/><circle cx="98" cy="88" r="4" fill="#18a8d8"/><circle cx="20" cy="91" r="3" fill="#8b5cf6"/>
-      </svg>
-      <div>
-        <div class="stickers">
-          <span class="sticker">Beautiful Girl</span>
-          <span class="sticker gold">Glitter Mode</span>
-          <span class="sticker blue">Team Bianca</span>
+    <section class="radio-wrap" aria-label="Sci-fi walkie talkie">
+      <div class="radio">
+        <div class="topbar">
+          <div class="leds"><span class="led green"></span><span class="led blue"></span><span class="led"></span></div>
+          <div class="knobs"><span class="knob"></span><span class="knob"></span></div>
         </div>
-        <p>Fiolett enhjørning-radio for korte beskjeder til Sandra.</p>
-        <div class="sparkle-line"></div>
+        <div class="screen">
+          <b>Trykk og snakk</b>
+          <span>Kanal: Sandra / Backend: Bianca</span>
+        </div>
+        <div class="speaker" aria-hidden="true">
+          <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+        </div>
+        <div class="controls">
+          <button id="ptt" class="button" type="button">TRYKK<br>SNAKK</button>
+          <div class="sidekeys" aria-hidden="true"><span class="sidekey"></span><span class="sidekey"></span><span class="sidekey"></span></div>
+        </div>
       </div>
     </section>
-    <section class="panel talk">
-      <div id="buttonWrap" class="button-wrap">
-        <button id="ptt" class="button" type="button">HOLD<br>PTT</button>
-      </div>
+    <section class="status-panel">
       <p id="hint" class="hint">Hold inne, snakk, slipp.</p>
       <button id="play" class="play" type="button">Spill svar</button>
-    </section>
-    <section class="panel log">
-      <div class="bubble"><b>Du sa</b><p id="transcript">Venter på beskjed.</p></div>
-      <div class="bubble"><b>Sandra</b><p id="answer">Klar.</p></div>
+      <div class="log">
+        <div class="bubble"><b>Du sa</b><p id="transcript">Venter på beskjed.</p></div>
+        <div class="bubble"><b>Sandra</b><p id="answer">Klar.</p></div>
+      </div>
       <form id="textForm" class="fallback">
         <input id="textInput" autocomplete="off" placeholder="Skriv hvis tale feiler">
         <button>Send</button>
@@ -112,7 +120,7 @@
       ptt.disabled = false;
       textInput.disabled = false;
       setPhase(status || 'Klar');
-      setPttLabel('HOLD', 'PTT');
+      setPttLabel('TRYKK', 'SNAKK');
       hint.textContent = 'Hold inne, snakk, slipp.';
     }
     function clearAudioUrl() {
@@ -149,7 +157,7 @@
     function setupRecognition() {
       if (!SpeechRecognition) {
         recognition = null;
-        setPttLabel('HOLD', 'REC');
+        setPttLabel('TRYKK', 'REC');
         hint.textContent = window.MediaRecorder ? 'Hold inne, snakk, slipp.' : 'Denne nettleseren støtter ikke tale.';
         setPhase(window.MediaRecorder ? 'Klar' : 'Ingen tale');
         return;
@@ -175,7 +183,7 @@
       };
       recognition.onend = function () {
         listening = false;
-        setPttLabel('HOLD', 'PTT');
+        setPttLabel('TRYKK', 'SNAKK');
         ptt.classList.remove('recording');
         var transcript = pendingTranscript.trim();
         if (transcript && !transcriptSent) {
