@@ -58,7 +58,22 @@
     .fallback{display:grid;grid-template-columns:1fr auto;gap:8px}.fallback input{width:100%;border:1px solid #3b4854;background:#080c12;color:#fff;border-radius:10px;padding:12px;font-size:16px}.fallback input::placeholder{color:#7e8d98}.fallback button,.play{border:0;border-radius:10px;background:#55e6d9;color:#061114;padding:0 16px;font-weight:900}
     .play{display:none;width:100%;padding:13px;font-size:16px}.play.show{display:block}
     footer{max-width:560px;width:100%;margin:0 auto;color:#94a4b0;font-size:12px;text-align:center;font-weight:800}
-    @media(max-width:430px){.app{padding:12px}.radio-shell{grid-template-columns:48px 1fr}.toolbar{border-radius:18px;gap:13px;padding:12px 6px}.toolicon{width:34px;height:34px;font-size:21px}.radio{border-radius:32px 32px 56px 56px;padding:16px}.screen{min-height:176px}.button{width:136px;height:136px;font-size:19px}.log{grid-template-columns:1fr}}
+    header{display:none}
+    .app{display:block;min-height:100vh;padding:0 0 14px;background:#071019}
+    .radio-wrap{padding:0;min-height:0;display:grid;place-items:center;background:#071019}
+    .radio-shell{width:min(100vw,430px);aspect-ratio:9/16;display:block;position:relative;background:url("assets/sporsmals-lab.jpg") center/contain no-repeat}
+    .toolbar{display:none}
+    .radio{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;aspect-ratio:auto;border:0;border-radius:0;background:transparent;box-shadow:none}
+    .radio:before,.radio:after,.topbar,.screen,.speaker,.sidekeys{display:none}
+    .controls{position:absolute;left:0;right:0;top:0;bottom:0;margin:0;display:block}
+    .button{position:absolute;left:50%;top:84%;transform:translate(-50%,-50%);width:29%;height:16.4%;border-radius:50%;border:0;background:transparent;color:transparent;font-size:0;box-shadow:none;opacity:.02}
+    .button:before{display:none}
+    .button.recording{transform:translate(-50%,-50%) scale(.96);background:rgba(255,67,139,.32);box-shadow:0 0 34px rgba(255,83,205,.9);opacity:.7}
+    .button.sending{transform:translate(-50%,-50%) scale(.98);background:rgba(73,238,255,.24);box-shadow:0 0 34px rgba(73,238,255,.9);opacity:.7}
+    .button:disabled{opacity:.04}
+    .status-panel{width:min(100% - 18px,430px);margin:10px auto 0;border-radius:12px}
+    footer{width:min(100% - 18px,430px);margin:8px auto 0}
+    @media(max-width:430px){.app{padding-bottom:12px}.log{grid-template-columns:1fr}.fallback{grid-template-columns:1fr}.fallback button{min-height:44px}}
   </style>
 </head>
 <body>
