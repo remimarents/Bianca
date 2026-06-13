@@ -131,7 +131,7 @@
       <div class="image-upload">
         <button id="imageButton" type="button">Bilde</button>
         <button id="imageClear" class="clear" type="button" hidden>Fjern</button>
-        <span id="imageStatus">Ingen bilde valgt.</span>
+        <span id="imageStatus">Velg bilde først, spør etterpå.</span>
         <img id="imagePreview" alt="Valgt bilde" hidden>
       </div>
       <form id="textForm" class="fallback">
@@ -235,7 +235,8 @@
       imagePreview.hidden = true;
       imagePreview.removeAttribute('src');
       imageClear.hidden = true;
-      imageStatus.textContent = 'Ingen bilde valgt.';
+      imageStatus.textContent = 'Velg bilde først, spør etterpå.';
+      textInput.placeholder = 'Skriv hvis tale feiler';
     }
     function setImage(file) {
       if (!file) return;
@@ -244,7 +245,8 @@
         imagePreview.src = dataUrl;
         imagePreview.hidden = false;
         imageClear.hidden = false;
-        imageStatus.textContent = 'Bilde klart. Still spørsmål om bildet.';
+        imageStatus.textContent = 'Bilde klart. Fortell hva du vil gjøre med bildet.';
+        textInput.placeholder = 'Hva vil du gjøre med bildet?';
       }).catch(function (error) {
         imageStatus.textContent = error.message || 'Bilde-feil.';
       });
@@ -487,6 +489,12 @@
     }
     function sendText(text) {
       var input = String(text || '').trim();
+      if (!input && imageDataUrl) {
+        imageStatus.textContent = 'Si eller skriv først hva du vil gjøre med bildet.';
+        setPhase('Mangler spørsmål');
+        hint.textContent = 'Fortell hva du vil gjøre med bildet.';
+        return;
+      }
       if (!input || sending) return;
       sending = true;
       ptt.disabled = true;
@@ -495,7 +503,7 @@
       setTranscriptText(input);
       setPhase('Tenker', 'sending');
       setPttLabel('VENT', 'SANDRA');
-      hint.textContent = imageDataUrl ? 'Sandra ser på bildet.' : 'Sandra svarer.';
+      hint.textContent = imageDataUrl ? 'Sender bilde og ønsket handling.' : 'Sandra svarer.';
       var endpoint = imageDataUrl ? BASE + '/image-question' : BASE + '/api/text';
       var payload = imageDataUrl ? { question: input, image: imageDataUrl } : { text: input };
       fetch(endpoint, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(payload) })
