@@ -72,8 +72,8 @@
     .controls{position:absolute;left:0;right:0;top:0;bottom:0;margin:0;display:block}
     .button{position:absolute;left:50%;top:82.4%;transform:translate(-50%,-50%);width:39%;height:21.9%;border-radius:50%;border:0;background:transparent;color:transparent;font-size:0;box-shadow:none;opacity:.02}
     .button:before{display:none}
-    .button.recording{transform:translate(-50%,-50%) scale(.96);background:rgba(255,67,139,.32);box-shadow:0 0 34px rgba(255,83,205,.9);opacity:.7}
-    .button.sending{transform:translate(-50%,-50%) scale(.98);background:rgba(73,238,255,.24);box-shadow:0 0 34px rgba(73,238,255,.9);opacity:.7}
+    .button:active,.button.recording{transform:translate(-50%,-50%) scale(.94);background:rgba(255,67,139,.36);box-shadow:0 0 0 10px rgba(255,255,255,.42),0 0 0 22px rgba(255,56,177,.26),0 0 46px rgba(255,83,205,.95),inset 0 0 34px rgba(255,255,255,.28);opacity:1}
+    .button.sending{transform:translate(-50%,-50%) scale(.97);background:rgba(73,238,255,.26);box-shadow:0 0 0 10px rgba(255,255,255,.32),0 0 42px rgba(73,238,255,.95),inset 0 0 30px rgba(255,255,255,.22);opacity:.92}
     .button:disabled{opacity:.04}
     .status-panel{width:min(100% - 18px,430px);margin:10px auto 0;border-radius:12px}
     footer{width:min(100% - 18px,430px);margin:8px auto 0}
@@ -149,7 +149,7 @@
     var textForm = document.getElementById('textForm');
     var textInput = document.getElementById('textInput');
     var recognition = null, mediaRecorder = null, mediaStream = null, listening = false, sending = false, playingReply = false, speechUnlocked = false;
-    var pendingTranscript = '', transcriptSent = false, ignoreNextClick = false, resetTimer = null, currentAudioUrl = null, recordedChunks = [], recordingMode = '';
+    var pendingTranscript = '', transcriptSent = false, ignoreNextClick = false, resetTimer = null, currentAudioUrl = null, recordedChunks = [], recordingMode = '', recordingStopRequested = false, recordTimer = null;
     var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     var silentWav = 'data:audio/wav;base64,UklGRkgAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YSQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
     audio.preload = 'auto';
@@ -178,9 +178,12 @@
       setImageText(screenAnswerEl, text, 'Klar.');
     }
     function readyForNextTurn(status) {
+      clearRecordTimer();
       sending = false;
       playingReply = false;
       listening = false;
+      recordingMode = '';
+      recordingStopRequested = false;
       ptt.disabled = false;
       textInput.disabled = false;
       setPhase(status || 'Klar');
@@ -294,6 +297,12 @@
         setupRecognition();
       }, 120);
     }
+    function clearRecordTimer() {
+      if (recordTimer) {
+        clearTimeout(recordTimer);
+        recordTimer = null;
+      }
+    }
     function mediaRecorderType() {
       var options = ['audio/webm;codecs=opus', 'audio/mp4', 'audio/webm', 'audio/ogg;codecs=opus'];
       if (!window.MediaRecorder) return '';
@@ -316,33 +325,48 @@
       if (e) e.preventDefault();
       unlockSpeech();
       if (listening || sending || playingReply) return;
+      listening = true;
+      recordingMode = 'media';
+      recordingStopRequested = false;
+      setPhase('Tar opp', 'recording');
+      setPttLabel('TAR OPP', 'SLIPP');
+      hint.textContent = 'Snakk nå.';
+      setTranscriptText('Tar opp...');
       ensureMediaStream().then(function (stream) {
         var type = mediaRecorderType();
         recordedChunks = [];
         mediaRecorder = new MediaRecorder(stream, type ? { mimeType: type } : undefined);
-        recordingMode = 'media';
         mediaRecorder.ondataavailable = function (event) {
           if (event.data && event.data.size) recordedChunks.push(event.data);
         };
         mediaRecorder.onstop = finishRecordingFallback;
-        listening = true;
         transcriptSent = false;
-        setPhase('Tar opp', 'recording');
-        setPttLabel('TAR OPP', 'SLIPP');
-        hint.textContent = 'Snakk nå.';
         mediaRecorder.start();
+        clearRecordTimer();
+        recordTimer = setTimeout(stopRecordingFallback, 15000);
+        if (recordingStopRequested) setTimeout(stopRecordingFallback, 120);
       }).catch(function (error) {
+        listening = false;
+        recordingMode = '';
         readyForNextTurn(error.message || 'Mikrofon-feil');
       });
     }
     function stopRecordingFallback(e) {
       if (e) e.preventDefault();
-      if (!mediaRecorder || mediaRecorder.state === 'inactive') return;
+      if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+        if (listening && recordingMode === 'media') {
+          recordingStopRequested = true;
+          setPhase('Slipper', 'sending');
+        }
+        return;
+      }
+      clearRecordTimer();
       setPhase('Sender lyd', 'sending');
       setPttLabel('VENT', 'STT');
       try { mediaRecorder.stop(); } catch (_) {}
     }
     function finishRecordingFallback() {
+      clearRecordTimer();
       if (transcriptSent) return;
       transcriptSent = true;
       listening = false;
@@ -353,6 +377,7 @@
       var blob = new Blob(recordedChunks, { type: type });
       recordedChunks = [];
       if (!blob.size) return failed(new Error('Tomt lydklipp'));
+      setTranscriptText('Transkriberer...');
       fetch(BASE + '/api/ptt', {
         method: 'POST',
         headers: { 'content-type': type },
@@ -365,8 +390,9 @@
     function startListening(e) {
       if (e) e.preventDefault();
       unlockSpeech();
-      if (!recognition) return startRecordingFallback(e);
       if (listening || sending || playingReply) return;
+      if (window.MediaRecorder && navigator.mediaDevices && navigator.mediaDevices.getUserMedia) return startRecordingFallback(e);
+      if (!recognition) return startRecordingFallback(e);
       pendingTranscript = '';
       transcriptSent = false;
       recordingMode = 'speech';
