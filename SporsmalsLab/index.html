@@ -221,6 +221,15 @@
         readyForNextTurn('Trykk spill');
       });
     }
+    function resolveAudioUrl(data) {
+      var publicUrl = String(data && data.publicAudioUrl || '').trim();
+      if (publicUrl && !/127\.0\.0\.1|localhost/i.test(publicUrl)) return publicUrl;
+      var audioUrl = String(data && data.audioUrl || '').trim();
+      if (!audioUrl) return '';
+      if (/^https?:\/\//i.test(audioUrl)) return audioUrl;
+      if (audioUrl.indexOf('/bianca/') === 0) return 'https://marentscloud.duckdns.org:10443' + audioUrl;
+      return BASE.replace(/\/$/, '') + '/' + audioUrl.replace(/^\/+/, '');
+    }
     function setupRecognition() {
       if (!SpeechRecognition) {
         recognition = null;
@@ -383,7 +392,7 @@
         headers: { 'content-type': type },
         body: blob
       })
-        .then(function (r) { return r.json(); })
+        .then(parseJsonResponse)
         .then(done)
         .catch(failed);
     }
@@ -420,24 +429,37 @@
       setPttLabel('VENT', 'SANDRA');
       hint.textContent = 'Sandra svarer.';
       fetch(BASE + '/api/text', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ text: input }) })
-        .then(function (r) { return r.json(); })
+        .then(parseJsonResponse)
         .then(done)
         .catch(failed);
+    }
+    function parseJsonResponse(response) {
+      return response.json().catch(function () {
+        throw new Error('Uleselig svar fra backend');
+      }).then(function (data) {
+        if (!response.ok) throw new Error(data.error || ('Backend svarte ' + response.status));
+        return data;
+      });
     }
     function done(data) {
       if (!data.ok) return failed(new Error(data.error || 'Feil'));
       setTranscriptText(data.transcript || 'Ingen tekst.');
       setAnswerText(data.answer || 'Ingen svartekst.');
       textInput.value = '';
-      if (data.audioUrl) {
-        speakFromUrl(data.publicAudioUrl || data.audioUrl);
+      var audioUrl = resolveAudioUrl(data);
+      if (audioUrl) {
+        speakFromUrl(audioUrl);
       } else {
         readyForNextTurn('Klar');
       }
     }
     function failed(err) {
       readyForNextTurn('Feilet');
-      hint.textContent = err && err.message ? err.message : 'Noe feilet.';
+      var message = err && err.message ? err.message : 'Noe feilet.';
+      if (/load failed|failed to fetch|networkerror/i.test(message)) {
+        message = 'Kunne ikke laste svar fra backend.';
+      }
+      hint.textContent = message;
       setAnswerText(hint.textContent);
     }
     textForm.addEventListener('submit', function (e) {
