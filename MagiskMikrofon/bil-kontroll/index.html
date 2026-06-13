@@ -1131,6 +1131,7 @@
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const chatEndpoint = location.pathname.startsWith("/bianca") ? "/bianca/chat" : "/chat";
     const roastEndpoint = "/bianca/roast";
+    const sttEndpoint = "/bianca/stt";
     const liveEndpoint = "/bianca/live";
     const carStatusEndpoint = "/bianca/car-status";
     const accessKey = new URLSearchParams(location.search).get("k") || localStorage.getItem("bianca-access-key") || "";
@@ -1161,6 +1162,8 @@
 
     let history = [];
     let recognition = null;
+    let mediaRecorder = null;
+    let mediaStream = null;
     let listening = false;
     let sending = false;
     let playingReply = false;
@@ -1173,6 +1176,8 @@
     let replyWatchdog = null;
     let listenWatchdog = null;
     let stopWatchdog = null;
+    let recordedChunks = [];
+    let recordingMode = "";
     let lastToggleAt = 0;
     let abortingForSend = false;
     let imageTarget = null;
@@ -1324,6 +1329,7 @@
       playingReply = false;
       listening = false;
       abortingForSend = false;
+      recordingMode = "";
       listenBtn.disabled = false;
       sendBtn.disabled = false;
       roastStartBtn.disabled = false;
@@ -1762,11 +1768,114 @@
       }, 120);
     }
 
+    function mediaRecorderType() {
+      const options = [
+        "audio/webm;codecs=opus",
+        "audio/webm",
+        "audio/mp4",
+        "audio/ogg;codecs=opus"
+      ];
+      if (!window.MediaRecorder) return "";
+      return options.find((type) => MediaRecorder.isTypeSupported(type)) || "";
+    }
+
+    async function ensureMediaStream() {
+      if (mediaStream && mediaStream.active) return mediaStream;
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) {
+        throw new Error("Mikrofonopptak krever HTTPS på mobilen.");
+      }
+      mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      return mediaStream;
+    }
+
+    async function startRecordingFallback() {
+      void unlockSpeech();
+      if (listening || sending) return;
+      if (!(await ensureCarActive())) return;
+      if (playingReply) {
+        replyAudio.pause();
+        clearAudioUrl();
+        playingReply = false;
+      }
+      try {
+        const stream = await ensureMediaStream();
+        const mimeType = mediaRecorderType();
+        recordedChunks = [];
+        mediaRecorder = new MediaRecorder(stream, mimeType ? { mimeType } : undefined);
+        recordingMode = "media";
+        mediaRecorder.ondataavailable = (event) => {
+          if (event.data && event.data.size) recordedChunks.push(event.data);
+        };
+        mediaRecorder.onstop = () => {
+          void finishRecordingFallback();
+        };
+        listening = true;
+        transcriptSent = false;
+        if (listenWatchdog) clearTimeout(listenWatchdog);
+        listenWatchdog = setTimeout(stopRecordingFallback, 10000);
+        listenBtn.classList.add("recording");
+        setPttLabel("STOPP", "Sender til Sandra");
+        setStatus("Tar opp...");
+        postLive({ phase: "receiving", transcript: "", answer: "", roastMode: currentRoastMode(), micActive: true }, true);
+        mediaRecorder.start();
+      } catch (error) {
+        readyForNextTurn(error.message || "Mikrofon-feil");
+      }
+    }
+
+    function stopRecordingFallback() {
+      if (!mediaRecorder || mediaRecorder.state === "inactive") return;
+      setStatus("Sender lyd...");
+      postLive({ phase: "transcribing", transcript: "", roastMode: currentRoastMode(), micActive: true }, true);
+      if (listenWatchdog) {
+        clearTimeout(listenWatchdog);
+        listenWatchdog = null;
+      }
+      try { mediaRecorder.stop(); } catch {}
+    }
+
+    async function finishRecordingFallback() {
+      if (transcriptSent) return;
+      transcriptSent = true;
+      listening = false;
+      sending = true;
+      listenBtn.disabled = true;
+      sendBtn.disabled = true;
+      listenBtn.classList.remove("recording");
+      setPttLabel("VENT", "STT");
+      setStatus("Transkriberer...");
+
+      try {
+        const type = mediaRecorder?.mimeType || "audio/webm";
+        const blob = new Blob(recordedChunks, { type });
+        recordedChunks = [];
+        if (!blob.size) throw new Error("Tomt lydklipp");
+        const res = await fetch(sttEndpoint, {
+          method: "POST",
+          headers: carControlHeaders({ "content-type": type }),
+          body: blob
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.text || data.error || ("HTTP " + res.status));
+        const transcript = String(data.transcript || "").trim();
+        if (!transcript) throw new Error("Ingen tekst fra lydklippet");
+        inputEl.value = transcript;
+        sending = false;
+        listenBtn.disabled = false;
+        sendBtn.disabled = false;
+        recordingMode = "";
+        sendText(transcript);
+      } catch (error) {
+        recordedChunks = [];
+        readyForNextTurn(error.message || "STT-feil");
+      }
+    }
+
     function setupRecognition() {
       if (!SpeechRecognition) {
-        listenBtn.disabled = true;
-        setPttLabel("INGEN", "STT");
-        setStatus("Ingen STT");
+        recognition = null;
+        setPttLabel("START", "Ta opp lyd");
+        setStatus(window.MediaRecorder ? "Klar" : "Mikrofon krever HTTPS");
         return;
       }
 
@@ -1894,15 +2003,18 @@
         playingReply = false;
       }
       setupRecognition();
-      if (!recognition) return;
+      if (!recognition) {
+        void startRecordingFallback();
+        return;
+      }
+      recordingMode = "speech";
       pendingTranscript = "";
       transcriptSent = false;
       try {
         recognition.start();
       } catch (error) {
         if (!String(error.message || "").includes("already started")) {
-          setStatus("Prøv igjen");
-          resetRecognitionSoon();
+          void startRecordingFallback();
         }
       }
     }
@@ -1917,6 +2029,10 @@
         listenWatchdog = null;
       }
       if (!listening) return;
+      if (recordingMode === "media") {
+        stopRecordingFallback();
+        return;
+      }
       abortingForSend = true;
       try { recognition?.abort(); } catch {}
       listening = false;
@@ -1934,6 +2050,10 @@
     }
 
     function stopListening() {
+      if (recordingMode === "media") {
+        stopRecordingFallback();
+        return;
+      }
       if (!recognition || !listening) return;
       setStatus("Avslutter...");
       postLive({ phase: "transcribing", transcript: pendingTranscript || inputEl.value || "", roastMode: currentRoastMode(), micActive: true }, true);
@@ -2073,7 +2193,7 @@
     restoreImages();
     setPersonality(personality);
     setupRecognition();
-    setStatus(SpeechRecognition ? "Klar" : "Ingen STT");
+    setStatus(SpeechRecognition || window.MediaRecorder ? "Klar" : "Mikrofon krever HTTPS");
     syncLivePresence(true);
     liveHeartbeat = setInterval(() => {
       if (!document.hidden) syncLivePresence(true);
