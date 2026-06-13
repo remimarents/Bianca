@@ -56,7 +56,7 @@
     .log{display:grid;grid-template-columns:1fr 1fr;gap:10px}.bubble{border-radius:10px;background:#151d26;border:1px solid #303d48;padding:10px;min-width:0}
     .bubble b{display:block;margin-bottom:5px;color:#55e6d9;font-size:11px;text-transform:uppercase}.bubble p{margin:0;color:#f6f8fb;font-size:15px;line-height:1.35;overflow-wrap:anywhere}
     .fallback{display:grid;grid-template-columns:1fr auto;gap:8px}.fallback input{width:100%;border:1px solid #3b4854;background:#080c12;color:#fff;border-radius:10px;padding:12px;font-size:16px}.fallback input::placeholder{color:#7e8d98}.fallback button,.play{border:0;border-radius:10px;background:#55e6d9;color:#061114;padding:0 16px;font-weight:900}
-    .image-upload{display:grid;grid-template-columns:auto auto 1fr;gap:8px;align-items:center}.image-upload button{border:0;border-radius:10px;background:#55e6d9;color:#061114;min-height:42px;padding:0 14px;font-weight:900}.image-upload button.clear{background:#2a3440;color:#e9f6ff}.image-upload span{color:#d7e2ea;font-size:13px;font-weight:900;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.image-upload img{width:54px;height:54px;object-fit:cover;border-radius:10px;border:1px solid #3b4854}.hidden-file{display:none}
+    .image-upload{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}.image-upload button{border:0;border-radius:10px;background:#2a3440;color:#e9f6ff;min-height:42px;padding:0 14px;font-weight:900}.image-upload span{color:#d7e2ea;font-size:13px;font-weight:900;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.image-upload img{width:54px;height:54px;object-fit:cover;border-radius:10px;border:1px solid #3b4854}.hidden-file{display:none}
     .play{display:none;width:100%;padding:13px;font-size:16px}.play.show{display:block}
     footer{max-width:560px;width:100%;margin:0 auto;color:#94a4b0;font-size:12px;text-align:center;font-weight:800}
     header{display:none}
@@ -67,6 +67,9 @@
     .image-text.user{top:32.5%;height:8.7%;color:#7251da}
     .image-text.answer{top:45.3%;height:7.6%;color:#168f96}
     .image-text.empty{opacity:.42}
+    .image-hotspot{position:absolute;z-index:4;left:7.2%;top:42.6%;width:12.6%;height:8.5%;border:0;border-radius:12px;background:transparent;color:transparent;font-size:0;opacity:.02;touch-action:manipulation}
+    .image-hotspot:active{opacity:1;background:rgba(85,230,217,.2);box-shadow:0 0 0 7px rgba(255,255,255,.28),0 0 32px rgba(85,230,217,.9)}
+    .image-hotspot:disabled{opacity:.01}
     .toolbar{display:none}
     .radio{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;aspect-ratio:auto;border:0;border-radius:0;background:transparent;box-shadow:none}
     .radio:before,.radio:after,.topbar,.screen,.speaker,.sidekeys{display:none}
@@ -92,6 +95,7 @@
       <div class="radio-shell">
         <p id="screenTranscript" class="image-text user empty">Venter på beskjed.</p>
         <p id="screenAnswer" class="image-text answer empty">Klar.</p>
+        <button id="imageButton" class="image-hotspot" type="button" aria-label="Last opp bilde">Last opp bilde</button>
         <nav class="toolbar" aria-hidden="true">
           <span class="toolicon">🎙</span>
           <span class="divider"></span>
@@ -129,7 +133,6 @@
         <div class="bubble"><b>Sandra</b><p id="answer">Klar.</p></div>
       </div>
       <div class="image-upload">
-        <button id="imageButton" type="button">Bilde</button>
         <button id="imageClear" class="clear" type="button" hidden>Fjern</button>
         <span id="imageStatus">Velg bilde først, spør etterpå.</span>
         <img id="imagePreview" alt="Valgt bilde" hidden>
