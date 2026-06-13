@@ -63,7 +63,7 @@
     .app{display:block;min-height:100vh;padding:0 0 14px;background:#071019}
     .radio-wrap{padding:0;min-height:0;display:grid;place-items:center;background:#071019}
     .radio-shell{width:min(100vw,430px);aspect-ratio:9/16;display:block;position:relative;background:url("assets/sporsmals-lab.jpg") center/contain no-repeat}
-    .image-text{position:absolute;z-index:2;left:31.8%;width:38.6%;margin:0;pointer-events:auto;overflow-y:auto;display:block;line-height:1.16;font-size:clamp(13px,3.45vw,18px);font-weight:900;letter-spacing:0;overflow-wrap:anywhere;text-shadow:0 1px 0 rgba(255,255,255,.35);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .image-text{position:absolute;z-index:2;left:31.8%;width:38.6%;margin:0;pointer-events:auto;overflow-y:scroll;overscroll-behavior:contain;touch-action:pan-y;display:block;min-height:0;padding:0 2px;line-height:1.16;font-size:clamp(13px,3.45vw,18px);font-weight:900;letter-spacing:0;white-space:pre-wrap;overflow-wrap:anywhere;text-shadow:0 1px 0 rgba(255,255,255,.35);scrollbar-width:none;-webkit-overflow-scrolling:touch;-webkit-user-select:text;user-select:text}
     .image-text::-webkit-scrollbar{display:none}
     .image-text.user{top:32.5%;height:8.7%;color:#7251da}
     .image-text.answer{top:45.3%;height:7.6%;color:#168f96}
@@ -75,6 +75,12 @@
     .image-prompt.show{display:grid}
     .image-prompt .image-upload{grid-template-columns:auto 1fr auto}
     .image-prompt .fallback{grid-template-columns:1fr auto}
+    .followup-panel{position:fixed;z-index:8;left:50%;top:max(8px,env(safe-area-inset-top));transform:translateX(-50%);width:min(94vw,410px);display:none;gap:8px;padding:10px;border:1px solid rgba(255,214,92,.58);border-radius:14px;background:rgba(7,16,25,.9);box-shadow:0 16px 36px rgba(0,0,0,.42),0 0 24px rgba(255,214,92,.16);backdrop-filter:blur(10px)}
+    .image-prompt.show + .followup-panel.show{top:96px}
+    .followup-panel.show{display:grid}
+    .followup-panel p{margin:0;color:#fff3bc;font-size:14px;font-weight:900;text-align:center}
+    .followup-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+    .followup-actions button{border:0;border-radius:10px;background:#ffd65c;color:#201300;min-height:42px;padding:0 8px;font-size:14px;font-weight:900}
     .status-panel,footer{display:none}
     .toolbar{display:none}
     .radio{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;aspect-ratio:auto;border:0;border-radius:0;background:transparent;box-shadow:none}
@@ -141,6 +147,14 @@
         <button>Send</button>
       </form>
     </section>
+    <section id="followupPanel" class="followup-panel" hidden>
+      <p>Vil du spørre videre?</p>
+      <div class="followup-actions">
+        <button type="button" data-followup="Hvorfor?">Hvorfor?</button>
+        <button type="button" data-followup="Fortell mer.">Fortell mer</button>
+        <button type="button" data-followup="Forklar enklere.">Enklere</button>
+      </div>
+    </section>
     <section class="status-panel">
       <p id="hint" class="hint">Hold inne, snakk, slipp.</p>
       <button id="play" class="play" type="button">Spill svar</button>
@@ -171,9 +185,10 @@
     var imageClear = document.getElementById('imageClear');
     var imagePreview = document.getElementById('imagePreview');
     var imageStatus = document.getElementById('imageStatus');
+    var followupPanel = document.getElementById('followupPanel');
     var recognition = null, mediaRecorder = null, mediaStream = null, listening = false, sending = false, playingReply = false, speechUnlocked = false;
     var pendingTranscript = '', transcriptSent = false, ignoreNextClick = false, resetTimer = null, currentAudioUrl = null, recordedChunks = [], recordingMode = '', recordingStopRequested = false, recordTimer = null, recordingStartedAt = 0;
-    var imageDataUrl = '';
+    var imageDataUrl = '', activeQuestion = '', lastQuestion = '', lastAnswer = '';
     var MIN_RECORDING_MS = 1000;
     var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     var silentWav = 'data:audio/wav;base64,UklGRkgAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YSQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
@@ -192,6 +207,11 @@
       el.textContent = text;
       el.className = el.className.replace(/\s?empty/g, '') + (text === fallback ? ' empty' : '');
       el.scrollTop = 0;
+    }
+    function setFollowupVisible(show) {
+      var visible = !!show && !!lastAnswer && !sending && !listening && !playingReply;
+      followupPanel.hidden = !visible;
+      followupPanel.className = 'followup-panel' + (visible ? ' show' : '');
     }
     function setTranscriptText(value) {
       var text = String(value || '').trim();
@@ -217,6 +237,7 @@
       setPhase(status || 'Klar');
       setPttLabel('TRYKK', 'SNAKK');
       hint.textContent = 'Hold inne, snakk, slipp.';
+      setFollowupVisible(!!lastAnswer);
     }
     function resizeImage(file) {
       return new Promise(function (resolve, reject) {
@@ -331,6 +352,7 @@
       recognition.interimResults = true;
       recognition.onstart = function () {
         listening = true;
+        setFollowupVisible(false);
         pendingTranscript = '';
         transcriptSent = false;
         setPhase('Lytter', 'recording');
@@ -416,6 +438,7 @@
       unlockSpeech();
       if (listening || sending || playingReply) return;
       listening = true;
+      setFollowupVisible(false);
       recordingMode = 'media';
       recordingStopRequested = false;
       setPhase('Tar opp', 'recording');
@@ -510,7 +533,7 @@
       setPhase('Avslutter');
       try { recognition.stop(); } catch (_) {}
     }
-    function sendText(text) {
+    function sendText(text, requestText) {
       var input = String(text || '').trim();
       if (!input && imageDataUrl) {
         imageStatus.textContent = 'Si eller skriv først hva du vil gjøre med bildet.';
@@ -520,6 +543,8 @@
       }
       if (!input || sending) return;
       sending = true;
+      setFollowupVisible(false);
+      activeQuestion = input;
       ptt.disabled = true;
       textInput.disabled = true;
       imageButton.disabled = true;
@@ -529,11 +554,24 @@
       setPttLabel('VENT', 'SANDRA');
       hint.textContent = imageDataUrl ? 'Sender bilde og ønsket handling.' : 'Sandra svarer.';
       var endpoint = imageDataUrl ? BASE + '/image-question' : BASE + '/api/text';
-      var payload = imageDataUrl ? { question: input, image: imageDataUrl } : { text: input };
+      var request = String(requestText || input).trim();
+      var payload = imageDataUrl ? { question: request, image: imageDataUrl } : { text: request };
       fetch(endpoint, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(payload) })
         .then(parseJsonResponse)
         .then(done)
         .catch(failed);
+    }
+    function sendFollowup(text) {
+      if (!lastAnswer || sending || listening || playingReply) return;
+      var label = String(text || '').trim();
+      var context = [
+        'Dette er et oppfølgingsspørsmål i samme samtale.',
+        'Forrige spørsmål: ' + (lastQuestion || 'ukjent'),
+        'Forrige svar: ' + lastAnswer,
+        'Oppfølgingsspørsmål: ' + label,
+        'Svar kort, tydelig og barnevennlig på norsk.'
+      ].join('\n');
+      sendText(label, context);
     }
     function parseJsonResponse(response) {
       return response.json().catch(function () {
@@ -545,8 +583,11 @@
     }
     function done(data) {
       if (!data.ok) return failed(new Error(data.error || 'Feil'));
-      setTranscriptText(data.transcript || 'Ingen tekst.');
-      setAnswerText(data.answer || 'Ingen svartekst.');
+      setTranscriptText(data.transcript || activeQuestion || 'Ingen tekst.');
+      var answer = data.answer || 'Ingen svartekst.';
+      setAnswerText(answer);
+      lastQuestion = activeQuestion || (data.transcript || '');
+      lastAnswer = answer;
       textInput.value = '';
       var audioUrl = resolveAudioUrl(data);
       if (audioUrl) {
@@ -556,6 +597,8 @@
       }
     }
     function failed(err) {
+      lastAnswer = '';
+      setFollowupVisible(false);
       readyForNextTurn('Feilet');
       var message = err && err.message ? err.message : 'Noe feilet.';
       if (/load failed|failed to fetch|networkerror/i.test(message)) {
@@ -568,6 +611,12 @@
       e.preventDefault();
       unlockSpeech();
       sendText(textInput.value);
+    });
+    followupPanel.addEventListener('click', function (event) {
+      var button = event.target.closest('button[data-followup]');
+      if (!button) return;
+      unlockSpeech();
+      sendFollowup(button.getAttribute('data-followup'));
     });
     imageButton.addEventListener('click', function () { imageInput.click(); });
     imageClear.addEventListener('click', clearImage);
