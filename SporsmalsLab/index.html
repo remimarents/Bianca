@@ -7,37 +7,50 @@
   <title>Spørsmåls Lab</title>
   <style>
     *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;background:#070a0f;color:#f3f7fb;font-family:Arial,Helvetica,sans-serif}
+    html,body{margin:0;min-height:100%;background:#071019;color:#f3f7fb;font-family:Arial,Helvetica,sans-serif}
     body{overflow-x:hidden;background:
-      linear-gradient(180deg,#080b12 0%,#101722 48%,#06080d 100%)}
+      radial-gradient(circle at 20% 12%,rgba(234,87,255,.26),transparent 28%),
+      radial-gradient(circle at 82% 18%,rgba(55,232,255,.28),transparent 26%),
+      linear-gradient(180deg,#071019 0%,#122339 48%,#071019 100%)}
     body:before{content:"";position:fixed;inset:0;pointer-events:none;background:
       linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
       linear-gradient(180deg,rgba(255,255,255,.025) 1px,transparent 1px);
       background-size:34px 34px,34px 34px;mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,.18));}
-    .app{position:relative;z-index:1;min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;padding:18px;gap:16px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:560px;width:100%;margin:0 auto}
-    .brand small{display:block;color:#55e6d9;font-size:12px;font-weight:900;letter-spacing:0;text-transform:uppercase}
-    .brand h1{margin:4px 0 0;font-size:clamp(30px,8vw,48px);line-height:.94;letter-spacing:0}
-    .phase{border:1px solid rgba(85,230,217,.42);background:#10212a;color:#8ffbf1;border-radius:8px;padding:9px 12px;font-size:13px;font-weight:900;text-transform:uppercase;min-width:72px;text-align:center}
-    .radio-wrap{display:grid;place-items:center;align-content:center;min-height:0}
-    .radio{position:relative;width:min(92vw,420px);aspect-ratio:7/11;margin-top:6px;border-radius:30px;background:
-      linear-gradient(145deg,#252d35 0%,#10161d 48%,#070a0f 100%);
-      border:2px solid #3d4a55;box-shadow:0 28px 80px rgba(0,0,0,.52),inset 0 2px 0 rgba(255,255,255,.14),inset 0 -8px 18px rgba(0,0,0,.42);padding:20px}
-    .radio:before{content:"";position:absolute;left:18%;top:-72px;width:14px;height:86px;border-radius:12px 12px 4px 4px;background:linear-gradient(90deg,#151b22,#5b6975,#151b22);box-shadow:0 0 0 2px #05070a}
-    .radio:after{content:"";position:absolute;right:20px;top:54px;width:7px;height:70%;border-radius:8px;background:linear-gradient(180deg,#52616c,#121820);opacity:.7}
-    .topbar{height:34px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .leds{display:flex;gap:8px}.led{width:12px;height:12px;border-radius:50%;background:#f04444;box-shadow:0 0 16px #f04444}.led.green{background:#42f07d;box-shadow:0 0 16px #42f07d}.led.blue{background:#4fc3ff;box-shadow:0 0 16px #4fc3ff}
-    .knobs{display:flex;gap:10px}.knob{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7e8b96,#202832 60%,#07090c);border:2px solid #59656e;box-shadow:inset -4px -5px 8px rgba(0,0,0,.45)}
-    .screen{margin:16px 0 14px;border-radius:12px;border:2px solid #263d3d;background:#0b1818;color:#9fffe9;box-shadow:inset 0 0 22px rgba(82,255,222,.13);padding:12px;min-height:88px;display:grid;align-content:center;gap:6px;text-transform:uppercase}
-    .screen b{font-size:22px;line-height:1;letter-spacing:0}.screen span{font-size:12px;color:#55e6d9;font-weight:900}
-    .speaker{height:112px;border-radius:18px;background:#111820;border:1px solid #38444d;padding:17px;display:grid;gap:8px;box-shadow:inset 0 0 18px rgba(0,0,0,.42)}
-    .slot{border-radius:999px;background:#040609;height:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
-    .controls{display:grid;grid-template-columns:1fr 112px;gap:14px;align-items:stretch;margin-top:14px}
-    .button{width:100%;height:112px;border:0;border-radius:18px;background:linear-gradient(180deg,#ffcf44,#d97913);color:#140d04;font-size:24px;line-height:1.02;font-weight:900;box-shadow:0 10px 0 #7d3905,0 18px 28px rgba(0,0,0,.34),inset 0 2px 0 rgba(255,255,255,.52);touch-action:none;user-select:none;-webkit-user-select:none;text-transform:uppercase}
-    .button.recording{transform:translateY(5px);box-shadow:0 5px 0 #68050b,0 12px 22px rgba(0,0,0,.35);background:linear-gradient(180deg,#ff5160,#b80d1f);color:#fff}
-    .button.sending{transform:translateY(3px);box-shadow:0 7px 0 #064b55,0 12px 22px rgba(0,0,0,.35);background:linear-gradient(180deg,#52f4ff,#078092);color:#031014}
+    .app{position:relative;z-index:1;min-height:100vh;display:grid;grid-template-rows:1fr auto;padding:16px;gap:12px}
+    header{position:absolute;left:50%;top:18px;z-index:3;transform:translateX(-50%);width:min(92vw,430px);display:grid;grid-template-columns:42px 1fr 42px;align-items:center;gap:10px}
+    .brand{text-align:center;text-shadow:0 0 18px rgba(132,78,255,.72)}
+    .brand small{display:block;color:#3ff7ff;font-size:15px;font-weight:900;letter-spacing:0}
+    .brand h1{margin:0;font-size:clamp(38px,10vw,54px);line-height:.94;letter-spacing:0;color:#f3f6ff}
+    .phase{border:2px solid rgba(77,246,255,.78);background:radial-gradient(circle at 35% 25%,rgba(255,255,255,.34),rgba(46,20,84,.92));color:#fff;border-radius:50%;width:42px;height:42px;display:grid;place-items:center;padding:0;font-size:0;font-weight:900;text-align:center;box-shadow:0 0 18px rgba(194,77,255,.7)}
+    .phase:before{content:"";width:14px;height:14px;border-radius:50%;background:#58fff4;box-shadow:0 0 16px #58fff4}
+    .radio-wrap{display:grid;place-items:center;align-content:center;min-height:0;padding-top:86px}
+    .radio-shell{position:relative;width:min(94vw,430px);display:grid;grid-template-columns:54px 1fr;gap:8px;align-items:center}
+    .toolbar{align-self:stretch;border:1px solid rgba(61,244,255,.34);border-radius:22px;background:linear-gradient(180deg,rgba(11,30,50,.88),rgba(6,17,30,.74));box-shadow:inset 0 0 22px rgba(54,230,255,.18),0 18px 42px rgba(0,0,0,.34);display:grid;place-items:center;padding:14px 8px;gap:18px;color:#bffcff}
+    .toolicon{width:38px;height:38px;border-radius:12px;border:1px solid rgba(82,247,255,.58);display:grid;place-items:center;font-size:24px;box-shadow:0 0 14px rgba(76,232,255,.22)}
+    .divider{width:34px;height:2px;border-radius:999px;background:#46f7ff;box-shadow:0 0 11px #46f7ff}
+    .radio{position:relative;width:100%;aspect-ratio:7/12;margin-top:14px;border-radius:38px 38px 70px 70px;background:
+      linear-gradient(145deg,#f0f2f8 0%,#8293a4 18%,#334353 42%,#162230 100%);
+      border:3px solid #c8d1dc;box-shadow:0 28px 80px rgba(0,0,0,.54),inset 0 3px 0 rgba(255,255,255,.52),inset 0 -12px 20px rgba(0,0,0,.38);padding:20px}
+    .radio:before{content:"";position:absolute;left:22%;right:22%;top:-42px;height:38px;border-radius:18px;background:linear-gradient(90deg,#5a6372,#f8d8ff,#7656aa);border:3px solid #c7d3df;box-shadow:0 0 26px rgba(211,76,255,.74),inset 0 0 18px rgba(146,49,255,.84)}
+    .radio:after{content:"";position:absolute;right:-7px;top:23%;width:14px;height:44%;border-radius:10px;background:linear-gradient(180deg,#d9e2ea,#53606d,#161f28);box-shadow:0 0 0 2px rgba(0,0,0,.34)}
+    .topbar{height:36px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .leds{display:flex;gap:8px}.led{width:10px;height:22px;border-radius:8px;background:#1b222b;box-shadow:inset 0 2px 0 rgba(255,255,255,.3)}.led.green{background:#39f7cb;box-shadow:0 0 16px #39f7cb}.led.blue{background:#8e53ff;box-shadow:0 0 16px #8e53ff}
+    .knobs{display:flex;gap:10px}.knob{width:32px;height:32px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f0f7ff,#7d8896 55%,#222b36);border:2px solid #d7e1ec;box-shadow:0 0 14px rgba(185,75,255,.32),inset -4px -5px 8px rgba(0,0,0,.36)}
+    .screen{margin:14px 0 10px;border-radius:22px;border:3px solid #0a1520;background:#07121b;box-shadow:inset 0 0 22px rgba(82,255,222,.13);padding:12px;min-height:198px;display:grid;gap:10px}
+    .screen b,.screen span{display:none}
+    .display-bubble{border-radius:12px;background:#cfeeff;color:#6b4dd8;padding:12px;min-height:70px;font-size:16px;font-weight:900;box-shadow:inset 0 -2px 0 rgba(0,0,0,.08)}
+    .display-bubble.answer{background:#cff7f2;color:#14938f}
+    .wavebar{height:42px;border-radius:14px;background:#071928;border:1px solid rgba(75,246,255,.32);display:flex;align-items:center;justify-content:space-between;padding:0 12px;color:#bffcff}
+    .wave{flex:1;height:24px;margin:0 12px;background:repeating-linear-gradient(90deg,#7d49ff 0 3px,transparent 3px 8px);filter:drop-shadow(0 0 7px #9d48ff);border-radius:999px}
+    .speaker{width:92px;height:92px;margin:6px auto 8px;border-radius:50%;background:radial-gradient(circle,#07080b 0 33%,#303743 34% 39%,#090a0d 40% 100%);border:5px solid #cbd6e1;box-shadow:0 0 24px rgba(198,70,255,.86)}
+    .slot{display:none}
+    .controls{display:grid;place-items:center;margin-top:6px}
+    .button{width:154px;height:154px;border:4px solid rgba(255,255,255,.72);border-radius:50%;background:radial-gradient(circle at 40% 28%,#ffd5f5,#ff5fbb 58%,#b4147d);color:#fff;font-size:21px;line-height:1.05;font-weight:900;box-shadow:0 0 0 7px rgba(144,63,255,.55),0 0 34px rgba(255,83,205,.9),0 18px 28px rgba(0,0,0,.34),inset 0 2px 0 rgba(255,255,255,.58);touch-action:none;user-select:none;-webkit-user-select:none;text-transform:uppercase;text-shadow:0 2px 4px rgba(0,0,0,.35)}
+    .button:before{content:"";display:block;width:26px;height:26px;margin:0 auto 8px;border-radius:14px;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.22)}
+    .button.recording{transform:scale(.96);box-shadow:0 0 0 7px rgba(255,255,255,.35),0 0 40px rgba(255,71,87,.95),0 12px 22px rgba(0,0,0,.35);background:radial-gradient(circle at 40% 28%,#fff,#ff5160 58%,#b80d1f);color:#fff}
+    .button.sending{transform:scale(.98);box-shadow:0 0 0 7px rgba(73,238,255,.5),0 0 38px rgba(73,238,255,.9),0 12px 22px rgba(0,0,0,.35);background:radial-gradient(circle at 40% 28%,#fff,#52f4ff 58%,#078092);color:#031014}
     .button:disabled{opacity:.74}
-    .sidekeys{display:grid;gap:8px}.sidekey{border-radius:12px;background:#1d2630;border:1px solid #4a5964;box-shadow:inset 0 2px 0 rgba(255,255,255,.08)}
+    .sidekeys{display:none}
     .status-panel{max-width:560px;width:100%;margin:0 auto;display:grid;gap:10px;background:#0f141c;border:1px solid #303a44;border-radius:14px;padding:12px;box-shadow:0 16px 36px rgba(0,0,0,.32)}
     .hint{margin:0;color:#d7e2ea;font-size:16px;font-weight:900;text-align:center}
     .log{display:grid;grid-template-columns:1fr 1fr;gap:10px}.bubble{border-radius:10px;background:#151d26;border:1px solid #303d48;padding:10px;min-width:0}
@@ -45,31 +58,44 @@
     .fallback{display:grid;grid-template-columns:1fr auto;gap:8px}.fallback input{width:100%;border:1px solid #3b4854;background:#080c12;color:#fff;border-radius:10px;padding:12px;font-size:16px}.fallback input::placeholder{color:#7e8d98}.fallback button,.play{border:0;border-radius:10px;background:#55e6d9;color:#061114;padding:0 16px;font-weight:900}
     .play{display:none;width:100%;padding:13px;font-size:16px}.play.show{display:block}
     footer{max-width:560px;width:100%;margin:0 auto;color:#94a4b0;font-size:12px;text-align:center;font-weight:800}
-    @media(max-width:430px){.app{padding:14px}.radio{border-radius:24px;padding:16px}.screen{min-height:78px}.speaker{height:94px}.controls{grid-template-columns:1fr 92px}.button{height:100px;font-size:21px}.log{grid-template-columns:1fr}.sidekey{min-height:26px}}
+    @media(max-width:430px){.app{padding:12px}.radio-shell{grid-template-columns:48px 1fr}.toolbar{border-radius:18px;gap:13px;padding:12px 6px}.toolicon{width:34px;height:34px;font-size:21px}.radio{border-radius:32px 32px 56px 56px;padding:16px}.screen{min-height:176px}.button{width:136px;height:136px;font-size:19px}.log{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <main class="app">
     <header>
-      <div class="brand"><small>Biancas kontrollradio</small><h1>Spørsmåls Lab</h1></div>
+      <span class="phase" aria-hidden="true"></span>
+      <div class="brand"><h1>Spørsmåls Lab</h1><small>AI Kommunikator</small></div>
       <span id="phase" class="phase">Klar</span>
     </header>
     <section class="radio-wrap" aria-label="Sci-fi walkie talkie">
-      <div class="radio">
-        <div class="topbar">
-          <div class="leds"><span class="led green"></span><span class="led blue"></span><span class="led"></span></div>
-          <div class="knobs"><span class="knob"></span><span class="knob"></span></div>
-        </div>
-        <div class="screen">
-          <b>Trykk og snakk</b>
-          <span>Kanal: Sandra / Backend: Bianca</span>
-        </div>
-        <div class="speaker" aria-hidden="true">
-          <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
-        </div>
-        <div class="controls">
-          <button id="ptt" class="button" type="button">TRYKK<br>SNAKK</button>
-          <div class="sidekeys" aria-hidden="true"><span class="sidekey"></span><span class="sidekey"></span><span class="sidekey"></span></div>
+      <div class="radio-shell">
+        <nav class="toolbar" aria-hidden="true">
+          <span class="toolicon">🎙</span>
+          <span class="divider"></span>
+          <span class="toolicon">▧</span>
+          <span class="divider"></span>
+          <span class="toolicon">▸</span>
+        </nav>
+        <div class="radio">
+          <div class="topbar">
+            <div class="leds"><span class="led green"></span><span class="led blue"></span><span class="led"></span></div>
+            <div class="knobs"><span class="knob"></span><span class="knob"></span></div>
+          </div>
+          <div class="screen">
+            <b>Trykk og snakk</b>
+            <span>Kanal: Sandra / Backend: Bianca</span>
+            <div class="display-bubble">Du</div>
+            <div class="display-bubble answer">Svar</div>
+            <div class="wavebar"><span>▌▌</span><span class="wave"></span><span>▶</span></div>
+          </div>
+          <div class="speaker" aria-hidden="true">
+            <span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span>
+          </div>
+          <div class="controls">
+            <button id="ptt" class="button" type="button">TRYKK<br>OG SNAKK</button>
+            <div class="sidekeys" aria-hidden="true"><span class="sidekey"></span><span class="sidekey"></span><span class="sidekey"></span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -111,7 +137,7 @@
       ptt.className = 'button' + (cls ? ' ' + cls : '');
     }
     function setPttLabel(big, small) {
-      ptt.innerHTML = big + '<br>' + small;
+      ptt.innerHTML = big === 'TRYKK' && small === 'SNAKK' ? 'TRYKK<br>OG SNAKK' : big + '<br>' + small;
     }
     function readyForNextTurn(status) {
       sending = false;
