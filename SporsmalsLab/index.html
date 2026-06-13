@@ -63,13 +63,19 @@
     .app{display:block;min-height:100vh;padding:0 0 14px;background:#071019}
     .radio-wrap{padding:0;min-height:0;display:grid;place-items:center;background:#071019}
     .radio-shell{width:min(100vw,430px);aspect-ratio:9/16;display:block;position:relative;background:url("assets/sporsmals-lab.jpg") center/contain no-repeat}
-    .image-text{position:absolute;z-index:2;left:31.8%;width:38.6%;margin:0;pointer-events:none;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-height:1.16;font-size:clamp(13px,3.45vw,18px);font-weight:900;letter-spacing:0;overflow-wrap:anywhere;text-shadow:0 1px 0 rgba(255,255,255,.35)}
+    .image-text{position:absolute;z-index:2;left:31.8%;width:38.6%;margin:0;pointer-events:auto;overflow-y:auto;display:block;line-height:1.16;font-size:clamp(13px,3.45vw,18px);font-weight:900;letter-spacing:0;overflow-wrap:anywhere;text-shadow:0 1px 0 rgba(255,255,255,.35);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .image-text::-webkit-scrollbar{display:none}
     .image-text.user{top:32.5%;height:8.7%;color:#7251da}
     .image-text.answer{top:45.3%;height:7.6%;color:#168f96}
     .image-text.empty{opacity:.42}
     .image-hotspot{position:absolute;z-index:4;left:7.2%;top:42.6%;width:12.6%;height:8.5%;border:0;border-radius:12px;background:transparent;color:transparent;font-size:0;opacity:.02;touch-action:manipulation}
     .image-hotspot:active{opacity:1;background:rgba(85,230,217,.2);box-shadow:0 0 0 7px rgba(255,255,255,.28),0 0 32px rgba(85,230,217,.9)}
     .image-hotspot:disabled{opacity:.01}
+    .image-prompt{position:fixed;z-index:9;left:50%;top:max(8px,env(safe-area-inset-top));transform:translateX(-50%);width:min(94vw,410px);display:none;gap:8px;padding:10px;border:1px solid rgba(85,230,217,.55);border-radius:14px;background:rgba(7,16,25,.92);box-shadow:0 16px 36px rgba(0,0,0,.46),0 0 24px rgba(85,230,217,.18);backdrop-filter:blur(10px)}
+    .image-prompt.show{display:grid}
+    .image-prompt .image-upload{grid-template-columns:auto 1fr auto}
+    .image-prompt .fallback{grid-template-columns:1fr auto}
+    .status-panel,footer{display:none}
     .toolbar{display:none}
     .radio{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;aspect-ratio:auto;border:0;border-radius:0;background:transparent;box-shadow:none}
     .radio:before,.radio:after,.topbar,.screen,.speaker,.sidekeys{display:none}
@@ -80,7 +86,6 @@
     .button.sending{transform:translate(-50%,-50%) scale(.97);background:rgba(73,238,255,.26);box-shadow:0 0 0 10px rgba(255,255,255,.32),0 0 42px rgba(73,238,255,.95),inset 0 0 30px rgba(255,255,255,.22);opacity:.92}
     .button:disabled{opacity:.04}
     .status-panel{width:min(100% - 18px,430px);margin:10px auto 0;border-radius:12px}
-    footer{width:min(100% - 18px,430px);margin:8px auto 0}
     @media(max-width:430px){.app{padding-bottom:12px}.log{grid-template-columns:1fr}.fallback{grid-template-columns:1fr}.fallback button{min-height:44px}}
   </style>
 </head>
@@ -125,6 +130,17 @@
         </div>
       </div>
     </section>
+    <section id="imagePrompt" class="image-prompt" hidden>
+      <div class="image-upload">
+        <button id="imageClear" class="clear" type="button" hidden>Fjern</button>
+        <span id="imageStatus">Velg bilde først, spør etterpå.</span>
+        <img id="imagePreview" alt="Valgt bilde" hidden>
+      </div>
+      <form id="textForm" class="fallback">
+        <input id="textInput" autocomplete="off" placeholder="Hva vil du gjøre med bildet?">
+        <button>Send</button>
+      </form>
+    </section>
     <section class="status-panel">
       <p id="hint" class="hint">Hold inne, snakk, slipp.</p>
       <button id="play" class="play" type="button">Spill svar</button>
@@ -132,17 +148,7 @@
         <div class="bubble"><b>Du sa</b><p id="transcript">Venter på beskjed.</p></div>
         <div class="bubble"><b>Sandra</b><p id="answer">Klar.</p></div>
       </div>
-      <div class="image-upload">
-        <button id="imageClear" class="clear" type="button" hidden>Fjern</button>
-        <span id="imageStatus">Velg bilde først, spør etterpå.</span>
-        <img id="imagePreview" alt="Valgt bilde" hidden>
-      </div>
-      <form id="textForm" class="fallback">
-        <input id="textInput" autocomplete="off" placeholder="Skriv hvis tale feiler">
-        <button>Send</button>
-      </form>
     </section>
-    <footer>Lyden går via denne telefonen. Koble telefonen til bilen med Bluetooth hvis svaret skal ut i høyttalerne.</footer>
   </main>
   <input id="imageInput" class="hidden-file" type="file" accept="image/*">
   <audio id="audio" preload="auto"></audio>
@@ -159,6 +165,7 @@
     var play = document.getElementById('play');
     var textForm = document.getElementById('textForm');
     var textInput = document.getElementById('textInput');
+    var imagePrompt = document.getElementById('imagePrompt');
     var imageInput = document.getElementById('imageInput');
     var imageButton = document.getElementById('imageButton');
     var imageClear = document.getElementById('imageClear');
@@ -184,6 +191,7 @@
       var text = String(value || '').trim() || fallback;
       el.textContent = text;
       el.className = el.className.replace(/\s?empty/g, '') + (text === fallback ? ' empty' : '');
+      el.scrollTop = 0;
     }
     function setTranscriptText(value) {
       var text = String(value || '').trim();
@@ -239,7 +247,10 @@
       imagePreview.removeAttribute('src');
       imageClear.hidden = true;
       imageStatus.textContent = 'Velg bilde først, spør etterpå.';
-      textInput.placeholder = 'Skriv hvis tale feiler';
+      imagePrompt.hidden = true;
+      imagePrompt.className = 'image-prompt';
+      textInput.value = '';
+      textInput.placeholder = 'Hva vil du gjøre med bildet?';
     }
     function setImage(file) {
       if (!file) return;
@@ -248,8 +259,11 @@
         imagePreview.src = dataUrl;
         imagePreview.hidden = false;
         imageClear.hidden = false;
+        imagePrompt.hidden = false;
+        imagePrompt.className = 'image-prompt show';
         imageStatus.textContent = 'Bilde klart. Fortell hva du vil gjøre med bildet.';
         textInput.placeholder = 'Hva vil du gjøre med bildet?';
+        window.setTimeout(function () { try { textInput.focus(); } catch (_) {} }, 80);
       }).catch(function (error) {
         imageStatus.textContent = error.message || 'Bilde-feil.';
       });
