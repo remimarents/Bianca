@@ -1178,6 +1178,7 @@
     let stopWatchdog = null;
     let recordedChunks = [];
     let recordingMode = "";
+    let recordingStartedAt = 0;
     let lastToggleAt = 0;
     let abortingForSend = false;
     let imageTarget = null;
@@ -1198,6 +1199,7 @@
     let roastPressTimer = null;
     let roastLongPress = false;
     const personalityOrder = ["snill", "slem", "trøtt", "glad", "frekk"];
+    const MIN_RECORDING_MS = 1000;
     const replyAudio = new Audio();
     const silentWav = "data:audio/wav;base64,UklGRkgAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YSQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 
@@ -1330,6 +1332,7 @@
       listening = false;
       abortingForSend = false;
       recordingMode = "";
+      recordingStartedAt = 0;
       listenBtn.disabled = false;
       sendBtn.disabled = false;
       roastStartBtn.disabled = false;
@@ -1817,6 +1820,7 @@
         setPttLabel("STOPP", "Sender til Sandra");
         setStatus("Tar opp...");
         postLive({ phase: "receiving", transcript: "", answer: "", roastMode: currentRoastMode(), micActive: true }, true);
+        recordingStartedAt = performance.now();
         mediaRecorder.start();
       } catch (error) {
         readyForNextTurn(error.message || "Mikrofon-feil");
@@ -1849,6 +1853,13 @@
         const type = mediaRecorder?.mimeType || "audio/webm";
         const blob = new Blob(recordedChunks, { type });
         recordedChunks = [];
+        const recordedMs = recordingStartedAt ? performance.now() - recordingStartedAt : 0;
+        recordingStartedAt = 0;
+        if (recordedMs > 0 && recordedMs < MIN_RECORDING_MS) {
+          addMessage("assistant", "For kort opptak, prøv igjen.");
+          readyForNextTurn("Feiltrykk");
+          return;
+        }
         if (!blob.size) throw new Error("Tomt lydklipp");
         const res = await fetch(sttEndpoint, {
           method: "POST",

@@ -149,7 +149,8 @@
     var textForm = document.getElementById('textForm');
     var textInput = document.getElementById('textInput');
     var recognition = null, mediaRecorder = null, mediaStream = null, listening = false, sending = false, playingReply = false, speechUnlocked = false;
-    var pendingTranscript = '', transcriptSent = false, ignoreNextClick = false, resetTimer = null, currentAudioUrl = null, recordedChunks = [], recordingMode = '', recordingStopRequested = false, recordTimer = null;
+    var pendingTranscript = '', transcriptSent = false, ignoreNextClick = false, resetTimer = null, currentAudioUrl = null, recordedChunks = [], recordingMode = '', recordingStopRequested = false, recordTimer = null, recordingStartedAt = 0;
+    var MIN_RECORDING_MS = 1000;
     var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     var silentWav = 'data:audio/wav;base64,UklGRkgAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YSQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
     audio.preload = 'auto';
@@ -184,6 +185,7 @@
       listening = false;
       recordingMode = '';
       recordingStopRequested = false;
+      recordingStartedAt = 0;
       ptt.disabled = false;
       textInput.disabled = false;
       setPhase(status || 'Klar');
@@ -350,6 +352,7 @@
         };
         mediaRecorder.onstop = finishRecordingFallback;
         transcriptSent = false;
+        recordingStartedAt = performance.now();
         mediaRecorder.start();
         clearRecordTimer();
         recordTimer = setTimeout(stopRecordingFallback, 15000);
@@ -385,6 +388,14 @@
       var type = mediaRecorder && mediaRecorder.mimeType ? mediaRecorder.mimeType : 'audio/webm';
       var blob = new Blob(recordedChunks, { type: type });
       recordedChunks = [];
+      var recordedMs = recordingStartedAt ? performance.now() - recordingStartedAt : 0;
+      recordingStartedAt = 0;
+      if (recordedMs > 0 && recordedMs < MIN_RECORDING_MS) {
+        hint.textContent = 'For kort opptak, prøv igjen.';
+        setTranscriptText('For kort opptak.');
+        setAnswerText('Klar.');
+        return readyForNextTurn('Feiltrykk');
+      }
       if (!blob.size) return failed(new Error('Tomt lydklipp'));
       setTranscriptText('Transkriberer...');
       fetch(BASE + '/api/ptt', {

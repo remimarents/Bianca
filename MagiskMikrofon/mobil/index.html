@@ -529,6 +529,7 @@
     let mediaRecorder = null;
     let recordedChunks = [];
     let recordingMode = "";
+    let recordingStartedAt = 0;
     let listenWatchdog = null;
     let stopWatchdog = null;
     let replyWatchdog = null;
@@ -537,6 +538,7 @@
     let roastImageDataUrl = sessionStorage.getItem("bianca-roast-photo") || "";
     let personality = localStorage.getItem("bianca-personality") || "snill";
     const personalityOrder = ["snill", "slem", "trøtt", "glad", "frekk"];
+    const MIN_RECORDING_MS = 1000;
     const replyAudio = new Audio();
     const silentWav = "data:audio/wav;base64,UklGRkgAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YSQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 
@@ -703,6 +705,7 @@
       listening = false;
       sending = false;
       abortingForSend = false;
+      recordingStartedAt = 0;
       listenBtn.disabled = false;
       sendBtn.disabled = false;
       roastStartBtn.disabled = false;
@@ -765,6 +768,7 @@
         listenBtn.classList.add("recording");
         setPttLabel("STOPP", "Sender til Sandra");
         setStatus("Tar opp...");
+        recordingStartedAt = performance.now();
         mediaRecorder.start();
         listenWatchdog = setTimeout(stopRecordingFallback, 10000);
       } catch (error) {
@@ -795,6 +799,13 @@
         const type = mediaRecorder?.mimeType || "audio/webm";
         const blob = new Blob(recordedChunks, { type });
         recordedChunks = [];
+        const recordedMs = recordingStartedAt ? performance.now() - recordingStartedAt : 0;
+        recordingStartedAt = 0;
+        if (recordedMs > 0 && recordedMs < MIN_RECORDING_MS) {
+          addMessage("assistant", "For kort opptak, prøv igjen.");
+          readyForNextTurn("Feiltrykk");
+          return;
+        }
         if (!blob.size) throw new Error("Tomt lydklipp");
         const res = await fetch(sttEndpoint, {
           method: "POST",
