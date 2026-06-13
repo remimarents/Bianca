@@ -290,6 +290,8 @@
       if (!url) { readyForNextTurn('Klar'); return; }
       playingReply = true;
       clearAudioUrl();
+      setPhase('Laster lyd', 'sending');
+      setPttLabel('VENT', 'LYD');
       audio.src = url;
       audio.onplay = function () { setPhase('Snakker'); };
       audio.onended = function () { clearAudioUrl(); readyForNextTurn('Klar'); };
@@ -332,6 +334,7 @@
         pendingTranscript = '';
         transcriptSent = false;
         setPhase('Lytter', 'recording');
+        setAnswerText('Lytter...');
         setPttLabel('LYTTER', 'SLIPP');
         hint.textContent = 'Snakk nå.';
       };
@@ -419,6 +422,7 @@
       setPttLabel('TAR OPP', 'SLIPP');
       hint.textContent = 'Snakk nå.';
       setTranscriptText('Tar opp...');
+      setAnswerText('Lytter...');
       ensureMediaStream().then(function (stream) {
         var type = mediaRecorderType();
         recordedChunks = [];
@@ -451,6 +455,7 @@
       clearRecordTimer();
       setPhase('Sender lyd', 'sending');
       setPttLabel('VENT', 'STT');
+      setAnswerText('Sender lyd...');
       try { mediaRecorder.stop(); } catch (_) {}
     }
     function finishRecordingFallback() {
@@ -474,6 +479,7 @@
       }
       if (!blob.size) return failed(new Error('Tomt lydklipp'));
       setTranscriptText('Transkriberer...');
+      setAnswerText('Transkriberer...');
       fetch(BASE + '/api/ptt', {
         method: 'POST',
         headers: { 'content-type': type },
@@ -518,6 +524,7 @@
       textInput.disabled = true;
       imageButton.disabled = true;
       setTranscriptText(input);
+      setAnswerText(imageDataUrl ? 'Ser på bildet...' : 'Tenker...');
       setPhase('Tenker', 'sending');
       setPttLabel('VENT', 'SANDRA');
       hint.textContent = imageDataUrl ? 'Sender bilde og ønsket handling.' : 'Sandra svarer.';
