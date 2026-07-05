@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let maxNumber = 457;
     let secretNumber = 0;
     let currentPlayerIndex = 0;
+    let roundResolved = false;
     let confettiParticles = [];
     let confettiAnimationId = null;
 
@@ -81,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Behandle gjetting
     guessButton.addEventListener('click', () => {
+        if (roundResolved) return;
         const guessVal = parseInt(guessField.value, 10);
         if (isNaN(guessVal)) {
             feedback.textContent = 'Skriv inn et gyldig tall.';
@@ -123,6 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         secretNumber = Math.floor(Math.random() * (maxNumber + 1));
         currentPlayerIndex = 0;
+        roundResolved = false;
+        setGuessLocked(false);
         updateScoreTable();
         roundInfo.textContent = `Runde ${currentRound} av ${totalRounds}`;
         feedback.textContent = `Gjett et tall mellom 0 og ${maxNumber}.`;
@@ -163,6 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
             advanceTurn();
         } else {
             // Riktig
+            roundResolved = true;
+            setGuessLocked(true);
             player.wins++;
             overlayTitle.textContent = 'Riktig!';
             overlayMessage.textContent = `${player.name} fant riktig tall ${secretNumber} på ${player.roundAttempts} forsøk.`;
@@ -171,6 +177,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         updateScoreTable();
         guessField.value = '';
+    }
+
+    function setGuessLocked(locked) {
+        guessButton.disabled = locked;
+        guessField.disabled = locked;
     }
 
     // Bytt til neste spiller
