@@ -535,7 +535,7 @@
     let replyWatchdog = null;
     let statusTimer = null;
     let history = [];
-    let roastImageDataUrl = sessionStorage.getItem("bianca-roast-photo") || "";
+    let roastImageDataUrl = "";
     let personality = localStorage.getItem("bianca-personality") || "snill";
     const personalityOrder = ["snill", "slem", "trøtt", "glad", "frekk"];
     const MIN_RECORDING_MS = 1000;
@@ -544,6 +544,7 @@
 
     if (accessKey) localStorage.setItem("bianca-access-key", accessKey);
     localStorage.removeItem("bianca-roast-photo");
+    sessionStorage.removeItem("bianca-roast-photo");
     replyAudio.preload = "auto";
     replyAudio.playsInline = true;
 

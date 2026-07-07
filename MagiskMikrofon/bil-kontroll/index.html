@@ -1134,7 +1134,11 @@
     const sttEndpoint = "/bianca/stt";
     const liveEndpoint = "/bianca/live";
     const carStatusEndpoint = "/bianca/car-status";
-    const accessKey = new URLSearchParams(location.search).get("k") || localStorage.getItem("bianca-access-key") || "";
+    const query = new URLSearchParams(location.search);
+    const accessKey = query.get("k") || localStorage.getItem("bianca-access-key") || "";
+    const carSession = query.get("carSession") || "";
+    const carSecret = query.get("carSecret") || "";
+    const carDeviceToken = deviceToken(carSession);
     const chatEl = document.getElementById("chat");
     const statusEl = document.getElementById("status");
     const listenBtn = document.getElementById("listenBtn");
@@ -1207,8 +1211,10 @@
     replyAudio.playsInline = true;
     if (accessKey) localStorage.setItem("bianca-access-key", accessKey);
     localStorage.removeItem("bianca-roast-photo");
+    sessionStorage.removeItem("bianca-roast-photo");
     photoSlots.forEach((slot) => {
       localStorage.removeItem(`bianca-photo-${slot.dataset.photoSlot}`);
+      sessionStorage.removeItem(`bianca-photo-${slot.dataset.photoSlot}`);
     });
 
     function setStatus(text) {
@@ -1224,8 +1230,51 @@
       listenBtn.querySelector(".small").textContent = small;
     }
 
+    function randomPart() {
+      if (window.crypto && crypto.getRandomValues) {
+        const bytes = new Uint8Array(12);
+        crypto.getRandomValues(bytes);
+        return Array.from(bytes).map((byte) => byte.toString(16).padStart(2, "0")).join("");
+      }
+      return Math.random().toString(36).slice(2) + Date.now().toString(36);
+    }
+
+    function deviceToken(session) {
+      if (!session) return "";
+      const key = `magiske-mikrofonen-device-${session}`;
+      let token = "";
+      try {
+        token = localStorage.getItem(key) || "";
+        if (!/^dev-[a-z0-9-]{16,120}$/i.test(token)) {
+          token = `dev-${randomPart()}${randomPart().slice(0, 8)}`;
+          localStorage.setItem(key, token);
+        }
+      } catch {
+        token = `dev-${randomPart()}${randomPart().slice(0, 8)}`;
+      }
+      return token;
+    }
+
+    function carControlPayload(extra = {}) {
+      return {
+        ...extra,
+        k: accessKey,
+        carControl: true,
+        carSession,
+        carSecret,
+        deviceToken: carDeviceToken
+      };
+    }
+
     function carControlHeaders(extra = {}) {
-      return { ...extra, "x-bianca-key": accessKey, "x-bianca-control": "car" };
+      return {
+        ...extra,
+        "x-bianca-key": accessKey,
+        "x-bianca-control": "car",
+        "x-bianca-session": carSession,
+        "x-bianca-secret": carSecret,
+        "x-bianca-device": carDeviceToken
+      };
     }
 
     async function ensureCarActive() {
@@ -1234,7 +1283,7 @@
       lastCarStatusCheck = now;
       try {
         const res = await fetch(carStatusEndpoint, {
-          headers: { accept: "application/json", "x-bianca-key": accessKey },
+          headers: carControlHeaders({ accept: "application/json" }),
           cache: "no-store",
         });
         const data = await res.json();
@@ -1250,7 +1299,7 @@
     }
 
     function postLive(payload, immediate = false) {
-      const body = {
+      const body = carControlPayload({
         phase: payload.phase || "ready",
         transcript: payload.transcript ?? inputEl.value ?? "",
         answer: payload.answer ?? "",
@@ -1259,7 +1308,7 @@
         roastImage: payload.roastImage || "",
         clearRoast: Boolean(payload.clearRoast),
         roastMode: payload.roastMode ?? currentRoastMode(),
-      };
+      });
       const serialized = JSON.stringify(body);
       if (!immediate && serialized === lastLivePayload) return;
       const send = () => {
@@ -1595,7 +1644,7 @@
         const res = await fetch(roastEndpoint, {
           method: "POST",
           headers: carControlHeaders({ "content-type": "application/json" }),
-          body: JSON.stringify({ name, instruction: requestInstruction, image: roastImageDataUrl, personality, roastMode: isSmisk ? "smisk" : currentRoastMode(), adult: adultMode && !isSmisk, modeInstruction, k: accessKey, carControl: true }),
+          body: JSON.stringify(carControlPayload({ name, instruction: requestInstruction, image: roastImageDataUrl, personality, roastMode: isSmisk ? "smisk" : currentRoastMode(), adult: adultMode && !isSmisk, modeInstruction })),
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.text || data.error || `HTTP ${res.status}`);
@@ -1696,7 +1745,7 @@
         const res = await fetch("/bianca/tts", {
           method: "POST",
           headers: carControlHeaders({ "content-type": "application/json" }),
-          body: JSON.stringify({ text, mode: "bianca", k: accessKey, carControl: true }),
+          body: JSON.stringify(carControlPayload({ text, mode: "bianca" })),
         });
         if (!res.ok) {
           const data = await res.json().catch(() => ({}));
@@ -1743,7 +1792,7 @@
         const res = await fetch(chatEndpoint, {
           method: "POST",
           headers: carControlHeaders({ "content-type": "application/json" }),
-          body: JSON.stringify({ input, history: history.slice(-12), personality, k: accessKey, carControl: true }),
+          body: JSON.stringify(carControlPayload({ input, history: history.slice(-12), personality })),
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.text || data.error || `HTTP ${res.status}`);
