@@ -37,6 +37,11 @@ let state = {
   locks: {}
 };
 
+let scoreTapGuard = {
+  playerId: null,
+  at: 0
+};
+
 const $ = (selector) => document.querySelector(selector);
 const screens = {
   setup: $("#setupScreen"),
@@ -188,11 +193,9 @@ function renderGame() {
 }
 
 function addPoint(playerId) {
-  if (state.locks[playerId]) return;
-  state.locks[playerId] = true;
-  setTimeout(() => {
-    state.locks[playerId] = false;
-  }, 1000);
+  const now = Date.now();
+  if (scoreTapGuard.playerId === playerId && now - scoreTapGuard.at < 250) return;
+  scoreTapGuard = { playerId, at: now };
 
   const player = state.players.find((item) => item.id === playerId);
   if (!player) return;
@@ -366,7 +369,11 @@ function bindEvents() {
     const back = event.target.closest("[data-back]");
     if (back) showScreen(back.dataset.back);
     const score = event.target.closest("[data-score]");
-    if (score) addPoint(score.dataset.score);
+    if (score) {
+      event.preventDefault();
+      event.stopPropagation();
+      addPoint(score.dataset.score);
+    }
     const adjust = event.target.closest("[data-adjust]");
     if (adjust) {
       const player = state.players.find((item) => item.id === adjust.dataset.adjust);
