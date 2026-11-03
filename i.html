@@ -1,153 +1,21 @@
 <!doctype html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="referrer" content="no-referrer">
-  <meta name="robots" content="noindex,nofollow,noarchive">
-  <meta http-equiv="refresh" content="10; url=https://marents.no/car/display-return">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f7b7ff">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Magiske Rom">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <title>DriveOverview AI</title>
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="BarnasMagiskeRom/icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="BarnasMagiskeRom/icons/icon-192.png">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .landing {
-      display: grid;
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .room-stage {
-      position: relative;
-      overflow: hidden;
-      width: min(720px, 100%);
-      margin: 0 auto;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: rgba(255,255,255,.84);
-      box-shadow: 0 14px 34px rgba(105, 63, 160, .14);
-      isolation: isolate;
-    }
-
-    .room-stage img {
-      width: 100%;
-      height: auto;
-      display: block;
-      background: #fff;
-    }
-
-    .hotspot {
-      position: absolute;
-      z-index: 1;
-      display: block;
-      border-radius: 999px;
-      outline-offset: 4px;
-      -webkit-tap-highlight-color: rgba(255, 116, 199, .22);
-    }
-
-    .hotspot:focus-visible {
-      outline: 4px solid rgba(53, 199, 255, .9);
-      background: rgba(255, 255, 255, .18);
-    }
-
-    .hotspot-mic {
-      left: 8%;
-      top: 50.4%;
-      width: 25%;
-      height: 6.1%;
-    }
-
-    .hotspot-lab {
-      left: 66%;
-      top: 47.9%;
-      width: 25%;
-      height: 6.1%;
-    }
-
-    .hotspot-guess {
-      left: 38%;
-      top: 67.6%;
-      width: 25%;
-      height: 6.1%;
-    }
-
-    .hotspot-tetris {
-      left: 14.5%;
-      top: 81.1%;
-      width: 24%;
-      height: 6.1%;
-    }
-
-    .hotspot-bilbingo {
-      left: 67%;
-      top: 82.8%;
-      width: 24%;
-      height: 6.1%;
-    }
-
-    .qr-panel {
-      display: grid;
-      justify-items: center;
-      gap: 12px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: rgba(255,255,255,.84);
-      box-shadow: 0 14px 34px rgba(105, 63, 160, .14);
-      text-align: center;
-    }
-
-    .qr-panel img {
-      width: min(280px, 76vw);
-      aspect-ratio: 1;
-      display: block;
-      padding: 12px;
-      border-radius: 18px;
-      background: #fff;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.85);
-    }
-
-    .share-url {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(140, 87, 255, .10);
-      color: #5a2ca0;
-      font-size: .92rem;
-      font-weight: 800;
-      word-break: break-all;
-    }
-
-    @media (max-width: 540px) {
-      .room-stage,
-      .qr-panel {
-        border-radius: 20px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102c35">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta http-equiv="refresh" content="10; url=https://marents.no/car/display-return">
+<link rel="icon" href="data:,">
+<title>DriveOverview AI</title>
+<style>
+html,body{margin:0;min-height:100%;background:#102c35;color:#e8f1ef;font-family:Arial,sans-serif}
+main{position:absolute;top:50%;left:0;right:0;margin-top:-65px;text-align:center;padding:0 24px}
+h1{margin:0 0 24px;font-size:26px;font-weight:400;letter-spacing:.3px}
+a{display:inline-block;box-sizing:border-box;min-height:48px;padding:14px 22px;border:1px solid #597d85;border-radius:8px;color:#c3dedb;font-size:16px;text-decoration:none}
+a:focus{outline:3px solid #a3d9ce;outline-offset:4px}
+</style>
 </head>
-<body>
-  <main class="shell">
-    <a href="https://marents.no/car/display-return" style="display:block;padding:16px;background:#fff;color:#251433;font:700 22px Arial,sans-serif;text-align:center;border-radius:12px">Åpne DriveOverview</a>
-    <section class="landing" aria-label="Barnas Magiske Rom">
-      <div class="room-stage">
-        <img src="assets/lekerom-jente.jpg" alt="Barnas Magiske Rom">
-        <a class="hotspot hotspot-mic" href="https://marentscloud.duckdns.org:10443/bianca" aria-label="Åpne Magiske Mikrofonen"></a>
-        <a class="hotspot hotspot-lab" href="https://remimarents.github.io/Bianca/SporsmalsLab/?v=scifi-20260613-autoscroll" aria-label="Åpne Spørsmåls Lab"></a>
-        <a class="hotspot hotspot-guess" href="Gjettespill/index.html" aria-label="Åpne Gjettespillet"></a>
-        <a class="hotspot hotspot-tetris" href="Tetris/index.html" aria-label="Åpne Tetris"></a>
-        <a class="hotspot hotspot-bilbingo" href="Bilbingo/index.html" aria-label="Åpne Bilbingo"></a>
-      </div>
-
-      <div class="qr-panel" aria-label="QR-kode til denne siden">
-        <img src="assets/barnas-magiske-rom-qr.svg" alt="QR-kode til https://remimarents.github.io/Bianca/">
-        <span class="share-url">https://remimarents.github.io/Bianca/</span>
-      </div>
-    </section>
-  </main>
-</body>
+<body><main><h1>DriveOverview AI</h1><a href="https://marents.no/car/display-return">Åpne oversikten</a></main></body>
 </html>
