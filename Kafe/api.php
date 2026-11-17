@@ -25,11 +25,13 @@ function player(string $name, int $boostUntil = 0): array {
 }
 function publicState(array $room, int $who): array {
     $me = $room['players'][$who];
+    if (!$me['solved'] && $me['attempts']) $me['feedback'] = 'Ikke helt ennå. Prøv igjen.';
     unset($me['token']);
     $q = null;
     if ($room['status'] !== 'waiting' && $me['index'] < count($room['questions'])) {
         $q = $room['questions'][$me['index']];
         unset($q['answer']);
+        if (isset($q['hint']) && str_contains($q['hint'], '=')) $q['hint'] = 'Del regnestykket i mindre deler. Regn ett steg om gangen.';
         if (!$me['attempts']) unset($q['hint']);
     }
     $players = array_map(fn($p) => ['id' => $p['id'], 'nickname' => $p['nickname'], 'score' => $p['score'],
@@ -165,7 +167,7 @@ if ($action === 'create') {
                         $p['score'] += $points;
                         $p['solved'] = true;
                         $p['feedback'] = 'Riktig! +' . $points . ' mynter' . ($multiplier === 2 ? ' ⚡ Dobbel bonus!' : '');
-                    } else $p['feedback'] = 'Prøv igjen. ' . $room['questions'][$index]['hint'];
+                    } else $p['feedback'] = 'Ikke helt ennå. Prøv igjen.';
                 } elseif ($action === 'next' && $p['solved']) {
                     $p['index']++; $p['attempts'] = 0; $p['solved'] = false; $p['feedback'] = '';
                 }
