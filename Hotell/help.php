@@ -1,0 +1,70 @@
+<?php
+header('Content-Type: text/html; charset=utf-8');
+header('Cache-Control: no-cache');
+header('X-Content-Type-Options: nosniff');
+header("Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; frame-ancestors 'self'; base-uri 'none'");
+?><!doctype html>
+<html lang="nb"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Slik spiller dere – Hotellet vårt</title><style>
+*{box-sizing:border-box}body{margin:0;background:#fffaf0;color:#294c42;font:17px/1.65 ui-rounded,'Avenir Next','Trebuchet MS',sans-serif}main{max-width:720px;margin:auto;padding:24px 22px 40px}h1{font-size:30px;line-height:1.2;margin:0 0 18px}h2{font-size:21px;line-height:1.3;margin:26px 0 10px}h3{font-size:18px;margin:20px 0 6px}p{margin:10px 0 16px}li{margin:9px 0}ul,ol{padding-left:24px}a{color:#245b43;text-underline-offset:3px}a:focus-visible,summary:focus-visible{outline:3px solid #b06a42;outline-offset:4px}.intro{font-size:19px}.tip{background:#e9efdd;border-radius:14px;padding:16px 18px;margin:20px 0}.tip p:last-child{margin-bottom:0}details{border-top:1px solid #d8dfcf;padding:16px 0}summary{font-weight:800;font-size:19px;cursor:pointer;line-height:1.4;padding:5px 0}details[open] summary{margin-bottom:16px}.short{font-size:15px}.back{display:inline-block;margin-top:20px}strong{font-weight:800}@media(max-width:360px){main{padding:20px 16px}h1{font-size:26px}}
+</style></head><body><main>
+<h1>Slik spiller dere</h1>
+<p class="intro">Dere driver et hotell sammen. Dere velger hvordan det skal være, tar imot gjester og hjelper hverandre når noe må løses.</p>
+<p>Målet er å skape et hotell der gjestene trives, rommene blir stelt og de som jobber der har overskudd. Dere deler hotellet og resultatet. Ingen av dere skal vinne over de andre.</p>
+<div class="tip"><strong>Dere trenger ikke få til alt første gang.</strong><p>Hver sesong gir dere en ny sjanse til å prøve, oppdage hva som virker og bli flinkere sammen. Et valg som ikke gikk som dere håpet, gir dere noe å lære til neste gang.</p></div>
+<h2>Kom i gang</h2>
+<ol><li><strong>Lag en plan.</strong> Velg hotellnavn, hotellprofil, gjester og hva dere vil prioritere.</li><li><strong>Bli klare sammen.</strong> Alle som er inne på hotellet, trykker «Åpne hotellet» når de er fornøyde med planen.</li><li><strong>Ta vare på hotellet.</strong> Ønsk velkommen, rydd, server frokost eller stell hagen. Les dagens spørsmål og stem på de større valgene.</li><li><strong>Se hvordan det gikk.</strong> Etter fem spilledager leser dere hotellavisen og planlegger neste sesong.</li></ol>
+<p class="short">Trykk på overskriftene nedenfor når dere vil vite mer.</p>
+<details><summary>Hva er en sesong?</summary>
+<p>En sesong er fem spilledager på hotellet. Hver dag varer omtrent fem minutter. Det blir rundt 25 minutter med åpne hotelldører, pluss tiden dere bruker på planlegging og mellom dagene.</p>
+<p>Etter hver dag kommer en kveld der dere ser en reaksjon fra gjestene. Neste dag starter når alle som er inne, har trykket seg klare. Dere trenger derfor ikke spille hele sesongen i ett strekk.</p>
+<p><strong>En dag som allerede har startet, fortsetter selv om dere åpner hjelpen eller lukker siden.</strong> Vil dere ha en pause, er det lurt å ta den mellom dagene, før dere trykker dere klare.</p>
+<p>Etter dag fem er sesongen ferdig. Da kan dere lese hotellavisen og velge «Planlegg neste sesong». Dere kan spille nye sesonger igjen og igjen.</p>
+</details>
+<details><summary>Hvordan planlegger vi hotellet?</summary>
+<p>I starten av hver sesong kan dere velge:</p>
+<ul><li><strong>Navn:</strong> Hva skal hotellet deres hete denne sesongen? Navnet lagres når dere går ut av skrivefeltet.</li><li><strong>Hotellprofil:</strong> Vil dere ha det koselig og hjemmekjært, litt luksuriøst eller tett på naturen?</li><li><strong>Gjester:</strong> Vil dere først og fremst invitere familier, venner på tur eller gjester som søker ro?</li><li><strong>Prioritering:</strong> Skal dere bruke mest krefter på fine rom, god mat, aktiviteter eller uthvilt personale?</li></ul>
+<p>Dette er valg som påvirker hotellet. Luksus kan for eksempel gi mer gjesteglede, men koste hotellmynter. Aktiviteter kan skape glede og samtidig kreve overskudd.</p>
+<p>Snakk sammen før dere endrer planen. Hvis noen endrer navn eller sesongvalg etter at dere har trykket dere klare, må dere trykke dere klare på nytt. Slik får alle som er inne mulighet til å se den nye planen.</p>
+</details>
+<details><summary>Hva kan jeg gjøre på hotellet?</summary>
+<ul><li><strong>Velkomst:</strong> Ta imot gjester og hjelp dem videre fra resepsjonen.</li><li><strong>Rydd:</strong> Gjør hotellet renere. Rydding bruker også litt overskudd.</li><li><strong>Frokost:</strong> Server noe godt. Det gir gjesteglede, men krever arbeid.</li><li><strong>Hage:</strong> Stell hagen. Det gir glede og litt pusterom.</li><li><strong>Innred rom:</strong> Trykk på et rom og velg farge og pynt. Endringen lagres med en gang og blir synlig for alle.</li><li><strong>Forslag:</strong> Foreslå noe dere kan bestemme sammen, som basseng, fest, husdyr eller en rolig kveld.</li></ul>
+<p>Små handlinger kan dere gjøre uten avstemning. Det er en kort ventetid mellom handlingene. Dere trenger ikke trykke så fort dere kan.</p>
+<p>På mobil kan dere dra hotellet sidelengs. Knappene «Resepsjon», «Rom» og «Hage» flytter visningen. «Skjul valg» gir mer plass til hotellet; «Vis valg» åpner spørsmålene igjen.</p>
+</details>
+<details><summary>Hvordan påvirker valgene det som skjer?</summary>
+<p>Gjestene ønsker ikke alltid det samme. En fest kan glede noen, mens gjester som søker ro synes det blir for mye lyd. Et basseng kan være populært, men koster mynter og gir mer å holde rent.</p>
+<p>Les den korte forklaringen under hvert svar på dagens spørsmål. Der kan det for eksempel stå «Mer gjesteglede», «Mer å rydde» eller «Krever overskudd». Det hjelper dere å tenke gjennom valget før dere stemmer.</p>
+<p>Følg særlig med på:</p>
+<ul><li><strong>Trivsel:</strong> Hvordan gjestene samlet sett har det. Enkelte gjester kan like et valg selv om andre blir skuffet.</li><li><strong>Renhold:</strong> Hvor godt hotellet er stelt. Et travelt hotell trenger hjelp til å holde det rent.</li><li><strong>Overskudd:</strong> Hvor mye krefter de som jobber på hotellet har igjen. Mange aktiviteter og oppgaver kan bruke krefter.</li></ul>
+<p>Hotellet har også mynter og et omdømme. Noen valg bruker penger, andre påvirker hva gjestene synes om hotellet. Dere trenger ikke regne oppgaver for å spille.</p>
+<p>Se på målerne og gjestenes reaksjoner. Hvis renholdet synker, kan en av dere rydde. Hvis overskuddet blir lavt, kan dere tenke gjennom hvor mye dere setter i gang. Det finnes ikke ett valg som alltid er best.</p>
+</details>
+<details><summary>Hvordan bestemmer vi sammen?</summary>
+<p>Når du velger et svar på dagens spørsmål eller sender et større forslag, starter du en avstemning. Valget ditt teller som din stemme.</p>
+<ul><li><strong>Tre spillere inne:</strong> To like stemmer avgjør.</li><li><strong>To spillere inne:</strong> Begge må velge det samme.</li><li><strong>Én spiller inne:</strong> Du bestemmer selv.</li></ul>
+<p>Dere kan endre stemme mens avstemningen fortsatt er åpen. Når valget er avgjort, skjer virkningen på det felles hotellet. Les og snakk sammen før dere trykker.</p>
+<p>Hvis dere ikke blir enige før dagen er over, avsluttes den åpne avstemningen. Dere kan fortsette neste dag. Det er ikke nødvendig å bli enige om alt for å fullføre en sesong.</p>
+</details>
+<details><summary>Hvorfor lønner samarbeid seg?</summary>
+<p>Når dere fordeler oppgavene, kan dere ta vare på flere behov: Én kan ønske gjester velkommen, én kan rydde og én kan servere frokost. Alle bidrar til de samme målerne og de samme gjestene.</p>
+<p>Dere kan velge en rolle under «Min rolle». Rollen er en avtale mellom dere, og låser ingen knapper. Alle kan hjelpe til overalt. Bytt gjerne roller fra dag til dag.</p>
+<p>Spillet gir ikke egne poeng for å si «vi samarbeider». Det som lønner seg, er at dere faktisk følger med, fordeler arbeidet og tar valg hotellet tåler.</p>
+<div class="tip"><strong>Prøv dette når dere er uenige:</strong><ol><li>La hver av dere si hva hun ønsker, og hvorfor.</li><li>Gjenta det du hørte: «Du vil ha ro fordi gjestene er slitne?»</li><li>Se på gjestene og målerne. Hva trenger hotellet akkurat nå?</li><li>Velg blant mulighetene i spillet. Dere kan også avtale å prøve en annen plan neste sesong.</li><li>Se på resultatet sammen. Snakk om valget, uten å legge skylden på én person.</li></ol></div>
+<p>Hvis to av dere får viljen sin i en avstemning, lytt likevel til den tredje. Kanskje hun har lagt merke til noe dere andre overså. Et flertall avgjør knappen, men alle tre skal få plass i laget.</p>
+<p>Ved navnevalg kan dere for eksempel la alle foreslå ett navn, kombinere ideer eller avtale å bytte på hvem som får velge fra sesong til sesong.</p>
+</details>
+<details><summary>Hva lærer vi av hotellavisen?</summary>
+<p>Hotellavisen samler reaksjoner fra hver spilledag. Etter sesongen kan dere lese hva gjestene likte og hva som kunne vært bedre.</p>
+<p>Spør hverandre: Hva fungerte? Hva ble vanskelig? Hva vil vi prøve annerledes neste sesong? Velg gjerne én ting å øve på, som bedre fordeling av rydding eller litt roligere dager.</p>
+<p>Romfarger, pynt og utbygging blir med videre. Dere kan også samle sesongpynt. Ved starten av neste sesong får hotellet nytt overskudd og renhold, men hele hotellet nullstilles ikke: blant annet mynter, trivsel og omdømme blir med videre.</p>
+<p>Les gjerne avisen før dere starter neste sesong. Da begynner en ny avis. Dere kan beholde planen dere likte, eller prøve nytt navn, annen profil og andre gjester.</p>
+</details>
+<details><summary>Lagring, pauser og innlogging</summary>
+<p>Valgene lagres automatisk. Dere spiller på det samme hotellet, og endringene blir synlige hos hverandre.</p>
+<p>Du kan spille alene, sammen med én annen eller alle tre. En spiller som lukker siden, regnes vanligvis som borte etter omtrent 45 sekunder. Da tilpasses kravene til start og avstemninger til dem som er igjen.</p>
+<p>Din personlige invitasjon brukes én gang og knytter plassen din til nettleseren du åpner den i. Senere går du inn på hotellet fra den samme nettleseren. Ikke del invitasjonen med andre.</p>
+<p>Har du byttet telefon, brukt en annen nettleser eller slettet nettleserdata? Be Remi om en ny invitasjon. Du skal ikke bruke en annen spillers plass.</p>
+<p>Hvis siden mister forbindelsen, vent til den er tilkoblet igjen før du fortsetter. Å lukke hjelpen stopper ikke spillet og sletter ikke det dere har gjort.</p>
+</details>
+<?php if(!isset($_GET['embed'])): ?><a class="back" href="./">Til hotellet</a><?php endif; ?>
+</main></body></html>

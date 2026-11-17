@@ -59,3 +59,7 @@ Deploy oppdaterer bare applikasjonsfiler; state overskrives ikke. `admin.php` er
 ## Fullskjerm
 
 Hotellet fyller skjermen både før og etter innlogging. På mobil flyttes utsnittet vannrett mellom hotellsonene. Status ligger øverst, mens sesongvalg, hendelser og småhandlinger ligger i et sammenleggbart panel nederst. Dialoger beholder automatisk lagring.
+
+## Spillhjelp
+
+`help.php` er en offentlig, felles hjelpetekst uten spillerdata. Forsidens «Slik spiller dere» og spørsmålstegnet i spillet åpner samme tekst i en dialog uten å navigere bort eller miste en ventende invitasjon. Teksten beskriver faktiske regler, sesonger, valgenes følger, samarbeid og uenighet, med utvidbare avsnitt. Hjelpen kan også leses direkte på `/hotell/help.php`.

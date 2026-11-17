@@ -41,3 +41,7 @@ Sesongprøvene bruker forkortet tid bare på servermerkede QA-hoteller. De bevis
 ## Fullskjermsvisning
 
 `tests/fullscreen.cjs` bestått mot publisert HTTPS med tre isolerte Chrome-økter i 320, 390 og 1440 px bredde: hotellet fyller viewport, ingen sideoverflyt, valgpanelet kan skjules/åpnes, hageknappen flytter mobilvisningen, og navnelagring/synkronisering/nullstilling av klarstatus fungerer uten JavaScript-feil. Offentlig landingsside er også kontrollert visuelt i 390 px; hovedagenten inspiserte privat mobil- og skrivebordsvisning. Faktisk familiehotell har fortsatt null bundne plasser og ingen invitasjoner.
+
+## Spillhjelp
+
+PHP-syntaks for help.php/index.php og JavaScript-syntaks bestått. `tests/help.cjs` bestod mot live HTTPS: offentlig og innlogget hjelp, utvidbare sesong-/samarbeidsavsnitt, åpne/lukke hjelp før invitasjonsaktivering, fokus tilbake til spørsmålstegnet, 320/390/1440 px og ingen JavaScript-feil. Mobil- og skrivebordsbilder inspisert. Første test navigerte fra samme URL til bare et nytt fragment, uten å laste invitasjonssiden på nytt; testen ble rettet til en ny sidenavigasjon før invitasjonen åpnes. Det er en testrettelse.
