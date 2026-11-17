@@ -509,6 +509,12 @@ function update(time = 0) {
 }
 
 // Pointer events support fingers, mouse and trackpad with the same placement rules.
+// Safari's viewport gestures need a non-passive touch listener in addition to
+// touch-action. Keep scrolling available only inside the settings popover.
+document.addEventListener("touchmove", e => {
+  if (!e.target.closest?.(".settings-popover") && e.cancelable) e.preventDefault();
+}, { passive: false, capture: true });
+canvas.addEventListener("contextmenu", e => e.preventDefault());
 canvas.style.touchAction = "none";
 canvas.style.userSelect = "none";
 canvas.style.cursor = "grab";
@@ -539,7 +545,14 @@ function updateDrag(e) {
     while (piece[axis] !== target) {
       const step = Math.sign(target - piece[axis]);
       piece[axis] += step;
-      if (collides()) { piece[axis] -= step; break; }
+      if (collides()) {
+        piece[axis] -= step;
+        // Re-anchor at a wall so reversing the finger moves immediately,
+        // even after dragging beyond the board or against another piece.
+        if (axis === "x") { drag.x = piece.x; drag.clientX = e.clientX; }
+        else { drag.y = piece.y; drag.clientY = e.clientY; }
+        break;
+      }
     }
   }
 }
