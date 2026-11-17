@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#1a0b36" />
     <title>Biancas Gjettespill</title>
     <link rel="stylesheet" href="style.css?v=20260705-correct-guess-lock" />
-<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Gjettespill"><meta name="mobile-web-app-capable" content="yes"><link rel="stylesheet" href="../assets/ui-glass.css?v=1"></head>
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Gjettespill"><meta name="mobile-web-app-capable" content="yes"><link rel="stylesheet" href="../assets/ui-glass.css?v=1"><link rel="stylesheet" href="../assets/ui-play.css?v=1"></head>
 <body class="glass-ui glass-guess">
     <div class="page-glow glow-left"></div>
     <div class="page-glow glow-right"></div>
@@ -14,9 +14,9 @@
     <main id="setup" class="screen app-screen">
         <section class="hero-card">
             <div class="hero-copy">
-                <span class="eyebrow">Biancas univers</span>
-                <h1>Biancas Gjettespill</h1>
-                <p class="subtitle">Gjett riktig tall, samle seire og se hvem som er kveldens mester.</p>
+                <a class="back-link" href="../">← Spillene</a>
+                <h1>Gjettespillet</h1>
+                <p class="subtitle">Finn det hemmelige tallet. Du får vite om du må høyere eller lavere.</p>
                 <div class="hero-badges">
                     <span>1-4 spillere</span>
                     <span>1-20 runder</span>
@@ -30,8 +30,8 @@
 
         <section class="panel">
             <div class="panel-heading">
-                <h2>Sett opp spillet</h2>
-                <p>Velg spillere, antall runder og hvor høyt dere vil telle.</p>
+
+
             </div>
 
             <form id="setupForm" class="setup-grid">
@@ -80,23 +80,7 @@
             </form>
         </section>
 
-        <section class="panel share-panel">
-            <div class="share-copy">
-                <div class="panel-heading">
-                    <h2>Spill på mobil</h2>
-                    <p>Spillere kan scanne QR-koden eller taste inn lenken manuelt for å komme rett til gjettespillet.</p>
-                </div>
-                <div class="share-links">
-                    <a href="https://remimarents.github.io/Bianca/Gjettespill/" target="_blank" rel="noreferrer">remimarents.github.io/Bianca/Gjettespill/</a>
-                    <span>eller</span>
-                    <a href="https://bit.ly/3OnIqbF" target="_blank" rel="noreferrer">bit.ly/3OnIqbF</a>
-                </div>
-            </div>
-            <div class="qr-card">
-                <img src="assets/gjettespill-qr.png" alt="QR-kode til Biancas Gjettespill" class="qr-image" />
-                <p>Scan for å åpne spillet på mobilen.</p>
-            </div>
-        </section>
+        <details class="share-disclosure"><summary>Åpne på en annen enhet</summary><img src="assets/gjettespill-qr.png" alt="QR-kode til gjettespillet" width="150" height="150"></details>
     </main>
 
     <main id="game" class="screen app-screen game-layout" style="display:none;">
@@ -104,7 +88,7 @@
             <div class="brand-mini">
                 <img src="assets/logo.png" alt="Biancas Gjettespill-logo" />
                 <div>
-                    <span class="eyebrow">Spillet er i gang</span>
+
                     <h2 id="roundInfo"></h2>
                 </div>
             </div>
@@ -114,20 +98,20 @@
         <section class="game-grid">
             <article class="panel action-panel">
                 <div class="panel-heading">
-                    <h3>Gi ditt beste gjett</h3>
+                    <h3>Hvilket tall?</h3>
                     <p id="feedback"></p>
                 </div>
 
                 <div class="guess-input">
-                    <input type="number" id="guessField" placeholder="Skriv tallet ditt" class="guess-input-field" />
+                    <input type="number" id="guessField" inputmode="numeric" aria-label="Ditt gjett" placeholder="Skriv tallet ditt" class="guess-input-field" />
                     <button id="guessButton" class="primary">Gjett</button>
                 </div>
             </article>
 
-            <article class="panel score-panel">
+            <details class="panel score-panel"><summary>Poeng og forsøk</summary>
                 <div class="panel-heading">
-                    <h3>Poengtavle</h3>
-                    <p>Følg forsøk og seire gjennom hele spillet.</p>
+
+
                 </div>
 
                 <div class="table-wrap">
@@ -135,15 +119,15 @@
                         <thead>
                             <tr>
                                 <th>Spiller</th>
-                                <th>Forsøk runden</th>
-                                <th>Totale forsøk</th>
-                                <th>Vinnende runder</th>
+                                <th>Denne runden</th>
+                                <th>Forsøk totalt</th>
+                                <th>Seire</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
                     </table>
                 </div>
-            </article>
+            </details>
         </section>
     </main>
 
@@ -172,7 +156,7 @@
             <article class="panel">
                 <div class="panel-heading">
                     <h3>Sluttresultat</h3>
-                    <p>Se hvem som vant, og hvor mange forsøk det tok.</p>
+
                 </div>
 
                 <div class="table-wrap">
@@ -180,8 +164,8 @@
                         <thead>
                             <tr>
                                 <th>Spiller</th>
-                                <th>Totale forsøk</th>
-                                <th>Vinnende runder</th>
+                                <th>Forsøk totalt</th>
+                                <th>Seire</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -191,8 +175,8 @@
 
             <section id="highscoresSection" class="panel">
                 <div class="panel-heading">
-                    <h3>Highscore</h3>
-                    <p>Beste vinnere blir liggende igjen til neste spillkveld.</p>
+                    <h3>Rekorder</h3>
+
                 </div>
                 <ul id="highscoreList"></ul>
             </section>

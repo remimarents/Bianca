@@ -2,43 +2,29 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Biancas Tetris</title>
   <link rel="stylesheet" href="./style.css" />
-<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Tetris"><meta name="mobile-web-app-capable" content="yes"><link rel="stylesheet" href="../assets/ui-glass.css?v=1"></head>
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Tetris"><meta name="mobile-web-app-capable" content="yes"><link rel="stylesheet" href="../assets/ui-glass.css?v=1"><link rel="stylesheet" href="../assets/ui-play.css?v=1"></head>
 <body class="glass-ui glass-tetris">
   <main class="app">
     <section class="game-card">
-      <div class="topbar" style="flex-wrap:wrap">
-        <button id="soundBtn">Lyd: på</button>
-        <button id="musicBtn">Musikk: av</button>
-        <button id="quitBtn">Start på nytt</button>
-      </div>
+      <header class="play-header"><a href="../" aria-label="Til spillene">←</a><span>Tetris</span><details class="game-settings"><summary aria-label="Innstillinger">•••</summary><div class="settings-popover"><button id="soundBtn">Lyd: på</button><button id="musicBtn">Musikk: av</button><button id="quitBtn">Start på nytt</button><details><summary>Rekorder</summary><ol id="highscores"></ol></details></div></details></header>
+      <div class="score-strip"><span>Poeng <b id="score">0</b></span><span>Linjer <b id="lines">0</b></span><span>Nivå <b id="level">1</b></span></div>
 
       <div class="game-layout">
         <canvas id="game" width="300" height="600"></canvas>
 
-        <aside class="side">
-          <h1>Biancas Tetris</h1>
-          <p>Poeng: <b id="score">0</b></p>
-          <p>Linjer: <b id="lines">0</b></p>
-          <p>Level: <b id="level">1</b></p>
-
-          <h2>Neste</h2>
-          <canvas id="next" width="120" height="120"></canvas>
-
-          <h2>Topp 5</h2>
-          <ol id="highscores"></ol>
-        </aside>
+        <aside class="side"><span>Neste</span><canvas id="next" width="120" height="120"></canvas></aside>
       </div>
     </section>
 
     <section class="touch-controls">
-      <button id="leftBtn">◀</button>
-      <button id="rotateBtn">⟳</button>
-      <button id="rightBtn">▶</button>
-      <button id="downBtn">▼</button>
-      <button id="dropBtn">⤓</button>
+      <button id="leftBtn" aria-label="Flytt til venstre">◀</button>
+      <button id="rotateBtn" aria-label="Roter">⟳</button>
+      <button id="rightBtn" aria-label="Flytt til høyre">▶</button>
+      <button id="downBtn" aria-label="Flytt ned">▼</button>
+      <button id="dropBtn" aria-label="Slipp brikken">⤓</button>
     </section>
   </main>
 

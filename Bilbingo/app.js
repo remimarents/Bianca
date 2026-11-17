@@ -167,6 +167,13 @@ function renderGame() {
   state.players.forEach((player) => {
     const color = colorById(player.color);
     const car = carById(player.car);
+    const silhouettes = {
+      hatchback: "M22 72 L31 51 L66 45 L88 20 Q94 14 106 14 H155 Q163 14 172 25 L188 45 L211 52 Q221 55 221 67 V81 H19 V72Z",
+      suv: "M20 76 V49 L58 43 L77 12 H164 L191 43 H217 V81 H20Z",
+      pickup: "M20 78 V49 H65 L85 15 H133 L150 45 H219 V81 H20Z",
+      sport: "M19 76 L35 58 L77 48 L103 31 H149 L177 49 L215 57 L224 81 H19Z"
+    };
+    const windows = car.id === "sport" ? "M89 48 L108 36 H121 V48Z M127 36 H147 L164 48 H127Z" : car.id === "pickup" ? "M78 43 L91 23 H119 V43Z M125 23 H128 L141 43 H125Z" : "M79 44 L97 22 H116 V44Z M124 22 H151 Q158 22 163 29 L175 44 H124Z";
     const card = document.createElement("section");
     card.className = "player-card glass";
     card.id = `card-${player.id}`;
@@ -179,7 +186,7 @@ function renderGame() {
         </div>
         <span class="badge">${car.name}</span>
       </div>
-      <div class="car-stage"><img class="car-img" src="${car.src}" alt="${car.name}"></div>
+      <div class="car-stage"><svg class="car-img" viewBox="0 0 240 110" role="img" aria-label="${color.name} ${car.name}"><ellipse cx="120" cy="91" rx="101" ry="8" fill="#132b4020"/><path d="${silhouettes[car.id] || silhouettes.hatchback}" fill="var(--car-color)" stroke="#183048" stroke-width="3"/><path d="${windows}" fill="#d8f2ff" stroke="#183048" stroke-width="2"/><path d="M27 60H46 M198 60H215" stroke="#fff7c9" stroke-width="7" stroke-linecap="round"/><path d="M130 52H143" stroke="#183048" stroke-width="3" stroke-linecap="round"/><g fill="#233044" stroke="#e1e9ef" stroke-width="4"><circle cx="62" cy="81" r="17"/><circle cx="180" cy="81" r="17"/></g><g fill="#a8bfd0"><circle cx="62" cy="81" r="7"/><circle cx="180" cy="81" r="7"/></g></svg></div>
       <div class="points-row">
         <div>Runden<strong>${player.roundPoints}</strong></div>
         <div>Totalt<strong>${player.totalPoints}</strong></div>

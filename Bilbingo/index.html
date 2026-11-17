@@ -6,12 +6,12 @@
   <meta name="theme-color" content="#64d2ff">
   <title>Bilbingo</title>
   <link rel="stylesheet" href="style.css?v=20260705-score-tap-guard">
-<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Bilbingo"><meta name="mobile-web-app-capable" content="yes"><link rel="stylesheet" href="../assets/ui-glass.css?v=1"></head>
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Bilbingo"><meta name="mobile-web-app-capable" content="yes"><link rel="stylesheet" href="../assets/ui-glass.css?v=1"><link rel="stylesheet" href="../assets/ui-play.css?v=1"></head>
 <body class="glass-ui glass-bingo">
   <main id="app" class="app" aria-live="polite">
     <section id="setupScreen" class="screen is-active">
       <header class="hero glass">
-        <p class="eyebrow">Barnas Magiske Rom</p>
+        <a class="back-link" href="../">← Spillene</a>
         <h1 id="titleHold">Bilbingo</h1>
         <p class="lede">Trykk når dere ser biler i riktig farge på turen.</p>
       </header>
@@ -49,7 +49,7 @@
           </label>
         </div>
 
-        <button class="primary" type="submit">Neste: Velg farger</button>
+        <button class="primary" type="submit">Velg farger</button>
       </form>
     </section>
 
@@ -57,7 +57,7 @@
       <header class="top glass">
         <button class="ghost" type="button" data-back="setup">Tilbake</button>
         <div>
-          <p class="eyebrow">Steg 2</p>
+
           <h2>Velg bil og farge</h2>
         </div>
       </header>
@@ -95,18 +95,18 @@
 
     <section id="winnerScreen" class="screen">
       <div class="winner glass">
-        <p class="eyebrow">Mål</p>
+
         <h2 id="winnerTitle">Vinner</h2>
         <p id="winnerMeta"></p>
         <ol id="scoreList" class="score-list"></ol>
         <div class="highscore" id="highscoreBox"></div>
-        <button id="replayBtn" class="primary" type="button">Spill igjen med samme spillere</button>
+        <button id="replayBtn" class="primary" type="button">Spill igjen</button>
         <button id="newGameBtn" type="button">Nytt spill</button>
-        <a class="button-link" href="../">Tilbake til Barnas Magiske Rom</a>
+        <a class="button-link" href="../">Til spillene</a>
       </div>
     </section>
   </main>
 
-  <script src="app.js?v=20260705-score-tap-guard"></script>
+  <script src="app.js?v=20261117-modern"></script>
 <script src="pwa.js" data-app-name="Biancas bilbingo" defer></script></body>
 </html>
