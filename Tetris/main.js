@@ -568,37 +568,61 @@ canvas.addEventListener("lostpointercapture", e => { if (drag?.id === e.pointerI
 window.addEventListener("blur", cancelDrag);
 document.addEventListener("visibilitychange", () => { if (document.hidden) cancelDrag(); });
 
+// Buttons and keyboard can take over immediately, even during a drag/release.
+function takeControl(fn) {
+  if (gameOver) return;
+  const interrupted = drag || dropping;
+  if (drag) {
+    const id = drag.id;
+    drag = null;
+    canvas.style.cursor = "grab";
+    if (canvas.hasPointerCapture(id)) canvas.releasePointerCapture(id);
+  }
+  if (dropping) {
+    const progress = dropping.duration ? Math.min(1, (performance.now() - dropping.start) / dropping.duration) : 1;
+    piece.y = Math.floor(dropping.from + (dropping.to - dropping.from) * (1 - Math.pow(1 - progress, 2)));
+    dropping = null;
+  }
+  if (interrupted) dropCounter = 0;
+  fn();
+}
 document.addEventListener("keydown", e => {
-  if (e.key === "ArrowLeft") move(-1);
-  if (e.key === "ArrowRight") move(1);
-  if (e.key === "ArrowDown") softDrop();
-  if (e.key === "ArrowUp") rotatePiece();
-  if (e.key === " ") hardDrop();
+  const actions = { ArrowLeft: () => move(-1), ArrowRight: () => move(1), ArrowDown: softDrop, ArrowUp: rotatePiece, " ": hardDrop };
+  if (!actions[e.key] || e.target.closest('input,select,textarea,summary') || document.querySelector('.game-settings')?.open) return;
+  e.preventDefault();
+  takeControl(actions[e.key]);
 });
 
 function bindHold(id, fn, repeat = false) {
   const btn = document.getElementById(id);
-  let timer = null;
-
-  const start = e => {
+  let timer = null, pointerId = null, handledPress = false;
+  btn.style.touchAction = "none";
+  const stop = () => {
+    clearTimeout(timer); clearInterval(timer); timer = null;
+    const id = pointerId; pointerId = null;
+    if (id !== null && btn.hasPointerCapture(id)) btn.releasePointerCapture(id);
+  };
+  btn.addEventListener("pointerdown", e => {
+    if (e.button !== 0 || pointerId !== null) return;
     e.preventDefault();
     stop();
-    fn();
-
-    if (repeat) {
-      timer = setTimeout(() => { timer = setInterval(fn, 170); fn(); }, 320);
-    }
-  };
-
-  const stop = () => {
-    if (timer) clearInterval(timer);
-    timer = null;
-  };
-
-  btn.addEventListener("pointerdown", start);
-  btn.addEventListener("pointerup", stop);
-  btn.addEventListener("pointercancel", stop);
-  btn.addEventListener("pointerleave", stop);
+    pointerId = e.pointerId;
+    handledPress = true;
+    btn.setPointerCapture(e.pointerId);
+    takeControl(fn);
+    if (repeat) timer = setTimeout(() => { takeControl(fn); timer = setInterval(() => takeControl(fn), 170); }, 320);
+  });
+  for (const event of ["pointerup", "pointercancel", "lostpointercapture"]) {
+    btn.addEventListener(event, e => { if (e.pointerId === pointerId) stop(); });
+  }
+  // Supports keyboard/assistive clicks and browsers that deliver only click.
+  btn.addEventListener("click", e => {
+    if (handledPress && e.detail !== 0) { handledPress = false; return; }
+    handledPress = false;
+    takeControl(fn);
+  });
+  window.addEventListener("blur", stop);
+  document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); });
 }
 
 bindHold("leftBtn", () => move(-1), true);
