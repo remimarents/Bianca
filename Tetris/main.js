@@ -52,9 +52,14 @@ function playSound(name) {
   } catch {}
 }
 
-const COLS = 10;
-const ROWS = 20;
+// Fit a square-cell board to the available viewport at game start.
+// Keep these dimensions stable while Safari's bars expand/collapse: never reset play.
+const cellSize = Math.min(window.innerWidth / 10, window.innerHeight / 16);
+const COLS = Math.max(10, Math.round(window.innerWidth / cellSize));
+const ROWS = Math.max(16, Math.round(window.innerHeight / cellSize));
 const BLOCK = 30;
+canvas.width = COLS * BLOCK;
+canvas.height = ROWS * BLOCK;
 
 const COLORS = {
   I: "#00f5ff",
@@ -436,7 +441,7 @@ function draw() {
 function drawNext() {
   nextCtx.clearRect(0, 0, nextCanvas.width, nextCanvas.height);
 
-  nextCtx.fillStyle = "rgba(0,0,0,0.35)";
+  nextCtx.fillStyle = "rgba(0,0,0,0)";
   nextCtx.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
 
   const size = 22;
