@@ -21,6 +21,7 @@ def upload(parent,name,content):
  print('uploaded',name)
 if __name__=='__main__':
  domain='/domains/biancanoor.no';public=domain+'/public_html';private=domain+'/hotell-private'
+ upload(public+'/assets','ui-glass.css',(ROOT.parent/'assets/ui-glass.css').read_bytes())
  folder(public,'hotell');folder(domain,'hotell-private');folder(private,'assets');folder(public+'/hotell','icons')
  for f in ['events.json','stories.json','tasks.json']:upload(private+'/assets',f,(ROOT/'content'/f).read_bytes())
  for f in ['journey.php','devices.php']:upload(public+'/hotell',f,(ROOT/f).read_bytes())
