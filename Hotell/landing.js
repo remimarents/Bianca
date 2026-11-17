@@ -11,7 +11,7 @@
     if (!value) return;
     invite = value;
     history.replaceState(null, '', location.pathname + location.search);
-    $('#message').textContent = 'Invitasjonen knytter denne nettleseren til din plass. Bruk din egen iPhone.';
+    $('#message').textContent = 'Trykk «Åpne mitt hotell» for å begynne.';
     $('#activate').hidden = false;
   }
   $('#activate').onclick = async () => {

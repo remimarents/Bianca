@@ -20,7 +20,7 @@ header("Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; 
 <ol><li>Åpne hotellet på iPhone der du allerede er innlogget.</li><li>Trykk <strong>«Mine enheter»</strong> inne i spillet, og deretter <strong>«Hent engangskode»</strong>.</li><li>Åpne <strong>biancanoor.no/hotell/</strong> i nettleseren på din Chromebook.</li><li>Velg <strong>«Jeg spiller allerede på en annen enhet»</strong>. Skriv inn koden fra iPhone og trykk <strong>«Koble til min spiller»</strong>.</li><li>Sjekk at navnet øverst er ditt. Nå kan du fortsette på din Chromebook. iPhone beholder også tilgangen.</li></ol>
 <p>Du kan gjøre det samme motsatt vei, fra din Chromebook der du er innlogget til iPhone. Hvis hotellet på hjemskjermen ber om tilgang på nytt, kan du hente en kode i nettleseren der du allerede spiller og skrive den inn der.</p>
 <h3>Hva skjer med valgene mine?</h3>
-<p>Valg, rolle, rom og fremdrift lagres på serveren og blir synlige på begge enhetene når de har nettforbindelse. Alle tre jentene deler hotellet, men du beholder din egen spiller. To åpne enheter gir deg ikke to stemmer. Hvis du endrer stemmen din fra den andre enheten mens avstemningen er åpen, gjelder den sist lagrede stemmen din.</p>
+<p>Valgene og fremdriften din følger deg på begge enhetene når du er på nett. Alle tre jentene deler hotellet, men du beholder din egen spiller. To åpne enheter gir deg ikke to stemmer. Hvis du endrer stemmen din fra den andre enheten mens avstemningen er åpen, gjelder den sist lagrede stemmen din.</p>
 <h3>Bytt enhet når du vil</h3>
 <p>Når din Chromebook er koblet til første gang, trenger du vanligvis ikke en ny kode neste gang. Bare åpne hotellet i samme nettleser. Du kan fortsette der du slapp, og iPhone beholder innloggingen. Du trenger ikke logge ut for å bytte mellom dine egne enheter.</p>
 <h3>Hvis koden ikke virker</h3>
@@ -44,8 +44,8 @@ header("Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; 
 <p>På mobil kan dere dra hotellet sidelengs. Knappene «Resepsjon», «Rom» og «Hage» flytter visningen. «Skjul valg» gir mer plass til hotellet; «Vis valg» åpner spørsmålene igjen.</p>
 </details>
 <details><summary>Hvorfor blir sesongene forskjellige?</summary>
-<p>Spillet har 150 selvstendige hendelser, 20 historier med tre kapitler og 60 praktiske oppgaver. Historiene følger valgene deres: En plan ute kan for eksempel møte regn, mens en plan inne kan skape behov for å dele plassen annerledes.</p>
-<p>Hotellet husker hvilke hendelser og historier dere har sett. De samme selvstendige hendelsene trekkes ikke igjen før hele utvalget er brukt. Oppgavene har sin egen variasjon. Sesongens prioritering påvirker hvilke hendelser som velges når passende, ubrukte hendelser finnes.</p>
+<p>Historiene følger valgene deres: En plan ute kan for eksempel møte regn, mens en plan inne kan skape behov for å dele plassen annerledes.</p>
+<p>Dere møter nye hendelser og oppgaver gjennom sesongene. Det dere prioriterer, påvirker hvilke utfordringer dere får.</p>
 <p>Gjestene beveger seg mellom rom, måltider og hage etter hvert som dagen går. Oppgavene, valgene og målerne endrer seg med fremdriften, ikke mens dere er borte.</p>
 </details>
 <details><summary>Hvordan påvirker valgene det som skjer?</summary>
@@ -53,7 +53,7 @@ header("Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; 
 <p>Les den korte forklaringen under hvert svar på hendelsen. Der kan det for eksempel stå «Mer gjesteglede», «Mer å rydde» eller «Krever overskudd». Det hjelper dere å tenke gjennom valget før dere stemmer.</p>
 <p>Følg særlig med på:</p>
 <ul><li><strong>Trivsel:</strong> Hvordan gjestene samlet sett har det. Enkelte gjester kan like et valg selv om andre blir skuffet.</li><li><strong>Renhold:</strong> Hvor godt hotellet er stelt. Et travelt hotell trenger hjelp til å holde det rent.</li><li><strong>Overskudd:</strong> Hvor mye krefter de som jobber på hotellet har igjen. Mange aktiviteter og oppgaver kan bruke krefter.</li></ul>
-<p>Hotellet har også mynter og et omdømme. Noen valg bruker penger, andre påvirker hva gjestene synes om hotellet. Dere trenger ikke regne oppgaver for å spille.</p>
+<p>Hotellet har også mynter og et omdømme. Noen valg bruker penger, andre påvirker hva gjestene synes om hotellet.</p>
 <p>Se på målerne og gjestenes reaksjoner. Hvis renholdet synker, kan en av dere rydde. Hvis overskuddet blir lavt, kan dere tenke gjennom hvor mye dere setter i gang. Det finnes ikke ett valg som alltid er best.</p>
 </details>
 <details><summary>Hvordan bestemmer vi sammen?</summary>
@@ -65,7 +65,7 @@ header("Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; 
 <details><summary>Hvorfor lønner samarbeid seg?</summary>
 <p>Når dere fordeler oppgavene, kan dere ta vare på flere behov: Én kan ønske gjester velkommen, én kan rydde og én kan servere frokost. Alle bidrar til de samme målerne og de samme gjestene.</p>
 <p>Dere kan velge en rolle under «Min rolle». Rollen er en avtale mellom dere, og låser ingen knapper. Alle kan hjelpe til overalt. Bytt gjerne roller fra dag til dag.</p>
-<p>Spillet gir ikke egne poeng for å si «vi samarbeider». Det som lønner seg, er at dere faktisk følger med, fordeler arbeidet og tar valg hotellet tåler.</p>
+
 <div class="tip"><strong>Prøv dette når dere er uenige:</strong><ol><li>La hver av dere si hva hun ønsker, og hvorfor.</li><li>Gjenta det du hørte: «Du vil ha ro fordi gjestene er slitne?»</li><li>Se på gjestene og målerne. Hva trenger hotellet akkurat nå?</li><li>Velg blant mulighetene i spillet. Dere kan også avtale å prøve en annen plan neste sesong.</li><li>Se på resultatet sammen. Snakk om valget, uten å legge skylden på én person.</li></ol></div>
 <p>Hvis to av dere får viljen sin i en avstemning, lytt likevel til den tredje. Kanskje hun har lagt merke til noe dere andre overså. Et flertall avgjør knappen, men alle tre skal få plass i laget.</p>
 <p>Ved navnevalg kan dere for eksempel la alle foreslå ett navn, kombinere ideer eller avtale å bytte på hvem som får velge fra sesong til sesong.</p>
@@ -80,7 +80,7 @@ header("Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; 
 <p>Valgene lagres automatisk. Dere spiller på det samme hotellet, og endringene blir synlige hos hverandre.</p>
 <p>Du kan spille alene, sammen med én annen eller alle tre. En spiller som lukker siden, regnes vanligvis som borte etter omtrent 45 sekunder. Da tilpasses kravene til start og avstemninger til dem som er igjen.</p>
 <p>Din personlige invitasjon brukes én gang. Senere åpner du hotellet fra samme nettleser. For å legge til iPhone, Chromebook eller en annen nettleser bruker du engangskoden som forklart i «Spill på både iPhone og Chromebook». Ikke del invitasjon eller kode med andre.</p>
-<p>Hvis siden mister forbindelsen, vent til den er tilkoblet igjen før du fortsetter. Å lukke hjelpen sletter ikke det dere har gjort. Oppgavene og valgene blir stående til dere er klare til å fortsette.</p>
+<p>Hvis siden mister forbindelsen, vent til den er tilkoblet igjen før du fortsetter. Oppgavene og valgene blir stående til dere er klare til å fortsette.</p>
 </details>
 <?php if(!isset($_GET['embed'])): ?><a class="back" href="./">Til hotellet</a><?php endif; ?>
 </main></body></html>
