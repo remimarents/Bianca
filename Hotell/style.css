@@ -50,3 +50,31 @@ body:has(.game-sheet:not(.collapsed)) .hotel :is(.room-number,.room-status,.room
  .scene-nav{width:calc(100% - 20px)}.scene-nav button,.scene-nav #sheet-toggle{font-size:10px;padding:8px 6px}
 }
 @media(max-height:550px) and (min-width:701px){.below-scene .team{display:none}.game-sheet,body[data-phase="day"] .game-sheet{max-height:calc(100dvh - 185px);width:min(560px,70vw)}}
+/* Start in the hotel, opening decisions only when requested. */
+.scene-scroll{background:#6c795f}
+.scene-scroll:before{content:'';position:fixed;inset:-24px;background:linear-gradient(#52644355,#35493488),url('asset.php?f=hotel.jpg') center/cover;filter:blur(18px);pointer-events:none}
+.hotel{position:absolute;top:50%;transform:translateY(-40%);width:100vw;height:auto;aspect-ratio:1672/941;min-width:0;background-size:100% 100%;overflow:visible}
+.scene-scroll.zoomed .hotel{width:max(100vw,1100px)}
+.hotel .room-number,.hotel .room-status,.hotel .room-label,.hotel .room-plant,.hotel .guest-name,.hotel .guest-bubble{display:none}
+.hotel .guest-character{font-size:clamp(17px,3vw,36px)}
+.hotel .zone{min-width:0;min-height:44px;padding:4px 7px;background:#fffaf0a6}.hotel .zone small{display:none}.hotel .zone strong{font-size:10px}.hotel .zone .zone-art{font-size:16px}
+.hotel .reception{left:13%;top:79%}.hotel .dining{left:46%;top:79%}.hotel .garden-zone{left:77%;top:36%}.hotel .expansion{left:77%;top:75%}
+.scene-scroll.zoomed .room-number,.scene-scroll.zoomed .room-status,.scene-scroll.zoomed .room-plant,.scene-scroll.zoomed .guest-name{display:block}
+.scene-scroll:not(.zoomed) .room{min-height:44px}
+.topbar{height:52px;background:#fffaf0bd}.topbar .brand{font-size:17px}.brand-icon{display:none}.topbar .icon-button{width:40px;height:40px;min-height:40px}
+.season-line{top:calc(65px + env(safe-area-inset-top));background:#fffaf09c;border:0;height:25px}
+.below-scene{top:calc(96px + env(safe-area-inset-top));background:#fffaf099;border:0;padding:7px 10px}.below-scene .team{display:none}
+.event-peek{position:fixed;z-index:6;bottom:calc(76px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(560px,calc(100% - 24px));padding:12px 16px;min-height:48px;border-radius:15px;background:#fffaf0dc;border:1px solid #fff9;color:#264c43;font-size:14px;font-weight:700;text-align:left;box-shadow:0 3px 15px #0002}.event-peek[hidden]{display:none}
+.game-sheet,body[data-phase="day"] .game-sheet{max-height:min(65dvh,calc(100dvh - 205px - env(safe-area-inset-top) - env(safe-area-inset-bottom)))}
+@media(min-width:701px){.below-scene{top:calc(65px + env(safe-area-inset-top))}.hotel{width:min(100vw,calc((100dvh - 210px)*1.77684));left:50%;transform:translate(-50%,-40%)}.scene-scroll.zoomed .hotel{left:0;transform:translateY(-40%)}}
+.scene-event{position:absolute!important;z-index:5;width:44px;height:44px;border-radius:50%;border:2px solid #fff9;background:#fff7dc;box-shadow:0 3px 15px #432a3744;font-size:22px;animation:event-breathe 3s ease-in-out infinite}.scene-event[hidden],.scene-reaction[hidden]{display:none}
+.scene-reaction{position:absolute!important;z-index:6;top:100%;left:4%;width:92%;padding:9px 12px;border-radius:12px;background:#fffaf0e8;font-size:13px;line-height:1.4;color:#264c43;text-align:center;box-shadow:0 3px 12px #0002}
+.hotel .guest[data-mood="happy"] .guest-character{filter:drop-shadow(0 0 5px #b4ff71)}.hotel .guest[data-mood="unhappy"] .guest-character{filter:drop-shadow(0 0 5px #b8c3f0)}
+.scene-scroll.zoomed .hotel .guest-bubble{display:block;font-size:11px;max-width:170px;white-space:normal}.scene-scroll:not(.zoomed) .guest:nth-child(1) .guest-bubble{display:block;font-size:9px;max-width:105px;white-space:normal;bottom:26px}
+@keyframes event-breathe{50%{box-shadow:0 0 0 7px #fff4,0 3px 15px #432a3744}}
+@media(prefers-reduced-motion:reduce){.scene-event{animation:none}}
+/* A closer playable view; the overview button fits the entire building. */
+.scene-scroll.zoomed .hotel{width:max(100vw,min(1000px,calc((100dvh - 240px)*1.77684)))}
+.hotel .guest-bubble{width:140px;white-space:normal}.scene-event.resolved:after{content:'✓';position:absolute;right:-4px;bottom:-4px;border-radius:50%;background:#386b54;color:white;font-size:14px;width:21px;height:21px}
+@media(max-width:700px){.scene-scroll.zoomed .hotel{width:max(100vw,min(720px,calc((100dvh - 240px)*1.77684)))}.scene-scroll:not(.zoomed) .guest:nth-child(1) .guest-bubble{display:none}.scene-scroll:not(.zoomed) .zone{padding:2px 4px;min-height:36px}.scene-scroll:not(.zoomed) .zone strong{font-size:8px}.scene-scroll:not(.zoomed) .zone .zone-art{font-size:12px}.scene-scroll.zoomed .hotel .guest-character{font-size:27px}}
+.topbar .brand{margin-right:auto;max-width:calc(100% - 54px)}
