@@ -85,11 +85,12 @@ let score = 0;
 let lines = 0;
 let level = 1;
 let dropCounter = 0;
-let dropInterval = 850;
+let dropInterval = 1350;
 let lastTime = 0;
 let gameOver = false;
 let nameSaved = false;
 let drag = null;
+let dropping = null;
 
 function createBoard() {
   return Array.from({ length: ROWS }, () => Array(COLS).fill(null));
@@ -142,7 +143,7 @@ function rotate(matrix) {
 }
 
 function rotatePiece() {
-  if (gameOver || drag) return;
+  if (gameOver || drag || dropping) return;
 
   const oldShape = piece.shape;
   const oldX = piece.x;
@@ -163,7 +164,7 @@ function rotatePiece() {
 }
 
 function move(dir) {
-  if (gameOver || drag) return;
+  if (gameOver || drag || dropping) return;
 
   piece.x += dir;
 
@@ -175,7 +176,7 @@ function move(dir) {
 }
 
 function softDrop() {
-  if (gameOver || drag) return;
+  if (gameOver || drag || dropping) return;
 
   piece.y++;
 
@@ -191,19 +192,21 @@ function softDrop() {
 }
 
 function hardDrop() {
-  if (gameOver || drag) return;
+  if (gameOver || drag || dropping) return;
+  const target = getGhost();
+  const distance = target.y - piece.y;
+  dropping = { from: piece.y, to: target.y, start: performance.now(), duration: matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : Math.min(650, 220 + distance * 24), distance };
+  dropCounter = 0;
+}
 
-  while (!collides()) {
-    piece.y++;
-    score += 1;
-  }
-
-  piece.y--;
+function finishDrop() {
+  piece.y = dropping.to;
+  score += dropping.distance + 1;
+  dropping = null;
   merge();
   clearLines();
   resetPiece();
   playSound("drop");
-
   dropCounter = 0;
 }
 
@@ -273,7 +276,7 @@ function clearLines() {
       playSound("levelup");
     }
 
-    dropInterval = Math.max(120, 850 - (level - 1) * 70);
+    dropInterval = Math.max(450, 1350 - (level - 1) * 55);
   }
 }
 
@@ -316,7 +319,7 @@ function drawBlock(context, x, y, color, size = BLOCK, alpha = 1, glow = true) {
 }
 
 function drawGhost() {
-  if (gameOver) return;
+  if (gameOver || dropping) return;
 
   const ghost = getGhost();
 
@@ -412,10 +415,12 @@ function draw() {
   });
 
   if (!gameOver) {
+    const progress = dropping ? (dropping.duration ? Math.min(1, (performance.now() - dropping.start) / dropping.duration) : 1) : 0;
+    const displayY = dropping ? dropping.from + (dropping.to - dropping.from) * (1 - Math.pow(1 - progress, 2)) : piece.y;
     piece.shape.forEach((row, y) => {
       row.forEach((value, x) => {
         if (value) {
-          drawBlock(ctx, piece.x + x, piece.y + y, COLORS[piece.type]);
+          drawBlock(ctx, piece.x + x, displayY + y, COLORS[piece.type]);
         }
       });
     });
@@ -480,7 +485,9 @@ function update(time = 0) {
   const delta = time - lastTime;
   lastTime = time;
 
-  if (!gameOver && !drag) {
+  if (dropping) {
+    if (time - dropping.start >= dropping.duration) finishDrop();
+  } else if (!gameOver && !drag && !document.querySelector('.game-settings')?.open) {
     dropCounter += delta;
 
     if (dropCounter > dropInterval) {
@@ -510,14 +517,18 @@ function cancelDrag() {
   canvas.style.cursor = "grab";
   if (canvas.hasPointerCapture(id)) canvas.releasePointerCapture(id);
 }
+function stableCell(value, current) {
+  // A small dead zone prevents trembling fingers from toggling adjacent cells.
+  return Math.abs(value - current) < 0.7 ? current : Math.round(value);
+}
 function updateDrag(e) {
   if (!drag || drag.id !== e.pointerId) return;
   const rect = canvas.getBoundingClientRect();
   const dx = e.clientX - drag.clientX, dy = e.clientY - drag.clientY;
-  if (Math.hypot(dx, dy) >= 8) drag.moved = true;
+  if (Math.hypot(dx, dy) >= 14) drag.moved = true;
   if (!drag.moved) return;
-  const targetX = Math.max(-4, Math.min(COLS, drag.x + Math.round(dx / (rect.width / COLS))));
-  const targetY = Math.max(drag.y, Math.min(ROWS, drag.y + Math.round(dy / (rect.height / ROWS))));
+  const targetX = Math.max(-4, Math.min(COLS, drag.x + stableCell(dx / (rect.width / COLS), piece.x - drag.x)));
+  const targetY = Math.max(drag.y, Math.min(ROWS, drag.y + stableCell(dy / (rect.height / ROWS), piece.y - drag.y)));
   // Step through cells: a dragged piece must never pass through a wall or stack.
   for (const [axis, target] of [["y", Math.min(piece.y, targetY)], ["x", targetX], ["y", targetY]]) {
     while (piece[axis] !== target) {
@@ -528,7 +539,7 @@ function updateDrag(e) {
   }
 }
 canvas.addEventListener("pointerdown", e => {
-  if (gameOver || drag || !e.isPrimary || e.button !== 0) return;
+  if (gameOver || drag || dropping || !e.isPrimary || e.button !== 0) return;
   e.preventDefault();
   drag = { id: e.pointerId, clientX: e.clientX, clientY: e.clientY, x: piece.x, y: piece.y, moved: false };
   canvas.setPointerCapture(e.pointerId);
@@ -571,10 +582,11 @@ function bindHold(id, fn, repeat = false) {
 
   const start = e => {
     e.preventDefault();
+    stop();
     fn();
 
     if (repeat) {
-      timer = setInterval(fn, 90);
+      timer = setTimeout(() => { timer = setInterval(fn, 170); fn(); }, 320);
     }
   };
 
