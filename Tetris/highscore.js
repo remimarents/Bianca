@@ -52,6 +52,7 @@ export async function saveHighscore(name, score) {
       }
     );
 
-  } catch {}
+    return true;
+  } catch { return false; }
 
 }

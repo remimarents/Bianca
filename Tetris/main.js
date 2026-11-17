@@ -1,4 +1,4 @@
-import { getHighscores, saveHighscore } from "./highscore.js";
+import { getHighscores, saveHighscore } from "./highscore.js?v=2";
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
@@ -359,47 +359,35 @@ function drawParticles() {
   });
 }
 
-async function saveNameAndScoreOnce() {
+const resultPanel = document.getElementById("game-result");
+const resultForm = document.getElementById("score-form");
+resultForm.addEventListener("submit", async e => {
+  e.preventDefault();
   if (nameSaved) return;
-
   nameSaved = true;
-
-  setTimeout(async () => {
-    let name = prompt("Skriv navnet ditt:");
-
-    if (!name || name.trim() === "") {
-      name = "Spiller";
-    }
-
-    name = name.trim().slice(0, 18);
-
-    await saveHighscore(name, score);
-    await renderHighscores();
-  }, 250);
-}
-
+  const button = resultForm.querySelector("button");
+  const status = document.getElementById("save-status");
+  button.disabled = true;
+  button.textContent = "Lagrer …";
+  const name = document.getElementById("player-name").value.trim().slice(0,18) || "Spiller";
+  const saved = await saveHighscore(name, score);
+  if (saved) {
+    status.textContent = "Rekorden er lagret.";
+    button.textContent = "Lagret";
+    renderHighscores();
+  } else {
+    nameSaved = false;
+    button.disabled = false;
+    button.textContent = "Lagre poeng";
+    status.textContent = "Kunne ikke lagre. Prøv igjen.";
+  }
+});
+document.getElementById("play-again").onclick = () => location.reload();
 function drawGameOver() {
-  ctx.fillStyle = "rgba(0,0,0,0.82)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = "#fff200";
-  ctx.shadowColor = "#ff00cc";
-  ctx.shadowBlur = 28;
-  ctx.textAlign = "center";
-
-  ctx.font = "bold 34px system-ui";
-  ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 50);
-
-  ctx.font = "bold 22px system-ui";
-  ctx.fillText(`Poeng: ${score}`, canvas.width / 2, canvas.height / 2 - 8);
-
-  ctx.font = "bold 16px system-ui";
-  ctx.fillText("Skriv navn for highscore", canvas.width / 2, canvas.height / 2 + 28);
-  ctx.fillText("Trykk Start på nytt etterpå", canvas.width / 2, canvas.height / 2 + 56);
-
-  ctx.shadowBlur = 0;
-
-  saveNameAndScoreOnce();
+  if (!resultPanel.hidden) return;
+  document.getElementById("final-score").textContent = score;
+  resultPanel.hidden = false;
+  document.body.classList.add("round-finished");
 }
 
 function draw() {

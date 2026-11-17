@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Biancas Tetris</title>
   <link rel="stylesheet" href="./style.css" />
-<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Tetris"><meta name="mobile-web-app-capable" content="yes"><link rel="stylesheet" href="../assets/ui-glass.css?v=1"><link rel="stylesheet" href="../assets/ui-play.css?v=1"><link rel="stylesheet" href="fullscreen.css?v=2"></head>
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Tetris"><meta name="mobile-web-app-capable" content="yes"><link rel="stylesheet" href="../assets/ui-glass.css?v=1"><link rel="stylesheet" href="../assets/ui-play.css?v=1"><link rel="stylesheet" href="fullscreen.css?v=3"></head>
 <body class="glass-ui glass-tetris">
   <main class="app">
     <section class="game-card">
@@ -28,6 +28,16 @@
     </section>
   </main>
 
-  <script type="module" src="./main.js?v=20261117-touchlock"></script>
+  <section id="game-result" hidden aria-labelledby="result-title">
+    <h1 id="result-title">Runden er ferdig</h1>
+    <p class="result-score"><strong id="final-score"></strong> poeng</p>
+    <form id="score-form">
+      <label for="player-name">Navn på rekordlisten</label>
+      <div><input id="player-name" maxlength="18" placeholder="Navnet ditt" autocomplete="given-name"><button type="submit">Lagre poeng</button></div>
+      <p id="save-status" role="status"></p>
+    </form>
+    <button id="play-again" type="button">Spill igjen</button>
+  </section>
+  <script type="module" src="./main.js?v=20261117-result"></script>
 <script src="pwa.js" data-app-name="Biancas Tetris" defer></script></body>
 </html>
