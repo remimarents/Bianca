@@ -63,3 +63,7 @@ Hotellet fyller skjermen både før og etter innlogging. På mobil flyttes utsni
 ## Spillhjelp
 
 `help.php` er en offentlig, felles hjelpetekst uten spillerdata. Forsidens «Slik spiller dere» og spørsmålstegnet i spillet åpner samme tekst i en dialog uten å navigere bort eller miste en ventende invitasjon. Teksten beskriver faktiske regler, sesonger, valgenes følger, samarbeid og uenighet, med utvidbare avsnitt. Hjelpen kan også leses direkte på `/hotell/help.php`.
+
+## Felles hotellstart
+
+Forsiden og planleggingspanelet viser nedtelling til Rebeccas bursdag 3. desember 2026 kl. 00:00 norsk tid (fast ISO-offset +01:00). Etter tidspunktet erstattes telleren med felles-start-tekst. countdown.js/countdown.css er offentlige. Dette er informasjon og forventningsbygging, ikke en tilgangssperre eller automatisk utsending av invitasjoner.

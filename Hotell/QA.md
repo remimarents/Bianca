@@ -45,3 +45,7 @@ Sesongprøvene bruker forkortet tid bare på servermerkede QA-hoteller. De bevis
 ## Spillhjelp
 
 PHP-syntaks for help.php/index.php og JavaScript-syntaks bestått. `tests/help.cjs` bestod mot live HTTPS: offentlig og innlogget hjelp, utvidbare sesong-/samarbeidsavsnitt, åpne/lukke hjelp før invitasjonsaktivering, fokus tilbake til spørsmålstegnet, 320/390/1440 px og ingen JavaScript-feil. Mobil- og skrivebordsbilder inspisert. Første test navigerte fra samme URL til bare et nytt fragment, uten å laste invitasjonssiden på nytt; testen ble rettet til en ny sidenavigasjon før invitasjonen åpnes. Det er en testrettelse.
+
+## Bursdagsnedtelling
+
+`tests/countdown.cjs` bestått mot publisert side med kontrollert klokke og amerikansk enhetstidssone: korrekt antall dager/timer/minutter, minuttene før norsk midnatt 3. desember 2026, selve åpningen og tiden etterpå. Teller skjules ved åpning og blir aldri negativ. 320×568, 390×844 og 1440×900 har ingen horisontal overflyt eller overlapp mellom nedtelling og inngangspanel. Mobilbildet er inspisert. Nedtellingen endrer ikke tilgang eller invitasjoner.
