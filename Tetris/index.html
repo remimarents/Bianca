@@ -9,7 +9,7 @@
 <body class="glass-ui glass-tetris">
   <main class="app">
     <section class="game-card">
-      <header class="play-header"><a href="../" aria-label="Til spillene">←</a><span>Tetris</span><details class="game-settings"><summary aria-label="Innstillinger">•••</summary><div class="settings-popover"><p style="font-size:13px;line-height:1.5;margin:4px">Dra brikken og slipp for å plassere. Trykk på brettet for å rotere.</p><button id="soundBtn">Lyd: på</button><button id="musicBtn">Musikk: av</button><button id="quitBtn">Start på nytt</button><details><summary>Rekorder</summary><ol id="highscores"></ol></details></div></details></header>
+      <header class="play-header"><a href="../" aria-label="Til spillene">←</a><span>Tetris</span><details class="game-settings"><summary aria-label="Innstillinger">•••</summary><div class="settings-popover"><p style="font-size:13px;line-height:1.5;margin:4px">Dra for å flytte. Slipp ved bunnen for å plassere. Trykk for å rotere.</p><button id="soundBtn">Lyd: på</button><button id="musicBtn">Musikk: av</button><button id="quitBtn">Start på nytt</button><details><summary>Rekorder</summary><ol id="highscores"></ol></details></div></details></header>
       <div class="score-strip"><span>Poeng <b id="score">0</b></span><span>Linjer <b id="lines">0</b></span><span>Nivå <b id="level">1</b></span></div>
 
       <div class="game-layout">
@@ -28,6 +28,6 @@
     </section>
   </main>
 
-  <script type="module" src="./main.js?v=20261117-controls"></script>
+  <script type="module" src="./main.js?v=20261117-directdrag"></script>
 <script src="pwa.js" data-app-name="Biancas Tetris" defer></script></body>
 </html>
