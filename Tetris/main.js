@@ -89,6 +89,7 @@ let dropInterval = 850;
 let lastTime = 0;
 let gameOver = false;
 let nameSaved = false;
+let drag = null;
 
 function createBoard() {
   return Array.from({ length: ROWS }, () => Array(COLS).fill(null));
@@ -141,7 +142,7 @@ function rotate(matrix) {
 }
 
 function rotatePiece() {
-  if (gameOver) return;
+  if (gameOver || drag) return;
 
   const oldShape = piece.shape;
   const oldX = piece.x;
@@ -162,7 +163,7 @@ function rotatePiece() {
 }
 
 function move(dir) {
-  if (gameOver) return;
+  if (gameOver || drag) return;
 
   piece.x += dir;
 
@@ -174,7 +175,7 @@ function move(dir) {
 }
 
 function softDrop() {
-  if (gameOver) return;
+  if (gameOver || drag) return;
 
   piece.y++;
 
@@ -190,7 +191,7 @@ function softDrop() {
 }
 
 function hardDrop() {
-  if (gameOver) return;
+  if (gameOver || drag) return;
 
   while (!collides()) {
     piece.y++;
@@ -479,7 +480,7 @@ function update(time = 0) {
   const delta = time - lastTime;
   lastTime = time;
 
-  if (!gameOver) {
+  if (!gameOver && !drag) {
     dropCounter += delta;
 
     if (dropCounter > dropInterval) {
@@ -494,6 +495,67 @@ function update(time = 0) {
 
   requestAnimationFrame(update);
 }
+
+// Pointer events support fingers, mouse and trackpad with the same placement rules.
+canvas.style.touchAction = "none";
+canvas.style.userSelect = "none";
+canvas.style.cursor = "grab";
+canvas.setAttribute("aria-label", "Tetris. Dra brikken og slipp for å plassere. Trykk for å rotere.");
+function cancelDrag() {
+  if (!drag) return;
+  piece.x = drag.x; piece.y = drag.y;
+  const id = drag.id;
+  drag = null;
+  dropCounter = 0;
+  canvas.style.cursor = "grab";
+  if (canvas.hasPointerCapture(id)) canvas.releasePointerCapture(id);
+}
+function updateDrag(e) {
+  if (!drag || drag.id !== e.pointerId) return;
+  const rect = canvas.getBoundingClientRect();
+  const dx = e.clientX - drag.clientX, dy = e.clientY - drag.clientY;
+  if (Math.hypot(dx, dy) >= 8) drag.moved = true;
+  if (!drag.moved) return;
+  const targetX = Math.max(-4, Math.min(COLS, drag.x + Math.round(dx / (rect.width / COLS))));
+  const targetY = Math.max(drag.y, Math.min(ROWS, drag.y + Math.round(dy / (rect.height / ROWS))));
+  // Step through cells: a dragged piece must never pass through a wall or stack.
+  for (const [axis, target] of [["y", Math.min(piece.y, targetY)], ["x", targetX], ["y", targetY]]) {
+    while (piece[axis] !== target) {
+      const step = Math.sign(target - piece[axis]);
+      piece[axis] += step;
+      if (collides()) { piece[axis] -= step; break; }
+    }
+  }
+}
+canvas.addEventListener("pointerdown", e => {
+  if (gameOver || drag || !e.isPrimary || e.button !== 0) return;
+  e.preventDefault();
+  drag = { id: e.pointerId, clientX: e.clientX, clientY: e.clientY, x: piece.x, y: piece.y, moved: false };
+  canvas.setPointerCapture(e.pointerId);
+  canvas.style.cursor = "grabbing";
+});
+canvas.addEventListener("pointermove", e => {
+  if (drag?.id !== e.pointerId) return;
+  e.preventDefault();
+  updateDrag(e);
+});
+canvas.addEventListener("pointerup", e => {
+  if (drag?.id !== e.pointerId) return;
+  e.preventDefault();
+  updateDrag(e);
+  const rect = canvas.getBoundingClientRect();
+  if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) { cancelDrag(); return; }
+  const moved = drag.moved;
+  drag = null;
+  canvas.releasePointerCapture(e.pointerId);
+  canvas.style.cursor = "grab";
+  dropCounter = 0;
+  if (moved) hardDrop(); else rotatePiece();
+});
+canvas.addEventListener("pointercancel", e => { if (drag?.id === e.pointerId) cancelDrag(); });
+canvas.addEventListener("lostpointercapture", e => { if (drag?.id === e.pointerId) cancelDrag(); });
+window.addEventListener("blur", cancelDrag);
+document.addEventListener("visibilitychange", () => { if (document.hidden) cancelDrag(); });
 
 document.addEventListener("keydown", e => {
   if (e.key === "ArrowLeft") move(-1);
