@@ -1,0 +1,1556 @@
+[
+  {
+    "id": "jobb-01",
+    "category": "gjester",
+    "title": "En trøtt ankomst",
+    "text": "Familien vil hvile før de pakker ut. Hva ordner du først?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Et rolig sted og vann",
+        "effect": {
+          "joy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: et rolig sted og vann."
+      },
+      {
+        "id": "b",
+        "label": "En kort omvisning med mulighet for pause",
+        "effect": {
+          "joy": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: en kort omvisning med mulighet for pause."
+      }
+    ]
+  },
+  {
+    "id": "jobb-02",
+    "category": "gjester",
+    "title": "Den usikre turgjesten",
+    "text": "Gjesten vil vite om turen passer formen hennes.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Finn ruteinformasjon og pauser",
+        "effect": {
+          "joy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: finn ruteinformasjon og pauser."
+      },
+      {
+        "id": "b",
+        "label": "Tilby den korteste merkede turen",
+        "effect": {
+          "joy": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: tilby den korteste merkede turen."
+      }
+    ]
+  },
+  {
+    "id": "jobb-03",
+    "category": "gjester",
+    "title": "En lader å låne",
+    "text": "Gjesten må ringe hjem, men telefonen er tom.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Finn en kompatibel lånelader",
+        "effect": {
+          "joy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: finn en kompatibel lånelader."
+      },
+      {
+        "id": "b",
+        "label": "Tilby å bruke resepsjonens telefon",
+        "effect": {
+          "joy": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: tilby å bruke resepsjonens telefon."
+      }
+    ]
+  },
+  {
+    "id": "jobb-04",
+    "category": "gjester",
+    "title": "En gjest søker selskap",
+    "text": "Gjesten vil møte andre uten en stor fest.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Inviter til et lite spillbord",
+        "effect": {
+          "joy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: inviter til et lite spillbord."
+      },
+      {
+        "id": "b",
+        "label": "Vis frem en felles aktivitet med ledig plass",
+        "effect": {
+          "joy": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: vis frem en felles aktivitet med ledig plass."
+      }
+    ]
+  },
+  {
+    "id": "jobb-05",
+    "category": "gjester",
+    "title": "En beskjed til resepsjonen",
+    "text": "Gjesten har en beskjed til en annen gjest.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Be mottakeren kontakte resepsjonen",
+        "effect": {
+          "joy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: be mottakeren kontakte resepsjonen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby å legge en lukket beskjed etter avtale",
+        "effect": {
+          "joy": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: tilby å legge en lukket beskjed etter avtale."
+      }
+    ]
+  },
+  {
+    "id": "jobb-06",
+    "category": "gjester",
+    "title": "Avreise uten stress",
+    "text": "Gjesten vil både rekke bussen og spise frokost.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gjør klar en enkel matpakke",
+        "effect": {
+          "joy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: gjør klar en enkel matpakke."
+      },
+      {
+        "id": "b",
+        "label": "Avtal tidlig frokost",
+        "effect": {
+          "joy": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: avtal tidlig frokost."
+      }
+    ]
+  },
+  {
+    "id": "jobb-07",
+    "category": "rom",
+    "title": "Klargjør leserommet",
+    "text": "Gjesten ønsker leselys og fri plass ved sengen.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt lampen og rydd passasjen",
+        "effect": {
+          "cleanliness": 5,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: flytt lampen og rydd passasjen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby et ferdig lesested i salongen",
+        "effect": {
+          "cleanliness": 3,
+          "joy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: tilby et ferdig lesested i salongen."
+      }
+    ]
+  },
+  {
+    "id": "jobb-08",
+    "category": "rom",
+    "title": "Et mørkt soverom",
+    "text": "Gjesten skal sove på dagtid.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Trekk for og sjekk lyssprekker",
+        "effect": {
+          "cleanliness": 5,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: trekk for og sjekk lyssprekker."
+      },
+      {
+        "id": "b",
+        "label": "Tilby et mørkere ledig rom",
+        "effect": {
+          "cleanliness": 3,
+          "joy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: tilby et mørkere ledig rom."
+      }
+    ]
+  },
+  {
+    "id": "jobb-09",
+    "category": "rom",
+    "title": "Plass til barnevogn",
+    "text": "Inngangen på rommet er trang.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt en stol så passasjen blir fri",
+        "effect": {
+          "cleanliness": 5,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: flytt en stol så passasjen blir fri."
+      },
+      {
+        "id": "b",
+        "label": "Tilby trygg oppbevaring utenfor rommet",
+        "effect": {
+          "cleanliness": 3,
+          "joy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: tilby trygg oppbevaring utenfor rommet."
+      }
+    ]
+  },
+  {
+    "id": "jobb-10",
+    "category": "rom",
+    "title": "Rommet etter strandturen",
+    "text": "Det ligger sand i gangen inn til badet.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Rydd gulvet før nye tekstiler legges inn",
+        "effect": {
+          "cleanliness": 5,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: rydd gulvet før nye tekstiler legges inn."
+      },
+      {
+        "id": "b",
+        "label": "Gi gjestene et sted å skifte og rengjør etterpå",
+        "effect": {
+          "cleanliness": 3,
+          "joy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: gi gjestene et sted å skifte og rengjør etterpå."
+      }
+    ]
+  },
+  {
+    "id": "jobb-11",
+    "category": "rom",
+    "title": "Vann ved nattbordet",
+    "text": "Gjesten har sølt vann nær en lampe.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Koble fra bruk og få det kontrollert trygt",
+        "effect": {
+          "cleanliness": 5,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: koble fra bruk og få det kontrollert trygt."
+      },
+      {
+        "id": "b",
+        "label": "Tilby et annet rom mens området ordnes",
+        "effect": {
+          "cleanliness": 3,
+          "joy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: tilby et annet rom mens området ordnes."
+      }
+    ]
+  },
+  {
+    "id": "jobb-12",
+    "category": "rom",
+    "title": "Et personlig romvalg",
+    "text": "Gjesten ønsker mindre pynt og flere bøker.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bytt pynt med en bokkurv",
+        "effect": {
+          "cleanliness": 5,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: bytt pynt med en bokkurv."
+      },
+      {
+        "id": "b",
+        "label": "Vis gjesten hvilke pynteting som kan flyttes",
+        "effect": {
+          "cleanliness": 3,
+          "joy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: vis gjesten hvilke pynteting som kan flyttes."
+      }
+    ]
+  },
+  {
+    "id": "jobb-13",
+    "category": "mat",
+    "title": "Trygg merking",
+    "text": "En gjest spør hva brødet inneholder.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Finn ingredienslisten før du svarer",
+        "effect": {
+          "joy": 4,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: finn ingredienslisten før du svarer."
+      },
+      {
+        "id": "b",
+        "label": "Tilby et produkt med kjent merking",
+        "effect": {
+          "joy": 2,
+          "reputation": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: tilby et produkt med kjent merking."
+      }
+    ]
+  },
+  {
+    "id": "jobb-14",
+    "category": "mat",
+    "title": "Rydd serveringsruten",
+    "text": "Brukte kopper står der nye retter skal settes.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag et eget returpunkt",
+        "effect": {
+          "joy": 4,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: lag et eget returpunkt."
+      },
+      {
+        "id": "b",
+        "label": "Rydd bordet før neste servering",
+        "effect": {
+          "joy": 2,
+          "reputation": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: rydd bordet før neste servering."
+      }
+    ]
+  },
+  {
+    "id": "jobb-15",
+    "category": "mat",
+    "title": "Vann til turgruppen",
+    "text": "Gruppen skal på en varm tur.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Vis hvor flasker kan fylles",
+        "effect": {
+          "joy": 4,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: vis hvor flasker kan fylles."
+      },
+      {
+        "id": "b",
+        "label": "Lag en tydelig vannstasjon ved utgangen",
+        "effect": {
+          "joy": 2,
+          "reputation": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: lag en tydelig vannstasjon ved utgangen."
+      }
+    ]
+  },
+  {
+    "id": "jobb-16",
+    "category": "mat",
+    "title": "Mindre matsvinn",
+    "text": "Det er mat igjen etter frokosten.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Oppbevar egnet mat forsvarlig",
+        "effect": {
+          "joy": 4,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: oppbevar egnet mat forsvarlig."
+      },
+      {
+        "id": "b",
+        "label": "Tilpass neste bestilling etter det som ble igjen",
+        "effect": {
+          "joy": 2,
+          "reputation": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: tilpass neste bestilling etter det som ble igjen."
+      }
+    ]
+  },
+  {
+    "id": "jobb-17",
+    "category": "mat",
+    "title": "En ledig kjøkkenhånd",
+    "text": "Kjøkkenet har både oppvask og gjester å servere.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Ta oppvasken så kokken kan servere",
+        "effect": {
+          "joy": 4,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: ta oppvasken så kokken kan servere."
+      },
+      {
+        "id": "b",
+        "label": "Ta serveringen med tydelig beskjed fra kjøkkenet",
+        "effect": {
+          "joy": 2,
+          "reputation": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: ta serveringen med tydelig beskjed fra kjøkkenet."
+      }
+    ]
+  },
+  {
+    "id": "jobb-18",
+    "category": "mat",
+    "title": "Små porsjoner",
+    "text": "Et barn vil smake, men er usikkert på retten.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Tilby en liten smaksprøve",
+        "effect": {
+          "joy": 4,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: tilby en liten smaksprøve."
+      },
+      {
+        "id": "b",
+        "label": "Vis de kjente delene av måltidet",
+        "effect": {
+          "joy": 2,
+          "reputation": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: vis de kjente delene av måltidet."
+      }
+    ]
+  },
+  {
+    "id": "jobb-19",
+    "category": "hage",
+    "title": "Ro ved fuglekassen",
+    "text": "Gjestene vil se fuglene uten å forstyrre.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en observasjonsplass på avstand",
+        "effect": {
+          "joy": 3,
+          "energy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: lag en observasjonsplass på avstand."
+      },
+      {
+        "id": "b",
+        "label": "Sett frem bilder av fuglene ved salongen",
+        "effect": {
+          "energy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: sett frem bilder av fuglene ved salongen."
+      }
+    ]
+  },
+  {
+    "id": "jobb-20",
+    "category": "hage",
+    "title": "Rydd etter piknik",
+    "text": "Matpapir ligger igjen ved et utebord.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Sorter avfallet og tørk bordet",
+        "effect": {
+          "joy": 3,
+          "energy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: sorter avfallet og tørk bordet."
+      },
+      {
+        "id": "b",
+        "label": "Hent returkurv og involver turgruppen",
+        "effect": {
+          "energy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: hent returkurv og involver turgruppen."
+      }
+    ]
+  },
+  {
+    "id": "jobb-21",
+    "category": "hage",
+    "title": "Planter i solen",
+    "text": "Noen potter tørker raskere enn de andre.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt de sårbare plantene til halvskygge",
+        "effect": {
+          "joy": 3,
+          "energy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: flytt de sårbare plantene til halvskygge."
+      },
+      {
+        "id": "b",
+        "label": "Sjekk jorden og vann ved røttene",
+        "effect": {
+          "energy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: sjekk jorden og vann ved røttene."
+      }
+    ]
+  },
+  {
+    "id": "jobb-22",
+    "category": "hage",
+    "title": "En ledig hageflekk",
+    "text": "Gjester ønsker både ballspill og hvile.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Merk et aktivitetsområde med god avstand",
+        "effect": {
+          "joy": 3,
+          "energy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: merk et aktivitetsområde med god avstand."
+      },
+      {
+        "id": "b",
+        "label": "Avtal ulike tider for samme område",
+        "effect": {
+          "energy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: avtal ulike tider for samme område."
+      }
+    ]
+  },
+  {
+    "id": "jobb-23",
+    "category": "hage",
+    "title": "Våt benk",
+    "text": "Gjestene vil sitte ute etter regnet.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Tørk en benk og legg ut tørre puter",
+        "effect": {
+          "joy": 3,
+          "energy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: tørk en benk og legg ut tørre puter."
+      },
+      {
+        "id": "b",
+        "label": "Vis gjestene en overdekket sitteplass",
+        "effect": {
+          "energy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: vis gjestene en overdekket sitteplass."
+      }
+    ]
+  },
+  {
+    "id": "jobb-24",
+    "category": "hage",
+    "title": "Lån av hageredskaper",
+    "text": "En gjest vil hjelpe til med plantingen.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gi en trygg oppgave med passende utstyr",
+        "effect": {
+          "joy": 3,
+          "energy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: gi en trygg oppgave med passende utstyr."
+      },
+      {
+        "id": "b",
+        "label": "La gjesten velge plassering mens dere planter",
+        "effect": {
+          "energy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: la gjesten velge plassering mens dere planter."
+      }
+    ]
+  },
+  {
+    "id": "jobb-25",
+    "category": "vedlikehold",
+    "title": "En trygg omvei",
+    "text": "Et område er avstengt for reparasjon.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Sett opp tydelige veivisere",
+        "effect": {
+          "cleanliness": 4,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: sett opp tydelige veivisere."
+      },
+      {
+        "id": "b",
+        "label": "Følg gjestene til alternativ inngang",
+        "effect": {
+          "cleanliness": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: følg gjestene til alternativ inngang."
+      }
+    ]
+  },
+  {
+    "id": "jobb-26",
+    "category": "vedlikehold",
+    "title": "Sjekk av reservestol",
+    "text": "En stol skal erstatte en som ble tatt ut.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Kontroller at stolen står støtt",
+        "effect": {
+          "cleanliness": 4,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: kontroller at stolen står støtt."
+      },
+      {
+        "id": "b",
+        "label": "Bruk en stol som allerede er kontrollert",
+        "effect": {
+          "cleanliness": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: bruk en stol som allerede er kontrollert."
+      }
+    ]
+  },
+  {
+    "id": "jobb-27",
+    "category": "vedlikehold",
+    "title": "Beskjed om reparasjon",
+    "text": "En gjest trenger vite når rommet kan brukes.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gi et bekreftet tidspunkt fra ansvarlig",
+        "effect": {
+          "cleanliness": 4,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: gi et bekreftet tidspunkt fra ansvarlig."
+      },
+      {
+        "id": "b",
+        "label": "Tilby et annet rom mens dere avklarer",
+        "effect": {
+          "cleanliness": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: tilby et annet rom mens dere avklarer."
+      }
+    ]
+  },
+  {
+    "id": "jobb-28",
+    "category": "vedlikehold",
+    "title": "Utstyr på feil sted",
+    "text": "En verktøykasse står i gjestenes gangvei.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt den til avlåst arbeidsområde",
+        "effect": {
+          "cleanliness": 4,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: flytt den til avlåst arbeidsområde."
+      },
+      {
+        "id": "b",
+        "label": "Sperr området kort mens ansvarlig rydder",
+        "effect": {
+          "cleanliness": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: sperr området kort mens ansvarlig rydder."
+      }
+    ]
+  },
+  {
+    "id": "jobb-29",
+    "category": "vedlikehold",
+    "title": "Kontroll før åpning",
+    "text": "En reparert hageport skal tas i bruk.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Be ansvarlig bekrefte at den er klar",
+        "effect": {
+          "cleanliness": 4,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: be ansvarlig bekrefte at den er klar."
+      },
+      {
+        "id": "b",
+        "label": "Bruk den andre inngangen til kontrollen er gjort",
+        "effect": {
+          "cleanliness": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: bruk den andre inngangen til kontrollen er gjort."
+      }
+    ]
+  },
+  {
+    "id": "jobb-30",
+    "category": "vedlikehold",
+    "title": "Orden på feilmeldinger",
+    "text": "To hjelpere melder samme dryppende kran.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Samle meldingene i én arbeidsliste",
+        "effect": {
+          "cleanliness": 4,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: samle meldingene i én arbeidsliste."
+      },
+      {
+        "id": "b",
+        "label": "Avklar hvem som følger opp og gir beskjed",
+        "effect": {
+          "cleanliness": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: avklar hvem som følger opp og gir beskjed."
+      }
+    ]
+  },
+  {
+    "id": "jobb-31",
+    "category": "okonomi",
+    "title": "En liten prioritering",
+    "text": "Hotellet trenger både servietter og ny bordpynt.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Kjøp det som trengs til servering først",
+        "effect": {
+          "coins": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: kjøp det som trengs til servering først."
+      },
+      {
+        "id": "b",
+        "label": "Bruk vaskbare servietter og eksisterende pynt",
+        "effect": {
+          "coins": 1,
+          "reputation": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: bruk vaskbare servietter og eksisterende pynt."
+      }
+    ]
+  },
+  {
+    "id": "jobb-32",
+    "category": "okonomi",
+    "title": "Se hva som finnes",
+    "text": "Noen vil bestille nye kopper.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Tell brukbare kopper på lageret",
+        "effect": {
+          "coins": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: tell brukbare kopper på lageret."
+      },
+      {
+        "id": "b",
+        "label": "Lån det som mangler til dagens servering",
+        "effect": {
+          "coins": 1,
+          "reputation": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: lån det som mangler til dagens servering."
+      }
+    ]
+  },
+  {
+    "id": "jobb-33",
+    "category": "okonomi",
+    "title": "Et tydelig tilbud",
+    "text": "En gjest spør hva piknikpakken inkluderer.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Vis innhold og pris samlet",
+        "effect": {
+          "coins": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: vis innhold og pris samlet."
+      },
+      {
+        "id": "b",
+        "label": "Tilpass en mindre pakke med tydelig innhold",
+        "effect": {
+          "coins": 1,
+          "reputation": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: tilpass en mindre pakke med tydelig innhold."
+      }
+    ]
+  },
+  {
+    "id": "jobb-34",
+    "category": "okonomi",
+    "title": "En vare for mye",
+    "text": "Leveransen inneholder noe dere ikke bestilte.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Avklar med leverandøren før bruk",
+        "effect": {
+          "coins": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: avklar med leverandøren før bruk."
+      },
+      {
+        "id": "b",
+        "label": "Legg varen til side for henting",
+        "effect": {
+          "coins": 1,
+          "reputation": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: legg varen til side for henting."
+      }
+    ]
+  },
+  {
+    "id": "jobb-35",
+    "category": "okonomi",
+    "title": "Et innkjøp kan vente",
+    "text": "Ny dekor frister, men gjestene mangler sitteplasser.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Prioriter stoler",
+        "effect": {
+          "coins": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: prioriter stoler."
+      },
+      {
+        "id": "b",
+        "label": "Lån stoler og vent med dekor",
+        "effect": {
+          "coins": 1,
+          "reputation": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: lån stoler og vent med dekor."
+      }
+    ]
+  },
+  {
+    "id": "jobb-36",
+    "category": "okonomi",
+    "title": "Retur av låneutstyr",
+    "text": "En kurv og et teppe er ikke levert tilbake.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Spør gruppen som lånte dem",
+        "effect": {
+          "coins": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: spør gruppen som lånte dem."
+      },
+      {
+        "id": "b",
+        "label": "Se ved avtalt innleveringssted først",
+        "effect": {
+          "coins": 1,
+          "reputation": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: se ved avtalt innleveringssted først."
+      }
+    ]
+  },
+  {
+    "id": "jobb-37",
+    "category": "personale",
+    "title": "Fordel en travel stund",
+    "text": "Både resepsjon og kjøkken trenger hjelp.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Ta én oppgave og be om hjelp til den andre",
+        "effect": {
+          "energy": 5
+        },
+        "outcome": "Oppgaven er fulgt opp: ta én oppgave og be om hjelp til den andre."
+      },
+      {
+        "id": "b",
+        "label": "Avklar hva som haster før dere fordeler",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: avklar hva som haster før dere fordeler."
+      }
+    ]
+  },
+  {
+    "id": "jobb-38",
+    "category": "personale",
+    "title": "En tydelig overlevering",
+    "text": "Du bytter fra romstell til hagen.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Fortell hva som er gjort og hva som gjenstår",
+        "effect": {
+          "energy": 5
+        },
+        "outcome": "Oppgaven er fulgt opp: fortell hva som er gjort og hva som gjenstår."
+      },
+      {
+        "id": "b",
+        "label": "Oppdater felles oppgaveliste før byttet",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: oppdater felles oppgaveliste før byttet."
+      }
+    ]
+  },
+  {
+    "id": "jobb-39",
+    "category": "personale",
+    "title": "Et forslag fra laget",
+    "text": "En annen har en idé du ikke helt forstår.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Be om et konkret eksempel",
+        "effect": {
+          "energy": 5
+        },
+        "outcome": "Oppgaven er fulgt opp: be om et konkret eksempel."
+      },
+      {
+        "id": "b",
+        "label": "Gjenta det du tror forslaget betyr og sjekk",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: gjenta det du tror forslaget betyr og sjekk."
+      }
+    ]
+  },
+  {
+    "id": "jobb-40",
+    "category": "personale",
+    "title": "To ulike prioriteringer",
+    "text": "Én vil pynte mens en annen vil rydde.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Se på gjestenes behov og avtal rekkefølge",
+        "effect": {
+          "energy": 5
+        },
+        "outcome": "Oppgaven er fulgt opp: se på gjestenes behov og avtal rekkefølge."
+      },
+      {
+        "id": "b",
+        "label": "Del arbeidet og avtal når dere møtes igjen",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: del arbeidet og avtal når dere møtes igjen."
+      }
+    ]
+  },
+  {
+    "id": "jobb-41",
+    "category": "personale",
+    "title": "En hjelper trenger pause",
+    "text": "Oppgaven er halvferdig og personen er sliten.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Overta et avgrenset stykke",
+        "effect": {
+          "energy": 5
+        },
+        "outcome": "Oppgaven er fulgt opp: overta et avgrenset stykke."
+      },
+      {
+        "id": "b",
+        "label": "Avtal pause og en trygg stopp i oppgaven",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: avtal pause og en trygg stopp i oppgaven."
+      }
+    ]
+  },
+  {
+    "id": "jobb-42",
+    "category": "personale",
+    "title": "En felles avslutning",
+    "text": "Flere har bidratt til samme oppgave.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Sjekk resultatet sammen",
+        "effect": {
+          "energy": 5
+        },
+        "outcome": "Oppgaven er fulgt opp: sjekk resultatet sammen."
+      },
+      {
+        "id": "b",
+        "label": "Gi beskjed om bidragene og ta siste kontroll",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: gi beskjed om bidragene og ta siste kontroll."
+      }
+    ]
+  },
+  {
+    "id": "jobb-43",
+    "category": "vaer",
+    "title": "Skyer før hagelek",
+    "text": "Gjestene trenger vite om planen står.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Sjekk vær og avtal et innealternativ",
+        "effect": {
+          "joy": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: sjekk vær og avtal et innealternativ."
+      },
+      {
+        "id": "b",
+        "label": "Flytt en kort aktivitet inn allerede nå",
+        "effect": {
+          "energy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: flytt en kort aktivitet inn allerede nå."
+      }
+    ]
+  },
+  {
+    "id": "jobb-44",
+    "category": "vaer",
+    "title": "Vått inngangsparti",
+    "text": "Regnet gjør gulvet glatt.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Sikre området og tørk gulvet",
+        "effect": {
+          "joy": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: sikre området og tørk gulvet."
+      },
+      {
+        "id": "b",
+        "label": "Bruk en tørr inngang mens dere rydder",
+        "effect": {
+          "energy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: bruk en tørr inngang mens dere rydder."
+      }
+    ]
+  },
+  {
+    "id": "jobb-45",
+    "category": "vaer",
+    "title": "Varmt i salongen",
+    "text": "Gjester søker et kjølig sted.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Skjerm for solen og tilby vann",
+        "effect": {
+          "joy": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: skjerm for solen og tilby vann."
+      },
+      {
+        "id": "b",
+        "label": "Vis til hotellets kjøligere rom",
+        "effect": {
+          "energy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: vis til hotellets kjøligere rom."
+      }
+    ]
+  },
+  {
+    "id": "jobb-46",
+    "category": "vaer",
+    "title": "Løse ting i vinden",
+    "text": "Menyer og puter blåser rundt.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Ta inn lette gjenstander",
+        "effect": {
+          "joy": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: ta inn lette gjenstander."
+      },
+      {
+        "id": "b",
+        "label": "Flytt serveringen til le",
+        "effect": {
+          "energy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: flytt serveringen til le."
+      }
+    ]
+  },
+  {
+    "id": "jobb-47",
+    "category": "vaer",
+    "title": "En kald venteplass",
+    "text": "Bussen er forsinket og gjestene fryser ute.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "La dem vente inne med beskjed om avgang",
+        "effect": {
+          "joy": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: la dem vente inne med beskjed om avgang."
+      },
+      {
+        "id": "b",
+        "label": "Ordne et lunt ventehjørne nær inngangen",
+        "effect": {
+          "energy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: ordne et lunt ventehjørne nær inngangen."
+      }
+    ]
+  },
+  {
+    "id": "jobb-48",
+    "category": "vaer",
+    "title": "Plan for utflukten",
+    "text": "Været er skiftende og gjestene spør hva de trenger.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gi enkel informasjon om klær og rute",
+        "effect": {
+          "joy": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: gi enkel informasjon om klær og rute."
+      },
+      {
+        "id": "b",
+        "label": "Tilby en kortere tur nær hotellet",
+        "effect": {
+          "energy": 3,
+          "reputation": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: tilby en kortere tur nær hotellet."
+      }
+    ]
+  },
+  {
+    "id": "jobb-49",
+    "category": "naboer",
+    "title": "Lånte stoler skal hjem",
+    "text": "Nabokafeen trenger stolene sine tilbake.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Tell og lever dem på avtalt sted",
+        "effect": {
+          "reputation": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: tell og lever dem på avtalt sted."
+      },
+      {
+        "id": "b",
+        "label": "Avtal henting og gjør dem klare",
+        "effect": {
+          "reputation": 2,
+          "energy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: avtal henting og gjør dem klare."
+      }
+    ]
+  },
+  {
+    "id": "jobb-50",
+    "category": "naboer",
+    "title": "Et felles kart",
+    "text": "En nabo vet om en stengt sti.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Rett hotellets kart",
+        "effect": {
+          "reputation": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: rett hotellets kart."
+      },
+      {
+        "id": "b",
+        "label": "Fortell turgruppen og marker alternativ rute",
+        "effect": {
+          "reputation": 2,
+          "energy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: fortell turgruppen og marker alternativ rute."
+      }
+    ]
+  },
+  {
+    "id": "jobb-51",
+    "category": "naboer",
+    "title": "En liten takk",
+    "text": "Naboen hjalp med en levering.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Send en takk via avtalt kontakt",
+        "effect": {
+          "reputation": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: send en takk via avtalt kontakt."
+      },
+      {
+        "id": "b",
+        "label": "Tilby hjelp ved neste praktiske behov",
+        "effect": {
+          "reputation": 2,
+          "energy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: tilby hjelp ved neste praktiske behov."
+      }
+    ]
+  },
+  {
+    "id": "jobb-52",
+    "category": "naboer",
+    "title": "Plass til en levering",
+    "text": "To leverandører kommer samtidig.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Avtal rekkefølge ved inngangen",
+        "effect": {
+          "reputation": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: avtal rekkefølge ved inngangen."
+      },
+      {
+        "id": "b",
+        "label": "Bruk to trygge mottaksplasser",
+        "effect": {
+          "reputation": 2,
+          "energy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: bruk to trygge mottaksplasser."
+      }
+    ]
+  },
+  {
+    "id": "jobb-53",
+    "category": "naboer",
+    "title": "En invitasjon fra biblioteket",
+    "text": "Biblioteket tilbyr en aktivitet for gjestene.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Undersøk tidspunkt og tilgjengelighet",
+        "effect": {
+          "reputation": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: undersøk tidspunkt og tilgjengelighet."
+      },
+      {
+        "id": "b",
+        "label": "Sett frem informasjon så gjestene kan velge",
+        "effect": {
+          "reputation": 2,
+          "energy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: sett frem informasjon så gjestene kan velge."
+      }
+    ]
+  },
+  {
+    "id": "jobb-54",
+    "category": "naboer",
+    "title": "Mat til overs hos bakeren",
+    "text": "Bakeren tilbyr ferskt overskuddsbrød.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Ta imot det dere kan bruke trygt",
+        "effect": {
+          "reputation": 3,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: ta imot det dere kan bruke trygt."
+      },
+      {
+        "id": "b",
+        "label": "Hjelp bakeren å dele med flere mottakere",
+        "effect": {
+          "reputation": 2,
+          "energy": 1
+        },
+        "outcome": "Oppgaven er fulgt opp: hjelp bakeren å dele med flere mottakere."
+      }
+    ]
+  },
+  {
+    "id": "jobb-55",
+    "category": "feiring",
+    "title": "Plass til ulike ønsker",
+    "text": "Noen vil danse, andre snakke rolig.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag to områder",
+        "effect": {
+          "joy": 4,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: lag to områder."
+      },
+      {
+        "id": "b",
+        "label": "Avtal en rolig del før dansen",
+        "effect": {
+          "joy": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: avtal en rolig del før dansen."
+      }
+    ]
+  },
+  {
+    "id": "jobb-56",
+    "category": "feiring",
+    "title": "En sjenert hovedperson",
+    "text": "Den som feires ønsker lite oppmerksomhet.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gi en privat hilsen",
+        "effect": {
+          "joy": 4,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: gi en privat hilsen."
+      },
+      {
+        "id": "b",
+        "label": "La personen velge en liten aktivitet",
+        "effect": {
+          "joy": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: la personen velge en liten aktivitet."
+      }
+    ]
+  },
+  {
+    "id": "jobb-57",
+    "category": "feiring",
+    "title": "Pynt som kan brukes igjen",
+    "text": "Bordet skal pyntes til en liten feiring.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bruk stoff og gjenbrukbare deler",
+        "effect": {
+          "joy": 4,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: bruk stoff og gjenbrukbare deler."
+      },
+      {
+        "id": "b",
+        "label": "Lag enkle bordkort av restepapir",
+        "effect": {
+          "joy": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: lag enkle bordkort av restepapir."
+      }
+    ]
+  },
+  {
+    "id": "jobb-58",
+    "category": "feiring",
+    "title": "Mottak av nye gjester",
+    "text": "Noen kommer midt i selskapet.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gi en kort introduksjon ved bordet",
+        "effect": {
+          "joy": 4,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: gi en kort introduksjon ved bordet."
+      },
+      {
+        "id": "b",
+        "label": "La verten ta dem imot i et rolig hjørne",
+        "effect": {
+          "joy": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: la verten ta dem imot i et rolig hjørne."
+      }
+    ]
+  },
+  {
+    "id": "jobb-59",
+    "category": "feiring",
+    "title": "Avslutt uten hast",
+    "text": "Festen nærmer seg slutten, og noen barn er trøtte.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gi beskjed om en rolig avslutning",
+        "effect": {
+          "joy": 4,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: gi beskjed om en rolig avslutning."
+      },
+      {
+        "id": "b",
+        "label": "Tilby familiene en stille vei til rommene",
+        "effect": {
+          "joy": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: tilby familiene en stille vei til rommene."
+      }
+    ]
+  },
+  {
+    "id": "jobb-60",
+    "category": "feiring",
+    "title": "Ta vare på minnene",
+    "text": "Gjestene har laget små hilsener.",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Samle dem i hotellets minnebok",
+        "effect": {
+          "joy": 4,
+          "energy": -1
+        },
+        "outcome": "Oppgaven er fulgt opp: samle dem i hotellets minnebok."
+      },
+      {
+        "id": "b",
+        "label": "Lag en midlertidig vegg med tillatelse",
+        "effect": {
+          "joy": 2,
+          "energy": 2
+        },
+        "outcome": "Oppgaven er fulgt opp: lag en midlertidig vegg med tillatelse."
+      }
+    ]
+  }
+]

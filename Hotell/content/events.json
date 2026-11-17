@@ -1,0 +1,4082 @@
+[
+  {
+    "id": "gjester-01",
+    "category": "gjester",
+    "title": "Nattoget",
+    "text": "En familie kommer før rommet er ledig. Barna har sovet lite på toget.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gjør et hvilerom klart",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: gjør et hvilerom klart. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby frokost og oppbevar bagasjen",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: tilby frokost og oppbevar bagasjen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-02",
+    "category": "gjester",
+    "title": "Den bortkomne bamsen",
+    "text": "Et barn savner bamsen etter turen gjennom resepsjonen og hagen.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Let sammen langs ruten",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: let sammen langs ruten. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Be resepsjonen samle inn hittegods",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: be resepsjonen samle inn hittegods. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-03",
+    "category": "gjester",
+    "title": "To ulike døgnrytmer",
+    "text": "En fuglekikker vil dra før soloppgang. Romkameraten vil sove lenge.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en stille morgenpakke",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: lag en stille morgenpakke. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avtal separat frokostplass",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: avtal separat frokostplass. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-04",
+    "category": "gjester",
+    "title": "Et rom uten trapper",
+    "text": "En gjest får vondt i kneet og bor i øverste etasje.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Tilby bytte med en frivillig gjest",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: tilby bytte med en frivillig gjest. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Flytt dagens aktiviteter til første etasje",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: flytt dagens aktiviteter til første etasje. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-05",
+    "category": "gjester",
+    "title": "Uventet gjenbesøk",
+    "text": "En tidligere gjest kommer innom. Hotellet er fullt, men gjesten vil gjerne hilse på.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Inviter til en kort hagevisitt",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: inviter til en kort hagevisitt. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avtal frokostbesøk neste dag",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: avtal frokostbesøk neste dag. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-06",
+    "category": "gjester",
+    "title": "Et stille måltid",
+    "text": "En gjest blir sliten av lydene i spisesalen, men vil gjerne spise samme mat som de andre.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Dekk et bord i lesekroken",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: dekk et bord i lesekroken. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avtal en roligere serveringstid",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: avtal en roligere serveringstid. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-07",
+    "category": "gjester",
+    "title": "Ferievenner",
+    "text": "To barn vil leke sammen, men familiene har planlagt forskjellige turer.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en kort felles lek før turene",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: lag en kort felles lek før turene. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avtal et møtested etter turene",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: avtal et møtested etter turene. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-08",
+    "category": "gjester",
+    "title": "Språk på menyen",
+    "text": "En familie forstår ikke dagens meny og er usikker på hva de bestiller.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag bilder av rettene",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: lag bilder av rettene. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Vis ingrediensene ved disken",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: vis ingrediensene ved disken. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-09",
+    "category": "gjester",
+    "title": "Et glemt jubileum",
+    "text": "Et par oppdager at det er bryllupsdag. De ønsker noe hyggelig, men ingen stor fest.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Pynt et lite bord",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: pynt et lite bord. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Finn en rolig plass med utsikt",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: finn en rolig plass med utsikt. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-10",
+    "category": "gjester",
+    "title": "Regningen som overrasket",
+    "text": "En gjest trodde piknikkurven var inkludert. Informasjonen ved disken er utydelig.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "La dagens kurv være inkludert og rett skiltet",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: la dagens kurv være inkludert og rett skiltet. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby en mindre kurv og forklar prisen",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: tilby en mindre kurv og forklar prisen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-11",
+    "category": "gjester",
+    "title": "Familien som deler seg",
+    "text": "Noen i familien vil på tur, andre vil bli på hotellet.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag to aktiviteter med felles avslutning",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: lag to aktiviteter med felles avslutning. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby en kort tur alle kan velge å bli med på",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: tilby en kort tur alle kan velge å bli med på. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-12",
+    "category": "gjester",
+    "title": "Rommet med utsikten",
+    "text": "To gjester ønsker samme utsiktsrom. Bare én har bestilt det på forhånd.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Behold bestillingen og tilby den andre hageplass",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: behold bestillingen og tilby den andre hageplass. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Undersøk frivillig rombytte med en liten takk",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: undersøk frivillig rombytte med en liten takk. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-13",
+    "category": "gjester",
+    "title": "Den forsinkede bussen",
+    "text": "Avreisebussen er forsinket. Nye gjester trenger plass i resepsjonen.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Åpne et venterom",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: åpne et venterom. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Flytt bagasjen og lag tydelige sittegrupper",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: flytt bagasjen og lag tydelige sittegrupper. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-14",
+    "category": "gjester",
+    "title": "Et hemmelig frieri",
+    "text": "En gjest ber om hjelp til en overraskelse. Partneren liker ikke oppmerksomhet.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en privat krok i hagen",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: lag en privat krok i hagen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Hjelp gjesten med en personlig lapp",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: hjelp gjesten med en personlig lapp. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "gjester-15",
+    "category": "gjester",
+    "title": "Et ærlig råd",
+    "text": "En gjest spør om den lange turen passer små barn. Dere kjenner bare deler av stien.",
+    "question": "Hvilke behov må vi ta hensyn til samtidig?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Undersøk ruten hos turguiden",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: undersøk ruten hos turguiden. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Anbefal den korte merkede turen",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: anbefal den korte merkede turen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-01",
+    "category": "rom",
+    "title": "Dynene som ble for varme",
+    "text": "Solen har varmet opp rommene. Flere gjester synes dynene er for tykke.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Finn lette tepper på lageret",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: finn lette tepper på lageret. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Luft rommene og tilby ekstra laken",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: luft rommene og tilby ekstra laken. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-02",
+    "category": "rom",
+    "title": "Skrivebord til låns",
+    "text": "En gjest trenger et rolig sted å skrive et brev. Rommets bord er lite.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt inn et ledig skrivebord",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: flytt inn et ledig skrivebord. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Reserver et bord i biblioteket",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: reserver et bord i biblioteket. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-03",
+    "category": "rom",
+    "title": "Gardinen som glipper",
+    "text": "En gardin slipper inn morgenlys. Gjesten skal sove etter en sen reise.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Reparer festet nå",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: reparer festet nå. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby et mørkere ledig rom",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: tilby et mørkere ledig rom. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-04",
+    "category": "rom",
+    "title": "Et rom for lesere",
+    "text": "En bokklubb kommer og ønsker leselys, ikke mye pynt.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Ordne ekstra leselamper",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: ordne ekstra leselamper. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag en felles lesekrok",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: lag en felles lesekrok. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-05",
+    "category": "rom",
+    "title": "Malingen lukter",
+    "text": "Et nymalt rom lukter fortsatt. Familien som skal bo der, er på vei.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bruk et annet rom og luft videre",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: bruk et annet rom og luft videre. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Utsett innsjekking med hyggelig ventested",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: utsett innsjekking med hyggelig ventested. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-06",
+    "category": "rom",
+    "title": "To kofferter for mye",
+    "text": "En stor familie trenger plass til barnevogn og kofferter.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gjør et lagerhjørne tilgjengelig",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: gjør et lagerhjørne tilgjengelig. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Omorganiser møblene på rommet",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: omorganiser møblene på rommet. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-07",
+    "category": "rom",
+    "title": "Et skjevt speil",
+    "text": "Speilet på et rom har løsnet litt fra veggen.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Steng rommet kort og få det festet",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: steng rommet kort og få det festet. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Fjern speilet til reparasjonen kan gjøres",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: fjern speilet til reparasjonen kan gjøres. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-08",
+    "category": "rom",
+    "title": "En knirkende seng",
+    "text": "Gjesten våkner av en seng som knirker ved hver bevegelse.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bytt sengebunn fra reservelageret",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: bytt sengebunn fra reservelageret. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby et annet ledig rom",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: tilby et annet ledig rom. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-09",
+    "category": "rom",
+    "title": "Romskilt i mørket",
+    "text": "Gjester finner feil dør når gangen er mørk om kvelden.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Sett opp bedre lys ved skiltene",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: sett opp bedre lys ved skiltene. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag tydeligere romnummer med kontrast",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: lag tydeligere romnummer med kontrast. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-10",
+    "category": "rom",
+    "title": "Sokkene under sengen",
+    "text": "En gjest finner klær fra forrige besøk under sengen.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gjør en ekstra grundig romkontroll",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: gjør en ekstra grundig romkontroll. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Rydd funnet og endre sjekklisten for alle rom",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: rydd funnet og endre sjekklisten for alle rom. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-11",
+    "category": "rom",
+    "title": "Plass til et puslespill",
+    "text": "En familie vil beholde et halvferdig puslespill gjennom oppholdet.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lån ut et eget puslebrett",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: lån ut et eget puslebrett. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Reserver en hylle i fellesrommet",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: reserver en hylle i fellesrommet. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-12",
+    "category": "rom",
+    "title": "Blomstene som drysser",
+    "text": "Blomsterpynten drysser pollen på en gjests bord.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bytt til papirblomster",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: bytt til papirblomster. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Ta bort pynten og la gjesten velge bøker",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: ta bort pynten og la gjesten velge bøker. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-13",
+    "category": "rom",
+    "title": "Den åpne balkongdøren",
+    "text": "Vinden blåser papirene av skrivebordet hver gang balkongdøren åpnes.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Ordne et annet arbeidssted",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: ordne et annet arbeidssted. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Flytt bordet og sikre løse papirer",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: flytt bordet og sikre løse papirer. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-14",
+    "category": "rom",
+    "title": "Et rom som føles fremmed",
+    "text": "Et barn er urolig på første hotellnatt og savner et kjent lys.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lån ut en nattlampe",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: lån ut en nattlampe. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "La familien ordne en liten hjemmekrok",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: la familien ordne en liten hjemmekrok. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "rom-15",
+    "category": "rom",
+    "title": "Håndklær på feil hylle",
+    "text": "Små og store håndklær er blandet. Romstell bruker tid på å lete.",
+    "question": "Hva gjør rommet godt å bo i for akkurat disse gjestene?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Sorter hele lageret sammen",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: sorter hele lageret sammen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Merk kurver og sorter rom for rom",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: merk kurver og sorter rom for rom. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-01",
+    "category": "mat",
+    "title": "Vaffelrøren tar slutt",
+    "text": "Vaffelkøen er lang. Dere har frukt og brød, men lite røre igjen.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en ny liten røre",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: lag en ny liten røre. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Åpne frukt- og toastbord",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: åpne frukt- og toastbord. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-02",
+    "category": "mat",
+    "title": "En ukjent ingrediens",
+    "text": "En gjest spør om en saus inneholder noe hun ikke tåler. Etiketten mangler.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Finn originalemballasjen før servering",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: finn originalemballasjen før servering. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby en kjent rett med full ingrediensliste",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: tilby en kjent rett med full ingrediensliste. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-03",
+    "category": "mat",
+    "title": "Bær med kort holdbarhet",
+    "text": "Bonden leverer modne bær som må brukes i dag.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag bærfrokost og dessert",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: lag bærfrokost og dessert. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Frys det meste og server en liten skål",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: frys det meste og server en liten skål. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-04",
+    "category": "mat",
+    "title": "Den kalde suppen",
+    "text": "Suppen er blitt kald mens bordene ble gjort klare.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Varm en fersk porsjon forsvarlig",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: varm en fersk porsjon forsvarlig. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Server kalde småretter mens kjøkkenet ordner suppen",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: server kalde småretter mens kjøkkenet ordner suppen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-05",
+    "category": "mat",
+    "title": "Matpakker før turen",
+    "text": "Turgruppen drar samtidig som frokostkøen starter.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag matpakker ved en egen stasjon",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: lag matpakker ved en egen stasjon. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "La gruppen pakke etter en avtalt liste",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: la gruppen pakke etter en avtalt liste. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-06",
+    "category": "mat",
+    "title": "En vegetarisk gjest",
+    "text": "Dagens hovedrett er med kjøtt. Tilbehøret alene blir et lite måltid.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en fullverdig bønnerett",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: lag en fullverdig bønnerett. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby hotellets grønnsaksomelett",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: tilby hotellets grønnsaksomelett. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-07",
+    "category": "mat",
+    "title": "Brød fra i går",
+    "text": "Dere har mye godt brød igjen, men det er litt tørt.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag sprø toast til frokosten",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: lag sprø toast til frokosten. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag krutonger til kveldssuppen",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: lag krutonger til kveldssuppen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-08",
+    "category": "mat",
+    "title": "For sterk gryte",
+    "text": "Flere gjester synes gryten er sterkere enn de ventet.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en mild porsjon ved siden av",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: lag en mild porsjon ved siden av. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby mildt tilbehør og tydelig merking",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: tilby mildt tilbehør og tydelig merking. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-09",
+    "category": "mat",
+    "title": "Piknik uten engangskopper",
+    "text": "Turgruppen ber om piknik, og skapet med engangskopper er tomt.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lån ut kopper med returkasse",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: lån ut kopper med returkasse. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby drikke på hotellet før turen",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: tilby drikke på hotellet før turen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-10",
+    "category": "mat",
+    "title": "Den ujevne kaken",
+    "text": "Kaken er god, men sank sammen på midten.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag dessertglass av kakestykkene",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: lag dessertglass av kakestykkene. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Pynt den som en liten kakelagune",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: pynt den som en liten kakelagune. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-11",
+    "category": "mat",
+    "title": "Frokost ute",
+    "text": "Det er sol, men utebordene er færre enn gjestene.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Åpne to frokostpuljer i hagen",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: åpne to frokostpuljer i hagen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "La gjestene velge innebord med åpne vinduer",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: la gjestene velge innebord med åpne vinduer. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-12",
+    "category": "mat",
+    "title": "En lokal oppskrift",
+    "text": "En gjest tilbyr å lære bort en gammel oppskrift. Kjøkkenet er travelt.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Sett av tid til et lite verksted",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: sett av tid til et lite verksted. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Skriv ned oppskriften og prøv etter servering",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: skriv ned oppskriften og prøv etter servering. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-13",
+    "category": "mat",
+    "title": "Leveransen mangler melk",
+    "text": "Budet kommer uten melk. Dere har drikkealternativer med merking.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bestill en liten ekstraleveranse",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: bestill en liten ekstraleveranse. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilpass menyen og vis alternativene",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: tilpass menyen og vis alternativene. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-14",
+    "category": "mat",
+    "title": "En uventet matkø",
+    "text": "Et regnskyll sender alle inn til lunsj samtidig.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Åpne en enkel ekstradisk",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: åpne en enkel ekstradisk. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Del ut serveringstider og noe å lese",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: del ut serveringstider og noe å lese. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "mat-15",
+    "category": "mat",
+    "title": "For mye pynt på maten",
+    "text": "Kjøkkenet bruker lang tid på pynt mens varme retter blir stående.",
+    "question": "Hvordan får alle et trygt og godt måltid?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Forenkle pynten og server raskere",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: forenkle pynten og server raskere. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Fordel pynt og servering på to stasjoner",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: fordel pynt og servering på to stasjoner. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-01",
+    "category": "hage",
+    "title": "Humler ved lekeplassen",
+    "text": "Humler besøker blomsterbedet tett ved ballplassen.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt ballleken til plenen",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: flytt ballleken til plenen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Merk en rolig blomstersone",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: merk en rolig blomstersone. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-02",
+    "category": "hage",
+    "title": "Frø som spirer",
+    "text": "Frøene fra forrige planting har spiret. Gjester vil hjelpe, men spirene er skjøre.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en egen planteøkt",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: lag en egen planteøkt. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Sett opp et observasjonsbord uten berøring",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: sett opp et observasjonsbord uten berøring. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-03",
+    "category": "hage",
+    "title": "Den veltede potten",
+    "text": "En stor potte har veltet i vinden, og jord dekker stien.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Rydd stien og plant om",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: rydd stien og plant om. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Sperr av kort og flytt potten til le",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: sperr av kort og flytt potten til le. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-04",
+    "category": "hage",
+    "title": "Et skyggefullt bord",
+    "text": "En eldre gjest ønsker å sitte ute, men alle skyggeplassene er opptatt.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt en parasoll og et bord",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: flytt en parasoll og et bord. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avtal at et bord blir ledig etter lunsj",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: avtal at et bord blir ledig etter lunsj. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-05",
+    "category": "hage",
+    "title": "Fuglene ved buffeten",
+    "text": "Fugler har oppdaget smulene ved utebordet.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt maten under tak og rydd smuler",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: flytt maten under tak og rydd smuler. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Server maten inne og la gjestene spise ute",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: server maten inne og la gjestene spise ute. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-06",
+    "category": "hage",
+    "title": "Vanning i tørken",
+    "text": "Hagen er tørr. Dere vil bruke vannet der det trengs mest.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Vann nye planter først",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: vann nye planter først. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Dekk jorden og vann ved røttene senere",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: dekk jorden og vann ved røttene senere. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-07",
+    "category": "hage",
+    "title": "Et nytt insektshotell",
+    "text": "En gjest tilbyr materialer til et insektshotell, men foreslår plass ved inngangen.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bygg det i et rolig hjørne",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: bygg det i et rolig hjørne. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag en liten naturutstilling først",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: lag en liten naturutstilling først. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-08",
+    "category": "hage",
+    "title": "Bokbytte under eika",
+    "text": "Gjestene vil legge bøker ute. Nattedugg kan skade dem.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en tett bokkasse",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: lag en tett bokkasse. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Ta inn bøkene hver kveld",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: ta inn bøkene hver kveld. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-09",
+    "category": "hage",
+    "title": "En sti med sølepytter",
+    "text": "Regnet har laget sølepytter på stien til lysthuset.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Legg en midlertidig tørr gangvei",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: legg en midlertidig tørr gangvei. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Vis gjestene en annen rute",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: vis gjestene en annen rute. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-10",
+    "category": "hage",
+    "title": "Den store såpebobledagen",
+    "text": "Barna vil blåse bobler, men vinden fører dem mot maten.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt leken til motsatt side av hagen",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: flytt leken til motsatt side av hagen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avtal boblelek etter måltidet",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: avtal boblelek etter måltidet. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-11",
+    "category": "hage",
+    "title": "Urtene vokser fort",
+    "text": "Urtebedet er fullt og noen planter trenger mer plass.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Del planter med nabokafeen",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: del planter med nabokafeen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Høst urter til kjøkkenet og tynn bedet",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: høst urter til kjøkkenet og tynn bedet. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-12",
+    "category": "hage",
+    "title": "En stille hengekøye",
+    "text": "Hengekøyen er populær. Flere gjester venter uten å vite hvem som er neste.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en enkel tidsliste",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: lag en enkel tidsliste. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Åpne flere rolige sitteplasser",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: åpne flere rolige sitteplasser. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-13",
+    "category": "hage",
+    "title": "Naturen etter mørkets frembrudd",
+    "text": "Gjestene vil se nattsvermere. Sterke lamper forstyrrer dyrene.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Arranger en kort tur med dempet lys",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: arranger en kort tur med dempet lys. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Vis bilder og observasjoner inne",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: vis bilder og observasjoner inne. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-14",
+    "category": "hage",
+    "title": "En plen som trenger hvile",
+    "text": "Plenen har fått bare flekker etter mange leker.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt aktiviteten og så nytt gress",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: flytt aktiviteten og så nytt gress. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Del plenen i hvile- og lekeområde",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: del plenen i hvile- og lekeområde. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "hage-15",
+    "category": "hage",
+    "title": "En uventet regnbue",
+    "text": "Solen kommer frem etter regnet. Flere vil fotografere fra samme smale sti.",
+    "question": "Hvordan deler vi hagen mellom ulike ønsker?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag turordning ved utsiktspunktet",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: lag turordning ved utsiktspunktet. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Vis frem et bredere sted med nesten samme utsikt",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: vis frem et bredere sted med nesten samme utsikt. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-01",
+    "category": "vedlikehold",
+    "title": "Kranen som drypper",
+    "text": "En kran drypper hele tiden. Rommet kan brukes, men lyden forstyrrer.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bestill reparasjon og avtal tidspunkt",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: bestill reparasjon og avtal tidspunkt. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby annet rom mens kranen stenges",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: tilby annet rom mens kranen stenges. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-02",
+    "category": "vedlikehold",
+    "title": "En flimrende lampe",
+    "text": "Lampen ved resepsjonen flimrer og gjør skiltene vanskelige å lese.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Slå den av og få fagfolk til å ordne den",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: slå den av og få fagfolk til å ordne den. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Bruk en trygg reservelampe inntil videre",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: bruk en trygg reservelampe inntil videre. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-03",
+    "category": "vedlikehold",
+    "title": "Vaskemaskinen stopper",
+    "text": "Vaskemaskinen stanser med håndklær inni. Dere har et lite reservelager.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Ring service og bruk reserven",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: ring service og bruk reserven. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avtal vask hos nabohotellet",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: avtal vask hos nabohotellet. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-04",
+    "category": "vedlikehold",
+    "title": "Låsen som henger",
+    "text": "Dørlåsen er vanskelig å åpne. Gjesten må prøve flere ganger.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Få låsen kontrollert før rommet brukes",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: få låsen kontrollert før rommet brukes. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Flytt gjesten midlertidig til et annet rom",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: flytt gjesten midlertidig til et annet rom. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-05",
+    "category": "vedlikehold",
+    "title": "En ustø stol",
+    "text": "En stol ved frokostbordet vipper mer enn de andre.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Ta stolen ut og reparer den",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: ta stolen ut og reparer den. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Bytt til en reservestol",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: bytt til en reservestol. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-06",
+    "category": "vedlikehold",
+    "title": "Wi-Fi i hagen",
+    "text": "Gjestene får ikke nett ved lysthuset, men det virker ved resepsjonen.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Få undersøkt dekningen",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: få undersøkt dekningen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag en arbeidsplass nær resepsjonen",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: lag en arbeidsplass nær resepsjonen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-07",
+    "category": "vedlikehold",
+    "title": "Et løst trinn",
+    "text": "Et trinn på hagestien sitter løst.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Sperr av og bestill utbedring",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: sperr av og bestill utbedring. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Steng stien og merk en trygg omvei",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: steng stien og merk en trygg omvei. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-08",
+    "category": "vedlikehold",
+    "title": "Kjøleskapet varsler",
+    "text": "Temperaturvarselet lyser. Ingen vet hvor lenge kjøleskapet har vært varmt.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Stans servering fra skapet og kontroller maten",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: stans servering fra skapet og kontroller maten. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Bruk en trygg reservemeny mens skapet undersøkes",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: bruk en trygg reservemeny mens skapet undersøkes. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-09",
+    "category": "vedlikehold",
+    "title": "Et tilstoppet sluk",
+    "text": "Vannet renner sakte på badet. Gjesten skal snart dusje.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gjør badet klart etter utbedring",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: gjør badet klart etter utbedring. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby et annet bad og avtal service",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: tilby et annet bad og avtal service. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-10",
+    "category": "vedlikehold",
+    "title": "Ringeklokken er stille",
+    "text": "Gjestene trykker, men resepsjonen hører ikke klokken.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bytt til en fungerende klokke",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: bytt til en fungerende klokke. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Sett opp tydelig kontaktpunkt med bemanning",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: sett opp tydelig kontaktpunkt med bemanning. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-11",
+    "category": "vedlikehold",
+    "title": "En ødelagt parasoll",
+    "text": "Parasollen lar seg ikke låse og kan blåse over ende.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Ta den ned og bruk en reserve",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: ta den ned og bruk en reserve. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Flytt gjestene til naturlig skygge",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: flytt gjestene til naturlig skygge. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-12",
+    "category": "vedlikehold",
+    "title": "Varme utenfor sesongen",
+    "text": "En varm dag kommer før kjøleanlegget er klart.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Få anlegget kontrollert og klargjort",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: få anlegget kontrollert og klargjort. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Bruk skjerming og lufting på kjølige tidspunkt",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: bruk skjerming og lufting på kjølige tidspunkt. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-13",
+    "category": "vedlikehold",
+    "title": "En mørk gang",
+    "text": "En sikring har gått i en gang. Gjestene trenger trygg passasje.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Steng gangen og få elektrikerhjelp",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: steng gangen og få elektrikerhjelp. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Vis en belyst alternativ rute",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: vis en belyst alternativ rute. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-14",
+    "category": "vedlikehold",
+    "title": "Heisen står",
+    "text": "Heisen er ute av drift, og noen gjester trenger trinnfri tilgang.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt berørte gjester til inngangsplanet",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: flytt berørte gjester til inngangsplanet. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avtal tilgjengelige rom hos naboen",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: avtal tilgjengelige rom hos naboen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vedlikehold-15",
+    "category": "vedlikehold",
+    "title": "Skiltet har løsnet",
+    "text": "Vind har løsnet hotellskiltet over gangveien.",
+    "question": "Hva må ordnes før gjestene kan bruke området?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Sperr av og få skiltet festet",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: sperr av og få skiltet festet. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Ta skiltet trygt ned og bruk et midlertidig",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: ta skiltet trygt ned og bruk et midlertidig. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-01",
+    "category": "okonomi",
+    "title": "Et fristende storinnkjøp",
+    "text": "Leverandøren gir rabatt på hundre håndklær, men lageret er lite.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Kjøp bare det dere trenger nå",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: kjøp bare det dere trenger nå. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avtal mindre leveranser til fast pris",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: avtal mindre leveranser til fast pris. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-02",
+    "category": "okonomi",
+    "title": "En bestilling som endres",
+    "text": "En gruppe vil ha færre rom enn avtalt. Noen rom kan fortsatt leies ut.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Åpne ledige rom for nye gjester",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: åpne ledige rom for nye gjester. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby gruppen en annen pakke",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: tilby gruppen en annen pakke. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-03",
+    "category": "okonomi",
+    "title": "Billig pynt med kort levetid",
+    "text": "Dere kan kjøpe rimelig sesongpynt eller låne holdbar pynt.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Kjøp noen få gjenbrukbare deler",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: kjøp noen få gjenbrukbare deler. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lån pynt fra nabolaget",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: lån pynt fra nabolaget. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-04",
+    "category": "okonomi",
+    "title": "Myntene til bassenget",
+    "text": "En reparasjon bruker penger dere hadde satt av til basseng.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Ta reparasjonen og spar videre",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: ta reparasjonen og spar videre. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Velg en rimeligere midlertidig hageaktivitet",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: velg en rimeligere midlertidig hageaktivitet. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-05",
+    "category": "okonomi",
+    "title": "En gratis smaksprøve",
+    "text": "En leverandør tilbyr prøvevarer mot at dere kjøper mye neste uke.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Prøv litt uten å love stor bestilling",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: prøv litt uten å love stor bestilling. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Behold den kjente leverandøren",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: behold den kjente leverandøren. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-06",
+    "category": "okonomi",
+    "title": "Feil på kvitteringen",
+    "text": "Dere oppdager at dere er fakturert for dobbelt så mye frukt.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Ta kontakt og få rettet beløpet",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: ta kontakt og få rettet beløpet. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Sett betalingen på vent mens dere undersøker",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: sett betalingen på vent mens dere undersøker. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-07",
+    "category": "okonomi",
+    "title": "Nabohotellets tilbud",
+    "text": "Nabohotellet vil dele kostnaden for en lokal guide.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bestill en felles tur",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: bestill en felles tur. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag en gratis tur med deres eget kart",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: lag en gratis tur med deres eget kart. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-08",
+    "category": "okonomi",
+    "title": "En avbestilt bukett",
+    "text": "Blomsterbutikken har en stor bukett til halv pris, men hotellet har allerede blomster.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Kjøp til den planlagte feiringen",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: kjøp til den planlagte feiringen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Bruk pynten dere har",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: bruk pynten dere har. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-09",
+    "category": "okonomi",
+    "title": "Et gavekort til overs",
+    "text": "En gjest har et gavekort som nesten dekker en aktivitet.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Tilby en mindre aktivitet innenfor beløpet",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: tilby en mindre aktivitet innenfor beløpet. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "La gjesten bruke gavekortet på servering",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: la gjesten bruke gavekortet på servering. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-10",
+    "category": "okonomi",
+    "title": "Lageret som binder penger",
+    "text": "Dere har mange ubrukte såper og trenger egentlig håndklær.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bytt uåpnede varer hos leverandøren",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: bytt uåpnede varer hos leverandøren. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Bruk opp såpene før nye innkjøp",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: bruk opp såpene før nye innkjøp. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-11",
+    "category": "okonomi",
+    "title": "En ny pris på frokost",
+    "text": "Råvarene har blitt dyrere. Dere vil unngå overraskelser for gjestene.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en tydelig ny frokostpakke",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: lag en tydelig ny frokostpakke. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Behold prisen og forenkle utvalget",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: behold prisen og forenkle utvalget. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-12",
+    "category": "okonomi",
+    "title": "Et ønske om luksus",
+    "text": "Noen vil ha dyre velkomstgaver, andre vil spare til bedre senger.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Kjøp en liten lokal gave",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: kjøp en liten lokal gave. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Skriv personlige velkomsthilsener",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: skriv personlige velkomsthilsener. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-13",
+    "category": "okonomi",
+    "title": "Syklene som står stille",
+    "text": "Leiesyklene brukes lite selv om dere betaler for dem.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en guidet prøvetur",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: lag en guidet prøvetur. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avtal færre sykler neste periode",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: avtal færre sykler neste periode. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-14",
+    "category": "okonomi",
+    "title": "Depositum for piknik",
+    "text": "Piknikkurver blir ofte glemt ute. Nye kurver koster penger.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Innfør tydelig returliste",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: innfør tydelig returliste. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag faste innleveringssteder",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: lag faste innleveringssteder. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "okonomi-15",
+    "category": "okonomi",
+    "title": "Et godt tilbud for sent",
+    "text": "Et tilbud på utemøbler kommer rett før regnsesongen.",
+    "question": "Hva trenger vi nå, og hva bør vi spare til?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Kjøp noen få som kan lagres tørt",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: kjøp noen få som kan lagres tørt. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Vent og bruk de møblene dere har",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: vent og bruk de møblene dere har. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-01",
+    "category": "personale",
+    "title": "To oppgaver samtidig",
+    "text": "Resepsjonen trenger hjelp samtidig som frokostbordet skal ryddes.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Fordel oppgavene og gi beskjed om ventetid",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: fordel oppgavene og gi beskjed om ventetid. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Gjør den mest tidskritiske først sammen",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: gjør den mest tidskritiske først sammen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-02",
+    "category": "personale",
+    "title": "En ny hjelper",
+    "text": "En ny medarbeider vil bidra, men kjenner ikke hotellet.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gi en omvisning med en erfaren hjelper",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: gi en omvisning med en erfaren hjelper. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Start med en tydelig avgrenset oppgave",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: start med en tydelig avgrenset oppgave. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-03",
+    "category": "personale",
+    "title": "Pausen som forsvant",
+    "text": "Alle har jobbet gjennom pausen. Nå kommer en rolig stund.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Ta pauser på omgang",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: ta pauser på omgang. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Steng en frivillig aktivitet kort og hvil sammen",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: steng en frivillig aktivitet kort og hvil sammen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-04",
+    "category": "personale",
+    "title": "En uklar beskjed",
+    "text": "Kjøkkenet trodde romteamet skulle dekke bord. Bordene står tomme.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Avklar ansvar og dekk sammen",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: avklar ansvar og dekk sammen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag en kort oppgaveliste før servering",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: lag en kort oppgaveliste før servering. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-05",
+    "category": "personale",
+    "title": "Det tunge løftet",
+    "text": "En stor kasse må flyttes. Ingen bør løfte den alene.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Hent en tralle",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: hent en tralle. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Del innholdet i mindre kasser",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: del innholdet i mindre kasser. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-06",
+    "category": "personale",
+    "title": "En god idé fra en stille hjelper",
+    "text": "En medarbeider har tegnet en enklere serveringsrute, men ikke sagt noe.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Prøv ruten på ett måltid",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: prøv ruten på ett måltid. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Gå gjennom tegningen sammen først",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: gå gjennom tegningen sammen først. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-07",
+    "category": "personale",
+    "title": "En dobbeltført oppgave",
+    "text": "To personer har ryddet samme rom mens et annet ble glemt.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Merk rom som er tatt og fordel resten",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: merk rom som er tatt og fordel resten. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Gå gjennom dagens liste sammen",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: gå gjennom dagens liste sammen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-08",
+    "category": "personale",
+    "title": "Et krevende skift",
+    "text": "Flere travle oppgaver ligger hos samme person.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bytt ansvar midtveis",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: bytt ansvar midtveis. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Begrens en aktivitet så alle får pusterom",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: begrens en aktivitet så alle får pusterom. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-09",
+    "category": "personale",
+    "title": "Opplæring i resepsjonen",
+    "text": "En hjelper vil lære innsjekking, men det er kø akkurat nå.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "La en erfaren person veilede én innsjekking",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: la en erfaren person veilede én innsjekking. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avtal opplæring etter køen",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: avtal opplæring etter køen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-10",
+    "category": "personale",
+    "title": "Et forslag om snarvei",
+    "text": "Noen vil hoppe over romkontrollen for å bli raskere ferdig.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Behold kontrollen og fordel den",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: behold kontrollen og fordel den. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Utsett en mindre viktig pynteoppgave",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: utsett en mindre viktig pynteoppgave. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-11",
+    "category": "personale",
+    "title": "Den glemte beskjeden",
+    "text": "En gjests ønske ble skrevet på en løs lapp som er borte.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Spør gjesten igjen og bruk felles liste",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: spør gjesten igjen og bruk felles liste. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Let etter lappen mens en annen følger opp gjesten",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: let etter lappen mens en annen følger opp gjesten. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-12",
+    "category": "personale",
+    "title": "Hjelperen som blir avbrutt",
+    "text": "Samme person blir spurt om alt og rekker ikke egen oppgave.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Fordel kontaktansvaret",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: fordel kontaktansvaret. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag et sted for beskjeder som kan vente",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: lag et sted for beskjeder som kan vente. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-13",
+    "category": "personale",
+    "title": "En vakt som må endres",
+    "text": "En medarbeider må gå tidlig. Hagen har en planlagt aktivitet.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt aktiviteten til et roligere tidspunkt",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: flytt aktiviteten til et roligere tidspunkt. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "La en annen overta med en kort gjennomgang",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: la en annen overta med en kort gjennomgang. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-14",
+    "category": "personale",
+    "title": "Ros som bare når én",
+    "text": "En gjest takker resepsjonen for noe hele laget gjorde.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Fortell gjesten hvem som bidro",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: fortell gjesten hvem som bidro. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Les takken høyt for hele laget",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: les takken høyt for hele laget. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "personale-15",
+    "category": "personale",
+    "title": "Ulike måter å rydde på",
+    "text": "To hjelpere er uenige om rekkefølgen på romstellet.",
+    "question": "Hvordan fordeler vi dette uten at én gjør alt?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Prøv begge på hvert sitt rom og sammenlign",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: prøv begge på hvert sitt rom og sammenlign. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Bli enige om en felles sjekkliste",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: bli enige om en felles sjekkliste. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-01",
+    "category": "vaer",
+    "title": "Regn før utflukten",
+    "text": "En utendørstur er planlagt, men regnet kommer tidligere enn meldt.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt turen til et oppholdsvindu",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: flytt turen til et oppholdsvindu. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag et innendørs alternativ",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: lag et innendørs alternativ. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-02",
+    "category": "vaer",
+    "title": "Vind i teltduken",
+    "text": "Aktivitetsteltet blafrer kraftig før verkstedet.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt verkstedet inn",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: flytt verkstedet inn. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avlys teltbruken og tilby små aktiviteter i ly",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: avlys teltbruken og tilby små aktiviteter i ly. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-03",
+    "category": "vaer",
+    "title": "En ekstra varm ettermiddag",
+    "text": "Gjestene vil være ute, men flere glemmer å drikke.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag skyggeplass med vann",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: lag skyggeplass med vann. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Flytt aktivitetene til en kjøligere time",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: flytt aktivitetene til en kjøligere time. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-04",
+    "category": "vaer",
+    "title": "Tåke over utsikten",
+    "text": "Gjester har bestilt en tur for å se fjorden. Tåken skjuler den.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Tilby en skogstur med andre opplevelser",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: tilby en skogstur med andre opplevelser. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Flytt utsiktsturen til senere",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: flytt utsiktsturen til senere. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-05",
+    "category": "vaer",
+    "title": "Den første frosten",
+    "text": "Det har fryst på gangstien i natt.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gjør stien trygg før åpning",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: gjør stien trygg før åpning. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Bruk en annen inngang til den er klar",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: bruk en annen inngang til den er klar. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-06",
+    "category": "vaer",
+    "title": "Et plutselig haglbyge",
+    "text": "Gjester er på vei ut til hageleken når haglet starter.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Samle dem til innendørslek",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: samle dem til innendørslek. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Gi dem en rolig pause og ny tid",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: gi dem en rolig pause og ny tid. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-07",
+    "category": "vaer",
+    "title": "Våte sko overalt",
+    "text": "Regnværet har fylt inngangen med våte sko.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag tørkestasjon og tøfler",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: lag tørkestasjon og tøfler. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Merk en tørr og en våt sone",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: merk en tørr og en våt sone. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-08",
+    "category": "vaer",
+    "title": "Solen falmer pynten",
+    "text": "Papirpynten i vinduet mister farge i sterk sol.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt den til et annet vindu",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: flytt den til et annet vindu. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Bruk stoffpynt som tåler lyset bedre",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: bruk stoffpynt som tåler lyset bedre. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-09",
+    "category": "vaer",
+    "title": "Lynvarsel for turgruppen",
+    "text": "Det meldes tordenvær på turens planlagte tidspunkt.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt turen og forklar hvorfor",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: flytt turen og forklar hvorfor. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag et trygt innendørs opplegg",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: lag et trygt innendørs opplegg. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-10",
+    "category": "vaer",
+    "title": "Snø som overrasker",
+    "text": "Tidlig snø gjør sommeraktivitetene uaktuelle.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en kort snøopplevelse med varmt møtested",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: lag en kort snøopplevelse med varmt møtested. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Åpne verksted og spill inne",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: åpne verksted og spill inne. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-11",
+    "category": "vaer",
+    "title": "Vind som tar serviettene",
+    "text": "Uteserveringen mister servietter og menyer i vinden.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt bordene i le",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: flytt bordene i le. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Bruk faste menyer og serviettholdere",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: bruk faste menyer og serviettholdere. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-12",
+    "category": "vaer",
+    "title": "En lang lys kveld",
+    "text": "Gjestene vil være ute sent, mens andre vil sove.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Avtal en stille hagekveld",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: avtal en stille hagekveld. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Flytt sosial samling bort fra soverommene",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: flytt sosial samling bort fra soverommene. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-13",
+    "category": "vaer",
+    "title": "Det kjølige morgenbadet",
+    "text": "Noen vil bade, men morgenen er kald og flere angrer.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Tilby varm frokost før aktiviteten",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: tilby varm frokost før aktiviteten. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Flytt badet til en varmere del av dagen",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: flytt badet til en varmere del av dagen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-14",
+    "category": "vaer",
+    "title": "Regn etter tørke",
+    "text": "Et kraftig regnskyll gjør tørr jord til søle ved bedene.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Sperr av de våteste stiene",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: sperr av de våteste stiene. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Flytt aktivitetene til den tørre terrassen",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: flytt aktivitetene til den tørre terrassen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "vaer-15",
+    "category": "vaer",
+    "title": "Værmeldingen snur",
+    "text": "Dere har flyttet festen inn, men nå kommer solen.",
+    "question": "Hva kan vi beholde av planen når været endrer seg?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Behold planen og åpne terrassedørene",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: behold planen og åpne terrassedørene. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Flytt bare en liten del ut",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: flytt bare en liten del ut. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-01",
+    "category": "naboer",
+    "title": "Kafeen mangler stoler",
+    "text": "Nabokafeen får en stor gruppe og spør om å låne stoler.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lån ut noen etter å ha telt egne behov",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: lån ut noen etter å ha telt egne behov. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby bordplass i hotellets rolige hjørne",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: tilby bordplass i hotellets rolige hjørne. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-02",
+    "category": "naboer",
+    "title": "Bakerens nye brød",
+    "text": "Bakeren vil prøve et nytt brød på hotellgjestene.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Hold en liten smaksrunde",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: hold en liten smaksrunde. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Be om noen få prøver til frokost",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: be om noen få prøver til frokost. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-03",
+    "category": "naboer",
+    "title": "Bibliotek på hjul",
+    "text": "Biblioteket vil parkere bokbussen ved hotellet. Plassen brukes til bagasje.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Reserver et tidsrom for bokbussen",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: reserver et tidsrom for bokbussen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Finn en plass ved hageporten",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: finn en plass ved hageporten. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-04",
+    "category": "naboer",
+    "title": "Guiden er forsinket",
+    "text": "Den lokale guiden står i trafikk. Gjestene venter.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en kort introduksjon mens dere venter",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: lag en kort introduksjon mens dere venter. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Flytt turen og tilby en annen aktivitet nå",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: flytt turen og tilby en annen aktivitet nå. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-05",
+    "category": "naboer",
+    "title": "Et felles strandrydd",
+    "text": "Naboene inviterer til strandrydding samme dag som hotellets lek.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Kombiner en kort ryddeøkt med leken",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: kombiner en kort ryddeøkt med leken. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Send utstyr og delta en annen dag",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: send utstyr og delta en annen dag. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-06",
+    "category": "naboer",
+    "title": "En lånt duk",
+    "text": "Nabokafeen trenger tilbake duken dere har lånt til et pyntet bord.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bytt duk før gjestene kommer",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: bytt duk før gjestene kommer. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avtal senere levering og tilby en annen duk nå",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: avtal senere levering og tilby en annen duk nå. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-07",
+    "category": "naboer",
+    "title": "Kunstnerens utstilling",
+    "text": "En lokal kunstner vil vise bilder, men gangen er smal.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en liten utstilling i salongen",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: lag en liten utstilling i salongen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Vis noen få bilder ved resepsjonen",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: vis noen få bilder ved resepsjonen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-08",
+    "category": "naboer",
+    "title": "Musikeren uten scene",
+    "text": "En musiker vil spille, men hotellet har ingen scene.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en akustisk stund i hagen",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: lag en akustisk stund i hagen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Avtal en liten konsert ved kafeen",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: avtal en liten konsert ved kafeen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-09",
+    "category": "naboer",
+    "title": "En felles kjøkkenhage",
+    "text": "Naboene vil dele et urtebed. Dere må avtale hvem som vanner.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en enkel vaktliste",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: lag en enkel vaktliste. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Begynn med noen få lettstelte urter",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: begynn med noen få lettstelte urter. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-10",
+    "category": "naboer",
+    "title": "Posten havnet feil",
+    "text": "Hotellet har fått en pakke som tilhører nabobutikken.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lever den og avklar adressene",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: lever den og avklar adressene. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Be budet hente og levere riktig",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: be budet hente og levere riktig. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-11",
+    "category": "naboer",
+    "title": "Turkart med en feil",
+    "text": "Et lokalt kart viser en sti som er stengt.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Merk kartene og varsle utgiveren",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: merk kartene og varsle utgiveren. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Gi gjestene et alternativt kart",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: gi gjestene et alternativt kart. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-12",
+    "category": "naboer",
+    "title": "Et ønske om stillhet",
+    "text": "Naboen jobber tidlig og hører musikken fra hagen.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Flytt høyttalerne og avslutt tidligere",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: flytt høyttalerne og avslutt tidligere. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Bytt til en rolig aktivitet",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: bytt til en rolig aktivitet. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-13",
+    "category": "naboer",
+    "title": "Et overskudd av epler",
+    "text": "En nabo tilbyr epler fra hagen. Hotellet kan ikke bruke alle.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Del leveransen med kafeen",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: del leveransen med kafeen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Ta imot litt og foreslå et felles eplebord",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: ta imot litt og foreslå et felles eplebord. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-14",
+    "category": "naboer",
+    "title": "Den travle markedsdagen",
+    "text": "Markedet fyller gaten. Gjestene finner ikke hotellinngangen.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Sett ut tydelige veivisere",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: sett ut tydelige veivisere. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Møt ankommende gjester på avtalt sted",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: møt ankommende gjester på avtalt sted. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "naboer-15",
+    "category": "naboer",
+    "title": "En tjeneste tilbake",
+    "text": "Nabohotellet som hjalp dere tidligere, trenger nå en møteplass.",
+    "question": "Hvordan kan avtalen fungere for begge?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lån ut salongen en rolig time",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: lån ut salongen en rolig time. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Hjelp dem å finne et annet egnet sted",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: hjelp dem å finne et annet egnet sted. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-01",
+    "category": "feiring",
+    "title": "Bursdagsbarnet vil ha ro",
+    "text": "Familien ønsker sang, men bursdagsbarnet vil ikke stå i sentrum.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag en liten feiring ved familiebordet",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: lag en liten feiring ved familiebordet. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Gi en privat hilsen og la barnet velge aktivitet",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: gi en privat hilsen og la barnet velge aktivitet. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-02",
+    "category": "feiring",
+    "title": "En kake til to",
+    "text": "To gjester har bursdag samme dag og ønsker ulik smak.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag to små kaker",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: lag to små kaker. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag en kake med tydelig delte smaker",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: lag en kake med tydelig delte smaker. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-03",
+    "category": "feiring",
+    "title": "Pynt med en historie",
+    "text": "Gjestene vil bidra med pynt fra hjemstedene sine.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag et felles minnebord",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: lag et felles minnebord. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Heng opp små kort med gjestenes fortellinger",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: heng opp små kort med gjestenes fortellinger. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-04",
+    "category": "feiring",
+    "title": "En overraskelse som røpes",
+    "text": "Hovedpersonen har sett ballongene før festen.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "La personen være med på resten av planleggingen",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: la personen være med på resten av planleggingen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Behold én liten overraskelse til senere",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: behold én liten overraskelse til senere. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-05",
+    "category": "feiring",
+    "title": "En sang uten øving",
+    "text": "Gjestene vil synge sammen, men kan ulike sanger.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Velg en enkel felles sang",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: velg en enkel felles sang. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag en spilleliste der alle får bidra",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: lag en spilleliste der alle får bidra. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-06",
+    "category": "feiring",
+    "title": "Fest uten mye penger",
+    "text": "En gruppe ønsker feiring med lite budsjett.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag spleis på enkel servering",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: lag spleis på enkel servering. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Arranger en gratis spill- og fortellerkveld",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: arranger en gratis spill- og fortellerkveld. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-07",
+    "category": "feiring",
+    "title": "Den lange talen",
+    "text": "En gjest vil holde en lang tale mens maten blir kald.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Avtal tale etter maten",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: avtal tale etter maten. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Del talen i en kort velkomst og en avslutning",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: del talen i en kort velkomst og en avslutning. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-08",
+    "category": "feiring",
+    "title": "Et bilde av alle",
+    "text": "Noen vil ta gruppebilde, mens enkelte ikke ønsker å være med.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag frivillig fotostund",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: lag frivillig fotostund. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Ta bilde av det pyntede bordet i stedet",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: ta bilde av det pyntede bordet i stedet. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-09",
+    "category": "feiring",
+    "title": "En gjest som kom alene",
+    "text": "En gjest vil delta på festen, men kjenner ingen.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gi en varm introduksjon ved et lite bord",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: gi en varm introduksjon ved et lite bord. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Tilby en rolig felles aktivitet før festen",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: tilby en rolig felles aktivitet før festen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-10",
+    "category": "feiring",
+    "title": "Ballonger som sprekker",
+    "text": "Smell fra ballongene gjør noen gjester urolige.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Bytt til vimpler",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: bytt til vimpler. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Flytt ballongene bort fra fellesrommet",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: flytt ballongene bort fra fellesrommet. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-11",
+    "category": "feiring",
+    "title": "En annerledes tradisjon",
+    "text": "To familier vil feire på forskjellige måter.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Gi plass til begge innslag",
+        "effect": {
+          "joy": 6,
+          "energy": -3,
+          "coins": -5
+        },
+        "outcome": "Dere valgte: gi plass til begge innslag. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag en felles aktivitet og separate familiebord",
+        "effect": {
+          "joy": 3,
+          "reputation": 2
+        },
+        "outcome": "Dere valgte: lag en felles aktivitet og separate familiebord. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-12",
+    "category": "feiring",
+    "title": "Gaven som ikke kom",
+    "text": "En bestilt gave er forsinket, men feiringen er i dag.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag et personlig gavekort med avtalt levering",
+        "effect": {
+          "reputation": 5,
+          "energy": -4
+        },
+        "outcome": "Dere valgte: lag et personlig gavekort med avtalt levering. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag en opplevelse som gave nå",
+        "effect": {
+          "energy": 3,
+          "joy": 1
+        },
+        "outcome": "Dere valgte: lag en opplevelse som gave nå. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-13",
+    "category": "feiring",
+    "title": "Et stort takkekort",
+    "text": "Gjestene vil takke hotellets ansatte, men kortet har lite plass.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag flere sider i en liten bok",
+        "effect": {
+          "cleanliness": 6,
+          "coins": -4
+        },
+        "outcome": "Dere valgte: lag flere sider i en liten bok. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag et tre med små hilsener",
+        "effect": {
+          "cleanliness": 3,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: lag et tre med små hilsener. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-14",
+    "category": "feiring",
+    "title": "Avskjedsfest på ulik tid",
+    "text": "Noen reiser tidlig, andre blir til kvelden.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Ha en felles frokosthilsen",
+        "effect": {
+          "joy": 4,
+          "coins": -3
+        },
+        "outcome": "Dere valgte: ha en felles frokosthilsen. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "Lag små avskjedsstunder gjennom dagen",
+        "effect": {
+          "energy": 4,
+          "joy": -1
+        },
+        "outcome": "Dere valgte: lag små avskjedsstunder gjennom dagen. Planen blir forklart før dere går videre."
+      }
+    ]
+  },
+  {
+    "id": "feiring-15",
+    "category": "feiring",
+    "title": "Et minne å ta med",
+    "text": "Barna vil ta med pynten hjem, men den skal brukes igjen.",
+    "question": "Hvordan gjør vi feiringen hyggelig også for dem som ønsker ro?",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Lag små egne minnekort",
+        "effect": {
+          "reputation": 4,
+          "energy": -2
+        },
+        "outcome": "Dere valgte: lag små egne minnekort. Gjestene får beskjed om den nye planen."
+      },
+      {
+        "id": "b",
+        "label": "La dem velge noen få deler som kan gis bort",
+        "effect": {
+          "joy": 2,
+          "coins": 2
+        },
+        "outcome": "Dere valgte: la dem velge noen få deler som kan gis bort. Planen blir forklart før dere går videre."
+      }
+    ]
+  }
+]

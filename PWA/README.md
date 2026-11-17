@@ -9,7 +9,7 @@ Seks egne PWA-identiteter, med stabile adresser:
 
 Hver app har `manifest.webmanifest` (Gigahost serverer denne via `manifest.php` for riktig MIME-type), 192/512 px PNG-ikoner, 180 px Apple-ikon, `pwa.js` og egen `sw.js`. Ikonene er kvadratiske utsnitt/nedskaleringer av eksisterende publiserte spillkort. Ingen nye personbilder er publisert.
 
-`install.js` er felles kilde til `pwa.js` i de seks mappene. Ved endringer kopieres den til hver mappe. Installering bruker nettleserens eget installasjonsvindu når det er tilgjengelig, ellers en dialog med iPhone/Android/PC-instruksjoner. Knappene skjules i standalone-modus.
+`install.js` er felles kilde til `pwa.js` i de seks mappene. Ved endringer kopieres den til hver mappe. Installering bruker nettleserens eget installasjonsvindu når det er tilgjengelig, ellers en dialog med iPhone-instruksjoner. Knappene skjules i standalone-modus.
 
 Service worker henter alltid fra nettet og lagrer ingenting i Cache Storage. Bare navigasjon til appens nøyaktige startside får en lokal «uten nett»-side ved nettfeil. API, invitasjoner, cookies, privat HTML, bilder og andre ressurser caches ikke. Forsidens worker håndterer ikke navigasjon til spillenes undermapper. Appene krever nett; offline-spill er ikke lovet eller innført.
 
@@ -27,4 +27,4 @@ Referanser: https://web.dev/articles/install-criteria og https://webkit.org/blog
 
 Eget QA-hotell kontrollerte engangsinvitasjon, cookie-innlogging etter reload med aktiv worker og privat spillflate. Testhotellet ble slettet; ekte spillerplasser uberørt. Mobilbilder av forside, installasjonshjelp, kafé, Tetris og privat hotell inspisert.
 
-Kontrollen fant og rettet feil ikonstørrelser etter en kombinert sips-operasjon. Testharnessen ble også korrigert: installering kan ikke kontrolleres i inkognitomodus, og Tetris sin løpende nettaktivitet gjør networkidle uegnet som ventebetingelse. Endelig full kjøring bestod. Faktisk installasjon på fysisk iPhone/Android er ikke fjernverifisert; iPhone-instruksjoner følger WebKits dokumenterte støtte.
+Kontrollen fant og rettet feil ikonstørrelser etter en kombinert sips-operasjon. Testharnessen ble også korrigert: installering kan ikke kontrolleres i inkognitomodus, og Tetris sin løpende nettaktivitet gjør networkidle uegnet som ventebetingelse. Endelig full kjøring bestod. Faktisk installasjon på fysisk iPhone er ikke fjernverifisert; iPhone-instruksjoner følger WebKits dokumenterte støtte.

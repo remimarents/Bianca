@@ -34,20 +34,24 @@ try:
  for i in range(2):assert act(i,'ready')['state']['phase']=='planning'
  assert act(2,'ready')['state']['phase']=='day'
  act(0,'propose',kind='party');assert get(1)['state']['proposal']
- assert act(1,'vote',choice='yes')['state']['proposal'] is None
+ assert act(1,'vote',choice='yes')['state']['proposal'] is not None
+ assert act(2,'vote',choice='yes')['state']['proposal'] is None
  guests=get(2)['state']['guests'];assert len(set(g['mood'] for g in guests))>1
  d=get(0);payload={'action':'small','kind':'welcome','id':uuid.uuid4().hex,'rev':d['state']['rev']};h={'X-CSRF-Token':d['csrf']}
  c,a=req('api.php',payload,clients[0],h);c,b=req('api.php',payload,clients[0],h);assert a['state']['metrics']==b['state']['metrics'];assert a['state']['rev']==b['state']['rev']
  assert req('api.php',{'action':'role','role':'rom','id':uuid.uuid4().hex,'rev':b['state']['rev']},clients[0])[0]==403
- print('PASS: cross-player sync, three-player readiness, 2/3 vote, guest tradeoff, deduplication, CSRF')
+ print('PASS: cross-player sync, three-player readiness, all three heard before 2/3 vote, guest tradeoff, deduplication, CSRF')
  for day in range(1,6):
-  deadline=time.time()+30
-  while time.time()<deadline:
-   d=get(0)
-   for i in [1,2]:get(i)
-   if d['state']['phase']!='day':break
-   time.sleep(1)
+  for scene in range(12):
+   for i in range(3):get(i)
+   act(0,'propose',kind='event',choice='b')
+   act(1,'vote',choice='b')
+   d=act(2,'vote',choice='a')
+   for j,t in enumerate(d['state']['tasks']):act(j%3,'task',task=t['id'],choice='b')
+   for i in range(3):d=act(i,'next')
   assert d['state']['day']==day
+  assert d['state']['phase']==('finished' if day==5 else 'evening')
+  print('PASS progress-driven day',day,flush=True)
   if day<5:
    for i in range(3):act(i,'ready')
  assert d['state']['phase']=='finished';assert len(d['state']['newspaper'])==5;assert d['state']['keepsakes']

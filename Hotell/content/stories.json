@@ -1,0 +1,1762 @@
+[
+  {
+    "id": "bursdag",
+    "title": "Overraskelsesbesøket",
+    "category": "feiring",
+    "scenes": [
+      {
+        "title": "Overraskelsesbesøket · En ny plan",
+        "text": "En familie bestiller en liten bursdagsfeiring. Bursdagsbarnet liker både hagen og brettspill.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Planlegg hagefest",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Planlegg hagefest."
+          },
+          {
+            "id": "b",
+            "label": "Planlegg spillfest inne",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Planlegg spillfest inne."
+          }
+        ]
+      },
+      {
+        "title": "Overraskelsesbesøket · Planen endrer seg",
+        "branches": {
+          "a": "Regn varsles over hagen dere valgte. Maten må få tak over seg.",
+          "b": "Spillsalen dere valgte trengs også av noen som vil lese i ro."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Del området i to soner",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Del området i to soner."
+          },
+          {
+            "id": "b",
+            "label": "Flytt feiringen til et nytt tidspunkt",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Flytt feiringen til et nytt tidspunkt."
+          }
+        ]
+      },
+      {
+        "title": "Overraskelsesbesøket · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Del området i to soner». En ekstra familie kommer. Hvordan skal de bli del av feiringen?",
+          "b": "Planen dere valgte: «Flytt feiringen til et nytt tidspunkt». En ekstra familie kommer. Hvordan skal de bli del av feiringen?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag et felles velkomstspill",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag et felles velkomstspill."
+          },
+          {
+            "id": "b",
+            "label": "La vertsfamilien ta imot ved bordet",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "La vertsfamilien ta imot ved bordet."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bokbuss",
+    "title": "Bøkene på hjul",
+    "category": "naboer",
+    "scenes": [
+      {
+        "title": "Bøkene på hjul · En ny plan",
+        "text": "Bokbussen tilbyr å besøke hotellet. Dere kan lage lesestund eller bokjakt.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag lesestund i salongen",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag lesestund i salongen."
+          },
+          {
+            "id": "b",
+            "label": "Lag bokjakt med poster",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag bokjakt med poster."
+          }
+        ]
+      },
+      {
+        "title": "Bøkene på hjul · Planen endrer seg",
+        "branches": {
+          "a": "Fortelleren har mistet stemmen. Lesestunden trenger en ny form.",
+          "b": "Bokjaktkartene er blitt våte. Postene finnes, men gjestene mangler rute."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "La gjestene bidra med egne fortellinger",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "La gjestene bidra med egne fortellinger."
+          },
+          {
+            "id": "b",
+            "label": "Lag små grupper med en veiviser",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag små grupper med en veiviser."
+          }
+        ]
+      },
+      {
+        "title": "Bøkene på hjul · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «La gjestene bidra med egne fortellinger». Biblioteket vil komme tilbake. Hvilken avtale passer hotellet?",
+          "b": "Planen dere valgte: «Lag små grupper med en veiviser». Biblioteket vil komme tilbake. Hvilken avtale passer hotellet?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Fast rolig lesedag",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Fast rolig lesedag."
+          },
+          {
+            "id": "b",
+            "label": "Bokbytte ved resepsjonen",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Bokbytte ved resepsjonen."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hund",
+    "title": "Hunden og den stille gjesten",
+    "category": "gjester",
+    "scenes": [
+      {
+        "title": "Hunden og den stille gjesten · En ny plan",
+        "text": "En familie spør om hunden kan bli med. En annen gjest trenger et område uten dyr.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag et avgrenset dyreområde ute",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag et avgrenset dyreområde ute."
+          },
+          {
+            "id": "b",
+            "label": "Avtal besøk utenfor hotellet",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Avtal besøk utenfor hotellet."
+          }
+        ]
+      },
+      {
+        "title": "Hunden og den stille gjesten · Planen endrer seg",
+        "branches": {
+          "a": "Hunden blir urolig alene ved dyreområdet. Familien trenger å spise.",
+          "b": "Familien kommer tilbake fra møtestedet med et ønske om å bli lenger."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Avtal at familien deler på tilsynet",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Avtal at familien deler på tilsynet."
+          },
+          {
+            "id": "b",
+            "label": "Hjelp familien å finne et egnet tilbud i nærheten",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Hjelp familien å finne et egnet tilbud i nærheten."
+          }
+        ]
+      },
+      {
+        "title": "Hunden og den stille gjesten · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Avtal at familien deler på tilsynet». Familien takker for tydelige avtaler. Hva bør neste besøk inneholde?",
+          "b": "Planen dere valgte: «Hjelp familien å finne et egnet tilbud i nærheten». Familien takker for tydelige avtaler. Hva bør neste besøk inneholde?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "En skriftlig plan for dyr og allergihensyn",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "En skriftlig plan for dyr og allergihensyn."
+          },
+          {
+            "id": "b",
+            "label": "Et kart over dyrevennlige møtesteder",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Et kart over dyrevennlige møtesteder."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marked",
+    "title": "Hotellets markedsbod",
+    "category": "okonomi",
+    "scenes": [
+      {
+        "title": "Hotellets markedsbod · En ny plan",
+        "text": "Hotellet får tilbud om en bod på markedet. Dere kan selge mat eller vise aktiviteter.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag en liten matbod",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag en liten matbod."
+          },
+          {
+            "id": "b",
+            "label": "Lag en aktivitetsbod",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag en aktivitetsbod."
+          }
+        ]
+      },
+      {
+        "title": "Hotellets markedsbod · Planen endrer seg",
+        "branches": {
+          "a": "En annen bod selger samme mat. Dere må gjøre deres tilbud tydelig.",
+          "b": "Barna blir ved aktivitetsboden lenge. Nye gjester kommer ikke til."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Samarbeid med naboboden",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Samarbeid med naboboden."
+          },
+          {
+            "id": "b",
+            "label": "Lag korte, tydelige tidsluker",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag korte, tydelige tidsluker."
+          }
+        ]
+      },
+      {
+        "title": "Hotellets markedsbod · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Samarbeid med naboboden». Markedet er slutt, og dere har utstyr igjen. Hva gjør dere?",
+          "b": "Planen dere valgte: «Lag korte, tydelige tidsluker». Markedet er slutt, og dere har utstyr igjen. Hva gjør dere?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Gjenbruk det på hotellet",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Gjenbruk det på hotellet."
+          },
+          {
+            "id": "b",
+            "label": "Del med neste arrangør",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Del med neste arrangør."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hagekonsert",
+    "title": "Konserten under eika",
+    "category": "feiring",
+    "scenes": [
+      {
+        "title": "Konserten under eika · En ny plan",
+        "text": "En musiker tilbyr en liten konsert. Noen gjester vil danse, andre vil høre i ro.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag plass til dans",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag plass til dans."
+          },
+          {
+            "id": "b",
+            "label": "Sett ut lytteplasser",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Sett ut lytteplasser."
+          }
+        ]
+      },
+      {
+        "title": "Konserten under eika · Planen endrer seg",
+        "branches": {
+          "a": "Dansegulvet blir trangt når flere gjester kommer til.",
+          "b": "Flere barn vil bevege seg mellom stolradene."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag egne soner for bevegelse og lytting",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag egne soner for bevegelse og lytting."
+          },
+          {
+            "id": "b",
+            "label": "Hold to korte sett med pause",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Hold to korte sett med pause."
+          }
+        ]
+      },
+      {
+        "title": "Konserten under eika · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Lag egne soner for bevegelse og lytting». Musikeren vil ha ett siste innslag. Hva velger dere?",
+          "b": "Planen dere valgte: «Hold to korte sett med pause». Musikeren vil ha ett siste innslag. Hva velger dere?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Felles ønskesang med lav lyd",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Felles ønskesang med lav lyd."
+          },
+          {
+            "id": "b",
+            "label": "En rolig avslutning før leggetid",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "En rolig avslutning før leggetid."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "skatt",
+    "title": "Kartet i den gamle boken",
+    "category": "hage",
+    "scenes": [
+      {
+        "title": "Kartet i den gamle boken · En ny plan",
+        "text": "En gjest finner et gammelt hagekart. Det viser et sted med en stjerne.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Følg kartet som en skattejakt",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Følg kartet som en skattejakt."
+          },
+          {
+            "id": "b",
+            "label": "Undersøk historien i boka først",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Undersøk historien i boka først."
+          }
+        ]
+      },
+      {
+        "title": "Kartet i den gamle boken · Planen endrer seg",
+        "branches": {
+          "a": "Stjernen ligger ved et sårbart blomsterbed. Dere kan ikke grave der.",
+          "b": "Boka forteller at stjernen markerte et gammelt samlingssted, ikke en skatt."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag en ny post ved siden av bedet",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag en ny post ved siden av bedet."
+          },
+          {
+            "id": "b",
+            "label": "Inviter gjestene til å tolke kartet",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Inviter gjestene til å tolke kartet."
+          }
+        ]
+      },
+      {
+        "title": "Kartet i den gamle boken · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Lag en ny post ved siden av bedet». Dere finner et gammelt bilde av hagen. Hvordan bruker dere funnet?",
+          "b": "Planen dere valgte: «Inviter gjestene til å tolke kartet». Dere finner et gammelt bilde av hagen. Hvordan bruker dere funnet?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag en liten historievegg",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag en liten historievegg."
+          },
+          {
+            "id": "b",
+            "label": "Lag et nytt kart med gjestenes minner",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag et nytt kart med gjestenes minner."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "storm",
+    "title": "Da vinden snudde",
+    "category": "vaer",
+    "scenes": [
+      {
+        "title": "Da vinden snudde · En ny plan",
+        "text": "Vind er meldt til kvelden. Dere har hagemøbler og en planlagt utesamling.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Sikre møblene og behold en liten samling",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Sikre møblene og behold en liten samling."
+          },
+          {
+            "id": "b",
+            "label": "Flytt samlingen inn allerede nå",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Flytt samlingen inn allerede nå."
+          }
+        ]
+      },
+      {
+        "title": "Da vinden snudde · Planen endrer seg",
+        "branches": {
+          "a": "Vinden blir sterkere. Den lille samlingen må likevel flyttes.",
+          "b": "Innesamlingen får flere deltakere enn ventet fordi turen avlyses."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Del gjestene mellom to trygge rom",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Del gjestene mellom to trygge rom."
+          },
+          {
+            "id": "b",
+            "label": "Lag en felles rolig aktivitet med færre møbler",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag en felles rolig aktivitet med færre møbler."
+          }
+        ]
+      },
+      {
+        "title": "Da vinden snudde · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Del gjestene mellom to trygge rom». Vinden løyer neste morgen. Hva prioriterer dere?",
+          "b": "Planen dere valgte: «Lag en felles rolig aktivitet med færre møbler». Vinden løyer neste morgen. Hva prioriterer dere?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Kontroller uteområdet før det åpnes",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Kontroller uteområdet før det åpnes."
+          },
+          {
+            "id": "b",
+            "label": "Hold gjestene inne mens fagfolk sjekker ute",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Hold gjestene inne mens fagfolk sjekker ute."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sykkel",
+    "title": "Sykkelturen som tok en vending",
+    "category": "gjester",
+    "scenes": [
+      {
+        "title": "Sykkelturen som tok en vending · En ny plan",
+        "text": "En gruppe ønsker sykkeltur. De har ulik erfaring og tempo.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Velg kort felles rute",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Velg kort felles rute."
+          },
+          {
+            "id": "b",
+            "label": "Del i to grupper med egne ledsagere",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Del i to grupper med egne ledsagere."
+          }
+        ]
+      },
+      {
+        "title": "Sykkelturen som tok en vending · Planen endrer seg",
+        "branches": {
+          "a": "Noen synes også den korte ruten blir tung.",
+          "b": "Den raske gruppen blir forsinket av en punktering."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Avtal et felles trygt møtested",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Avtal et felles trygt møtested."
+          },
+          {
+            "id": "b",
+            "label": "La ledsagerne hjelpe og varsle hotellet",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "La ledsagerne hjelpe og varsle hotellet."
+          }
+        ]
+      },
+      {
+        "title": "Sykkelturen som tok en vending · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Avtal et felles trygt møtested». Alle kommer tilbake. Hva vil dere tilby neste gang?",
+          "b": "Planen dere valgte: «La ledsagerne hjelpe og varsle hotellet». Alle kommer tilbake. Hva vil dere tilby neste gang?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Ruter med tydelig lengde og pauser",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Ruter med tydelig lengde og pauser."
+          },
+          {
+            "id": "b",
+            "label": "En frivillig prøverunde før turen",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "En frivillig prøverunde før turen."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "oppskrift",
+    "title": "Bestemors oppskriftsbok",
+    "category": "mat",
+    "scenes": [
+      {
+        "title": "Bestemors oppskriftsbok · En ny plan",
+        "text": "En gjest låner dere en gammel oppskrift. Noen av målene er uklare.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Prøv en liten porsjon på kjøkkenet",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Prøv en liten porsjon på kjøkkenet."
+          },
+          {
+            "id": "b",
+            "label": "Spør gjesten om å vise fremgangsmåten",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Spør gjesten om å vise fremgangsmåten."
+          }
+        ]
+      },
+      {
+        "title": "Bestemors oppskriftsbok · Planen endrer seg",
+        "branches": {
+          "a": "Prøveporsjonen blir fastere enn ventet, men smaker godt.",
+          "b": "Gjesten husker fremgangsmåten, men vil gjerne ha hjelp med tunge redskaper."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Tilpass retten til små dessertskåler",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Tilpass retten til små dessertskåler."
+          },
+          {
+            "id": "b",
+            "label": "Fordel arbeidet og lag en ny liten prøve",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Fordel arbeidet og lag en ny liten prøve."
+          }
+        ]
+      },
+      {
+        "title": "Bestemors oppskriftsbok · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Tilpass retten til små dessertskåler». Oppskriften fungerer. Hvordan deler dere den?",
+          "b": "Planen dere valgte: «Fordel arbeidet og lag en ny liten prøve». Oppskriften fungerer. Hvordan deler dere den?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Skriv en tydelig oppskrift med gjestens tillatelse",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Skriv en tydelig oppskrift med gjestens tillatelse."
+          },
+          {
+            "id": "b",
+            "label": "Ha en liten smaksstund og fortell historien",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Ha en liten smaksstund og fortell historien."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fotoklubb",
+    "title": "Bildene ingen ventet",
+    "category": "gjester",
+    "scenes": [
+      {
+        "title": "Bildene ingen ventet · En ny plan",
+        "text": "En fotoklubb vil fotografere hotellet. Noen gjester ønsker ikke å bli fotografert.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Avtal motiv uten mennesker",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Avtal motiv uten mennesker."
+          },
+          {
+            "id": "b",
+            "label": "Reserver et område for frivillige deltakere",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Reserver et område for frivillige deltakere."
+          }
+        ]
+      },
+      {
+        "title": "Bildene ingen ventet · Planen endrer seg",
+        "branches": {
+          "a": "Klubben finner spennende detaljer i slitte møbler og gamle skilt.",
+          "b": "Flere vil delta, men en ombestemmer seg før fotograferingen."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag en utstilling med bare godkjente motiver",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag en utstilling med bare godkjente motiver."
+          },
+          {
+            "id": "b",
+            "label": "Vis hotellhistorien gjennom gjenstander",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Vis hotellhistorien gjennom gjenstander."
+          }
+        ]
+      },
+      {
+        "title": "Bildene ingen ventet · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Lag en utstilling med bare godkjente motiver». Klubben tilbyr et bilde i gave. Hva velger dere?",
+          "b": "Planen dere valgte: «Vis hotellhistorien gjennom gjenstander». Klubben tilbyr et bilde i gave. Hva velger dere?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Et bilde av hagen",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Et bilde av hagen."
+          },
+          {
+            "id": "b",
+            "label": "Et bilde av en detalj gjestene vanligvis overser",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Et bilde av en detalj gjestene vanligvis overser."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "basseng",
+    "title": "Bassengplanen",
+    "category": "vedlikehold",
+    "scenes": [
+      {
+        "title": "Bassengplanen · En ny plan",
+        "text": "Gjestene ønsker mer vannlek. Et basseng krever både stell og plass.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Undersøk et bassengprosjekt",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Undersøk et bassengprosjekt."
+          },
+          {
+            "id": "b",
+            "label": "Lag en mindre vannlek på et egnet sted",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag en mindre vannlek på et egnet sted."
+          }
+        ]
+      },
+      {
+        "title": "Bassengplanen · Planen endrer seg",
+        "branches": {
+          "a": "Planen viser at daglig stell vil kreve mer arbeid enn ventet.",
+          "b": "Vannleken er populær, men området blir vått og trenger tydelig avgrensing."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag en plan for trygg bruk og stell",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag en plan for trygg bruk og stell."
+          },
+          {
+            "id": "b",
+            "label": "Velg en tørr aktivitet mens planen forbedres",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Velg en tørr aktivitet mens planen forbedres."
+          }
+        ]
+      },
+      {
+        "title": "Bassengplanen · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Lag en plan for trygg bruk og stell». Gjestene spør hva som skjer videre. Hva lover dere?",
+          "b": "Planen dere valgte: «Velg en tørr aktivitet mens planen forbedres». Gjestene spør hva som skjer videre. Hva lover dere?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "En ny vurdering etter at driften er gjennomgått",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "En ny vurdering etter at driften er gjennomgått."
+          },
+          {
+            "id": "b",
+            "label": "Et fast aktivitetstilbud som hotellet kan håndtere",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Et fast aktivitetstilbud som hotellet kan håndtere."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "teater",
+    "title": "Teater i salongen",
+    "category": "feiring",
+    "scenes": [
+      {
+        "title": "Teater i salongen · En ny plan",
+        "text": "Barna vil lage et teaterstykke. De ønsker både scene og kostymer.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag en liten scene av eksisterende møbler",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag en liten scene av eksisterende møbler."
+          },
+          {
+            "id": "b",
+            "label": "Lag vandreteater mellom trygge poster",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag vandreteater mellom trygge poster."
+          }
+        ]
+      },
+      {
+        "title": "Teater i salongen · Planen endrer seg",
+        "branches": {
+          "a": "En viktig skuespiller blir sjenert og vil ikke stå på scenen.",
+          "b": "Vandreteateret møter gjester som bruker samme gang."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Gi flere roller bak scenen og korte opptredener",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Gi flere roller bak scenen og korte opptredener."
+          },
+          {
+            "id": "b",
+            "label": "Flytt forestillingen til en avgrenset salong",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Flytt forestillingen til en avgrenset salong."
+          }
+        ]
+      },
+      {
+        "title": "Teater i salongen · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Gi flere roller bak scenen og korte opptredener». Publikum ønsker en ekstra forestilling. Hva gjør dere?",
+          "b": "Planen dere valgte: «Flytt forestillingen til en avgrenset salong». Publikum ønsker en ekstra forestilling. Hva gjør dere?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "La barna velge om de har lyst",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "La barna velge om de har lyst."
+          },
+          {
+            "id": "b",
+            "label": "Vis kulisser og fortell om arbeidet i stedet",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Vis kulisser og fortell om arbeidet i stedet."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "frukt",
+    "title": "Eplene fra naboen",
+    "category": "naboer",
+    "scenes": [
+      {
+        "title": "Eplene fra naboen · En ny plan",
+        "text": "Naboen har mer frukt enn hun kan bruke. Dere kan hente en del.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag felles epledag",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag felles epledag."
+          },
+          {
+            "id": "b",
+            "label": "Bruk frukten i hotellets måltider",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Bruk frukten i hotellets måltider."
+          }
+        ]
+      },
+      {
+        "title": "Eplene fra naboen · Planen endrer seg",
+        "branches": {
+          "a": "Flere naboer vil delta enn det er plass til ved bordene.",
+          "b": "Kjøkkenet får både modne og umodne epler som må sorteres."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Sorter og del arbeidet i små stasjoner",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Sorter og del arbeidet i små stasjoner."
+          },
+          {
+            "id": "b",
+            "label": "Ta imot mindre nå og avtal resten senere",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Ta imot mindre nå og avtal resten senere."
+          }
+        ]
+      },
+      {
+        "title": "Eplene fra naboen · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Sorter og del arbeidet i små stasjoner». Epledagen gir et overskudd. Hva gjør dere med det?",
+          "b": "Planen dere valgte: «Ta imot mindre nå og avtal resten senere». Epledagen gir et overskudd. Hva gjør dere med det?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Del ferdige porsjoner etter avtale",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Del ferdige porsjoner etter avtale."
+          },
+          {
+            "id": "b",
+            "label": "Oppbevar det forsvarlig til neste måltid",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Oppbevar det forsvarlig til neste måltid."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "brev",
+    "title": "Brevet fra en gammel gjest",
+    "category": "gjester",
+    "scenes": [
+      {
+        "title": "Brevet fra en gammel gjest · En ny plan",
+        "text": "En tidligere gjest skriver at hotellets hage var viktig for henne. Hun ønsker et gjenbesøk.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Planlegg en hagedag",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Planlegg en hagedag."
+          },
+          {
+            "id": "b",
+            "label": "Inviter til en rolig innendørs mimrestund",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Inviter til en rolig innendørs mimrestund."
+          }
+        ]
+      },
+      {
+        "title": "Brevet fra en gammel gjest · Planen endrer seg",
+        "branches": {
+          "a": "Gjesten kommer en dag med regn, men vil gjerne se hagen.",
+          "b": "Gjesten tar med gamle bilder som viser en del av hagen dere ikke kjenner."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag en kort tur i ly og en innestund",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag en kort tur i ly og en innestund."
+          },
+          {
+            "id": "b",
+            "label": "Lag en samtale rundt bildene og utsikten",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag en samtale rundt bildene og utsikten."
+          }
+        ]
+      },
+      {
+        "title": "Brevet fra en gammel gjest · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Lag en kort tur i ly og en innestund». Gjesten vil gi hotellet en kopi av et bilde. Hvor skal det vises?",
+          "b": "Planen dere valgte: «Lag en samtale rundt bildene og utsikten». Gjesten vil gi hotellet en kopi av et bilde. Hvor skal det vises?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "I en liten historiekrok",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "I en liten historiekrok."
+          },
+          {
+            "id": "b",
+            "label": "I en bok gjestene kan bla i",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "I en bok gjestene kan bla i."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stille",
+    "title": "Den stille helgen",
+    "category": "personale",
+    "scenes": [
+      {
+        "title": "Den stille helgen · En ny plan",
+        "text": "Hotellet vil prøve en roligere helg. Noen gjester frykter at det blir kjedelig.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Tilby stille kreative aktiviteter",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Tilby stille kreative aktiviteter."
+          },
+          {
+            "id": "b",
+            "label": "Lag rolige og aktive områder",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag rolige og aktive områder."
+          }
+        ]
+      },
+      {
+        "title": "Den stille helgen · Planen endrer seg",
+        "branches": {
+          "a": "Et verksted blir livlig når deltakerne blir ivrige.",
+          "b": "Lyden fra det aktive området bærer inn i lesekroken."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Flytt den livlige aktiviteten lenger unna",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Flytt den livlige aktiviteten lenger unna."
+          },
+          {
+            "id": "b",
+            "label": "Avtal tider der rommene brukes forskjellig",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Avtal tider der rommene brukes forskjellig."
+          }
+        ]
+      },
+      {
+        "title": "Den stille helgen · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Flytt den livlige aktiviteten lenger unna». Gjestene har ulike erfaringer. Hva tar dere med videre?",
+          "b": "Planen dere valgte: «Avtal tider der rommene brukes forskjellig». Gjestene har ulike erfaringer. Hva tar dere med videre?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Tydeligere informasjon før bestilling",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Tydeligere informasjon før bestilling."
+          },
+          {
+            "id": "b",
+            "label": "Et kart over rolige steder og aktivitetstider",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Et kart over rolige steder og aktivitetstider."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bryllup",
+    "title": "Det lille bryllupet",
+    "category": "feiring",
+    "scenes": [
+      {
+        "title": "Det lille bryllupet · En ny plan",
+        "text": "Et par ønsker en liten markering uten et stort arrangement.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag middag i spisesalen",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag middag i spisesalen."
+          },
+          {
+            "id": "b",
+            "label": "Lag seremoni i hagen med enkel servering",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag seremoni i hagen med enkel servering."
+          }
+        ]
+      },
+      {
+        "title": "Det lille bryllupet · Planen endrer seg",
+        "branches": {
+          "a": "Et annet selskap har behov for spisesalen tidligere samme dag.",
+          "b": "Paret får en gjest som trenger en jevn og kort vei til sitteplassen."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag en tydelig tids- og romplan",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag en tydelig tids- og romplan."
+          },
+          {
+            "id": "b",
+            "label": "Flytt markeringen til et mer tilgjengelig område",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Flytt markeringen til et mer tilgjengelig område."
+          }
+        ]
+      },
+      {
+        "title": "Det lille bryllupet · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Lag en tydelig tids- og romplan». Paret ønsker et minne fra dagen. Hva tilbyr dere?",
+          "b": "Planen dere valgte: «Flytt markeringen til et mer tilgjengelig område». Paret ønsker et minne fra dagen. Hva tilbyr dere?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "En bok med frivillige hilsener",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "En bok med frivillige hilsener."
+          },
+          {
+            "id": "b",
+            "label": "En liten plante med stellråd",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "En liten plante med stellråd."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stjerner",
+    "title": "Kvelden med stjernene",
+    "category": "vaer",
+    "scenes": [
+      {
+        "title": "Kvelden med stjernene · En ny plan",
+        "text": "Gjestene ønsker å se stjernehimmelen. Dere trenger mørke og et trygt møtested.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Planlegg en kort tur til hagekroken",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Planlegg en kort tur til hagekroken."
+          },
+          {
+            "id": "b",
+            "label": "Lag stjernekveld fra terrassen",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag stjernekveld fra terrassen."
+          }
+        ]
+      },
+      {
+        "title": "Kvelden med stjernene · Planen endrer seg",
+        "branches": {
+          "a": "Skyer dekker himmelen rett før turen starter.",
+          "b": "Lyset fra resepsjonen gjør stjernene vanskelige å se."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Bruk stjernekart og fortellinger",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Bruk stjernekart og fortellinger."
+          },
+          {
+            "id": "b",
+            "label": "Flytt tidspunktet og behold trygg belysning langs veien",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Flytt tidspunktet og behold trygg belysning langs veien."
+          }
+        ]
+      },
+      {
+        "title": "Kvelden med stjernene · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Bruk stjernekart og fortellinger». En gjest kan mye om himmelen. Hvordan deler dere kunnskapen?",
+          "b": "Planen dere valgte: «Flytt tidspunktet og behold trygg belysning langs veien». En gjest kan mye om himmelen. Hvordan deler dere kunnskapen?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "La gjesten vise noen få stjernebilder",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "La gjesten vise noen få stjernebilder."
+          },
+          {
+            "id": "b",
+            "label": "Lag en liten utstilling til neste kveld",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag en liten utstilling til neste kveld."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hittegods",
+    "title": "Kofferten uten navn",
+    "category": "rom",
+    "scenes": [
+      {
+        "title": "Kofferten uten navn · En ny plan",
+        "text": "En koffert står igjen etter utsjekking. Den er ikke merket.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Sjekk dagens avreiser og kontakt riktig gjest",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Sjekk dagens avreiser og kontakt riktig gjest."
+          },
+          {
+            "id": "b",
+            "label": "Oppbevar den trygt mens resepsjonen undersøker",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Oppbevar den trygt mens resepsjonen undersøker."
+          }
+        ]
+      },
+      {
+        "title": "Kofferten uten navn · Planen endrer seg",
+        "branches": {
+          "a": "To gjester melder at de savner en koffert. Dere trenger kjennetegn.",
+          "b": "En gjest kommer for å hente, men beskriver en annen farge."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Be om kjennetegn uten å vise innhold offentlig",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Be om kjennetegn uten å vise innhold offentlig."
+          },
+          {
+            "id": "b",
+            "label": "Avtal kontrollert henting med resepsjonen",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Avtal kontrollert henting med resepsjonen."
+          }
+        ]
+      },
+      {
+        "title": "Kofferten uten navn · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Be om kjennetegn uten å vise innhold offentlig». Riktig eier er funnet. Hvordan unngår dere nye forvekslinger?",
+          "b": "Planen dere valgte: «Avtal kontrollert henting med resepsjonen». Riktig eier er funnet. Hvordan unngår dere nye forvekslinger?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Innfør tydelige bagasjelapper",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Innfør tydelige bagasjelapper."
+          },
+          {
+            "id": "b",
+            "label": "Lag separate oppbevaringsplasser for ankomst og avreise",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag separate oppbevaringsplasser for ankomst og avreise."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "verksted",
+    "title": "Gjenbruksverkstedet",
+    "category": "hage",
+    "scenes": [
+      {
+        "title": "Gjenbruksverkstedet · En ny plan",
+        "text": "Gjestene vil lage pynt av materialer som ellers kastes.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Lag verksted med papir og stoff",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Lag verksted med papir og stoff."
+          },
+          {
+            "id": "b",
+            "label": "Lag reparasjonsstasjon for eksisterende pynt",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag reparasjonsstasjon for eksisterende pynt."
+          }
+        ]
+      },
+      {
+        "title": "Gjenbruksverkstedet · Planen endrer seg",
+        "branches": {
+          "a": "Papiret tar slutt mens flere vil delta.",
+          "b": "Flere ting kan ikke repareres med utstyret dere har."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Tilpass oppgavene til trygge materialer som finnes",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Tilpass oppgavene til trygge materialer som finnes."
+          },
+          {
+            "id": "b",
+            "label": "Lag små grupper som lærer av hverandre",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag små grupper som lærer av hverandre."
+          }
+        ]
+      },
+      {
+        "title": "Gjenbruksverkstedet · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Tilpass oppgavene til trygge materialer som finnes». Dere har fått både pynt og erfaring. Hva gjør dere videre?",
+          "b": "Planen dere valgte: «Lag små grupper som lærer av hverandre». Dere har fått både pynt og erfaring. Hva gjør dere videre?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Still ut arbeidet med frivillige navnelapper",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Still ut arbeidet med frivillige navnelapper."
+          },
+          {
+            "id": "b",
+            "label": "Lag en enkel oppskriftsbok til neste verksted",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Lag en enkel oppskriftsbok til neste verksted."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fullt",
+    "title": "Den uventede gruppen",
+    "category": "okonomi",
+    "scenes": [
+      {
+        "title": "Den uventede gruppen · En ny plan",
+        "text": "Et annet overnattingssted har fått problemer. En gruppe spør om dere har plass.",
+        "question": "Hva ønsker vi å få til, og hvem trenger at vi tar hensyn?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Undersøk ledige rom og tilgjengelig hjelp",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Undersøk ledige rom og tilgjengelig hjelp."
+          },
+          {
+            "id": "b",
+            "label": "Samarbeid med flere overnattingssteder",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Samarbeid med flere overnattingssteder."
+          }
+        ]
+      },
+      {
+        "title": "Den uventede gruppen · Planen endrer seg",
+        "branches": {
+          "a": "Dere har rom, men ikke kapasitet til alle måltidene.",
+          "b": "Gruppen må bo flere steder og ønsker et felles møtested."
+        },
+        "question": "Hva fra den første planen kan vi beholde? Hva må endres?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Avtal servering hos nabokafeen",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Avtal servering hos nabokafeen."
+          },
+          {
+            "id": "b",
+            "label": "Tilby et enkelt felles måltid på avtalt tid",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Tilby et enkelt felles måltid på avtalt tid."
+          }
+        ]
+      },
+      {
+        "title": "Den uventede gruppen · Det vi tar med videre",
+        "branches": {
+          "a": "Planen dere valgte: «Avtal servering hos nabokafeen». Gruppen vil takke dem som hjalp. Hva gjør dere?",
+          "b": "Planen dere valgte: «Tilby et enkelt felles måltid på avtalt tid». Gruppen vil takke dem som hjalp. Hva gjør dere?"
+        },
+        "question": "Hva lærte vi, og hva vil vi gjøre ved et nytt besøk?",
+        "choices": [
+          {
+            "id": "a",
+            "label": "Samle en hilsen til alle som bidro",
+            "effect": {
+              "joy": 5,
+              "energy": -3
+            },
+            "outcome": "Samle en hilsen til alle som bidro."
+          },
+          {
+            "id": "b",
+            "label": "Inviter til en kort felles avskjed",
+            "effect": {
+              "reputation": 3,
+              "energy": 1
+            },
+            "outcome": "Inviter til en kort felles avskjed."
+          }
+        ]
+      }
+    ]
+  }
+]
