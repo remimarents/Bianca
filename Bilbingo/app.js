@@ -1,5 +1,8 @@
 "use strict";
 
+const sounds = new window.BingoSounds();
+document.addEventListener("visibilitychange", () => { if (document.hidden) sounds.stop(); });
+
 const storageKey = "bilbingo.state.v1";
 const setupKey = "bilbingo.setup.v1";
 const highscoreKey = "bilbingo.highscore.v1";
@@ -148,6 +151,7 @@ function renderColorForm() {
 }
 
 function startGame() {
+  sounds.play("start");
   state.currentRound = 1;
   state.log = [];
   state.roundHistory = [];
@@ -211,7 +215,7 @@ function addPoint(playerId) {
   player.totalPoints += color.points;
   const text = `${player.name} så ${color.name.toLowerCase()} bil og fikk ${color.points} poeng!`;
   state.log.unshift({ playerId, points: color.points, round: state.currentRound, text });
-  playBeep();
+  if (!state.pointGoal || player.totalPoints < state.pointGoal) sounds.play("found", color.points);
   renderGame();
   const card = document.getElementById(`card-${playerId}`);
   if (card) {
@@ -224,6 +228,7 @@ function addPoint(playerId) {
 function undoLast() {
   const last = state.log.shift();
   if (!last) return;
+  sounds.play("undo");
   const player = state.players.find((item) => item.id === last.playerId);
   if (player) {
     player.roundPoints = Math.max(0, player.roundPoints - last.points);
@@ -241,6 +246,7 @@ function nextRound() {
     finishGame();
     return;
   }
+  sounds.play("round");
   state.currentRound += 1;
   state.players.forEach((player) => {
     player.roundPoints = 0;
@@ -250,6 +256,8 @@ function nextRound() {
 }
 
 function finishGame() {
+  if (state.screen === "winner" || !state.players.length) return;
+  sounds.play("win");
   const ranked = [...state.players].sort((a, b) => b.totalPoints - a.totalPoints);
   const winner = ranked[0];
   $("#winnerTitle").textContent = `${winner.name} vant!`;
@@ -296,6 +304,7 @@ function renderAdultPanel() {
 }
 
 function resetRound() {
+  sounds.play("undo");
   state.players.forEach((player) => {
     player.totalPoints -= player.roundPoints;
     player.roundPoints = 0;
@@ -305,6 +314,7 @@ function resetRound() {
 }
 
 function resetWholeGame() {
+  sounds.play("undo");
   state.currentRound = 1;
   state.log = [];
   state.roundHistory = [];
@@ -313,26 +323,6 @@ function resetWholeGame() {
     player.totalPoints = 0;
   });
   renderGame();
-}
-
-function playBeep() {
-  try {
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContextClass) return;
-    const ctx = new AudioContextClass();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.frequency.value = 660;
-    gain.gain.setValueAtTime(.001, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(.12, ctx.currentTime + .02);
-    gain.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + .14);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start();
-    osc.stop(ctx.currentTime + .16);
-  } catch {
-    // Lyd er ekstra; spillet skal fungere uten.
-  }
 }
 
 function escapeHtml(value) {
@@ -351,6 +341,7 @@ function bindEvents() {
     state.pointGoal = Number($("#pointGoal").value);
     state.players = defaultPlayers(state.playerCount).map((player, index) => ({ ...player, name: names[index] }));
     renderColorForm();
+    sounds.play("select");
     showScreen("color");
   });
 
@@ -358,10 +349,12 @@ function bindEvents() {
     const colorBtn = event.target.closest("[data-color]");
     const carBtn = event.target.closest("[data-car]");
     if (colorBtn) {
+      sounds.play("select");
       state.players[Number(colorBtn.dataset.player)].color = colorBtn.dataset.color;
       renderColorForm();
     }
     if (carBtn) {
+      sounds.play("car");
       state.players[Number(carBtn.dataset.player)].car = carBtn.dataset.car;
       renderColorForm();
     }
@@ -374,7 +367,7 @@ function bindEvents() {
 
   document.addEventListener("click", (event) => {
     const back = event.target.closest("[data-back]");
-    if (back) showScreen(back.dataset.back);
+    if (back) { sounds.play("select"); showScreen(back.dataset.back); }
     const score = event.target.closest("[data-score]");
     if (score) {
       event.preventDefault();
@@ -386,6 +379,7 @@ function bindEvents() {
       const player = state.players.find((item) => item.id === adjust.dataset.adjust);
       const delta = Number(adjust.dataset.delta);
       if (player) {
+        sounds.play("select");
         player.totalPoints = Math.max(0, player.totalPoints + delta);
         player.roundPoints = Math.max(0, player.roundPoints + delta);
         renderGame();
@@ -400,6 +394,7 @@ function bindEvents() {
   $("#resetGame").addEventListener("click", resetWholeGame);
   $("#replayBtn").addEventListener("click", startGame);
   $("#newGameBtn").addEventListener("click", () => {
+    sounds.play("select");
     localStorage.removeItem(storageKey);
     state = { ...state, screen: "setup", players: [], log: [], adultMode: false };
     hydrateSetup();
