@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.test-data/
+tests/artifacts/
+!tools/*.py
+!tests/*.py
