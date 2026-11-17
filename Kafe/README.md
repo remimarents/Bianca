@@ -18,3 +18,11 @@ Bare kallenavn, oppgaver og spillfremgang inngår i rommet. Kafémynter og pynt 
 
 ## Kontroll 17. november 2026
 Chrome/Playwright: hel alenerunde med feil/hint, hele turvise runder, kjøp av pynt, to separate nettleserøkter gjennom en hel felles vakt, SMS-lenke/firesifret kode, responsivt ved 320/390/768/1440 px. PHP-syntaks og duplikate svar/neste-forespørsler kontrollert.
+
+## Spillopplevelse, versjon 3
+- Hurtigstart fra første mobilskjerm.
+- Illustrert kafé, store svarvalg og valgfritt talltastatur.
+- Serveringsanimasjon, myntfeiring, sluttkonfetti og 1–3 stjerner.
+- Syntetiserte korte lyder med tydelig lydknapp; lydvalg lagres lokalt. Ingen lyd før brukerhandling.
+- Respekterer redusert bevegelse.
+- Synlig sparemål for neste dekorasjon. Ingen kjøp med ekte penger, tidsfrister eller hastighetsbonus.
