@@ -96,3 +96,17 @@ body:has(.game-sheet:not(.collapsed)) .hotel :is(.room-number,.room-status,.room
 body[data-phase="day"] .workbench{border-color:#ffffff33}.game-sheet .opening-countdown{background:transparent;color:#fff}.game-sheet .opening-countdown :is(h2,p,span,b,em){color:inherit}
 @media(min-width:701px){.below-scene{top:calc(62px + env(safe-area-inset-top))}}
 @media(max-width:700px){.scene-nav button,.scene-nav #sheet-toggle{font-size:10px}.event-peek{font-size:12px}.hotel .zone strong{font-size:10px}}
+/* Actions belong to the hotel, not floating event cards. */
+.hotel-scenes{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;overflow:visible;filter:drop-shadow(0 2px 2px #38251644)}
+.hotel #guest-lane,.hotel #scene-event,.hotel #scene-reaction{display:none!important}
+.actor-body .arms,.actor-body .head,.actor-body .legs{transform-box:fill-box;transform-origin:center;animation-delay:var(--offset)}
+.actor-body.dance{animation:hotel-dance 1s ease-in-out infinite alternate;animation-delay:var(--offset)}
+.actor-body:is(.meal,.game,.craft,.repair,.clean,.garden) .arms{animation:hotel-work 1.8s ease-in-out infinite alternate;animation-delay:var(--offset);transform-origin:50% 0}
+.actor-body:is(.talk,.arrival) .head{animation:hotel-nod 3.4s ease-in-out infinite alternate;animation-delay:var(--offset)}
+.actor-body.rest .head{transform:rotate(-9deg)}
+.rain path{animation:hotel-rain .8s linear infinite}.notes{animation:hotel-notes 2s ease-out infinite}.flame{animation:hotel-flame .7s infinite alternate}.plant{transform-origin:bottom;animation:hotel-work 3s infinite alternate}.pet{animation:hotel-pet 5s ease-in-out infinite alternate}.repair-spark{animation:hotel-flame 1.3s infinite alternate}.mess.cleared{animation:hotel-clear 5s forwards}
+@keyframes hotel-dance{from{transform:translate(-5px,-2px) rotate(-6deg)}to{transform:translate(5px,-8px) rotate(6deg)}}
+@keyframes hotel-work{to{transform:rotate(-17deg)}}@keyframes hotel-nod{to{transform:rotate(7deg)}}@keyframes hotel-rain{to{transform:translate(-12px,35px)}}@keyframes hotel-notes{to{transform:translateY(-30px);opacity:0}}@keyframes hotel-flame{to{opacity:.35}}@keyframes hotel-pet{to{transform:translateX(40px)}}@keyframes hotel-clear{to{opacity:0;transform:scale(.2)}}
+.scene-stopped *{animation-play-state:paused!important}@media(prefers-reduced-motion:reduce){.hotel-scenes *{animation:none!important}.mess.cleared{opacity:0}}
+.scene-actor .legs{animation:hotel-walk .45s ease-in-out 10 alternate;transform-origin:50% 0}@keyframes hotel-walk{from{transform:skewX(-12deg)}to{transform:skewX(12deg)}}
+@media(prefers-reduced-motion:reduce){.scene-actor .legs{animation:none}}

@@ -45,7 +45,7 @@ function revealEncounter(array &$s,int $now): void {
     $entry=$s['dayPlan'][$s['encounter']];
     if($entry['kind']==='story') {
         $story=library('stories')[$entry['id']];$ev=$story['scenes'][$entry['step']];
-        if(isset($ev['branches'])){$last=$s['storyChoices'][$entry['step']-1]??'b';$ev['text']=$ev['branches'][$last];unset($ev['branches']);}
+        if(isset($ev['branches'])){$last=$s['storyChoices'][$entry['step']-1]??'b';$ev['text']=$ev['branches'][$last];if(isset($ev['visualBranches'][$last]))$ev['visual']=$ev['visualBranches'][$last];unset($ev['branches']);}
         $ev['category']=$story['category'];$ev['story']=$story['title'];$ev['storyStep']=$entry['step']+1;
     }else $ev=library('events')[$entry['id']];
     $ev['sourceId']=$entry['id'];$ev['id']=token();$ev['resolved']=false;$s['event']=$ev;
@@ -141,4 +141,13 @@ function journeyAction(array &$s,string $who,array $in,int $now): bool {
         unset($t);fail('Oppgaven tilhører en tidligere del av dagen.');
     }
     return false;
+}
+
+/** Enrich older saved encounters without changing choices, progress or revision. */
+function sceneVisuals(array &$s): void {
+    if(isset($s['event']['sourceId'])&&!isset($s['event']['visual'])) {
+        $ev=&$s['event'];$source=isset($ev['storyStep'])?(library('stories')[$ev['sourceId']]['scenes'][$ev['storyStep']-1]??null):(library('events')[$ev['sourceId']]??null);
+        if($source){$ev['visual']=$source['visual']??['kind'=>'talk','zone'=>'reception'];$last=$s['storyChoices'][($ev['storyStep']??1)-2]??'b';if(isset($source['visualBranches'][$last]))$ev['visual']=$source['visualBranches'][$last];foreach($ev['choices'] as &$choice)foreach($source['choices'] as $original)if($choice['id']===$original['id'])$choice['visual']=$original['visual'];unset($choice);}unset($ev);
+    }
+    foreach($s['tasks']??[] as $i=>$task)if(!isset($task['visual'])&&isset($task['sourceId'])){ $source=library('tasks')[$task['sourceId']]??null;if($source){$s['tasks'][$i]['visual']=$source['visual'];foreach($s['tasks'][$i]['choices'] as &$choice)foreach($source['choices'] as $original)if($choice['id']===$original['id'])$choice['visual']=$original['visual'];unset($choice);}}
 }

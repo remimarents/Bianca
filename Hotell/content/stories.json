@@ -16,7 +16,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Planlegg hagefest."
+            "outcome": "Planlegg hagefest.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "garden"
+            }
           },
           {
             "id": "b",
@@ -25,9 +29,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Planlegg spillfest inne."
+            "outcome": "Planlegg spillfest inne.",
+            "visual": {
+              "kind": "game",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rest",
+          "zone": "garden"
+        }
       },
       {
         "title": "Overraskelsesbesøket · Planen endrer seg",
@@ -44,7 +56,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Del området i to soner."
+            "outcome": "Del området i to soner.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -53,9 +69,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Flytt feiringen til et nytt tidspunkt."
+            "outcome": "Flytt feiringen til et nytt tidspunkt.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "rain",
+            "zone": "garden"
+          },
+          "b": {
+            "kind": "read",
+            "zone": "room"
+          }
+        }
       },
       {
         "title": "Overraskelsesbesøket · Det vi tar med videre",
@@ -72,7 +106,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag et felles velkomstspill."
+            "outcome": "Lag et felles velkomstspill.",
+            "visual": {
+              "kind": "read",
+              "zone": "room"
+            }
           },
           {
             "id": "b",
@@ -81,9 +119,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "La vertsfamilien ta imot ved bordet."
+            "outcome": "La vertsfamilien ta imot ved bordet.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "celebrate",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "celebrate",
+            "zone": "dining"
+          }
+        }
       }
     ]
   },
@@ -104,7 +160,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag lesestund i salongen."
+            "outcome": "Lag lesestund i salongen.",
+            "visual": {
+              "kind": "read",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -113,9 +173,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag bokjakt med poster."
+            "outcome": "Lag bokjakt med poster.",
+            "visual": {
+              "kind": "read",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       },
       {
         "title": "Bøkene på hjul · Planen endrer seg",
@@ -132,7 +200,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "La gjestene bidra med egne fortellinger."
+            "outcome": "La gjestene bidra med egne fortellinger.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -141,9 +213,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag små grupper med en veiviser."
+            "outcome": "Lag små grupper med en veiviser.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "read",
+            "zone": "room"
+          },
+          "b": {
+            "kind": "read",
+            "zone": "dining"
+          }
+        }
       },
       {
         "title": "Bøkene på hjul · Det vi tar med videre",
@@ -160,7 +250,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Fast rolig lesedag."
+            "outcome": "Fast rolig lesedag.",
+            "visual": {
+              "kind": "rest",
+              "zone": "room"
+            }
           },
           {
             "id": "b",
@@ -169,9 +263,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Bokbytte ved resepsjonen."
+            "outcome": "Bokbytte ved resepsjonen.",
+            "visual": {
+              "kind": "read",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "read",
+            "zone": "room"
+          },
+          "b": {
+            "kind": "read",
+            "zone": "room"
+          }
+        }
       }
     ]
   },
@@ -192,7 +304,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag et avgrenset dyreområde ute."
+            "outcome": "Lag et avgrenset dyreområde ute.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "garden"
+            }
           },
           {
             "id": "b",
@@ -201,9 +317,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Avtal besøk utenfor hotellet."
+            "outcome": "Avtal besøk utenfor hotellet.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "title": "Hunden og den stille gjesten · Planen endrer seg",
@@ -220,7 +344,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Avtal at familien deler på tilsynet."
+            "outcome": "Avtal at familien deler på tilsynet.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -229,9 +357,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Hjelp familien å finne et egnet tilbud i nærheten."
+            "outcome": "Hjelp familien å finne et egnet tilbud i nærheten.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "rest",
+            "zone": "room"
+          },
+          "b": {
+            "kind": "arrival",
+            "zone": "reception"
+          }
+        }
       },
       {
         "title": "Hunden og den stille gjesten · Det vi tar med videre",
@@ -248,7 +394,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "En skriftlig plan for dyr og allergihensyn."
+            "outcome": "En skriftlig plan for dyr og allergihensyn.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -257,9 +407,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Et kart over dyrevennlige møtesteder."
+            "outcome": "Et kart over dyrevennlige møtesteder.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "arrival",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "arrival",
+            "zone": "dining"
+          }
+        }
       }
     ]
   },
@@ -280,7 +448,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag en liten matbod."
+            "outcome": "Lag en liten matbod.",
+            "visual": {
+              "kind": "meal",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -289,9 +461,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag en aktivitetsbod."
+            "outcome": "Lag en aktivitetsbod.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "title": "Hotellets markedsbod · Planen endrer seg",
@@ -308,7 +488,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Samarbeid med naboboden."
+            "outcome": "Samarbeid med naboboden.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -317,9 +501,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag korte, tydelige tidsluker."
+            "outcome": "Lag korte, tydelige tidsluker.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "meal",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "talk",
+            "zone": "reception"
+          }
+        }
       },
       {
         "title": "Hotellets markedsbod · Det vi tar med videre",
@@ -336,7 +538,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Gjenbruk det på hotellet."
+            "outcome": "Gjenbruk det på hotellet.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -345,9 +551,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Del med neste arrangør."
+            "outcome": "Del med neste arrangør.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "talk",
+            "zone": "reception"
+          },
+          "b": {
+            "kind": "talk",
+            "zone": "reception"
+          }
+        }
       }
     ]
   },
@@ -368,7 +592,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag plass til dans."
+            "outcome": "Lag plass til dans.",
+            "visual": {
+              "kind": "dance",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -377,9 +605,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Sett ut lytteplasser."
+            "outcome": "Sett ut lytteplasser.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "dance",
+          "zone": "dining"
+        }
       },
       {
         "title": "Konserten under eika · Planen endrer seg",
@@ -396,7 +632,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag egne soner for bevegelse og lytting."
+            "outcome": "Lag egne soner for bevegelse og lytting.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -405,9 +645,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Hold to korte sett med pause."
+            "outcome": "Hold to korte sett med pause.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "dance",
+          "zone": "dining"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "dance",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "celebrate",
+            "zone": "dining"
+          }
+        }
       },
       {
         "title": "Konserten under eika · Det vi tar med videre",
@@ -424,7 +682,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Felles ønskesang med lav lyd."
+            "outcome": "Felles ønskesang med lav lyd.",
+            "visual": {
+              "kind": "read",
+              "zone": "room"
+            }
           },
           {
             "id": "b",
@@ -433,9 +695,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "En rolig avslutning før leggetid."
+            "outcome": "En rolig avslutning før leggetid.",
+            "visual": {
+              "kind": "rest",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "dance",
+          "zone": "dining"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "celebrate",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "celebrate",
+            "zone": "dining"
+          }
+        }
       }
     ]
   },
@@ -456,7 +736,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Følg kartet som en skattejakt."
+            "outcome": "Følg kartet som en skattejakt.",
+            "visual": {
+              "kind": "garden",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -465,9 +749,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Undersøk historien i boka først."
+            "outcome": "Undersøk historien i boka først.",
+            "visual": {
+              "kind": "read",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "read",
+          "zone": "dining"
+        }
       },
       {
         "title": "Kartet i den gamle boken · Planen endrer seg",
@@ -484,7 +776,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag en ny post ved siden av bedet."
+            "outcome": "Lag en ny post ved siden av bedet.",
+            "visual": {
+              "kind": "garden",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -493,9 +789,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Inviter gjestene til å tolke kartet."
+            "outcome": "Inviter gjestene til å tolke kartet.",
+            "visual": {
+              "kind": "garden",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "garden",
+            "zone": "reception"
+          },
+          "b": {
+            "kind": "read",
+            "zone": "room"
+          }
+        }
       },
       {
         "title": "Kartet i den gamle boken · Det vi tar med videre",
@@ -512,7 +826,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag en liten historievegg."
+            "outcome": "Lag en liten historievegg.",
+            "visual": {
+              "kind": "garden",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -521,9 +839,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag et nytt kart med gjestenes minner."
+            "outcome": "Lag et nytt kart med gjestenes minner.",
+            "visual": {
+              "kind": "garden",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "garden",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "garden",
+            "zone": "dining"
+          }
+        }
       }
     ]
   },
@@ -544,7 +880,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Sikre møblene og behold en liten samling."
+            "outcome": "Sikre møblene og behold en liten samling.",
+            "visual": {
+              "kind": "rain",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -553,9 +893,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Flytt samlingen inn allerede nå."
+            "outcome": "Flytt samlingen inn allerede nå.",
+            "visual": {
+              "kind": "rain",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rain",
+          "zone": "garden"
+        }
       },
       {
         "title": "Da vinden snudde · Planen endrer seg",
@@ -572,7 +920,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Del gjestene mellom to trygge rom."
+            "outcome": "Del gjestene mellom to trygge rom.",
+            "visual": {
+              "kind": "rain",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -581,9 +933,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag en felles rolig aktivitet med færre møbler."
+            "outcome": "Lag en felles rolig aktivitet med færre møbler.",
+            "visual": {
+              "kind": "rest",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "rain",
+            "zone": "reception"
+          },
+          "b": {
+            "kind": "rain",
+            "zone": "dining"
+          }
+        }
       },
       {
         "title": "Da vinden snudde · Det vi tar med videre",
@@ -600,7 +970,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Kontroller uteområdet før det åpnes."
+            "outcome": "Kontroller uteområdet før det åpnes.",
+            "visual": {
+              "kind": "rain",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -609,9 +983,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Hold gjestene inne mens fagfolk sjekker ute."
+            "outcome": "Hold gjestene inne mens fagfolk sjekker ute.",
+            "visual": {
+              "kind": "rain",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "rain",
+            "zone": "reception"
+          },
+          "b": {
+            "kind": "rest",
+            "zone": "room"
+          }
+        }
       }
     ]
   },
@@ -632,7 +1024,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Velg kort felles rute."
+            "outcome": "Velg kort felles rute.",
+            "visual": {
+              "kind": "read",
+              "zone": "garden"
+            }
           },
           {
             "id": "b",
@@ -641,9 +1037,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Del i to grupper med egne ledsagere."
+            "outcome": "Del i to grupper med egne ledsagere.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       },
       {
         "title": "Sykkelturen som tok en vending · Planen endrer seg",
@@ -660,7 +1064,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Avtal et felles trygt møtested."
+            "outcome": "Avtal et felles trygt møtested.",
+            "visual": {
+              "kind": "read",
+              "zone": "room"
+            }
           },
           {
             "id": "b",
@@ -669,9 +1077,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "La ledsagerne hjelpe og varsle hotellet."
+            "outcome": "La ledsagerne hjelpe og varsle hotellet.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "arrival",
+            "zone": "reception"
+          },
+          "b": {
+            "kind": "arrival",
+            "zone": "reception"
+          }
+        }
       },
       {
         "title": "Sykkelturen som tok en vending · Det vi tar med videre",
@@ -688,7 +1114,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Ruter med tydelig lengde og pauser."
+            "outcome": "Ruter med tydelig lengde og pauser.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -697,9 +1127,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "En frivillig prøverunde før turen."
+            "outcome": "En frivillig prøverunde før turen.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "read",
+            "zone": "room"
+          },
+          "b": {
+            "kind": "arrival",
+            "zone": "reception"
+          }
+        }
       }
     ]
   },
@@ -720,7 +1168,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Prøv en liten porsjon på kjøkkenet."
+            "outcome": "Prøv en liten porsjon på kjøkkenet.",
+            "visual": {
+              "kind": "meal",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -729,9 +1181,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Spør gjesten om å vise fremgangsmåten."
+            "outcome": "Spør gjesten om å vise fremgangsmåten.",
+            "visual": {
+              "kind": "meal",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       },
       {
         "title": "Bestemors oppskriftsbok · Planen endrer seg",
@@ -748,7 +1208,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Tilpass retten til små dessertskåler."
+            "outcome": "Tilpass retten til små dessertskåler.",
+            "visual": {
+              "kind": "meal",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -757,9 +1221,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Fordel arbeidet og lag en ny liten prøve."
+            "outcome": "Fordel arbeidet og lag en ny liten prøve.",
+            "visual": {
+              "kind": "meal",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "meal",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "meal",
+            "zone": "dining"
+          }
+        }
       },
       {
         "title": "Bestemors oppskriftsbok · Det vi tar med videre",
@@ -776,7 +1258,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Skriv en tydelig oppskrift med gjestens tillatelse."
+            "outcome": "Skriv en tydelig oppskrift med gjestens tillatelse.",
+            "visual": {
+              "kind": "meal",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -785,9 +1271,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Ha en liten smaksstund og fortell historien."
+            "outcome": "Ha en liten smaksstund og fortell historien.",
+            "visual": {
+              "kind": "meal",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "meal",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "meal",
+            "zone": "dining"
+          }
+        }
       }
     ]
   },
@@ -808,7 +1312,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Avtal motiv uten mennesker."
+            "outcome": "Avtal motiv uten mennesker.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -817,9 +1325,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Reserver et område for frivillige deltakere."
+            "outcome": "Reserver et område for frivillige deltakere.",
+            "visual": {
+              "kind": "meal",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       },
       {
         "title": "Bildene ingen ventet · Planen endrer seg",
@@ -836,7 +1352,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag en utstilling med bare godkjente motiver."
+            "outcome": "Lag en utstilling med bare godkjente motiver.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -845,9 +1365,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Vis hotellhistorien gjennom gjenstander."
+            "outcome": "Vis hotellhistorien gjennom gjenstander.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "arrival",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "arrival",
+            "zone": "reception"
+          }
+        }
       },
       {
         "title": "Bildene ingen ventet · Det vi tar med videre",
@@ -864,7 +1402,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Et bilde av hagen."
+            "outcome": "Et bilde av hagen.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "garden"
+            }
           },
           {
             "id": "b",
@@ -873,9 +1415,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Et bilde av en detalj gjestene vanligvis overser."
+            "outcome": "Et bilde av en detalj gjestene vanligvis overser.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "arrival",
+            "zone": "reception"
+          },
+          "b": {
+            "kind": "arrival",
+            "zone": "reception"
+          }
+        }
       }
     ]
   },
@@ -896,7 +1456,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Undersøk et bassengprosjekt."
+            "outcome": "Undersøk et bassengprosjekt.",
+            "visual": {
+              "kind": "repair",
+              "zone": "room"
+            }
           },
           {
             "id": "b",
@@ -905,9 +1469,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag en mindre vannlek på et egnet sted."
+            "outcome": "Lag en mindre vannlek på et egnet sted.",
+            "visual": {
+              "kind": "repair",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "title": "Bassengplanen · Planen endrer seg",
@@ -924,7 +1496,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag en plan for trygg bruk og stell."
+            "outcome": "Lag en plan for trygg bruk og stell.",
+            "visual": {
+              "kind": "repair",
+              "zone": "room"
+            }
           },
           {
             "id": "b",
@@ -933,9 +1509,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Velg en tørr aktivitet mens planen forbedres."
+            "outcome": "Velg en tørr aktivitet mens planen forbedres.",
+            "visual": {
+              "kind": "repair",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "repair",
+            "zone": "room"
+          },
+          "b": {
+            "kind": "repair",
+            "zone": "room"
+          }
+        }
       },
       {
         "title": "Bassengplanen · Det vi tar med videre",
@@ -952,7 +1546,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "En ny vurdering etter at driften er gjennomgått."
+            "outcome": "En ny vurdering etter at driften er gjennomgått.",
+            "visual": {
+              "kind": "repair",
+              "zone": "room"
+            }
           },
           {
             "id": "b",
@@ -961,9 +1559,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Et fast aktivitetstilbud som hotellet kan håndtere."
+            "outcome": "Et fast aktivitetstilbud som hotellet kan håndtere.",
+            "visual": {
+              "kind": "repair",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "repair",
+            "zone": "room"
+          },
+          "b": {
+            "kind": "repair",
+            "zone": "room"
+          }
+        }
       }
     ]
   },
@@ -984,7 +1600,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag en liten scene av eksisterende møbler."
+            "outcome": "Lag en liten scene av eksisterende møbler.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -993,9 +1613,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag vandreteater mellom trygge poster."
+            "outcome": "Lag vandreteater mellom trygge poster.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "title": "Teater i salongen · Planen endrer seg",
@@ -1012,7 +1640,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Gi flere roller bak scenen og korte opptredener."
+            "outcome": "Gi flere roller bak scenen og korte opptredener.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -1021,9 +1653,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Flytt forestillingen til en avgrenset salong."
+            "outcome": "Flytt forestillingen til en avgrenset salong.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "celebrate",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "celebrate",
+            "zone": "dining"
+          }
+        }
       },
       {
         "title": "Teater i salongen · Det vi tar med videre",
@@ -1040,7 +1690,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "La barna velge om de har lyst."
+            "outcome": "La barna velge om de har lyst.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -1049,9 +1703,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Vis kulisser og fortell om arbeidet i stedet."
+            "outcome": "Vis kulisser og fortell om arbeidet i stedet.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "celebrate",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "celebrate",
+            "zone": "dining"
+          }
+        }
       }
     ]
   },
@@ -1072,7 +1744,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag felles epledag."
+            "outcome": "Lag felles epledag.",
+            "visual": {
+              "kind": "read",
+              "zone": "room"
+            }
           },
           {
             "id": "b",
@@ -1081,9 +1757,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Bruk frukten i hotellets måltider."
+            "outcome": "Bruk frukten i hotellets måltider.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "talk",
+          "zone": "garden"
+        }
       },
       {
         "title": "Eplene fra naboen · Planen endrer seg",
@@ -1100,7 +1784,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Sorter og del arbeidet i små stasjoner."
+            "outcome": "Sorter og del arbeidet i små stasjoner.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -1109,9 +1797,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Ta imot mindre nå og avtal resten senere."
+            "outcome": "Ta imot mindre nå og avtal resten senere.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "talk",
+          "zone": "garden"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "talk",
+            "zone": "reception"
+          },
+          "b": {
+            "kind": "talk",
+            "zone": "reception"
+          }
+        }
       },
       {
         "title": "Eplene fra naboen · Det vi tar med videre",
@@ -1128,7 +1834,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Del ferdige porsjoner etter avtale."
+            "outcome": "Del ferdige porsjoner etter avtale.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -1137,9 +1847,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Oppbevar det forsvarlig til neste måltid."
+            "outcome": "Oppbevar det forsvarlig til neste måltid.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "talk",
+          "zone": "garden"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "talk",
+            "zone": "reception"
+          },
+          "b": {
+            "kind": "talk",
+            "zone": "reception"
+          }
+        }
       }
     ]
   },
@@ -1160,7 +1888,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Planlegg en hagedag."
+            "outcome": "Planlegg en hagedag.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "garden"
+            }
           },
           {
             "id": "b",
@@ -1169,9 +1901,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Inviter til en rolig innendørs mimrestund."
+            "outcome": "Inviter til en rolig innendørs mimrestund.",
+            "visual": {
+              "kind": "rest",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "arrival",
+          "zone": "garden"
+        }
       },
       {
         "title": "Brevet fra en gammel gjest · Planen endrer seg",
@@ -1188,7 +1928,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag en kort tur i ly og en innestund."
+            "outcome": "Lag en kort tur i ly og en innestund.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -1197,9 +1941,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag en samtale rundt bildene og utsikten."
+            "outcome": "Lag en samtale rundt bildene og utsikten.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "rain",
+            "zone": "garden"
+          },
+          "b": {
+            "kind": "arrival",
+            "zone": "garden"
+          }
+        }
       },
       {
         "title": "Brevet fra en gammel gjest · Det vi tar med videre",
@@ -1216,7 +1978,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "I en liten historiekrok."
+            "outcome": "I en liten historiekrok.",
+            "visual": {
+              "kind": "arrival",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -1225,9 +1991,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "I en bok gjestene kan bla i."
+            "outcome": "I en bok gjestene kan bla i.",
+            "visual": {
+              "kind": "read",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "arrival",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "arrival",
+            "zone": "reception"
+          }
+        }
       }
     ]
   },
@@ -1248,7 +2032,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Tilby stille kreative aktiviteter."
+            "outcome": "Tilby stille kreative aktiviteter.",
+            "visual": {
+              "kind": "rest",
+              "zone": "room"
+            }
           },
           {
             "id": "b",
@@ -1257,9 +2045,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag rolige og aktive områder."
+            "outcome": "Lag rolige og aktive områder.",
+            "visual": {
+              "kind": "rest",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "title": "Den stille helgen · Planen endrer seg",
@@ -1276,7 +2072,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Flytt den livlige aktiviteten lenger unna."
+            "outcome": "Flytt den livlige aktiviteten lenger unna.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -1285,9 +2085,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Avtal tider der rommene brukes forskjellig."
+            "outcome": "Avtal tider der rommene brukes forskjellig.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "craft",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "read",
+            "zone": "room"
+          }
+        }
       },
       {
         "title": "Den stille helgen · Det vi tar med videre",
@@ -1304,7 +2122,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Tydeligere informasjon før bestilling."
+            "outcome": "Tydeligere informasjon før bestilling.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -1313,9 +2135,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Et kart over rolige steder og aktivitetstider."
+            "outcome": "Et kart over rolige steder og aktivitetstider.",
+            "visual": {
+              "kind": "rest",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "talk",
+            "zone": "reception"
+          },
+          "b": {
+            "kind": "talk",
+            "zone": "reception"
+          }
+        }
       }
     ]
   },
@@ -1336,7 +2176,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag middag i spisesalen."
+            "outcome": "Lag middag i spisesalen.",
+            "visual": {
+              "kind": "meal",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -1345,9 +2189,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag seremoni i hagen med enkel servering."
+            "outcome": "Lag seremoni i hagen med enkel servering.",
+            "visual": {
+              "kind": "meal",
+              "zone": "garden"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "title": "Det lille bryllupet · Planen endrer seg",
@@ -1364,7 +2216,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag en tydelig tids- og romplan."
+            "outcome": "Lag en tydelig tids- og romplan.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -1373,9 +2229,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Flytt markeringen til et mer tilgjengelig område."
+            "outcome": "Flytt markeringen til et mer tilgjengelig område.",
+            "visual": {
+              "kind": "celebrate",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "celebrate",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "celebrate",
+            "zone": "dining"
+          }
+        }
       },
       {
         "title": "Det lille bryllupet · Det vi tar med videre",
@@ -1392,7 +2266,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "En bok med frivillige hilsener."
+            "outcome": "En bok med frivillige hilsener.",
+            "visual": {
+              "kind": "read",
+              "zone": "room"
+            }
           },
           {
             "id": "b",
@@ -1401,9 +2279,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "En liten plante med stellråd."
+            "outcome": "En liten plante med stellråd.",
+            "visual": {
+              "kind": "garden",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "celebrate",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "celebrate",
+            "zone": "dining"
+          }
+        }
       }
     ]
   },
@@ -1424,7 +2320,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Planlegg en kort tur til hagekroken."
+            "outcome": "Planlegg en kort tur til hagekroken.",
+            "visual": {
+              "kind": "rain",
+              "zone": "garden"
+            }
           },
           {
             "id": "b",
@@ -1433,9 +2333,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag stjernekveld fra terrassen."
+            "outcome": "Lag stjernekveld fra terrassen.",
+            "visual": {
+              "kind": "rain",
+              "zone": "garden"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       },
       {
         "title": "Kvelden med stjernene · Planen endrer seg",
@@ -1452,7 +2360,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Bruk stjernekart og fortellinger."
+            "outcome": "Bruk stjernekart og fortellinger.",
+            "visual": {
+              "kind": "rain",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -1461,9 +2373,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Flytt tidspunktet og behold trygg belysning langs veien."
+            "outcome": "Flytt tidspunktet og behold trygg belysning langs veien.",
+            "visual": {
+              "kind": "rain",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "rain",
+            "zone": "reception"
+          },
+          "b": {
+            "kind": "rain",
+            "zone": "reception"
+          }
+        }
       },
       {
         "title": "Kvelden med stjernene · Det vi tar med videre",
@@ -1480,7 +2410,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "La gjesten vise noen få stjernebilder."
+            "outcome": "La gjesten vise noen få stjernebilder.",
+            "visual": {
+              "kind": "rain",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -1489,9 +2423,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag en liten utstilling til neste kveld."
+            "outcome": "Lag en liten utstilling til neste kveld.",
+            "visual": {
+              "kind": "rain",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "rain",
+            "zone": "reception"
+          },
+          "b": {
+            "kind": "rain",
+            "zone": "reception"
+          }
+        }
       }
     ]
   },
@@ -1512,7 +2464,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Sjekk dagens avreiser og kontakt riktig gjest."
+            "outcome": "Sjekk dagens avreiser og kontakt riktig gjest.",
+            "visual": {
+              "kind": "rest",
+              "zone": "room"
+            }
           },
           {
             "id": "b",
@@ -1521,9 +2477,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Oppbevar den trygt mens resepsjonen undersøker."
+            "outcome": "Oppbevar den trygt mens resepsjonen undersøker.",
+            "visual": {
+              "kind": "rest",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "title": "Kofferten uten navn · Planen endrer seg",
@@ -1540,7 +2504,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Be om kjennetegn uten å vise innhold offentlig."
+            "outcome": "Be om kjennetegn uten å vise innhold offentlig.",
+            "visual": {
+              "kind": "rest",
+              "zone": "room"
+            }
           },
           {
             "id": "b",
@@ -1549,9 +2517,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Avtal kontrollert henting med resepsjonen."
+            "outcome": "Avtal kontrollert henting med resepsjonen.",
+            "visual": {
+              "kind": "rest",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "rest",
+            "zone": "room"
+          },
+          "b": {
+            "kind": "rest",
+            "zone": "room"
+          }
+        }
       },
       {
         "title": "Kofferten uten navn · Det vi tar med videre",
@@ -1568,7 +2554,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Innfør tydelige bagasjelapper."
+            "outcome": "Innfør tydelige bagasjelapper.",
+            "visual": {
+              "kind": "rest",
+              "zone": "room"
+            }
           },
           {
             "id": "b",
@@ -1577,9 +2567,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag separate oppbevaringsplasser for ankomst og avreise."
+            "outcome": "Lag separate oppbevaringsplasser for ankomst og avreise.",
+            "visual": {
+              "kind": "rest",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "rest",
+            "zone": "room"
+          },
+          "b": {
+            "kind": "rest",
+            "zone": "room"
+          }
+        }
       }
     ]
   },
@@ -1600,7 +2608,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Lag verksted med papir og stoff."
+            "outcome": "Lag verksted med papir og stoff.",
+            "visual": {
+              "kind": "craft",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -1609,9 +2621,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag reparasjonsstasjon for eksisterende pynt."
+            "outcome": "Lag reparasjonsstasjon for eksisterende pynt.",
+            "visual": {
+              "kind": "craft",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "craft",
+          "zone": "dining"
+        }
       },
       {
         "title": "Gjenbruksverkstedet · Planen endrer seg",
@@ -1628,7 +2648,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Tilpass oppgavene til trygge materialer som finnes."
+            "outcome": "Tilpass oppgavene til trygge materialer som finnes.",
+            "visual": {
+              "kind": "meal",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -1637,9 +2661,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag små grupper som lærer av hverandre."
+            "outcome": "Lag små grupper som lærer av hverandre.",
+            "visual": {
+              "kind": "garden",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "craft",
+          "zone": "dining"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "craft",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "repair",
+            "zone": "room"
+          }
+        }
       },
       {
         "title": "Gjenbruksverkstedet · Det vi tar med videre",
@@ -1656,7 +2698,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Still ut arbeidet med frivillige navnelapper."
+            "outcome": "Still ut arbeidet med frivillige navnelapper.",
+            "visual": {
+              "kind": "garden",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -1665,9 +2711,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Lag en enkel oppskriftsbok til neste verksted."
+            "outcome": "Lag en enkel oppskriftsbok til neste verksted.",
+            "visual": {
+              "kind": "craft",
+              "zone": "dining"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "craft",
+          "zone": "dining"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "meal",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "craft",
+            "zone": "dining"
+          }
+        }
       }
     ]
   },
@@ -1688,7 +2752,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Undersøk ledige rom og tilgjengelig hjelp."
+            "outcome": "Undersøk ledige rom og tilgjengelig hjelp.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -1697,9 +2765,17 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Samarbeid med flere overnattingssteder."
+            "outcome": "Samarbeid med flere overnattingssteder.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "title": "Den uventede gruppen · Planen endrer seg",
@@ -1716,7 +2792,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Avtal servering hos nabokafeen."
+            "outcome": "Avtal servering hos nabokafeen.",
+            "visual": {
+              "kind": "meal",
+              "zone": "dining"
+            }
           },
           {
             "id": "b",
@@ -1725,9 +2805,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Tilby et enkelt felles måltid på avtalt tid."
+            "outcome": "Tilby et enkelt felles måltid på avtalt tid.",
+            "visual": {
+              "kind": "read",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "talk",
+            "zone": "reception"
+          },
+          "b": {
+            "kind": "read",
+            "zone": "room"
+          }
+        }
       },
       {
         "title": "Den uventede gruppen · Det vi tar med videre",
@@ -1744,7 +2842,11 @@
               "joy": 5,
               "energy": -3
             },
-            "outcome": "Samle en hilsen til alle som bidro."
+            "outcome": "Samle en hilsen til alle som bidro.",
+            "visual": {
+              "kind": "talk",
+              "zone": "reception"
+            }
           },
           {
             "id": "b",
@@ -1753,9 +2855,27 @@
               "reputation": 3,
               "energy": 1
             },
-            "outcome": "Inviter til en kort felles avskjed."
+            "outcome": "Inviter til en kort felles avskjed.",
+            "visual": {
+              "kind": "read",
+              "zone": "room"
+            }
           }
-        ]
+        ],
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        },
+        "visualBranches": {
+          "a": {
+            "kind": "meal",
+            "zone": "dining"
+          },
+          "b": {
+            "kind": "read",
+            "zone": "room"
+          }
+        }
       }
     ]
   }

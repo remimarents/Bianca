@@ -24,7 +24,7 @@ if __name__=='__main__':
  folder(public,'hotell');folder(domain,'hotell-private');folder(private,'assets');folder(public+'/hotell','icons')
  for f in ['events.json','stories.json','tasks.json']:upload(private+'/assets',f,(ROOT/'content'/f).read_bytes())
  for f in ['journey.php','devices.php']:upload(public+'/hotell',f,(ROOT/f).read_bytes())
- for f in ['game.html','game.js','style.css','hotel.jpg']:upload(private+'/assets',f,(ROOT/f).read_bytes())
+ for f in ['game.html','scenes.js','game.js','style.css','hotel.jpg']:upload(private+'/assets',f,(ROOT/f).read_bytes())
  for f in ['core.php','api.php','asset.php','help.php','index.php','owner.php','pwa.js','sw.js','manifest.webmanifest','manifest.php','countdown.js','countdown.css','landing.js']:upload(public+'/hotell',f,(ROOT/f).read_bytes())
  for f in ['icon-180.png','icon-192.png','icon-512.png']:upload(public+'/hotell/icons',f,(ROOT/'icons'/f).read_bytes())
  print('Hotel published; homepage is a separate final step.')

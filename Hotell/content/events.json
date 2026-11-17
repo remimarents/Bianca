@@ -14,7 +14,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: gjør et hvilerom klart. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: gjør et hvilerom klart. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -23,9 +27,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: tilby frokost og oppbevar bagasjen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby frokost og oppbevar bagasjen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "gjester-02",
@@ -41,7 +53,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: let sammen langs ruten. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: let sammen langs ruten. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -50,9 +66,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: be resepsjonen samle inn hittegods. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: be resepsjonen samle inn hittegods. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "garden"
+    }
   },
   {
     "id": "gjester-03",
@@ -68,7 +92,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: lag en stille morgenpakke. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en stille morgenpakke. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -77,9 +105,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: avtal separat frokostplass. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avtal separat frokostplass. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "gjester-04",
@@ -95,7 +131,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: tilby bytte med en frivillig gjest. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: tilby bytte med en frivillig gjest. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -104,9 +144,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: flytt dagens aktiviteter til første etasje. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: flytt dagens aktiviteter til første etasje. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "reception"
+    }
   },
   {
     "id": "gjester-05",
@@ -122,7 +170,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: inviter til en kort hagevisitt. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: inviter til en kort hagevisitt. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "garden"
+        }
       },
       {
         "id": "b",
@@ -131,9 +183,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: avtal frokostbesøk neste dag. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avtal frokostbesøk neste dag. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "reception"
+    }
   },
   {
     "id": "gjester-06",
@@ -150,7 +210,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: dekk et bord i lesekroken. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: dekk et bord i lesekroken. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -159,9 +223,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: avtal en roligere serveringstid. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avtal en roligere serveringstid. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "gjester-07",
@@ -177,7 +249,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: lag en kort felles lek før turene. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en kort felles lek før turene. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -186,9 +262,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: avtal et møtested etter turene. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avtal et møtested etter turene. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "reception"
+    }
   },
   {
     "id": "gjester-08",
@@ -204,7 +288,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: lag bilder av rettene. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag bilder av rettene. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -213,9 +301,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: vis ingrediensene ved disken. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: vis ingrediensene ved disken. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "gjester-09",
@@ -231,7 +327,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: pynt et lite bord. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: pynt et lite bord. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -240,9 +340,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: finn en rolig plass med utsikt. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: finn en rolig plass med utsikt. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "reception"
+    }
   },
   {
     "id": "gjester-10",
@@ -258,7 +366,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: la dagens kurv være inkludert og rett skiltet. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: la dagens kurv være inkludert og rett skiltet. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -267,9 +379,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: tilby en mindre kurv og forklar prisen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby en mindre kurv og forklar prisen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "gjester-11",
@@ -286,7 +406,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: lag to aktiviteter med felles avslutning. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag to aktiviteter med felles avslutning. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -295,9 +419,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: tilby en kort tur alle kan velge å bli med på. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby en kort tur alle kan velge å bli med på. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "reception"
+    }
   },
   {
     "id": "gjester-12",
@@ -313,7 +445,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: behold bestillingen og tilby den andre hageplass. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: behold bestillingen og tilby den andre hageplass. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "garden"
+        }
       },
       {
         "id": "b",
@@ -322,9 +458,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: undersøk frivillig rombytte med en liten takk. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: undersøk frivillig rombytte med en liten takk. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "reception"
+    }
   },
   {
     "id": "gjester-13",
@@ -340,7 +484,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: åpne et venterom. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: åpne et venterom. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -349,9 +497,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: flytt bagasjen og lag tydelige sittegrupper. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: flytt bagasjen og lag tydelige sittegrupper. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "reception"
+    }
   },
   {
     "id": "gjester-14",
@@ -367,7 +523,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: lag en privat krok i hagen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en privat krok i hagen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "garden"
+        }
       },
       {
         "id": "b",
@@ -376,9 +536,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: hjelp gjesten med en personlig lapp. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: hjelp gjesten med en personlig lapp. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "reception"
+    }
   },
   {
     "id": "gjester-15",
@@ -394,7 +562,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: undersøk ruten hos turguiden. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: undersøk ruten hos turguiden. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -403,9 +575,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: anbefal den korte merkede turen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: anbefal den korte merkede turen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "reception"
+    }
   },
   {
     "id": "rom-01",
@@ -422,7 +602,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: finn lette tepper på lageret. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: finn lette tepper på lageret. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -431,9 +615,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: luft rommene og tilby ekstra laken. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: luft rommene og tilby ekstra laken. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "rom-02",
@@ -449,7 +641,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: flytt inn et ledig skrivebord. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt inn et ledig skrivebord. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -458,9 +654,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: reserver et bord i biblioteket. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: reserver et bord i biblioteket. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "rom-03",
@@ -476,7 +680,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: reparer festet nå. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: reparer festet nå. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -485,9 +693,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: tilby et mørkere ledig rom. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby et mørkere ledig rom. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "rom-04",
@@ -503,7 +719,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: ordne ekstra leselamper. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: ordne ekstra leselamper. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -512,9 +732,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: lag en felles lesekrok. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag en felles lesekrok. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "read",
+      "zone": "room"
+    }
   },
   {
     "id": "rom-05",
@@ -530,7 +758,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: bruk et annet rom og luft videre. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: bruk et annet rom og luft videre. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -539,9 +771,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: utsett innsjekking med hyggelig ventested. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: utsett innsjekking med hyggelig ventested. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "rom-06",
@@ -558,7 +798,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: gjør et lagerhjørne tilgjengelig. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: gjør et lagerhjørne tilgjengelig. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -567,9 +811,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: omorganiser møblene på rommet. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: omorganiser møblene på rommet. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "rom-07",
@@ -585,7 +837,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: steng rommet kort og få det festet. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: steng rommet kort og få det festet. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -594,9 +850,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: fjern speilet til reparasjonen kan gjøres. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: fjern speilet til reparasjonen kan gjøres. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "rom-08",
@@ -612,7 +876,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: bytt sengebunn fra reservelageret. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: bytt sengebunn fra reservelageret. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -621,9 +889,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: tilby et annet ledig rom. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby et annet ledig rom. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "room"
+    }
   },
   {
     "id": "rom-09",
@@ -639,7 +915,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: sett opp bedre lys ved skiltene. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: sett opp bedre lys ved skiltene. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -648,9 +928,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: lag tydeligere romnummer med kontrast. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag tydeligere romnummer med kontrast. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "dining"
+    }
   },
   {
     "id": "rom-10",
@@ -666,7 +954,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: gjør en ekstra grundig romkontroll. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: gjør en ekstra grundig romkontroll. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -675,9 +967,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: rydd funnet og endre sjekklisten for alle rom. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: rydd funnet og endre sjekklisten for alle rom. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "clean",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "dining"
+    }
   },
   {
     "id": "rom-11",
@@ -694,7 +994,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: lån ut et eget puslebrett. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lån ut et eget puslebrett. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "game",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -703,9 +1007,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: reserver en hylle i fellesrommet. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: reserver en hylle i fellesrommet. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "game",
+      "zone": "dining"
+    }
   },
   {
     "id": "rom-12",
@@ -721,7 +1033,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: bytt til papirblomster. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: bytt til papirblomster. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "craft",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -730,9 +1046,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: ta bort pynten og la gjesten velge bøker. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: ta bort pynten og la gjesten velge bøker. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "rom-13",
@@ -748,7 +1072,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: ordne et annet arbeidssted. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: ordne et annet arbeidssted. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -757,9 +1085,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: flytt bordet og sikre løse papirer. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: flytt bordet og sikre løse papirer. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "craft",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "craft",
+      "zone": "dining"
+    }
   },
   {
     "id": "rom-14",
@@ -775,7 +1111,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: lån ut en nattlampe. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lån ut en nattlampe. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -784,9 +1124,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: la familien ordne en liten hjemmekrok. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: la familien ordne en liten hjemmekrok. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "rom-15",
@@ -802,7 +1150,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: sorter hele lageret sammen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: sorter hele lageret sammen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -811,9 +1163,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: merk kurver og sorter rom for rom. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: merk kurver og sorter rom for rom. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "mat-01",
@@ -830,7 +1190,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: lag en ny liten røre. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en ny liten røre. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -839,9 +1203,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: åpne frukt- og toastbord. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: åpne frukt- og toastbord. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "mat-02",
@@ -857,7 +1229,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: finn originalemballasjen før servering. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: finn originalemballasjen før servering. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -866,9 +1242,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: tilby en kjent rett med full ingrediensliste. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby en kjent rett med full ingrediensliste. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "mat-03",
@@ -884,7 +1268,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: lag bærfrokost og dessert. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag bærfrokost og dessert. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -893,9 +1281,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: frys det meste og server en liten skål. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: frys det meste og server en liten skål. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "mat-04",
@@ -911,7 +1307,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: varm en fersk porsjon forsvarlig. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: varm en fersk porsjon forsvarlig. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -920,9 +1320,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: server kalde småretter mens kjøkkenet ordner suppen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: server kalde småretter mens kjøkkenet ordner suppen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "mat-05",
@@ -938,7 +1346,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: lag matpakker ved en egen stasjon. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag matpakker ved en egen stasjon. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -947,9 +1359,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: la gruppen pakke etter en avtalt liste. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: la gruppen pakke etter en avtalt liste. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "mat-06",
@@ -966,7 +1386,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: lag en fullverdig bønnerett. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en fullverdig bønnerett. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -975,9 +1399,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: tilby hotellets grønnsaksomelett. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby hotellets grønnsaksomelett. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "mat-07",
@@ -993,7 +1425,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: lag sprø toast til frokosten. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag sprø toast til frokosten. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1002,9 +1438,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: lag krutonger til kveldssuppen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag krutonger til kveldssuppen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "mat-08",
@@ -1020,7 +1464,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: lag en mild porsjon ved siden av. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en mild porsjon ved siden av. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1029,9 +1477,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: tilby mildt tilbehør og tydelig merking. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby mildt tilbehør og tydelig merking. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "mat-09",
@@ -1047,7 +1503,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: lån ut kopper med returkasse. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lån ut kopper med returkasse. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1056,9 +1516,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: tilby drikke på hotellet før turen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby drikke på hotellet før turen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "mat-10",
@@ -1074,7 +1542,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: lag dessertglass av kakestykkene. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag dessertglass av kakestykkene. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1083,9 +1555,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: pynt den som en liten kakelagune. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: pynt den som en liten kakelagune. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "mat-11",
@@ -1102,7 +1582,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: åpne to frokostpuljer i hagen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: åpne to frokostpuljer i hagen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "garden"
+        }
       },
       {
         "id": "b",
@@ -1111,9 +1595,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: la gjestene velge innebord med åpne vinduer. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: la gjestene velge innebord med åpne vinduer. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "garden"
+    }
   },
   {
     "id": "mat-12",
@@ -1129,7 +1621,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: sett av tid til et lite verksted. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: sett av tid til et lite verksted. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "craft",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1138,9 +1634,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: skriv ned oppskriften og prøv etter servering. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: skriv ned oppskriften og prøv etter servering. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "mat-13",
@@ -1156,7 +1660,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: bestill en liten ekstraleveranse. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: bestill en liten ekstraleveranse. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1165,9 +1673,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: tilpass menyen og vis alternativene. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilpass menyen og vis alternativene. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "mat-14",
@@ -1183,7 +1699,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: åpne en enkel ekstradisk. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: åpne en enkel ekstradisk. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1192,9 +1712,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: del ut serveringstider og noe å lese. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: del ut serveringstider og noe å lese. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "mat-15",
@@ -1210,7 +1738,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: forenkle pynten og server raskere. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: forenkle pynten og server raskere. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1219,9 +1751,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: fordel pynt og servering på to stasjoner. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: fordel pynt og servering på to stasjoner. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "hage-01",
@@ -1238,7 +1778,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: flytt ballleken til plenen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt ballleken til plenen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "garden"
+        }
       },
       {
         "id": "b",
@@ -1247,9 +1791,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: merk en rolig blomstersone. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: merk en rolig blomstersone. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "garden",
+      "zone": "reception"
+    }
   },
   {
     "id": "hage-02",
@@ -1265,7 +1817,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: lag en egen planteøkt. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en egen planteøkt. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1274,9 +1830,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: sett opp et observasjonsbord uten berøring. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: sett opp et observasjonsbord uten berøring. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "garden",
+      "zone": "reception"
+    }
   },
   {
     "id": "hage-03",
@@ -1292,7 +1856,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: rydd stien og plant om. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: rydd stien og plant om. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1301,9 +1869,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: sperr av kort og flytt potten til le. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: sperr av kort og flytt potten til le. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "garden",
+      "zone": "reception"
+    }
   },
   {
     "id": "hage-04",
@@ -1319,7 +1895,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: flytt en parasoll og et bord. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt en parasoll og et bord. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1328,9 +1908,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: avtal at et bord blir ledig etter lunsj. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avtal at et bord blir ledig etter lunsj. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "garden",
+      "zone": "garden"
+    }
   },
   {
     "id": "hage-05",
@@ -1346,7 +1934,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: flytt maten under tak og rydd smuler. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt maten under tak og rydd smuler. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1355,9 +1947,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: server maten inne og la gjestene spise ute. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: server maten inne og la gjestene spise ute. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "garden",
+      "zone": "reception"
+    }
   },
   {
     "id": "hage-06",
@@ -1374,7 +1974,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: vann nye planter først. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: vann nye planter først. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1383,9 +1987,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: dekk jorden og vann ved røttene senere. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: dekk jorden og vann ved røttene senere. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "garden",
+      "zone": "garden"
+    }
   },
   {
     "id": "hage-07",
@@ -1401,7 +2013,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: bygg det i et rolig hjørne. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: bygg det i et rolig hjørne. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1410,9 +2026,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: lag en liten naturutstilling først. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag en liten naturutstilling først. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "hage-08",
@@ -1428,7 +2052,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: lag en tett bokkasse. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en tett bokkasse. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1437,9 +2065,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: ta inn bøkene hver kveld. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: ta inn bøkene hver kveld. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "read",
+      "zone": "garden"
+    }
   },
   {
     "id": "hage-09",
@@ -1455,7 +2091,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: legg en midlertidig tørr gangvei. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: legg en midlertidig tørr gangvei. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1464,9 +2104,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: vis gjestene en annen rute. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: vis gjestene en annen rute. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "garden",
+          "zone": "garden"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "hage-10",
@@ -1482,7 +2130,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: flytt leken til motsatt side av hagen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt leken til motsatt side av hagen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "garden"
+        }
       },
       {
         "id": "b",
@@ -1491,9 +2143,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: avtal boblelek etter måltidet. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avtal boblelek etter måltidet. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "hage-11",
@@ -1510,7 +2170,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: del planter med nabokafeen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: del planter med nabokafeen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1519,9 +2183,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: høst urter til kjøkkenet og tynn bedet. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: høst urter til kjøkkenet og tynn bedet. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "garden",
+      "zone": "reception"
+    }
   },
   {
     "id": "hage-12",
@@ -1537,7 +2209,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: lag en enkel tidsliste. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en enkel tidsliste. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1546,9 +2222,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: åpne flere rolige sitteplasser. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: åpne flere rolige sitteplasser. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "hage-13",
@@ -1564,7 +2248,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: arranger en kort tur med dempet lys. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: arranger en kort tur med dempet lys. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1573,9 +2261,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: vis bilder og observasjoner inne. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: vis bilder og observasjoner inne. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "garden",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "garden",
+      "zone": "reception"
+    }
   },
   {
     "id": "hage-14",
@@ -1591,7 +2287,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: flytt aktiviteten og så nytt gress. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt aktiviteten og så nytt gress. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1600,9 +2300,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: del plenen i hvile- og lekeområde. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: del plenen i hvile- og lekeområde. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "garden"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "garden"
+    }
   },
   {
     "id": "hage-15",
@@ -1618,7 +2326,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: lag turordning ved utsiktspunktet. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag turordning ved utsiktspunktet. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1627,9 +2339,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: vis frem et bredere sted med nesten samme utsikt. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: vis frem et bredere sted med nesten samme utsikt. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "vedlikehold-01",
@@ -1646,7 +2366,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: bestill reparasjon og avtal tidspunkt. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: bestill reparasjon og avtal tidspunkt. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1655,9 +2379,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: tilby annet rom mens kranen stenges. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby annet rom mens kranen stenges. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "room"
+    }
   },
   {
     "id": "vedlikehold-02",
@@ -1673,7 +2405,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: slå den av og få fagfolk til å ordne den. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: slå den av og få fagfolk til å ordne den. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1682,9 +2418,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: bruk en trygg reservelampe inntil videre. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: bruk en trygg reservelampe inntil videre. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "read",
+      "zone": "room"
+    }
   },
   {
     "id": "vedlikehold-03",
@@ -1700,7 +2444,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: ring service og bruk reserven. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: ring service og bruk reserven. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1709,9 +2457,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: avtal vask hos nabohotellet. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avtal vask hos nabohotellet. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "clean",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "clean",
+      "zone": "reception"
+    }
   },
   {
     "id": "vedlikehold-04",
@@ -1727,7 +2483,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: få låsen kontrollert før rommet brukes. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: få låsen kontrollert før rommet brukes. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1736,9 +2496,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: flytt gjesten midlertidig til et annet rom. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: flytt gjesten midlertidig til et annet rom. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "room"
+    }
   },
   {
     "id": "vedlikehold-05",
@@ -1754,7 +2522,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: ta stolen ut og reparer den. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: ta stolen ut og reparer den. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1763,9 +2535,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: bytt til en reservestol. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: bytt til en reservestol. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "vedlikehold-06",
@@ -1782,7 +2562,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: få undersøkt dekningen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: få undersøkt dekningen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1791,9 +2575,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: lag en arbeidsplass nær resepsjonen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag en arbeidsplass nær resepsjonen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "garden"
+    }
   },
   {
     "id": "vedlikehold-07",
@@ -1809,7 +2601,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: sperr av og bestill utbedring. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: sperr av og bestill utbedring. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1818,9 +2614,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: steng stien og merk en trygg omvei. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: steng stien og merk en trygg omvei. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "garden"
+    }
   },
   {
     "id": "vedlikehold-08",
@@ -1836,7 +2640,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: stans servering fra skapet og kontroller maten. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: stans servering fra skapet og kontroller maten. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1845,9 +2653,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: bruk en trygg reservemeny mens skapet undersøkes. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: bruk en trygg reservemeny mens skapet undersøkes. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "read",
+      "zone": "room"
+    }
   },
   {
     "id": "vedlikehold-09",
@@ -1863,7 +2679,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: gjør badet klart etter utbedring. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: gjør badet klart etter utbedring. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1872,9 +2692,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: tilby et annet bad og avtal service. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby et annet bad og avtal service. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "room"
+    }
   },
   {
     "id": "vedlikehold-10",
@@ -1890,7 +2718,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: bytt til en fungerende klokke. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: bytt til en fungerende klokke. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1899,9 +2731,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: sett opp tydelig kontaktpunkt med bemanning. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: sett opp tydelig kontaktpunkt med bemanning. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "vedlikehold-11",
@@ -1918,7 +2758,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: ta den ned og bruk en reserve. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: ta den ned og bruk en reserve. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1927,9 +2771,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: flytt gjestene til naturlig skygge. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: flytt gjestene til naturlig skygge. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "room"
+    }
   },
   {
     "id": "vedlikehold-12",
@@ -1945,7 +2797,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: få anlegget kontrollert og klargjort. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: få anlegget kontrollert og klargjort. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1954,9 +2810,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: bruk skjerming og lufting på kjølige tidspunkt. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: bruk skjerming og lufting på kjølige tidspunkt. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "room"
+    }
   },
   {
     "id": "vedlikehold-13",
@@ -1972,7 +2836,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: steng gangen og få elektrikerhjelp. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: steng gangen og få elektrikerhjelp. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1981,9 +2849,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: vis en belyst alternativ rute. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: vis en belyst alternativ rute. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "garden"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "room"
+    }
   },
   {
     "id": "vedlikehold-14",
@@ -1999,7 +2875,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: flytt berørte gjester til inngangsplanet. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt berørte gjester til inngangsplanet. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -2008,9 +2888,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: avtal tilgjengelige rom hos naboen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avtal tilgjengelige rom hos naboen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "garden"
+    }
   },
   {
     "id": "vedlikehold-15",
@@ -2026,7 +2914,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: sperr av og få skiltet festet. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: sperr av og få skiltet festet. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -2035,9 +2927,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: ta skiltet trygt ned og bruk et midlertidig. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: ta skiltet trygt ned og bruk et midlertidig. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "room"
+    }
   },
   {
     "id": "okonomi-01",
@@ -2054,7 +2954,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: kjøp bare det dere trenger nå. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: kjøp bare det dere trenger nå. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2063,9 +2967,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: avtal mindre leveranser til fast pris. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avtal mindre leveranser til fast pris. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "pet",
+      "zone": "reception"
+    }
   },
   {
     "id": "okonomi-02",
@@ -2081,7 +2993,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: åpne ledige rom for nye gjester. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: åpne ledige rom for nye gjester. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2090,9 +3006,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: tilby gruppen en annen pakke. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby gruppen en annen pakke. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "okonomi-03",
@@ -2108,7 +3032,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: kjøp noen få gjenbrukbare deler. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: kjøp noen få gjenbrukbare deler. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2117,9 +3045,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: lån pynt fra nabolaget. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lån pynt fra nabolaget. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "okonomi-04",
@@ -2135,7 +3071,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: ta reparasjonen og spar videre. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: ta reparasjonen og spar videre. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2144,9 +3084,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: velg en rimeligere midlertidig hageaktivitet. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: velg en rimeligere midlertidig hageaktivitet. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "garden"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "okonomi-05",
@@ -2162,7 +3110,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: prøv litt uten å love stor bestilling. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: prøv litt uten å love stor bestilling. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2171,9 +3123,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: behold den kjente leverandøren. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: behold den kjente leverandøren. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "okonomi-06",
@@ -2190,7 +3150,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: ta kontakt og få rettet beløpet. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: ta kontakt og få rettet beløpet. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2199,9 +3163,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: sett betalingen på vent mens dere undersøker. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: sett betalingen på vent mens dere undersøker. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "okonomi-07",
@@ -2217,7 +3189,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: bestill en felles tur. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: bestill en felles tur. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -2226,9 +3202,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: lag en gratis tur med deres eget kart. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag en gratis tur med deres eget kart. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "okonomi-08",
@@ -2244,7 +3228,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: kjøp til den planlagte feiringen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: kjøp til den planlagte feiringen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -2253,9 +3241,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: bruk pynten dere har. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: bruk pynten dere har. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "okonomi-09",
@@ -2271,7 +3267,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: tilby en mindre aktivitet innenfor beløpet. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: tilby en mindre aktivitet innenfor beløpet. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -2280,9 +3280,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: la gjesten bruke gavekortet på servering. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: la gjesten bruke gavekortet på servering. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "okonomi-10",
@@ -2298,7 +3306,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: bytt uåpnede varer hos leverandøren. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: bytt uåpnede varer hos leverandøren. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2307,9 +3319,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: bruk opp såpene før nye innkjøp. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: bruk opp såpene før nye innkjøp. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "okonomi-11",
@@ -2326,7 +3346,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: lag en tydelig ny frokostpakke. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en tydelig ny frokostpakke. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -2335,9 +3359,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: behold prisen og forenkle utvalget. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: behold prisen og forenkle utvalget. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "okonomi-12",
@@ -2353,7 +3385,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: kjøp en liten lokal gave. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: kjøp en liten lokal gave. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2362,9 +3398,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: skriv personlige velkomsthilsener. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: skriv personlige velkomsthilsener. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "okonomi-13",
@@ -2380,7 +3424,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: lag en guidet prøvetur. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en guidet prøvetur. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2389,9 +3437,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: avtal færre sykler neste periode. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avtal færre sykler neste periode. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "okonomi-14",
@@ -2407,7 +3463,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: innfør tydelig returliste. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: innfør tydelig returliste. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2416,9 +3476,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: lag faste innleveringssteder. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag faste innleveringssteder. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "garden"
+    }
   },
   {
     "id": "okonomi-15",
@@ -2434,7 +3502,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: kjøp noen få som kan lagres tørt. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: kjøp noen få som kan lagres tørt. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2443,9 +3515,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: vent og bruk de møblene dere har. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: vent og bruk de møblene dere har. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "personale-01",
@@ -2462,7 +3542,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: fordel oppgavene og gi beskjed om ventetid. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: fordel oppgavene og gi beskjed om ventetid. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2471,9 +3555,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: gjør den mest tidskritiske først sammen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: gjør den mest tidskritiske først sammen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "personale-02",
@@ -2489,7 +3581,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: gi en omvisning med en erfaren hjelper. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: gi en omvisning med en erfaren hjelper. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2498,9 +3594,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: start med en tydelig avgrenset oppgave. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: start med en tydelig avgrenset oppgave. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "personale-03",
@@ -2516,7 +3620,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: ta pauser på omgang. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: ta pauser på omgang. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2525,9 +3633,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: steng en frivillig aktivitet kort og hvil sammen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: steng en frivillig aktivitet kort og hvil sammen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "personale-04",
@@ -2543,7 +3659,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: avklar ansvar og dekk sammen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: avklar ansvar og dekk sammen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2552,9 +3672,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: lag en kort oppgaveliste før servering. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag en kort oppgaveliste før servering. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "personale-05",
@@ -2570,7 +3698,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: hent en tralle. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: hent en tralle. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2579,9 +3711,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: del innholdet i mindre kasser. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: del innholdet i mindre kasser. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "personale-06",
@@ -2598,7 +3738,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: prøv ruten på ett måltid. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: prøv ruten på ett måltid. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2607,9 +3751,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: gå gjennom tegningen sammen først. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: gå gjennom tegningen sammen først. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "garden"
+    }
   },
   {
     "id": "personale-07",
@@ -2625,7 +3777,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: merk rom som er tatt og fordel resten. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: merk rom som er tatt og fordel resten. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2634,9 +3790,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: gå gjennom dagens liste sammen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: gå gjennom dagens liste sammen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "clean",
+      "zone": "reception"
+    }
   },
   {
     "id": "personale-08",
@@ -2652,7 +3816,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: bytt ansvar midtveis. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: bytt ansvar midtveis. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2661,9 +3829,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: begrens en aktivitet så alle får pusterom. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: begrens en aktivitet så alle får pusterom. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "personale-09",
@@ -2679,7 +3855,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: la en erfaren person veilede én innsjekking. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: la en erfaren person veilede én innsjekking. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2688,9 +3868,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: avtal opplæring etter køen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avtal opplæring etter køen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "personale-10",
@@ -2706,7 +3894,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: behold kontrollen og fordel den. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: behold kontrollen og fordel den. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2715,9 +3907,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: utsett en mindre viktig pynteoppgave. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: utsett en mindre viktig pynteoppgave. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "personale-11",
@@ -2734,7 +3934,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: spør gjesten igjen og bruk felles liste. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: spør gjesten igjen og bruk felles liste. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -2743,9 +3947,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: let etter lappen mens en annen følger opp gjesten. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: let etter lappen mens en annen følger opp gjesten. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "personale-12",
@@ -2761,7 +3973,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: fordel kontaktansvaret. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: fordel kontaktansvaret. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2770,9 +3986,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: lag et sted for beskjeder som kan vente. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag et sted for beskjeder som kan vente. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "personale-13",
@@ -2788,7 +4012,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: flytt aktiviteten til et roligere tidspunkt. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt aktiviteten til et roligere tidspunkt. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -2797,9 +4025,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: la en annen overta med en kort gjennomgang. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: la en annen overta med en kort gjennomgang. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "garden"
+    }
   },
   {
     "id": "personale-14",
@@ -2815,7 +4051,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: fortell gjesten hvem som bidro. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: fortell gjesten hvem som bidro. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2824,9 +4064,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: les takken høyt for hele laget. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: les takken høyt for hele laget. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "personale-15",
@@ -2842,7 +4090,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: prøv begge på hvert sitt rom og sammenlign. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: prøv begge på hvert sitt rom og sammenlign. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2851,9 +4103,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: bli enige om en felles sjekkliste. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: bli enige om en felles sjekkliste. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "clean",
+      "zone": "reception"
+    }
   },
   {
     "id": "vaer-01",
@@ -2870,7 +4130,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: flytt turen til et oppholdsvindu. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt turen til et oppholdsvindu. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2879,9 +4143,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: lag et innendørs alternativ. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag et innendørs alternativ. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rain",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "garden"
+    }
   },
   {
     "id": "vaer-02",
@@ -2897,7 +4169,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: flytt verkstedet inn. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt verkstedet inn. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "craft",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -2906,9 +4182,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: avlys teltbruken og tilby små aktiviteter i ly. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avlys teltbruken og tilby små aktiviteter i ly. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "craft",
+      "zone": "dining"
+    }
   },
   {
     "id": "vaer-03",
@@ -2924,7 +4208,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: lag skyggeplass med vann. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag skyggeplass med vann. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2933,9 +4221,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: flytt aktivitetene til en kjøligere time. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: flytt aktivitetene til en kjøligere time. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "garden"
+    }
   },
   {
     "id": "vaer-04",
@@ -2951,7 +4247,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: tilby en skogstur med andre opplevelser. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: tilby en skogstur med andre opplevelser. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2960,9 +4260,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: flytt utsiktsturen til senere. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: flytt utsiktsturen til senere. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "vaer-05",
@@ -2978,7 +4286,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: gjør stien trygg før åpning. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: gjør stien trygg før åpning. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -2987,9 +4299,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: bruk en annen inngang til den er klar. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: bruk en annen inngang til den er klar. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "vaer-06",
@@ -3006,7 +4326,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: samle dem til innendørslek. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: samle dem til innendørslek. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rain",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3015,9 +4339,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: gi dem en rolig pause og ny tid. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: gi dem en rolig pause og ny tid. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "garden"
+    }
   },
   {
     "id": "vaer-07",
@@ -3033,7 +4365,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: lag tørkestasjon og tøfler. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag tørkestasjon og tøfler. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "clean",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3042,9 +4378,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: merk en tørr og en våt sone. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: merk en tørr og en våt sone. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "vaer-08",
@@ -3060,7 +4404,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: flytt den til et annet vindu. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt den til et annet vindu. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3069,9 +4417,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: bruk stoffpynt som tåler lyset bedre. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: bruk stoffpynt som tåler lyset bedre. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "craft",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "craft",
+      "zone": "dining"
+    }
   },
   {
     "id": "vaer-09",
@@ -3087,7 +4443,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: flytt turen og forklar hvorfor. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt turen og forklar hvorfor. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3096,9 +4456,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: lag et trygt innendørs opplegg. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag et trygt innendørs opplegg. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rain",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "vaer-10",
@@ -3114,7 +4482,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: lag en kort snøopplevelse med varmt møtested. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en kort snøopplevelse med varmt møtested. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3123,9 +4495,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: åpne verksted og spill inne. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: åpne verksted og spill inne. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "craft",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "vaer-11",
@@ -3142,7 +4522,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: flytt bordene i le. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt bordene i le. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3151,9 +4535,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: bruk faste menyer og serviettholdere. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: bruk faste menyer og serviettholdere. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "vaer-12",
@@ -3169,7 +4561,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: avtal en stille hagekveld. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: avtal en stille hagekveld. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "garden"
+        }
       },
       {
         "id": "b",
@@ -3178,9 +4574,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: flytt sosial samling bort fra soverommene. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: flytt sosial samling bort fra soverommene. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "garden"
+    }
   },
   {
     "id": "vaer-13",
@@ -3196,7 +4600,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: tilby varm frokost før aktiviteten. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: tilby varm frokost før aktiviteten. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3205,9 +4613,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: flytt badet til en varmere del av dagen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: flytt badet til en varmere del av dagen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "vaer-14",
@@ -3223,7 +4639,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: sperr av de våteste stiene. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: sperr av de våteste stiene. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3232,9 +4652,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: flytt aktivitetene til den tørre terrassen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: flytt aktivitetene til den tørre terrassen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rain",
+          "zone": "garden"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "vaer-15",
@@ -3250,7 +4678,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: behold planen og åpne terrassedørene. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: behold planen og åpne terrassedørene. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rain",
+          "zone": "garden"
+        }
       },
       {
         "id": "b",
@@ -3259,9 +4691,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: flytt bare en liten del ut. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: flytt bare en liten del ut. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "naboer-01",
@@ -3278,7 +4718,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: lån ut noen etter å ha telt egne behov. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lån ut noen etter å ha telt egne behov. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3287,9 +4731,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: tilby bordplass i hotellets rolige hjørne. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby bordplass i hotellets rolige hjørne. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "read",
+      "zone": "room"
+    }
   },
   {
     "id": "naboer-02",
@@ -3305,7 +4757,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: hold en liten smaksrunde. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: hold en liten smaksrunde. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3314,9 +4770,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: be om noen få prøver til frokost. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: be om noen få prøver til frokost. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "naboer-03",
@@ -3332,7 +4796,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: reserver et tidsrom for bokbussen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: reserver et tidsrom for bokbussen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3341,9 +4809,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: finn en plass ved hageporten. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: finn en plass ved hageporten. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "garden"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "read",
+      "zone": "room"
+    }
   },
   {
     "id": "naboer-04",
@@ -3359,7 +4835,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: lag en kort introduksjon mens dere venter. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en kort introduksjon mens dere venter. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3368,9 +4848,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: flytt turen og tilby en annen aktivitet nå. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: flytt turen og tilby en annen aktivitet nå. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "naboer-05",
@@ -3386,7 +4874,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: kombiner en kort ryddeøkt med leken. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: kombiner en kort ryddeøkt med leken. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "clean",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3395,9 +4887,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: send utstyr og delta en annen dag. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: send utstyr og delta en annen dag. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "read",
+      "zone": "room"
+    }
   },
   {
     "id": "naboer-06",
@@ -3414,7 +4914,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: bytt duk før gjestene kommer. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: bytt duk før gjestene kommer. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3423,9 +4927,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: avtal senere levering og tilby en annen duk nå. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avtal senere levering og tilby en annen duk nå. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "read",
+      "zone": "room"
+    }
   },
   {
     "id": "naboer-07",
@@ -3441,7 +4953,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: lag en liten utstilling i salongen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en liten utstilling i salongen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3450,9 +4966,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: vis noen få bilder ved resepsjonen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: vis noen få bilder ved resepsjonen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "naboer-08",
@@ -3468,7 +4992,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: lag en akustisk stund i hagen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en akustisk stund i hagen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "garden"
+        }
       },
       {
         "id": "b",
@@ -3477,9 +5005,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: avtal en liten konsert ved kafeen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: avtal en liten konsert ved kafeen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "dance",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "naboer-09",
@@ -3495,7 +5031,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: lag en enkel vaktliste. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en enkel vaktliste. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3504,9 +5044,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: begynn med noen få lettstelte urter. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: begynn med noen få lettstelte urter. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "garden",
+      "zone": "garden"
+    }
   },
   {
     "id": "naboer-10",
@@ -3522,7 +5070,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: lever den og avklar adressene. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lever den og avklar adressene. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3531,9 +5083,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: be budet hente og levere riktig. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: be budet hente og levere riktig. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "naboer-11",
@@ -3550,7 +5110,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: merk kartene og varsle utgiveren. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: merk kartene og varsle utgiveren. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3559,9 +5123,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: gi gjestene et alternativt kart. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: gi gjestene et alternativt kart. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "naboer-12",
@@ -3577,7 +5149,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: flytt høyttalerne og avslutt tidligere. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: flytt høyttalerne og avslutt tidligere. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3586,9 +5162,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: bytt til en rolig aktivitet. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: bytt til en rolig aktivitet. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "dance",
+      "zone": "garden"
+    }
   },
   {
     "id": "naboer-13",
@@ -3604,7 +5188,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: del leveransen med kafeen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: del leveransen med kafeen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3613,9 +5201,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: ta imot litt og foreslå et felles eplebord. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: ta imot litt og foreslå et felles eplebord. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "garden"
+    }
   },
   {
     "id": "naboer-14",
@@ -3631,7 +5227,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: sett ut tydelige veivisere. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: sett ut tydelige veivisere. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -3640,9 +5240,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: møt ankommende gjester på avtalt sted. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: møt ankommende gjester på avtalt sted. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "dining"
+    }
   },
   {
     "id": "naboer-15",
@@ -3658,7 +5266,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: lån ut salongen en rolig time. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lån ut salongen en rolig time. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3667,9 +5279,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: hjelp dem å finne et annet egnet sted. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: hjelp dem å finne et annet egnet sted. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "feiring-01",
@@ -3686,7 +5306,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: lag en liten feiring ved familiebordet. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag en liten feiring ved familiebordet. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3695,9 +5319,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: gi en privat hilsen og la barnet velge aktivitet. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: gi en privat hilsen og la barnet velge aktivitet. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "feiring-02",
@@ -3713,7 +5345,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: lag to små kaker. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag to små kaker. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3722,9 +5358,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: lag en kake med tydelig delte smaker. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag en kake med tydelig delte smaker. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "feiring-03",
@@ -3740,7 +5384,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: lag et felles minnebord. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag et felles minnebord. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "read",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3749,9 +5397,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: heng opp små kort med gjestenes fortellinger. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: heng opp små kort med gjestenes fortellinger. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "feiring-04",
@@ -3767,7 +5423,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: la personen være med på resten av planleggingen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: la personen være med på resten av planleggingen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3776,9 +5436,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: behold én liten overraskelse til senere. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: behold én liten overraskelse til senere. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "feiring-05",
@@ -3794,7 +5462,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: velg en enkel felles sang. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: velg en enkel felles sang. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -3803,9 +5475,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: lag en spilleliste der alle får bidra. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag en spilleliste der alle får bidra. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "dance",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "feiring-06",
@@ -3822,7 +5502,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: lag spleis på enkel servering. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag spleis på enkel servering. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3831,9 +5515,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: arranger en gratis spill- og fortellerkveld. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: arranger en gratis spill- og fortellerkveld. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "feiring-07",
@@ -3849,7 +5541,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: avtal tale etter maten. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: avtal tale etter maten. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3858,9 +5554,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: del talen i en kort velkomst og en avslutning. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: del talen i en kort velkomst og en avslutning. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "feiring-08",
@@ -3876,7 +5580,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: lag frivillig fotostund. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag frivillig fotostund. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3885,9 +5593,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: ta bilde av det pyntede bordet i stedet. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: ta bilde av det pyntede bordet i stedet. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "feiring-09",
@@ -3903,7 +5619,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: gi en varm introduksjon ved et lite bord. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: gi en varm introduksjon ved et lite bord. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3912,9 +5632,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: tilby en rolig felles aktivitet før festen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: tilby en rolig felles aktivitet før festen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "feiring-10",
@@ -3930,7 +5658,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: bytt til vimpler. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: bytt til vimpler. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3939,9 +5671,17 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: flytt ballongene bort fra fellesrommet. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: flytt ballongene bort fra fellesrommet. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "feiring-11",
@@ -3958,7 +5698,11 @@
           "energy": -3,
           "coins": -5
         },
-        "outcome": "Dere valgte: gi plass til begge innslag. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: gi plass til begge innslag. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3967,9 +5711,17 @@
           "joy": 3,
           "reputation": 2
         },
-        "outcome": "Dere valgte: lag en felles aktivitet og separate familiebord. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag en felles aktivitet og separate familiebord. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "feiring-12",
@@ -3985,7 +5737,11 @@
           "reputation": 5,
           "energy": -4
         },
-        "outcome": "Dere valgte: lag et personlig gavekort med avtalt levering. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag et personlig gavekort med avtalt levering. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -3994,9 +5750,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Dere valgte: lag en opplevelse som gave nå. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag en opplevelse som gave nå. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "feiring-13",
@@ -4012,7 +5776,11 @@
           "cleanliness": 6,
           "coins": -4
         },
-        "outcome": "Dere valgte: lag flere sider i en liten bok. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag flere sider i en liten bok. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -4021,9 +5789,17 @@
           "cleanliness": 3,
           "energy": -2
         },
-        "outcome": "Dere valgte: lag et tre med små hilsener. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag et tre med små hilsener. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "feiring-14",
@@ -4039,7 +5815,11 @@
           "joy": 4,
           "coins": -3
         },
-        "outcome": "Dere valgte: ha en felles frokosthilsen. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: ha en felles frokosthilsen. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -4048,9 +5828,17 @@
           "energy": 4,
           "joy": -1
         },
-        "outcome": "Dere valgte: lag små avskjedsstunder gjennom dagen. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: lag små avskjedsstunder gjennom dagen. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "feiring-15",
@@ -4066,7 +5854,11 @@
           "reputation": 4,
           "energy": -2
         },
-        "outcome": "Dere valgte: lag små egne minnekort. Gjestene får beskjed om den nye planen."
+        "outcome": "Dere valgte: lag små egne minnekort. Gjestene får beskjed om den nye planen.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -4075,8 +5867,16 @@
           "joy": 2,
           "coins": 2
         },
-        "outcome": "Dere valgte: la dem velge noen få deler som kan gis bort. Planen blir forklart før dere går videre."
+        "outcome": "Dere valgte: la dem velge noen få deler som kan gis bort. Planen blir forklart før dere går videre.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   }
 ]

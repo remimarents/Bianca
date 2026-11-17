@@ -12,7 +12,11 @@
           "joy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: et rolig sted og vann."
+        "outcome": "Oppgaven er fulgt opp: et rolig sted og vann.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -21,9 +25,17 @@
           "joy": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: en kort omvisning med mulighet for pause."
+        "outcome": "Oppgaven er fulgt opp: en kort omvisning med mulighet for pause.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-02",
@@ -38,7 +50,11 @@
           "joy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: finn ruteinformasjon og pauser."
+        "outcome": "Oppgaven er fulgt opp: finn ruteinformasjon og pauser.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -47,9 +63,17 @@
           "joy": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: tilby den korteste merkede turen."
+        "outcome": "Oppgaven er fulgt opp: tilby den korteste merkede turen.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-03",
@@ -64,7 +88,11 @@
           "joy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: finn en kompatibel lånelader."
+        "outcome": "Oppgaven er fulgt opp: finn en kompatibel lånelader.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -73,9 +101,17 @@
           "joy": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: tilby å bruke resepsjonens telefon."
+        "outcome": "Oppgaven er fulgt opp: tilby å bruke resepsjonens telefon.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-04",
@@ -90,7 +126,11 @@
           "joy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: inviter til et lite spillbord."
+        "outcome": "Oppgaven er fulgt opp: inviter til et lite spillbord.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -99,9 +139,17 @@
           "joy": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: vis frem en felles aktivitet med ledig plass."
+        "outcome": "Oppgaven er fulgt opp: vis frem en felles aktivitet med ledig plass.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-05",
@@ -116,7 +164,11 @@
           "joy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: be mottakeren kontakte resepsjonen."
+        "outcome": "Oppgaven er fulgt opp: be mottakeren kontakte resepsjonen.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -125,9 +177,17 @@
           "joy": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: tilby å legge en lukket beskjed etter avtale."
+        "outcome": "Oppgaven er fulgt opp: tilby å legge en lukket beskjed etter avtale.",
+        "visual": {
+          "kind": "arrival",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "arrival",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-06",
@@ -142,7 +202,11 @@
           "joy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: gjør klar en enkel matpakke."
+        "outcome": "Oppgaven er fulgt opp: gjør klar en enkel matpakke.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -151,9 +215,17 @@
           "joy": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: avtal tidlig frokost."
+        "outcome": "Oppgaven er fulgt opp: avtal tidlig frokost.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-07",
@@ -168,7 +240,11 @@
           "cleanliness": 5,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: flytt lampen og rydd passasjen."
+        "outcome": "Oppgaven er fulgt opp: flytt lampen og rydd passasjen.",
+        "visual": {
+          "kind": "clean",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -177,9 +253,17 @@
           "cleanliness": 3,
           "joy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: tilby et ferdig lesested i salongen."
+        "outcome": "Oppgaven er fulgt opp: tilby et ferdig lesested i salongen.",
+        "visual": {
+          "kind": "read",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "read",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-08",
@@ -194,7 +278,11 @@
           "cleanliness": 5,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: trekk for og sjekk lyssprekker."
+        "outcome": "Oppgaven er fulgt opp: trekk for og sjekk lyssprekker.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -203,9 +291,17 @@
           "cleanliness": 3,
           "joy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: tilby et mørkere ledig rom."
+        "outcome": "Oppgaven er fulgt opp: tilby et mørkere ledig rom.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-09",
@@ -220,7 +316,11 @@
           "cleanliness": 5,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: flytt en stol så passasjen blir fri."
+        "outcome": "Oppgaven er fulgt opp: flytt en stol så passasjen blir fri.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -229,9 +329,17 @@
           "cleanliness": 3,
           "joy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: tilby trygg oppbevaring utenfor rommet."
+        "outcome": "Oppgaven er fulgt opp: tilby trygg oppbevaring utenfor rommet.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-10",
@@ -246,7 +354,11 @@
           "cleanliness": 5,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: rydd gulvet før nye tekstiler legges inn."
+        "outcome": "Oppgaven er fulgt opp: rydd gulvet før nye tekstiler legges inn.",
+        "visual": {
+          "kind": "clean",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -255,9 +367,17 @@
           "cleanliness": 3,
           "joy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: gi gjestene et sted å skifte og rengjør etterpå."
+        "outcome": "Oppgaven er fulgt opp: gi gjestene et sted å skifte og rengjør etterpå.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-11",
@@ -272,7 +392,11 @@
           "cleanliness": 5,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: koble fra bruk og få det kontrollert trygt."
+        "outcome": "Oppgaven er fulgt opp: koble fra bruk og få det kontrollert trygt.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -281,9 +405,17 @@
           "cleanliness": 3,
           "joy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: tilby et annet rom mens området ordnes."
+        "outcome": "Oppgaven er fulgt opp: tilby et annet rom mens området ordnes.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "clean",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-12",
@@ -298,7 +430,11 @@
           "cleanliness": 5,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: bytt pynt med en bokkurv."
+        "outcome": "Oppgaven er fulgt opp: bytt pynt med en bokkurv.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -307,9 +443,17 @@
           "cleanliness": 3,
           "joy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: vis gjesten hvilke pynteting som kan flyttes."
+        "outcome": "Oppgaven er fulgt opp: vis gjesten hvilke pynteting som kan flyttes.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-13",
@@ -324,7 +468,11 @@
           "joy": 4,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: finn ingredienslisten før du svarer."
+        "outcome": "Oppgaven er fulgt opp: finn ingredienslisten før du svarer.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -333,9 +481,17 @@
           "joy": 2,
           "reputation": 2
         },
-        "outcome": "Oppgaven er fulgt opp: tilby et produkt med kjent merking."
+        "outcome": "Oppgaven er fulgt opp: tilby et produkt med kjent merking.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-14",
@@ -350,7 +506,11 @@
           "joy": 4,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: lag et eget returpunkt."
+        "outcome": "Oppgaven er fulgt opp: lag et eget returpunkt.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -359,9 +519,17 @@
           "joy": 2,
           "reputation": 2
         },
-        "outcome": "Oppgaven er fulgt opp: rydd bordet før neste servering."
+        "outcome": "Oppgaven er fulgt opp: rydd bordet før neste servering.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-15",
@@ -376,7 +544,11 @@
           "joy": 4,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: vis hvor flasker kan fylles."
+        "outcome": "Oppgaven er fulgt opp: vis hvor flasker kan fylles.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -385,9 +557,17 @@
           "joy": 2,
           "reputation": 2
         },
-        "outcome": "Oppgaven er fulgt opp: lag en tydelig vannstasjon ved utgangen."
+        "outcome": "Oppgaven er fulgt opp: lag en tydelig vannstasjon ved utgangen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-16",
@@ -402,7 +582,11 @@
           "joy": 4,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: oppbevar egnet mat forsvarlig."
+        "outcome": "Oppgaven er fulgt opp: oppbevar egnet mat forsvarlig.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -411,9 +595,17 @@
           "joy": 2,
           "reputation": 2
         },
-        "outcome": "Oppgaven er fulgt opp: tilpass neste bestilling etter det som ble igjen."
+        "outcome": "Oppgaven er fulgt opp: tilpass neste bestilling etter det som ble igjen.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-17",
@@ -428,7 +620,11 @@
           "joy": 4,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: ta oppvasken så kokken kan servere."
+        "outcome": "Oppgaven er fulgt opp: ta oppvasken så kokken kan servere.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -437,9 +633,17 @@
           "joy": 2,
           "reputation": 2
         },
-        "outcome": "Oppgaven er fulgt opp: ta serveringen med tydelig beskjed fra kjøkkenet."
+        "outcome": "Oppgaven er fulgt opp: ta serveringen med tydelig beskjed fra kjøkkenet.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-18",
@@ -454,7 +658,11 @@
           "joy": 4,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: tilby en liten smaksprøve."
+        "outcome": "Oppgaven er fulgt opp: tilby en liten smaksprøve.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -463,9 +671,17 @@
           "joy": 2,
           "reputation": 2
         },
-        "outcome": "Oppgaven er fulgt opp: vis de kjente delene av måltidet."
+        "outcome": "Oppgaven er fulgt opp: vis de kjente delene av måltidet.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-19",
@@ -480,7 +696,11 @@
           "joy": 3,
           "energy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: lag en observasjonsplass på avstand."
+        "outcome": "Oppgaven er fulgt opp: lag en observasjonsplass på avstand.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -489,9 +709,17 @@
           "energy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: sett frem bilder av fuglene ved salongen."
+        "outcome": "Oppgaven er fulgt opp: sett frem bilder av fuglene ved salongen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "garden",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-20",
@@ -506,7 +734,11 @@
           "joy": 3,
           "energy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: sorter avfallet og tørk bordet."
+        "outcome": "Oppgaven er fulgt opp: sorter avfallet og tørk bordet.",
+        "visual": {
+          "kind": "clean",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -515,9 +747,17 @@
           "energy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: hent returkurv og involver turgruppen."
+        "outcome": "Oppgaven er fulgt opp: hent returkurv og involver turgruppen.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "craft",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-21",
@@ -532,7 +772,11 @@
           "joy": 3,
           "energy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: flytt de sårbare plantene til halvskygge."
+        "outcome": "Oppgaven er fulgt opp: flytt de sårbare plantene til halvskygge.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -541,9 +785,17 @@
           "energy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: sjekk jorden og vann ved røttene."
+        "outcome": "Oppgaven er fulgt opp: sjekk jorden og vann ved røttene.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "garden",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-22",
@@ -558,7 +810,11 @@
           "joy": 3,
           "energy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: merk et aktivitetsområde med god avstand."
+        "outcome": "Oppgaven er fulgt opp: merk et aktivitetsområde med god avstand.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -567,9 +823,17 @@
           "energy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: avtal ulike tider for samme område."
+        "outcome": "Oppgaven er fulgt opp: avtal ulike tider for samme område.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "garden"
+    }
   },
   {
     "id": "jobb-23",
@@ -584,7 +848,11 @@
           "joy": 3,
           "energy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: tørk en benk og legg ut tørre puter."
+        "outcome": "Oppgaven er fulgt opp: tørk en benk og legg ut tørre puter.",
+        "visual": {
+          "kind": "clean",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -593,9 +861,17 @@
           "energy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: vis gjestene en overdekket sitteplass."
+        "outcome": "Oppgaven er fulgt opp: vis gjestene en overdekket sitteplass.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "garden"
+    }
   },
   {
     "id": "jobb-24",
@@ -610,7 +886,11 @@
           "joy": 3,
           "energy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: gi en trygg oppgave med passende utstyr."
+        "outcome": "Oppgaven er fulgt opp: gi en trygg oppgave med passende utstyr.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -619,9 +899,17 @@
           "energy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: la gjesten velge plassering mens dere planter."
+        "outcome": "Oppgaven er fulgt opp: la gjesten velge plassering mens dere planter.",
+        "visual": {
+          "kind": "garden",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "garden",
+      "zone": "garden"
+    }
   },
   {
     "id": "jobb-25",
@@ -636,7 +924,11 @@
           "cleanliness": 4,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: sett opp tydelige veivisere."
+        "outcome": "Oppgaven er fulgt opp: sett opp tydelige veivisere.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -645,9 +937,17 @@
           "cleanliness": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: følg gjestene til alternativ inngang."
+        "outcome": "Oppgaven er fulgt opp: følg gjestene til alternativ inngang.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-26",
@@ -662,7 +962,11 @@
           "cleanliness": 4,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: kontroller at stolen står støtt."
+        "outcome": "Oppgaven er fulgt opp: kontroller at stolen står støtt.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -671,9 +975,17 @@
           "cleanliness": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: bruk en stol som allerede er kontrollert."
+        "outcome": "Oppgaven er fulgt opp: bruk en stol som allerede er kontrollert.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-27",
@@ -688,7 +1000,11 @@
           "cleanliness": 4,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: gi et bekreftet tidspunkt fra ansvarlig."
+        "outcome": "Oppgaven er fulgt opp: gi et bekreftet tidspunkt fra ansvarlig.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -697,9 +1013,17 @@
           "cleanliness": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: tilby et annet rom mens dere avklarer."
+        "outcome": "Oppgaven er fulgt opp: tilby et annet rom mens dere avklarer.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-28",
@@ -714,7 +1038,11 @@
           "cleanliness": 4,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: flytt den til avlåst arbeidsområde."
+        "outcome": "Oppgaven er fulgt opp: flytt den til avlåst arbeidsområde.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -723,9 +1051,17 @@
           "cleanliness": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: sperr området kort mens ansvarlig rydder."
+        "outcome": "Oppgaven er fulgt opp: sperr området kort mens ansvarlig rydder.",
+        "visual": {
+          "kind": "clean",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-29",
@@ -740,7 +1076,11 @@
           "cleanliness": 4,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: be ansvarlig bekrefte at den er klar."
+        "outcome": "Oppgaven er fulgt opp: be ansvarlig bekrefte at den er klar.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -749,9 +1089,17 @@
           "cleanliness": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: bruk den andre inngangen til kontrollen er gjort."
+        "outcome": "Oppgaven er fulgt opp: bruk den andre inngangen til kontrollen er gjort.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "garden"
+    }
   },
   {
     "id": "jobb-30",
@@ -766,7 +1114,11 @@
           "cleanliness": 4,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: samle meldingene i én arbeidsliste."
+        "outcome": "Oppgaven er fulgt opp: samle meldingene i én arbeidsliste.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -775,9 +1127,17 @@
           "cleanliness": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: avklar hvem som følger opp og gir beskjed."
+        "outcome": "Oppgaven er fulgt opp: avklar hvem som følger opp og gir beskjed.",
+        "visual": {
+          "kind": "repair",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "repair",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-31",
@@ -792,7 +1152,11 @@
           "coins": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: kjøp det som trengs til servering først."
+        "outcome": "Oppgaven er fulgt opp: kjøp det som trengs til servering først.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -801,9 +1165,17 @@
           "coins": 1,
           "reputation": 2
         },
-        "outcome": "Oppgaven er fulgt opp: bruk vaskbare servietter og eksisterende pynt."
+        "outcome": "Oppgaven er fulgt opp: bruk vaskbare servietter og eksisterende pynt.",
+        "visual": {
+          "kind": "clean",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-32",
@@ -818,7 +1190,11 @@
           "coins": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: tell brukbare kopper på lageret."
+        "outcome": "Oppgaven er fulgt opp: tell brukbare kopper på lageret.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -827,9 +1203,17 @@
           "coins": 1,
           "reputation": 2
         },
-        "outcome": "Oppgaven er fulgt opp: lån det som mangler til dagens servering."
+        "outcome": "Oppgaven er fulgt opp: lån det som mangler til dagens servering.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-33",
@@ -844,7 +1228,11 @@
           "coins": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: vis innhold og pris samlet."
+        "outcome": "Oppgaven er fulgt opp: vis innhold og pris samlet.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -853,9 +1241,17 @@
           "coins": 1,
           "reputation": 2
         },
-        "outcome": "Oppgaven er fulgt opp: tilpass en mindre pakke med tydelig innhold."
+        "outcome": "Oppgaven er fulgt opp: tilpass en mindre pakke med tydelig innhold.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-34",
@@ -870,7 +1266,11 @@
           "coins": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: avklar med leverandøren før bruk."
+        "outcome": "Oppgaven er fulgt opp: avklar med leverandøren før bruk.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -879,9 +1279,17 @@
           "coins": 1,
           "reputation": 2
         },
-        "outcome": "Oppgaven er fulgt opp: legg varen til side for henting."
+        "outcome": "Oppgaven er fulgt opp: legg varen til side for henting.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-35",
@@ -896,7 +1304,11 @@
           "coins": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: prioriter stoler."
+        "outcome": "Oppgaven er fulgt opp: prioriter stoler.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -905,9 +1317,17 @@
           "coins": 1,
           "reputation": 2
         },
-        "outcome": "Oppgaven er fulgt opp: lån stoler og vent med dekor."
+        "outcome": "Oppgaven er fulgt opp: lån stoler og vent med dekor.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-36",
@@ -922,7 +1342,11 @@
           "coins": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: spør gruppen som lånte dem."
+        "outcome": "Oppgaven er fulgt opp: spør gruppen som lånte dem.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -931,9 +1355,17 @@
           "coins": 1,
           "reputation": 2
         },
-        "outcome": "Oppgaven er fulgt opp: se ved avtalt innleveringssted først."
+        "outcome": "Oppgaven er fulgt opp: se ved avtalt innleveringssted først.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-37",
@@ -947,7 +1379,11 @@
         "effect": {
           "energy": 5
         },
-        "outcome": "Oppgaven er fulgt opp: ta én oppgave og be om hjelp til den andre."
+        "outcome": "Oppgaven er fulgt opp: ta én oppgave og be om hjelp til den andre.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -956,9 +1392,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: avklar hva som haster før dere fordeler."
+        "outcome": "Oppgaven er fulgt opp: avklar hva som haster før dere fordeler.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-38",
@@ -972,7 +1416,11 @@
         "effect": {
           "energy": 5
         },
-        "outcome": "Oppgaven er fulgt opp: fortell hva som er gjort og hva som gjenstår."
+        "outcome": "Oppgaven er fulgt opp: fortell hva som er gjort og hva som gjenstår.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -981,9 +1429,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: oppdater felles oppgaveliste før byttet."
+        "outcome": "Oppgaven er fulgt opp: oppdater felles oppgaveliste før byttet.",
+        "visual": {
+          "kind": "read",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "garden"
+    }
   },
   {
     "id": "jobb-39",
@@ -997,7 +1453,11 @@
         "effect": {
           "energy": 5
         },
-        "outcome": "Oppgaven er fulgt opp: be om et konkret eksempel."
+        "outcome": "Oppgaven er fulgt opp: be om et konkret eksempel.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1006,9 +1466,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: gjenta det du tror forslaget betyr og sjekk."
+        "outcome": "Oppgaven er fulgt opp: gjenta det du tror forslaget betyr og sjekk.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-40",
@@ -1022,7 +1490,11 @@
         "effect": {
           "energy": 5
         },
-        "outcome": "Oppgaven er fulgt opp: se på gjestenes behov og avtal rekkefølge."
+        "outcome": "Oppgaven er fulgt opp: se på gjestenes behov og avtal rekkefølge.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1031,9 +1503,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: del arbeidet og avtal når dere møtes igjen."
+        "outcome": "Oppgaven er fulgt opp: del arbeidet og avtal når dere møtes igjen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "clean",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-41",
@@ -1047,7 +1527,11 @@
         "effect": {
           "energy": 5
         },
-        "outcome": "Oppgaven er fulgt opp: overta et avgrenset stykke."
+        "outcome": "Oppgaven er fulgt opp: overta et avgrenset stykke.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1056,9 +1540,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: avtal pause og en trygg stopp i oppgaven."
+        "outcome": "Oppgaven er fulgt opp: avtal pause og en trygg stopp i oppgaven.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-42",
@@ -1072,7 +1564,11 @@
         "effect": {
           "energy": 5
         },
-        "outcome": "Oppgaven er fulgt opp: sjekk resultatet sammen."
+        "outcome": "Oppgaven er fulgt opp: sjekk resultatet sammen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1081,9 +1577,17 @@
           "energy": 3,
           "joy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: gi beskjed om bidragene og ta siste kontroll."
+        "outcome": "Oppgaven er fulgt opp: gi beskjed om bidragene og ta siste kontroll.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "read",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-43",
@@ -1098,7 +1602,11 @@
           "joy": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: sjekk vær og avtal et innealternativ."
+        "outcome": "Oppgaven er fulgt opp: sjekk vær og avtal et innealternativ.",
+        "visual": {
+          "kind": "rain",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1107,9 +1615,17 @@
           "energy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: flytt en kort aktivitet inn allerede nå."
+        "outcome": "Oppgaven er fulgt opp: flytt en kort aktivitet inn allerede nå.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "garden"
+    }
   },
   {
     "id": "jobb-44",
@@ -1124,7 +1640,11 @@
           "joy": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: sikre området og tørk gulvet."
+        "outcome": "Oppgaven er fulgt opp: sikre området og tørk gulvet.",
+        "visual": {
+          "kind": "clean",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1133,9 +1653,17 @@
           "energy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: bruk en tørr inngang mens dere rydder."
+        "outcome": "Oppgaven er fulgt opp: bruk en tørr inngang mens dere rydder.",
+        "visual": {
+          "kind": "clean",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-45",
@@ -1150,7 +1678,11 @@
           "joy": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: skjerm for solen og tilby vann."
+        "outcome": "Oppgaven er fulgt opp: skjerm for solen og tilby vann.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1159,9 +1691,17 @@
           "energy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: vis til hotellets kjøligere rom."
+        "outcome": "Oppgaven er fulgt opp: vis til hotellets kjøligere rom.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-46",
@@ -1176,7 +1716,11 @@
           "joy": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: ta inn lette gjenstander."
+        "outcome": "Oppgaven er fulgt opp: ta inn lette gjenstander.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1185,9 +1729,17 @@
           "energy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: flytt serveringen til le."
+        "outcome": "Oppgaven er fulgt opp: flytt serveringen til le.",
+        "visual": {
+          "kind": "meal",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-47",
@@ -1202,7 +1754,11 @@
           "joy": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: la dem vente inne med beskjed om avgang."
+        "outcome": "Oppgaven er fulgt opp: la dem vente inne med beskjed om avgang.",
+        "visual": {
+          "kind": "rain",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1211,9 +1767,17 @@
           "energy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: ordne et lunt ventehjørne nær inngangen."
+        "outcome": "Oppgaven er fulgt opp: ordne et lunt ventehjørne nær inngangen.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "garden"
+    }
   },
   {
     "id": "jobb-48",
@@ -1228,7 +1792,11 @@
           "joy": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: gi enkel informasjon om klær og rute."
+        "outcome": "Oppgaven er fulgt opp: gi enkel informasjon om klær og rute.",
+        "visual": {
+          "kind": "rain",
+          "zone": "garden"
+        }
       },
       {
         "id": "b",
@@ -1237,9 +1805,17 @@
           "energy": 3,
           "reputation": 1
         },
-        "outcome": "Oppgaven er fulgt opp: tilby en kortere tur nær hotellet."
+        "outcome": "Oppgaven er fulgt opp: tilby en kortere tur nær hotellet.",
+        "visual": {
+          "kind": "rain",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rain",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-49",
@@ -1254,7 +1830,11 @@
           "reputation": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: tell og lever dem på avtalt sted."
+        "outcome": "Oppgaven er fulgt opp: tell og lever dem på avtalt sted.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1263,9 +1843,17 @@
           "reputation": 2,
           "energy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: avtal henting og gjør dem klare."
+        "outcome": "Oppgaven er fulgt opp: avtal henting og gjør dem klare.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "read",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-50",
@@ -1280,7 +1868,11 @@
           "reputation": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: rett hotellets kart."
+        "outcome": "Oppgaven er fulgt opp: rett hotellets kart.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1289,9 +1881,17 @@
           "reputation": 2,
           "energy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: fortell turgruppen og marker alternativ rute."
+        "outcome": "Oppgaven er fulgt opp: fortell turgruppen og marker alternativ rute.",
+        "visual": {
+          "kind": "talk",
+          "zone": "garden"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "read",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-51",
@@ -1306,7 +1906,11 @@
           "reputation": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: send en takk via avtalt kontakt."
+        "outcome": "Oppgaven er fulgt opp: send en takk via avtalt kontakt.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1315,9 +1919,17 @@
           "reputation": 2,
           "energy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: tilby hjelp ved neste praktiske behov."
+        "outcome": "Oppgaven er fulgt opp: tilby hjelp ved neste praktiske behov.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-52",
@@ -1332,7 +1944,11 @@
           "reputation": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: avtal rekkefølge ved inngangen."
+        "outcome": "Oppgaven er fulgt opp: avtal rekkefølge ved inngangen.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1341,9 +1957,17 @@
           "reputation": 2,
           "energy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: bruk to trygge mottaksplasser."
+        "outcome": "Oppgaven er fulgt opp: bruk to trygge mottaksplasser.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "talk",
+      "zone": "reception"
+    }
   },
   {
     "id": "jobb-53",
@@ -1358,7 +1982,11 @@
           "reputation": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: undersøk tidspunkt og tilgjengelighet."
+        "outcome": "Oppgaven er fulgt opp: undersøk tidspunkt og tilgjengelighet.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1367,9 +1995,17 @@
           "reputation": 2,
           "energy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: sett frem informasjon så gjestene kan velge."
+        "outcome": "Oppgaven er fulgt opp: sett frem informasjon så gjestene kan velge.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "read",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-54",
@@ -1384,7 +2020,11 @@
           "reputation": 3,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: ta imot det dere kan bruke trygt."
+        "outcome": "Oppgaven er fulgt opp: ta imot det dere kan bruke trygt.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       },
       {
         "id": "b",
@@ -1393,9 +2033,17 @@
           "reputation": 2,
           "energy": 1
         },
-        "outcome": "Oppgaven er fulgt opp: hjelp bakeren å dele med flere mottakere."
+        "outcome": "Oppgaven er fulgt opp: hjelp bakeren å dele med flere mottakere.",
+        "visual": {
+          "kind": "talk",
+          "zone": "reception"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "meal",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-55",
@@ -1410,7 +2058,11 @@
           "joy": 4,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: lag to områder."
+        "outcome": "Oppgaven er fulgt opp: lag to områder.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1419,9 +2071,17 @@
           "joy": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: avtal en rolig del før dansen."
+        "outcome": "Oppgaven er fulgt opp: avtal en rolig del før dansen.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "rest",
+      "zone": "room"
+    }
   },
   {
     "id": "jobb-56",
@@ -1436,7 +2096,11 @@
           "joy": 4,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: gi en privat hilsen."
+        "outcome": "Oppgaven er fulgt opp: gi en privat hilsen.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1445,9 +2109,17 @@
           "joy": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: la personen velge en liten aktivitet."
+        "outcome": "Oppgaven er fulgt opp: la personen velge en liten aktivitet.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-57",
@@ -1462,7 +2134,11 @@
           "joy": 4,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: bruk stoff og gjenbrukbare deler."
+        "outcome": "Oppgaven er fulgt opp: bruk stoff og gjenbrukbare deler.",
+        "visual": {
+          "kind": "craft",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1471,9 +2147,17 @@
           "joy": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: lag enkle bordkort av restepapir."
+        "outcome": "Oppgaven er fulgt opp: lag enkle bordkort av restepapir.",
+        "visual": {
+          "kind": "craft",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-58",
@@ -1488,7 +2172,11 @@
           "joy": 4,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: gi en kort introduksjon ved bordet."
+        "outcome": "Oppgaven er fulgt opp: gi en kort introduksjon ved bordet.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1497,9 +2185,17 @@
           "joy": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: la verten ta dem imot i et rolig hjørne."
+        "outcome": "Oppgaven er fulgt opp: la verten ta dem imot i et rolig hjørne.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-59",
@@ -1514,7 +2210,11 @@
           "joy": 4,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: gi beskjed om en rolig avslutning."
+        "outcome": "Oppgaven er fulgt opp: gi beskjed om en rolig avslutning.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       },
       {
         "id": "b",
@@ -1523,9 +2223,17 @@
           "joy": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: tilby familiene en stille vei til rommene."
+        "outcome": "Oppgaven er fulgt opp: tilby familiene en stille vei til rommene.",
+        "visual": {
+          "kind": "rest",
+          "zone": "room"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   },
   {
     "id": "jobb-60",
@@ -1540,7 +2248,11 @@
           "joy": 4,
           "energy": -1
         },
-        "outcome": "Oppgaven er fulgt opp: samle dem i hotellets minnebok."
+        "outcome": "Oppgaven er fulgt opp: samle dem i hotellets minnebok.",
+        "visual": {
+          "kind": "read",
+          "zone": "dining"
+        }
       },
       {
         "id": "b",
@@ -1549,8 +2261,16 @@
           "joy": 2,
           "energy": 2
         },
-        "outcome": "Oppgaven er fulgt opp: lag en midlertidig vegg med tillatelse."
+        "outcome": "Oppgaven er fulgt opp: lag en midlertidig vegg med tillatelse.",
+        "visual": {
+          "kind": "celebrate",
+          "zone": "dining"
+        }
       }
-    ]
+    ],
+    "visual": {
+      "kind": "celebrate",
+      "zone": "dining"
+    }
   }
 ]
