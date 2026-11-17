@@ -13,7 +13,7 @@ const input=p.locator('#hotel-name-input');await input.fill('Venninnenes drømme
 const c2=await browser.newContext({viewport:{width:320,height:700},isMobile:true,hasTouch:true});const p2=await c2.newPage();const i2=await owner('invite',{player:'leandra'});await p2.goto(i2.url);await p2.locator('#activate').click();await p2.locator('#team .person').first().waitFor();
 await p2.evaluate(async()=>{const d=await(await fetch('api.php')).json();await fetch('api.php',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':d.csrf},body:JSON.stringify({action:'decorate',id:crypto.randomUUID(),rev:d.state.rev,room:4,color:'sky'})})});
 await p.waitForFunction(()=>document.querySelector('[data-room="4"]').style.getPropertyValue('--wall')==='#b2d2dc');assert.equal(await input.inputValue(),'Venninnenes drømmehotell');assert(await input.evaluate(el=>document.activeElement===el));await input.blur();await p.waitForFunction(()=>document.querySelector('#hotel-name').textContent==='Venninnenes drømmehotell');
-await p.locator('[data-install-pwa]').click();assert(!(await p.locator('#pwa-install-dialog').innerText()).includes('Android'));await p.locator('#pwa-install-dialog button').click();
+assert.equal(await p.locator('[data-install-pwa]').count(),0);
 await c2.close();
 const departureDeadline=Date.now()+65000;
 while(true){const d=await(await c1.request.get(base+'api.php')).json();if(!d.state.players[1].online)break;if(Date.now()>departureDeadline)throw Error('Departed player remained online');await new Promise(r=>setTimeout(r,1000));}

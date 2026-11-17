@@ -16,15 +16,12 @@ for(let i=0;i<urls.length;i++){
  assert.equal(new URL(manifest.data.start_url,manifest.url).href,urls[i]);assert.equal(manifest.data.display,'standalone');
  for(const icon of manifest.data.icons){assert(await p.evaluate(async src=>{const img=new Image();img.src=src;await img.decode();return img.naturalWidth===img.naturalHeight&&[192,512].includes(img.naturalWidth)},new URL(icon.src,manifest.url).href));}
  const client=await c.newCDPSession(p);const errors=await client.send('Page.getInstallabilityErrors');assert.deepEqual(errors.installabilityErrors,[],JSON.stringify(errors));
- // Exercise browser-native prompt wiring without installing anything on the host.
- await p.evaluate(()=>{window.promptCalled=0;const e=new Event('beforeinstallprompt',{cancelable:true});e.prompt=async()=>{window.promptCalled++};e.userChoice=Promise.resolve({outcome:'dismissed'});window.dispatchEvent(e)});
- await p.locator('[data-install-pwa]').first().click();assert.equal(await p.evaluate(()=>window.promptCalled),1);
- await p.locator('[data-install-pwa]').first().click();await p.locator('#pwa-install-dialog').waitFor();assert(await p.locator('#pwa-install-dialog').evaluate(el=>el.open));await p.screenshot({path:`work/pwa-qa/${i}-help.png`});await p.locator('#pwa-install-dialog button').click();
+ assert.equal(await p.locator('[data-install-pwa]').count(),0);
  assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'horizontal overflow '+urls[i]);await p.screenshot({path:`work/pwa-qa/${i}-page.png`});
  assert.deepEqual(await p.evaluate(()=>caches.keys()),[]);
  await c.setOffline(true);await p.reload({waitUntil:'domcontentloaded'});await p.getByRole('heading',{level:1}).waitFor();assert((await p.locator('body').innerText()).includes('Du er uten nett akkurat nå'));
- await c.setOffline(false);await p.getByRole('link',{name:'Prøv igjen'}).click();await p.locator('[data-install-pwa]').first().waitFor();
- console.log('PASS manifest, icons, installability, prompt/help, mobile layout, offline/reconnect:',urls[i]);await p.close();
+ await c.setOffline(false);await p.getByRole('link',{name:'Prøv igjen'}).click();await p.locator('main').waitFor();
+ console.log('PASS manifest, icons, installability, no install buttons, mobile layout, offline/reconnect:',urls[i]);await p.close();
 }
 await owner('create',{qa:true,seconds:16});created=true;const invite=await owner('invite',{player:'bianca'});const c=browser;const p=await c.newPage();await p.goto(invite.url);await p.locator('#activate').click();await p.locator('#team .person').first().waitFor();await p.evaluate(()=>navigator.serviceWorker.ready);await p.reload();await p.locator('#team .person').first().waitFor();assert.equal(await p.evaluate(async()=> (await fetch('api.php')).status),200);assert.deepEqual(await p.evaluate(()=>caches.keys()),[]);await p.screenshot({path:'work/pwa-qa/private-hotel.png'});assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await p.close();console.log('PASS hotel invitation, persistent auth with worker, private page and no cached state');
 }catch(e){console.error("CHECK FAILED:",e.stack);throw e}finally{if(created){await owner('delete-qa');console.log('QA hotel removed')}if(browser)await browser.close()}})().catch(e=>{console.error(e.stack);process.exitCode=1});

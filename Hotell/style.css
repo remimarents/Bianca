@@ -11,7 +11,7 @@ html,body{height:100%;width:100%;overflow:hidden;overscroll-behavior:none}body{b
 
 .help-frame{display:block;width:100%;height:70dvh;border:0;background:#fffaf0}dialog:has(.help-frame){width:min(780px,calc(100vw - 20px));max-width:none;padding:42px 0 0;overflow:hidden}dialog:has(.help-frame) .close-dialog{z-index:2}
 
-.topbar .brand{max-width:calc(100% - 88px)}.topbar [data-install-pwa]{flex-shrink:0;margin-left:auto;margin-right:5px}
+.topbar .brand{max-width:calc(100% - 44px)}
 
 /* iPhone: comfortable touch targets and a compact private countdown. */
 .topbar .icon-button{width:44px;height:44px;flex-shrink:0}.topbar .brand{max-width:calc(100% - 98px)}
