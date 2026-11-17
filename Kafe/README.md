@@ -26,3 +26,8 @@ Chrome/Playwright: hel alenerunde med feil/hint, hele turvise runder, kjøp av p
 - Syntetiserte korte lyder med tydelig lydknapp; lydvalg lagres lokalt. Ingen lyd før brukerhandling.
 - Respekterer redusert bevegelse.
 - Synlig sparemål for neste dekorasjon. Ingen kjøp med ekte penger, tidsfrister eller hastighetsbonus.
+
+## Gangetabellbonus og mobillyd, versjon 5
+Fem korrekt løste gangeoppgaver (valgt tabell eller blandet 2–10) aktiverer doble mynter i 10 reelle minutter. Bonusens sluttid lagres lokalt. Multiplikator anvendes per riktig kafésvar; utløp endrer ikke allerede opptjente mynter. På delt telefon tilhører bonusen første spiller. Nettrom lagrer bonusens sluttid per spiller; gjenopptakelse synkroniserer ny bonus. Bonus er ikke en betalt/verdisatt rettighet; dette er et tillitsbasert barnespill.
+
+Lyder er lokale WAV-filer avspilt gjennom ett HTMLAudioElement (erstatter Web Audio-syntese). Test lyd-knapp åpner avspilling fra eksplisitt brukertrykk. Av/på beholdes lokalt, og avspillingsfeil vises. Testet med faktiske play/currentTime/paused-hendelser i mobilvisning; fysisk iPhone-høyttaler er ikke fjernverifisert.

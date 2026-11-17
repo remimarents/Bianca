@@ -19,9 +19,9 @@ function cleanName($name): string {
     if (count($chars[0]) > 20) fail('Bruk et kort kallenavn (maks 20 tegn).');
     return $name;
 }
-function player(string $name): array {
+function player(string $name, int $boostUntil = 0): array {
     return ['id' => bin2hex(random_bytes(6)), 'nickname' => $name, 'token' => bin2hex(random_bytes(24)),
-        'score' => 0, 'index' => 0, 'attempts' => 0, 'solved' => false, 'feedback' => ''];
+        'boostUntil' => min(time()+600, max(0,$boostUntil)), 'lastAward' => 0, 'score' => 0, 'index' => 0, 'attempts' => 0, 'solved' => false, 'feedback' => ''];
 }
 function publicState(array $room, int $who): array {
     $me = $room['players'][$who];
@@ -53,7 +53,7 @@ if (strlen($raw) > 16000) fail('Forespørselen er for stor.', 413);
 $input = json_decode($raw, true);
 if (!is_array($input)) fail('Ugyldig forespørsel.');
 $action = $input['action'] ?? '';
-if (!in_array($action, ['create','join','poll','start','answer','next'], true)) fail('Ukjent handling.');
+if (!in_array($action, ['create','join','poll','start','answer','next','boost'], true)) fail('Ukjent handling.');
 $dir = dirname(__DIR__, 2) . '/.bianca-cafe-rooms';
 if (!is_dir($dir) && !mkdir($dir, 0700, true) && !is_dir($dir)) fail('Spillerom er midlertidig utilgjengelig.', 503);
 $now = time();
@@ -113,7 +113,7 @@ if ($action === 'create') {
     if (!$file) fail('Kunne ikke åpne spillerom.', 503);
     chmod($path, 0600);
     flock($file, LOCK_EX);
-    $p = player($name);
+    $p = player($name, (int)($input['boostUntil'] ?? 0));
     $room = ['code' => $code, 'mode' => $mode, 'status' => 'waiting', 'expires' => $now+86400, 'players' => [$p], 'questions' => $validated];
     $who = 0;
     $newToken = $p['token'];
@@ -128,7 +128,7 @@ if ($action === 'create') {
     if (!is_array($room) || ($room['expires'] ?? 0) < $now) { flock($file, LOCK_UN); fclose($file); fail('Rommet er utløpt. Lag et nytt.', 410); }
     if ($action === 'join') {
         if ($room['status'] !== 'waiting' || count($room['players']) >= 2) fail('Rommet er fullt eller har startet.', 409);
-        $p = player(cleanName($input['nickname'] ?? null));
+        $p = player(cleanName($input['nickname'] ?? null), (int)($input['boostUntil'] ?? 0));
         $room['players'][] = $p;
         $who = 1;
         $newToken = $p['token'];
@@ -138,6 +138,9 @@ if ($action === 'create') {
         $who = -1;
         foreach ($room['players'] as $i => $p) if (hash_equals($p['token'], $token)) $who = $i;
         if ($who < 0) fail('Du har ikke tilgang til rommet.', 403);
+        if ($action === 'boost') {
+            $room['players'][$who]['boostUntil'] = min(time()+600, max(0,(int)($input['boostUntil'] ?? 0)));
+        }
         if ($action === 'start') {
             if ($who !== 0) fail('Den som åpnet rommet starter runden.', 403);
             if (count($room['players']) !== 2) fail('Vent til vennen din har blitt med.', 409);
@@ -156,10 +159,12 @@ if ($action === 'create') {
                     if (!is_numeric($answer) || !is_finite((float)$answer)) fail('Skriv et tall.');
                     $p['attempts']++;
                     if (abs((float)$answer - $room['questions'][$index]['answer']) < 0.005) {
-                        $points = max(1, 4 - $p['attempts']);
+                        $multiplier = ($p['boostUntil'] ?? 0) > time() ? 2 : 1;
+                        $points = max(1, 4 - $p['attempts']) * $multiplier;
+                        $p['lastAward'] = $points;
                         $p['score'] += $points;
                         $p['solved'] = true;
-                        $p['feedback'] = 'Riktig! +' . $points . ' mynter';
+                        $p['feedback'] = 'Riktig! +' . $points . ' mynter' . ($multiplier === 2 ? ' ⚡ Dobbel bonus!' : '');
                     } else $p['feedback'] = 'Prøv igjen. ' . $room['questions'][$index]['hint'];
                 } elseif ($action === 'next' && $p['solved']) {
                     $p['index']++; $p['attempts'] = 0; $p['solved'] = false; $p['feedback'] = '';
