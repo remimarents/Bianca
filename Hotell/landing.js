@@ -11,7 +11,7 @@
     if (!value) return;
     invite = value;
     history.replaceState(null, '', location.pathname + location.search);
-    $('#message').textContent = 'Trykk «Åpne mitt hotell» for å begynne.';
+    $('#message').textContent = ''; 
     $('#activate').hidden = false;
   }
   $('#activate').onclick = async () => {
