@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#1a0b36" />
     <title>Biancas Gjettespill</title>
     <link rel="stylesheet" href="style.css?v=20260705-correct-guess-lock" />
-</head>
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Gjettespill"><meta name="mobile-web-app-capable" content="yes"></head>
 <body>
     <div class="page-glow glow-left"></div>
     <div class="page-glow glow-right"></div>
@@ -17,7 +17,7 @@
                 <span class="eyebrow">Biancas univers</span>
                 <h1>Biancas Gjettespill</h1>
                 <p class="subtitle">Gjett riktig tall, samle seire og se hvem som er kveldens mester.</p>
-                <div class="hero-badges">
+                <div class="hero-badges"><button type="button" data-install-pwa>Lagre som app</button>
                     <span>1-4 spillere</span>
                     <span>1-20 runder</span>
                     <span>Lokal highscore</span>
@@ -204,5 +204,5 @@
     <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;display:none;"></canvas>
 
     <script src="game.js?v=20260705-correct-guess-lock"></script>
-</body>
+<script src="pwa.js" data-app-name="Biancas Gjettespill" defer></script></body>
 </html>

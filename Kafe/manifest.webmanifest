@@ -1,0 +1,25 @@
+{
+  "id": "/kafe/",
+  "name": "Biancas kafé",
+  "short_name": "Kafeen",
+  "lang": "nb",
+  "start_url": "/kafe/",
+  "scope": "/kafe/",
+  "display": "standalone",
+  "background_color": "#6d3297",
+  "theme_color": "#6d3297",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

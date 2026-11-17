@@ -1,0 +1,25 @@
+{
+  "id": "/hotell/",
+  "name": "Venninnenes hotell",
+  "short_name": "Hotellet",
+  "lang": "nb",
+  "start_url": "/hotell/",
+  "scope": "/hotell/",
+  "display": "standalone",
+  "background_color": "#386b54",
+  "theme_color": "#386b54",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

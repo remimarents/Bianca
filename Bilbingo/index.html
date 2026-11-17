@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#64d2ff">
   <title>Bilbingo</title>
   <link rel="stylesheet" href="style.css?v=20260705-score-tap-guard">
-</head>
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Bilbingo"><meta name="mobile-web-app-capable" content="yes"></head>
 <body>
   <main id="app" class="app" aria-live="polite">
     <section id="setupScreen" class="screen is-active">
@@ -14,7 +14,7 @@
         <p class="eyebrow">Barnas Magiske Rom</p>
         <h1 id="titleHold">Bilbingo</h1>
         <p class="lede">Trykk når dere ser biler i riktig farge på turen.</p>
-      </header>
+      <button type="button" data-install-pwa>Lagre som app</button></header>
 
       <form id="setupForm" class="panel glass">
         <label class="field">
@@ -108,5 +108,5 @@
   </main>
 
   <script src="app.js?v=20260705-score-tap-guard"></script>
-</body>
+<script src="pwa.js" data-app-name="Biancas bilbingo" defer></script></body>
 </html>

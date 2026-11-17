@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Biancas Tetris</title>
   <link rel="stylesheet" href="./style.css" />
-</head>
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Tetris"><meta name="mobile-web-app-capable" content="yes"></head>
 <body>
   <main class="app">
     <section class="game-card">
-      <div class="topbar">
+      <div class="topbar" style="flex-wrap:wrap"><button type="button" data-install-pwa>Lagre som app</button>
         <button id="soundBtn">Lyd: på</button>
         <button id="musicBtn">Musikk: av</button>
         <button id="quitBtn">Start på nytt</button>
@@ -43,5 +43,5 @@
   </main>
 
   <script type="module" src="./main.js"></script>
-</body>
+<script src="pwa.js" data-app-name="Biancas Tetris" defer></script></body>
 </html>

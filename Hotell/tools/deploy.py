@@ -21,7 +21,8 @@ def upload(parent,name,content):
  print('uploaded',name)
 if __name__=='__main__':
  domain='/domains/biancanoor.no';public=domain+'/public_html';private=domain+'/hotell-private'
- folder(public,'hotell');folder(domain,'hotell-private');folder(private,'assets')
+ folder(public,'hotell');folder(domain,'hotell-private');folder(private,'assets');folder(public+'/hotell','icons')
  for f in ['game.html','game.js','style.css','hotel.jpg']:upload(private+'/assets',f,(ROOT/f).read_bytes())
- for f in ['core.php','api.php','asset.php','help.php','index.php','owner.php']:upload(public+'/hotell',f,(ROOT/f).read_bytes())
+ for f in ['core.php','api.php','asset.php','help.php','index.php','owner.php','pwa.js','sw.js','manifest.webmanifest']:upload(public+'/hotell',f,(ROOT/f).read_bytes())
+ for f in ['icon-180.png','icon-192.png','icon-512.png']:upload(public+'/hotell/icons',f,(ROOT/'icons'/f).read_bytes())
  print('Hotel published; homepage is a separate final step.')
