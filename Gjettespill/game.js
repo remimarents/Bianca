@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const confettiCanvas = document.getElementById('confettiCanvas');
     const ctx = confettiCanvas.getContext('2d');
 
+    const sounds = new window.GuessSounds();
+    document.addEventListener('visibilitychange', () => { if (document.hidden) sounds.stop(); });
+
     // Spillets tilstand
     let players = [];
     let currentRound = 1;
@@ -54,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start spillet når skjemaet sendes inn
     setupForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        sounds.unlock();
         // Hent verdier fra skjemaet
         const count = parseInt(playerCountSelect.value, 10);
         players = [];
@@ -100,6 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Neste runde
     nextRoundButton.addEventListener('click', () => {
+        sounds.stop();
+        sounds.unlock();
         overlay.style.display = 'none';
         stopConfetti();
         currentRound++;
@@ -113,12 +119,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Restart-knapp
     restartButton.addEventListener('click', () => {
+        sounds.stop();
         gameOverScreen.style.display = 'none';
         setupScreen.style.display = 'block';
     });
 
     // Start en runde
     function startRound() {
+        sounds.stop();
         // Tilbakestill rundevariabler
         players.forEach(player => {
             player.roundAttempts = 0;
@@ -160,18 +168,22 @@ document.addEventListener('DOMContentLoaded', () => {
         player.totalAttempts++;
         player.roundAttempts++;
         if (guess < secretNumber) {
+            sounds.play('wrong');
             feedback.textContent = `${player.name} gjettet ${guess}. For lavt!`;
             advanceTurn();
         } else if (guess > secretNumber) {
+            sounds.play('wrong');
             feedback.textContent = `${player.name} gjettet ${guess}. For høyt!`;
             advanceTurn();
         } else {
+            sounds.play('correct', 'win');
             // Riktig
             roundResolved = true;
             setGuessLocked(true);
             player.wins++;
             overlayTitle.textContent = 'Riktig!';
             overlayMessage.textContent = `${player.name} fant riktig tall ${secretNumber} på ${player.roundAttempts} forsøk.`;
+            nextRoundButton.textContent = currentRound === totalRounds ? 'Se resultatet' : 'Neste runde';
             overlay.style.display = 'flex';
             startConfetti();
         }
@@ -193,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Avslutt spillet og vis resultater
     function endGame() {
+        sounds.play('win');
         gameScreen.style.display = 'none';
         gameOverScreen.style.display = 'block';
         // Finn vinner: flest seire, deretter færrest forsøk
