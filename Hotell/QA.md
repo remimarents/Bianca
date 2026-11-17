@@ -37,3 +37,7 @@ Backend-agenten rapporterer `tests/hotel-name.php` bestått: navn 2–40 Unicode
 ## Avgrensninger
 
 Sesongprøvene bruker forkortet tid bare på servermerkede QA-hoteller. De beviser faseoverganger og lagring, ikke en separat 25-minutters gjennomspilling med produksjonens femminuttersdager. Nettleserresultatet er Chrome, ikke en fysisk iPhone/Safari-prøve. Remi leverte bilder under arbeidet, og tre avatarforslag er generert lokalt og vist i samtalen. Originalbilder og avatarforslag er ikke publisert eller lagt i Git. Spillet bruker fortsatt navneavatarer.
+
+## Fullskjermsvisning
+
+`tests/fullscreen.cjs` bestått mot publisert HTTPS med tre isolerte Chrome-økter i 320, 390 og 1440 px bredde: hotellet fyller viewport, ingen sideoverflyt, valgpanelet kan skjules/åpnes, hageknappen flytter mobilvisningen, og navnelagring/synkronisering/nullstilling av klarstatus fungerer uten JavaScript-feil. Offentlig landingsside er også kontrollert visuelt i 390 px; hovedagenten inspiserte privat mobil- og skrivebordsvisning. Faktisk familiehotell har fortsatt null bundne plasser og ingen invitasjoner.

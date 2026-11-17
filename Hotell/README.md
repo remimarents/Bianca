@@ -55,3 +55,7 @@ Deploy oppdaterer bare applikasjonsfiler; state overskrives ikke. `admin.php` er
 ## Illustrasjon
 
 `hotel.jpg` og `Hjemmeside/hotell-kort.jpg` er generert med innebygd imagegen 17. november 2026. Prompt: detaljert taktil 3D-dukkehotell i frontal gjennomskåret visning, seks rom i to rader, resepsjon og kafé i første etasje, hage og tom utbyggingsplen, rosa tak, mint/lavendel, varmt ettermiddagslys, uten mennesker eller tekst. Spillfigurer og navneavatarer er separate grensesnittelementer.
+
+## Fullskjerm
+
+Hotellet fyller skjermen både før og etter innlogging. På mobil flyttes utsnittet vannrett mellom hotellsonene. Status ligger øverst, mens sesongvalg, hendelser og småhandlinger ligger i et sammenleggbart panel nederst. Dialoger beholder automatisk lagring.
