@@ -1,9 +1,11 @@
 """Narrow character release. Compare existing files first; never read/write player state."""
-import json, urllib.request, urllib.parse, hashlib
+import argparse, json, urllib.request, urllib.parse, hashlib
 from pathlib import Path
 from deploy import KEY, upload, folder
 ROOT=Path(__file__).resolve().parents[1]
-BASE=Path('/Users/remimarents/Bianca/Hotell/design/guest-preview-20261120/live-before')
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--baseline',type=Path,required=True,help='Reviewed live snapshot with game.html, scenes.js, style.css and asset.php')
+BASE=parser.parse_args().baseline
 PRIVATE='/domains/biancanoor.no/hotell-private/assets'
 PUBLIC='/domains/biancanoor.no/public_html/hotell'
 def read(parent,name):
