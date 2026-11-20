@@ -85,3 +85,13 @@ Spilleridentiteten ligger på serveren. En spiller kan ha flere selvstendige enh
 Hver jente kobler sin egen iPhone og sin egen Chromebook til samme spiller. Begge forblir innlogget; vanlig bytte krever ingen ny kode eller utlogging. Utlogging trekker tilbake bare gjeldende nettlesernøkkel. Eierens reset trekker tilbake alle nøkler, invitasjoner og koblingskoder for den ene spilleren. Andre spillere beholder tilgangen. Stemmer og tilstedeværelse telles per spiller-ID, aldri per antall enheter. Sist lagrede stemme fra samme spiller gjelder. Fremdrift lagres på felles hotell.
 
 `php Hotell/tests/devices.php` kontrollerer enhetsnøkler, engangsbruk, utløp, ratebegrensning og eierreset. `node Hotell/tests/devices-live.cjs` kontrollerer ekte HTTPS-kobling fra telefonvisning til PC, delt PC-bytte, synkronisering og stemmer.
+
+## Realistiske minifigurer – 20. november 2026
+
+`characters.js` velger blant 30 individuelle transparente WebP-filer i `characters/`. Seks faste gjesteidentiteter beholdes. Antrekk og ekstra scenefigurer styres av `event.sourceId`, kapitteltekst, valgt visualisering og oppgavenes sourceId. Baby, barn, hund, eldre, rullestolbrukere og besøksroller er kun visuelle deltakere; de oppretter ikke nye gjester eller endrer fremdrift. Rullestolbrukere plasseres på inngangsplan eller i hagen. Ingen jentebilder brukes.
+
+Mia/Noah har natt-, bade- og festantrekk; Mia/Noah/Alma har regntøy; Alma/Leo har turutstyr; skolebarnet har nattøy. Andre gjester beholder eget hverdagstøy i stedet for å låne en annen persons ansikt. Figurene følger eksisterende bevegelsesbaner; dette er frilagte minifigurer, ikke ferdig riggede gangsykluser.
+
+`asset.php` krever fortsatt innlogging før en eksplisitt tillatelsesliste gir tilgang til figurfilene. Ingen mappelisting eller vilkårlig filsti. `tools/deploy-characters.py` kontrollerer live-baseline før en avgrenset opplasting, og `tools/check-characters-live.py` verifiserer filene gjennom et eget midlertidig QA-hotell som slettes etterpå. Ikke kjør den eldre brede deployen for denne leveransen: den kjenner ikke de nye ressursene.
+
+Kontroll: `node Hotell/tests/characters.cjs`, `php Hotell/tests/journey.php`, og `Hotell/tests/characters-browser.cjs` gjennom MM1s `playwright-node-gui` i en tilgjengelig testkopi. Bildereferanser, prompt, eksportoppskrift og skjermbilder ligger i `design/guest-preview-20261120/production/`.

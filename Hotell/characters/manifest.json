@@ -1,0 +1,242 @@
+{
+  "mia": {
+    "file": "mia.webp",
+    "width": 107,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-0a3b034a-a89d-48c9-a13d-ba90b73451a8.png",
+    "alpha": true
+  },
+  "noah": {
+    "file": "noah.webp",
+    "width": 113,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-0a3b034a-a89d-48c9-a13d-ba90b73451a8.png",
+    "alpha": true
+  },
+  "alma": {
+    "file": "alma.webp",
+    "width": 108,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-0a3b034a-a89d-48c9-a13d-ba90b73451a8.png",
+    "alpha": true
+  },
+  "oliver": {
+    "file": "oliver.webp",
+    "width": 111,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-0a3b034a-a89d-48c9-a13d-ba90b73451a8.png",
+    "alpha": true
+  },
+  "ella": {
+    "file": "ella.webp",
+    "width": 120,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-0a3b034a-a89d-48c9-a13d-ba90b73451a8.png",
+    "alpha": true
+  },
+  "leo": {
+    "file": "leo.webp",
+    "width": 117,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-0a3b034a-a89d-48c9-a13d-ba90b73451a8.png",
+    "alpha": true
+  },
+  "mia-baby": {
+    "file": "mia-baby.webp",
+    "width": 123,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-9086e1dd-0623-438e-aefa-65ce4697ea2f.png",
+    "alpha": true
+  },
+  "toddler": {
+    "file": "toddler.webp",
+    "width": 113,
+    "height": 328,
+    "sceneHeight": 40,
+    "source": "exec-9086e1dd-0623-438e-aefa-65ce4697ea2f.png",
+    "alpha": true
+  },
+  "boy": {
+    "file": "boy.webp",
+    "width": 114,
+    "height": 328,
+    "sceneHeight": 54,
+    "source": "exec-9086e1dd-0623-438e-aefa-65ce4697ea2f.png",
+    "alpha": true
+  },
+  "girl": {
+    "file": "girl.webp",
+    "width": 104,
+    "height": 328,
+    "sceneHeight": 60,
+    "source": "exec-9086e1dd-0623-438e-aefa-65ce4697ea2f.png",
+    "alpha": true
+  },
+  "dog": {
+    "file": "dog.webp",
+    "width": 248,
+    "height": 280,
+    "sceneHeight": 30,
+    "source": "exec-9086e1dd-0623-438e-aefa-65ce4697ea2f.png",
+    "alpha": true
+  },
+  "elder": {
+    "file": "elder.webp",
+    "width": 127,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-9086e1dd-0623-438e-aefa-65ce4697ea2f.png",
+    "alpha": true
+  },
+  "mia-night": {
+    "file": "mia-night.webp",
+    "width": 106,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-0dff09aa-2353-4019-9b8d-97f02a7c5899.png",
+    "alpha": true
+  },
+  "mia-swim": {
+    "file": "mia-swim.webp",
+    "width": 113,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-0dff09aa-2353-4019-9b8d-97f02a7c5899.png",
+    "alpha": true
+  },
+  "mia-party": {
+    "file": "mia-party.webp",
+    "width": 109,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-0dff09aa-2353-4019-9b8d-97f02a7c5899.png",
+    "alpha": true
+  },
+  "noah-night": {
+    "file": "noah-night.webp",
+    "width": 115,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-0dff09aa-2353-4019-9b8d-97f02a7c5899.png",
+    "alpha": true
+  },
+  "noah-swim": {
+    "file": "noah-swim.webp",
+    "width": 118,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-0dff09aa-2353-4019-9b8d-97f02a7c5899.png",
+    "alpha": true
+  },
+  "noah-party": {
+    "file": "noah-party.webp",
+    "width": 120,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-0dff09aa-2353-4019-9b8d-97f02a7c5899.png",
+    "alpha": true
+  },
+  "wheelchair-manual": {
+    "file": "wheelchair-manual.webp",
+    "width": 208,
+    "height": 328,
+    "sceneHeight": 58,
+    "source": "exec-53e930f8-b810-4f9d-a5d1-63d3b3048f1b.png",
+    "alpha": true
+  },
+  "wheelchair-power": {
+    "file": "wheelchair-power.webp",
+    "width": 210,
+    "height": 328,
+    "sceneHeight": 60,
+    "source": "exec-53e930f8-b810-4f9d-a5d1-63d3b3048f1b.png",
+    "alpha": true
+  },
+  "musician": {
+    "file": "musician.webp",
+    "width": 182,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-53e930f8-b810-4f9d-a5d1-63d3b3048f1b.png",
+    "alpha": true
+  },
+  "alma-tour": {
+    "file": "alma-tour.webp",
+    "width": 138,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-53e930f8-b810-4f9d-a5d1-63d3b3048f1b.png",
+    "alpha": true
+  },
+  "baker": {
+    "file": "baker.webp",
+    "width": 133,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-53e930f8-b810-4f9d-a5d1-63d3b3048f1b.png",
+    "alpha": true
+  },
+  "courier": {
+    "file": "courier.webp",
+    "width": 122,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-53e930f8-b810-4f9d-a5d1-63d3b3048f1b.png",
+    "alpha": true
+  },
+  "mia-rain": {
+    "file": "mia-rain.webp",
+    "width": 123,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-1a07001b-9095-465b-80c6-78ca61cb8d8a.png",
+    "alpha": true
+  },
+  "noah-rain": {
+    "file": "noah-rain.webp",
+    "width": 116,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-1a07001b-9095-465b-80c6-78ca61cb8d8a.png",
+    "alpha": true
+  },
+  "alma-rain": {
+    "file": "alma-rain.webp",
+    "width": 105,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-1a07001b-9095-465b-80c6-78ca61cb8d8a.png",
+    "alpha": true
+  },
+  "leo-tour": {
+    "file": "leo-tour.webp",
+    "width": 131,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-1a07001b-9095-465b-80c6-78ca61cb8d8a.png",
+    "alpha": true
+  },
+  "technician": {
+    "file": "technician.webp",
+    "width": 131,
+    "height": 328,
+    "sceneHeight": 72,
+    "source": "exec-1a07001b-9095-465b-80c6-78ca61cb8d8a.png",
+    "alpha": true
+  },
+  "boy-night": {
+    "file": "boy-night.webp",
+    "width": 99,
+    "height": 328,
+    "sceneHeight": 54,
+    "source": "exec-1a07001b-9095-465b-80c6-78ca61cb8d8a.png",
+    "alpha": true
+  }
+}
